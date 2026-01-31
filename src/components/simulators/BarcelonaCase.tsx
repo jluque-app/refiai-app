@@ -314,7 +314,7 @@ export default function BarcelonaCaseSimulator() {
                                 <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
                                 <XAxis dataKey="year" />
                                 <YAxis />
-                                <Tooltip formatter={(val: number) => formatCurrency(val)} />
+                                <Tooltip formatter={(val: number | undefined) => formatCurrency(val ?? 0)} />
                                 <Legend />
                                 <Bar dataKey="cp" stackId="a" fill="hsl(var(--primary))" name="Capital Partner" />
                                 <Bar dataKey="op" stackId="a" fill="hsl(var(--secondary))" name="Op Partner" />

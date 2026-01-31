@@ -558,7 +558,7 @@ export default function AffordableHousingFundSimulator() {
                                             <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
                                             <XAxis dataKey="year" />
                                             <YAxis tickFormatter={(val) => `€${val / 1000000}M`} />
-                                            <RechartsTooltip formatter={(val: number) => formatCurrency(val)} />
+                                            <RechartsTooltip formatter={(val: number | undefined) => formatCurrency(val ?? 0)} />
                                             <Bar dataKey="flow" fill="hsl(var(--primary))" name="Equity Net Cash Flow" />
                                         </BarChart>
                                     </ResponsiveContainer>
