@@ -1,0 +1,787 @@
+{
+  "title": "Real Estate Finance and Investment Artificial Intelligence (ReFiAI)",
+  "description": "A comprehensive course on Real Estate Finance, from basics to advanced topics.",
+  "parts": [
+    {
+      "id": "part-1",
+      "title": "Real Estate 101",
+      "description": "Foundational skills for Real Estate professionals.",
+      "price": 0,
+      "units": [
+        {
+          "id": "unit-0-1",
+          "title": "Real Estate Economics",
+          "description": "Fundamentals of Real Estate Economics and Cap Rates.",
+          "lessons": [
+            {
+              "id": "lesson-0-1-1",
+              "title": "The Real Estate System",
+              "type": "article",
+              "duration": "15 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Introduction to the Real Estate System\n\nReal Estate is not just about buildings; it's a complex system interacting with the broader economy. It involves three major markets:\n\n1.  **Space Market**: Where landlords and tenants exchange the right to use physical space (Rent).\n2.  **Asset Market**: Where investors trade ownership of real estate assets (Cap Rates & Prices).\n3.  **Development Industry**: Which connects the two by adding new supply when asset prices justify construction costs.\n\n### The Feedback Loop\n\nChanges in the space market (e.g., rising rents due to high demand) lead to higher property values in the asset market. If values rise above construction costs, developers build more, eventually increasing supply and moderating rents."
+                },
+                {
+                  "type": "markdown",
+                  "content": "> **Key Concept**: The 'Asset Market' determines the *Cap Rate*, which is the yield investors demand for holding real estate risk."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check: The System",
+                  "quizData": [
+                    {
+                      "id": "q1",
+                      "text": "Which market determines the 'Cap Rate'?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Space Market",
+                        "Asset Market",
+                        "Development Industry"
+                      ],
+                      "correctAnswer": "Asset Market",
+                      "explanation": "The Asset Market is where investors trade ownership, and prices (and thus yields/cap rates) are set based on risk and return expectations."
+                    },
+                    {
+                      "id": "q2",
+                      "text": "What happens if property values rise above construction costs?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Developers stop building",
+                        "Developers build more",
+                        "Rents decrease immediately"
+                      ],
+                      "correctAnswer": "Developers build more",
+                      "explanation": "When Value > Cost, it is profitable to build, triggering new supply from the Development Industry."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-0-1-2",
+              "title": "Cap Rate Outlook",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Understanding Cap Rates\n\nThe Capitalization Rate (Cap Rate) is the fundamental metric of real estate pricing. It represents the ratio of Net Operating Income (NOI) to Property Asset Value.\n\n$$ Cap Rate = \\frac{NOI}{Value} $$\n\n### Macroeconomic Drivers\n\nCap rates are heavily influenced by the **Risk-Free Rate** (government bonds) and the **Risk Premium** specific to the property type and location."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Interactive Example\n\nUse the simulator below to see how changes in NOI and Cap Rate affect Property Value."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "PropertyValuationSimulator",
+                  "props": {
+                    "variant": "mini"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "unit-0-2",
+          "title": "Excel in Real Estate",
+          "description": "Introductory course to Excel for Real Estate.",
+          "lessons": [
+            {
+              "id": "lesson-0-2-1",
+              "title": "Present Value Math",
+              "type": "article",
+              "duration": "25 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Time Value of Money (TVM)\n\nMoney available at the present time is worth more than the same amount in the future due to its potential earning capacity. This core principle of finance holds that, provided money can earn interest, any amount of money is worth more the sooner it is received.\n\n### Key Formula: Present Value (PV)\n\n$$ PV = \\frac{FV}{(1 + r)^n} $$\n\nWhere:\n* **FV** = Future Value\n* **r** = Discount Rate\n* **n** = Number of periods"
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Excel Implementation\n\nIn Real Estate, we use Excel functions to calculate these values efficiently:\n* `=PV(rate, nper, pmt, [fv], [type])`\n* `=NPV(rate, value1, [value2], ...)`\n\n> **Tip**: Always assume cash flows occur at the *end* of the period unless stated otherwise."
+                },
+                {
+                  "type": "quiz",
+                  "content": "TVM Quiz",
+                  "quizData": [
+                    {
+                      "id": "tvm-1",
+                      "text": "If the discount rate increases, what happens to the Present Value (PV)?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Increases",
+                        "Decreases",
+                        "Stays the same"
+                      ],
+                      "correctAnswer": "Decreases",
+                      "explanation": "A higher denominator (1+r) results in a smaller PV. Higher risk (rate) lowers today's value."
+                    },
+                    {
+                      "id": "tvm-2",
+                      "text": "Which Excel function calculates the regular payment for a loan?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "=PV()",
+                        "=PMT()",
+                        "=FV()"
+                      ],
+                      "correctAnswer": "=PMT()",
+                      "explanation": "PMT calculates the payment for a loan based on constant payments and a constant interest rate."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Hands-on Lab: Calculating PV in Excel\n\nUse the spreadsheet below to practice the PV formula."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "ExcelSimulator"
+                }
+              ]
+            },
+            {
+              "id": "lesson-0-2-2",
+              "title": "Geltner Miller Ch 8",
+              "type": "article",
+              "duration": "30 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Investment Value vs. Market Value\n\n**Investment Value** is specific to a particular investor based on their individual investment criteria (required yield, tax status, etc.).\n\n**Market Value** is the most probable price a property should bring in a competitive and open market."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Discussion Questions\n\n1. Why might an investor pay *more* than market value for a property?\n2. How does the 'marginal investor' determine the market clearing price?"
+                }
+              ],
+              "contentUrl": "/content/real-estate-101/excel/reading.pdf"
+            }
+          ]
+        },
+        {
+          "id": "unit-0-3",
+          "title": "Finance for Real Estate",
+          "description": "Introduction to Finance principles.",
+          "lessons": [
+            {
+              "id": "lesson-0-3-1",
+              "title": "Asset Pricing Foundations",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Risk and Return\n\nReal estate assets are priced based on the relationship between expected risk and required return. The **Risk-Free Rate** (typically government bonds) forms the baseline, to which a **Risk Premium** is added to compensate for illiquidity, leverage, and asset-specific risks."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Risk & Return Check",
+                  "quizData": [
+                    {
+                      "id": "rr-1",
+                      "text": "Which component of return is generally considered less risky?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Income Return",
+                        "Appreciation Return"
+                      ],
+                      "correctAnswer": "Income Return",
+                      "explanation": "Income comes from contractual leases, whereas appreciation depends on future market conditions and exit cap rates."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Cap Rate Decomposition\n\n$ R = r_f + RP $\n\nWhere:\n* **R** = Required Return (Cap Rate)\n* **$r_f$** = Risk-Free Rate\n* **RP** = Risk Premium"
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Asset Pricing Slides",
+                  "type": "pptx",
+                  "path": "/content/real-estate-101/finance/slides.pptx"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "REFI (Core)",
+      "description": "The main Real Estate Finance & Investment curriculum.",
+      "price": 499,
+      "priceId": "price_1OtHJSK...",
+      "units": [
+        {
+          "id": "unit-1",
+          "title": "Basic Real Estate Investment Model",
+          "description": "Core valuation concepts and proforma modeling.",
+          "lessons": [
+            {
+              "id": "lesson-1-1",
+              "title": "Introduction to Valuation",
+              "type": "video",
+              "duration": "45 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Valuation Approaches\n\nThere are three primary methods to value real estate:\n\n1. **Sales Comparison Approach**: Value based on recent sales of similar properties.\n2. **Cost Approach**: Value based on the cost to replace the structure + land value.\n3. **Income Approach**: Value based on the present value of future cash flows (Direct Capitalization or DCF)."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Valuation Methodologies Quiz",
+                  "quizData": [
+                    {
+                      "id": "val-1",
+                      "text": "Which valuation approach is most common for income-producing commercial properties?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Sales Comparison",
+                        "Cost Approach",
+                        "Income Approach"
+                      ],
+                      "correctAnswer": "Income Approach",
+                      "explanation": "Investors buy commercial properties primarily for their income stream, making DCF and Direct Cap the standard methods."
+                    },
+                    {
+                      "id": "val-2",
+                      "text": "The price per square foot is the key metric for which approach?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Sales Comparison",
+                        "Income Approach"
+                      ],
+                      "correctAnswer": "Sales Comparison",
+                      "explanation": "This approach compares the subject property's physical attributes (size) to similar sold assets."
+                    }
+                  ]
+                },
+                {
+                  "type": "video",
+                  "content": "/content/refi/unit-1/video.mp4"
+                }
+              ]
+            },
+            {
+              "id": "lesson-1-2",
+              "title": "Property Valuation Simulator",
+              "type": "simulator",
+              "duration": "30 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Property Valuation Lab\n\nAdjust the **Net Operating Income (NOI)** and **Cap Rate** to see the impact on Property Value. Notice how slight changes in Cap Rate can drastically alter the valuation range."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "PropertyValuationSimulator",
+                  "props": {
+                    "variant": "full"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "lesson-1-3",
+              "title": "Proforma Modeling Guide",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Building the Proforma\n\nA proforma is a multi-year cash flow forecast. It typically follows this structure:\n\n*   **Potential Gross Income (PGI)**\n*   - Vacancy Allowance\n*   **= Effective Gross Income (EGI)**\n*   - Operating Expenses (Opex)\n*   **= Net Operating Income (NOI)**"
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Proforma Template",
+                  "type": "pptx",
+                  "path": "/content/refi/unit-1/proforma.pptx"
+                }
+              ]
+            },
+            {
+              "id": "lesson-1-4",
+              "title": "Theory of Returns & Valuation",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Calculating Real Estate Returns\n\nTo understand valuation, we must first define **Return**. Return is the change in price of an investment over time plus any income generated.\n\n### The Two Components of Return\n\nTotal Return ($R_t$) is composed of:\n\n1. **Income Return** (Yield): The return from Net Operating Income (NOI).\n   $$y_t = \\frac{CF_t}{V_{t-1}}$$\n2. **Appreciation Return** (Growth): The return from the rise in property value.\n   $$g_t = \\frac{V_t - V_{t-1}}{V_{t-1}}$$\n\n**Total Return = Income Return + Appreciation Return**\n\n> **Example**:\n> * Buy Price: €200,000\n> * Rent: €7,000\n> * Sell Price: €205,000\n> \n> * **Income Return**: 7,000 / 200,000 = **3.5%**\n> * **Appreciation**: (205k - 200k) / 200,000 = **2.5%**\n> * **Total Return**: 6.0%"
+                },
+                {
+                  "type": "quiz",
+                  "content": "Return Components",
+                  "quizData": [
+                    {
+                      "id": "ret-1",
+                      "text": "If a property yields 5% in rent and appreciates by 3%, what is the Total Return?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "2%",
+                        "5%",
+                        "8%",
+                        "15%"
+                      ],
+                      "correctAnswer": "8%",
+                      "explanation": "Total Return = Yield (5%) + Growth (3%)."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Valuation Approaches\n\nThere are two primary methods to value real estate:\n\n### 1. Income Capitalization (Cap Rate)\nUsed for infinite/perpetual cash flows. It assumes a stabilized NOI.\n\n$$Value = \\frac{NOI_1}{Cap Rate}$$\n\nThe **Cap Rate** ($R_0$) represents the relationship between income and value. It is mathematically connected to the Discount Rate ($r$) and Growth Rate ($g$):\n$$R_0 = r - g$$\n\n### 2. Discounted Cash Flow (DCF)\nUsed for finite hold periods (e.g., 5-10 years). It calculates the **Net Present Value (NPV)** of all future cash flows (rents + sale price), discounted at the investor's required rate of return (IRR).\n\n$$Value = \\sum \\frac{CF_t}{(1+r)^t} + \\frac{NetSalePrice}{(1+r)^n}$$"
+                },
+                {
+                  "type": "quiz",
+                  "content": "Unit 1 Assessment",
+                  "quizData": [
+                    {
+                      "id": "u1-1",
+                      "text": "How is Effective Gross Income (EGI) calculated?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "PGI - Operating Expenses",
+                        "PGI - Vacancy + Other Income",
+                        "NOI + CapEx"
+                      ],
+                      "correctAnswer": "PGI - Vacancy + Other Income",
+                      "explanation": "EGI accounts for vacancy losses and other income before deducting expenses."
+                    },
+                    {
+                      "id": "u1-2",
+                      "text": "What is the Internal Rate of Return (IRR)?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The rate where NPV = 0",
+                        "The Cap Rate + Growth",
+                        "The risk-free rate"
+                      ],
+                      "correctAnswer": "The rate where NPV = 0",
+                      "explanation": "IRR is the discount rate that makes the Present Value of outflows equal to the Present Value of inflows."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "unit-2",
+          "title": "Real Estate Capital Structures",
+          "description": "Equity, debt, and mezzanine financing structures.",
+          "lessons": [
+            {
+              "id": "lesson-2-1",
+              "title": "Capital Structures Overview",
+              "type": "video",
+              "duration": "60 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## The Capital Stack\n\nReal estate deals are typically financed with a mix of **Debt** (Senior Mortgages) and **Equity** (LP/GP). More complex structures may involve Mezzanine Debt or Preferred Equity."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Capital Stack Quiz",
+                  "quizData": [
+                    {
+                      "id": "cap-1",
+                      "text": "In a typical capital stack, which position has the highest risk and highest expected return?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Senior Debt",
+                        "Mezzanine Debt",
+                        "Common Equity"
+                      ],
+                      "correctAnswer": "Common Equity",
+                      "explanation": "Equity is the 'first loss' position but captures all the upside, thus commanding the highest return."
+                    },
+                    {
+                      "id": "cap-2",
+                      "text": "Which component is paid first from the property's cash flow?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Senior Debt",
+                        "Equity"
+                      ],
+                      "correctAnswer": "Senior Debt",
+                      "explanation": "Senior lenders have priority of payment (and foreclosure rights) over all other stakeholders."
+                    }
+                  ]
+                },
+                {
+                  "type": "video",
+                  "content": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Interactive Waterfall\n\nUse the simulator below to structure the Equity distributions (Waterfall) between LPs and GPs."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "WaterfallSimulator"
+                }
+              ]
+            },
+            {
+              "id": "lesson-2-2",
+              "title": "Levered Returns Simulator",
+              "type": "simulator",
+              "duration": "30 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Leverage Impact Lab\n\nUse this tool to see how increasing leverage (LTV) amplifies both **Returns (IRR/Equity Multiple)** and **Risk**."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "LeveredReturnsSimulator"
+                }
+              ]
+            },
+            {
+              "id": "lesson-2-4",
+              "title": "The Strategic Use of Debt",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Why Use Debt?\n\nBeyond simply lacking capital, investors use debt for three strategic reasons:\n\n1.  **Leverage (ROI)**: Unleveraged real estate has limited growth. Leverage transforms a 1% return impact into a 4% impact (at 75% LTV), attracting entrepreneurial talent.\n2.  **Diversification**: Debt allows spreading equity across more assets.\n    *   *Example*: €10m Equity.\n    *   Option A (All Cash): Buy **2** properties worth €5m each.\n    *   Option B (75% LTV): Buy **8** properties worth €5m each ($40m total). \n    *   *Result*: Reduced idiosyncratic risk.\n3.  **Inflation Hedge**: Fixed-rate debt payments stay flat while rental income rises with inflation (\"Reverse-inflation risk\")."
+                }
+              ]
+            },
+            {
+              "id": "lesson-2-5",
+              "title": "Advanced Capital Stack",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Beyond Senior Debt\n\n### Mezzanine Debt\n*   **Structure**: Subordinate to Senior Debt, senior to Equity.\n*   **Security**: Often secured by a pledge of *equity interest* in the borrowing entity, not the property itself.\n*   **Rights**: Can foreclose on the entity (take over control) if detailed.\n\n### Preferred Equity\n*   **Nature**: Hybrid Instrument. Part of the ownership stack but behaves like debt (fixed return).\n*   **Priority**: Paid before Common Equity but after all Debt.\n*   **Control**: No operational control unless a \"Kick-out\" event occurs.\n\n### GP / LP Structure\n*   **Capital Partner (LP)**: Provides majority of cash (90-95%), limited control.\n*   **Entrepreneurial Partner (GP)**: Provides expertise, manages changes, receives **Promote** (Performance Fees)."
+                }
+              ]
+            },
+            {
+              "id": "lesson-2-3",
+              "title": "Lecture Slides",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Key Takeaways\n\n*   **Positive Leverage**: When Cost of Debt < Cap Rate -> Increases Equity Returns.\n*   **Negative Leverage**: When Cost of Debt > Cap Rate -> Dilutes Equity Returns."
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Capital Structures Slides",
+                  "type": "pptx",
+                  "path": "/content/refi/unit-2/slides.pptx"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "unit-3",
+          "title": "Commercial Mortgages",
+          "description": "Analysis of mortgage structures.",
+          "lessons": [
+            {
+              "id": "lesson-3-1",
+              "title": "Mortgage Lab Simulator",
+              "type": "simulator",
+              "duration": "45 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Loan Mechanics Lab\n\nExplore how **Interest Rate**, **Amortization Period**, and **Loan-to-Value (LTV)** determine the debt service and payment schedule."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "MortgageMasterSimulator"
+                }
+              ]
+            },
+            {
+              "id": "lesson-3-2",
+              "title": "Commercial Mortgages Slides",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Note vs. Mortgage\n\n*   **Promissory Note**: The contract detailing the financial obligation (Terms, Rate, Payment Schedule).\n*   **Mortgage (or Deed of Trust)**: The legal instrument pledging the property as collateral for the loan."
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Intro to Mortgages Slides",
+                  "type": "pptx",
+                  "path": "/content/refi/unit-3/slides.pptx"
+                }
+              ]
+            },
+            {
+              "id": "lesson-3-3",
+              "title": "Underwriting Guide",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Lender's Criteria\n\nLenders primarily look at two ratios:\n\n1.  **Debt Service Coverage Ratio (DSCR)**: $\\frac{NOI}{Debt Service}$\n2.  **Loan-to-Value (LTV)**: $\\frac{Loan Amount}{Property Value}$"
+                },
+                {
+                  "type": "quiz",
+                  "content": "Underwriting Quiz",
+                  "quizData": [
+                    {
+                      "id": "mtg-1",
+                      "text": "What does a DSCR of 1.25x indicate?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "NOI is 25% higher than Debt Service",
+                        "NOI is equal to Debt Service",
+                        "NOI is less than Debt Service"
+                      ],
+                      "correctAnswer": "NOI is 25% higher than Debt Service",
+                      "explanation": "A DSCR > 1.0 means the property generates enough income to cover the loan payments with a safety margin."
+                    }
+                  ]
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Underwriting & Default Slides",
+                  "type": "pptx",
+                  "path": "/content/refi/unit-3/underwriting.pptx"
+                }
+              ]
+            },
+            {
+              "id": "lesson-3-4",
+              "title": "Adjustable Rate Mortgages (ARM)",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## How ARMs Work\n\nAn Adjustable Rate Mortgage (ARM) has an interest rate that changes periodically based on a financial index.\n\n### The Formula\n$$Interest Rate = Index + Margin$$\n\n*   **Index**: A benchmark rate (e.g., LIBOR, SOFR, 1-Year T-Bill).\n*   **Margin**: A fixed spread charged by the lender (e.g., 250 bps or 2.5%).\n\n### Interest Rate Caps\nTo protect borrowers from extreme volatility, ARMs have caps:\n1.  **Annual Cap**: Limit on how much the rate can change in one year.\n2.  **Lifetime Cap**: Limit on how high the rate can ever go.\n3.  **Payment Cap**: Limit on how much the monthly payment can increase (rare).\n\n### Example: Golden Horizons\n*   **Loan**: €1,000,000 (30-Year)\n*   **Initial Rate**: 6.0%\n*   **Index**: 5.5%\n*   **Margin**: 2.5%\n*   **Fully Indexed Rate**: 5.5% + 2.5% = **8.0%**\n\nIn this case, the borrower starts at 6%, but if the rate adjusts to the fully indexed rate of 8%, the payments will rise significantly."
+                }
+              ]
+            },
+            {
+              "id": "lesson-3-5",
+              "title": "Loan Analysis Cases",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Case 1: Valuing Seasoned Loans\n\nWhen a loan is sold in the secondary market (e.g., to a fund like Golden Horizon), its price is determined by the **Current Market Yield**, not the original interest rate.\n\n*   **Scenario**: 2 Years Old, 8% Coupon, 15-Year Term.\n*   **Market Yield**: 7.25% (Rates have fallen).\n*   **Result**: The loan will trade at a **Premium** (Price > Outstanding Loan Balance).\n\n### Prepayment Risk\nIf rates fall, borrowers are likely to prepay. If the loan was bought at a premium, prepayment results in a loss of yield for the investor. **Prepayment Penalties** (Yield Maintenance) are designed to protect against this."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Case 2: Refinancing Decisions\n\nBorrowers refinance when the savings from a lower interest rate outweigh the transaction costs (points, fees).\n\n### NPV Analysis Steps\n1.  Calculate current loan payment (Cost of Status Quo).\n2.  Calculate new loan payment + Closing Costs (Cost of Refi).\n3.  Compare the PV of savings over the holding period.\n\n> **Example**: Moving from 9% (Old) to 7% (New) + 2 Points fees.\n> If the holding period is short (e.g., 2 years), the fees might exceed the interest savings. If long (e.g., 10 years), refinancing is likely profitable."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Unit 3 Assessment",
+                  "quizData": [
+                    {
+                      "id": "u3-1",
+                      "text": "Which Mortgage type has fixed, flat payments?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Interest-Only",
+                        "Constant Payment Mortgage (CPM)",
+                        "Constant Amortization Mortgage (CAM)",
+                        "ARM"
+                      ],
+                      "correctAnswer": "Constant Payment Mortgage (CPM)",
+                      "explanation": "CPM allows borrowers to pay the same amount every month, making budgeting easier."
+                    },
+                    {
+                      "id": "u3-2",
+                      "text": "How is the Principal Amortization calculated in a period?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Interest Owed - Payment",
+                        "Payment - Interest Owed",
+                        "Loan Balance / Term"
+                      ],
+                      "correctAnswer": "Payment - Interest Owed",
+                      "explanation": "The portion of the payment that exceeds the interest due goes towards reducing the principal."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "unit-4",
+          "title": "Single Asset Valuation (Legacy)",
+          "description": "Advanced single-asset modeling with split structures.",
+          "lessons": [
+            {
+              "id": "lesson-4-1",
+              "title": "Single Asset Valuation Simulator",
+              "type": "simulator",
+              "duration": "60 min",
+              "simulatorId": "SingleAssetValuationSimulator"
+            }
+          ]
+        },
+        {
+          "id": "unit-5",
+          "title": "Barcelona Case Study",
+          "description": "Real-world case study analysis.",
+          "lessons": [
+            {
+              "id": "lesson-5-1",
+              "title": "Barcelona Case Simulator",
+              "type": "simulator",
+              "duration": "60 min",
+              "simulatorId": "BarcelonaCaseSimulator"
+            }
+          ]
+        },
+        {
+          "id": "unit-6",
+          "title": "Affordable Housing Fund",
+          "description": "Fund-level modeling and waterfall analysis.",
+          "lessons": [
+            {
+              "id": "lesson-6-1",
+              "title": "Fund Simulator",
+              "type": "simulator",
+              "duration": "90 min",
+              "simulatorId": "AffordableHousingFundSimulator"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "title": "Advanced Topics",
+      "description": "Specialized topics for advanced practitioners.",
+      "price": 299,
+      "priceId": "price_1OtHKpK...",
+      "units": [
+        {
+          "id": "unit-7",
+          "title": "Mortgage Backed Securities (MBS)",
+          "lessons": [
+            {
+              "id": "lesson-7-1",
+              "title": "MBS Fundamentals",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Introduction to CMBS\n\nCommercial Mortgage-Backed Securities (CMBS) are bonds backed by a pool of commercial mortgages. They allow banks to move loans off their balance sheet and provide investors with varying levels of risk/return via **Tranching**."
+                }
+              ],
+              "resources": [
+                {
+                  "title": "MBS Lecture Notes (Ch 20)",
+                  "type": "pptx",
+                  "path": "/content/advanced/mbs/slides.pptx"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "unit-8",
+          "title": "REITs",
+          "lessons": [
+            {
+              "id": "lesson-8-1",
+              "title": "Guide to REITs",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## What is a REIT?\n\nReal Estate Investment Trusts (REITs) allow individual investors to buy shares in commercial real estate portfolios. To qualify as a REIT, a company must:\n*   Invest at least 75% of assets in real estate.\n*   Distribute at least 90% of taxable income to shareholders."
+                }
+              ],
+              "contentUrl": "/content/advanced/reits/reading.pdf"
+            },
+            {
+              "id": "lesson-8-2",
+              "title": "Rehypothecation",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Rehypothecation\n\nThe practice where banks use assets posted as collateral by their clients for their own purposes. This played a significant role in the Great Financial Crisis."
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Rehypothecation Slides",
+                  "type": "pptx",
+                  "path": "/content/advanced/reits/slides.ppt"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "unit-9",
+          "title": "Real Estate Development Finance",
+          "lessons": [
+            {
+              "id": "lesson-9-1",
+              "title": "Development Finance",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## The Development J-Curve\n\nDevelopment is characterized by a \"J-Curve\" cash flow profile: significant upfront negative cash flows (Land, Entitlement, Construction) followed by a sharp positive return upon stabilization or exit."
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Dev Finance Slides",
+                  "type": "pptx",
+                  "path": "/content/advanced/development/slides.pptx"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "unit-10",
+          "title": "After-Tax Analysis",
+          "lessons": [
+            {
+              "id": "lesson-10-1",
+              "title": "Tax Impacts",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Depreciation & Capital Gains\n\nReal estate offers unique tax advantages, primarily through **Depreciation** (non-cash expense that shields income) and **1031 Exchanges** (deferral of capital gains tax)."
+                }
+              ],
+              "resources": [
+                {
+                  "title": "After-Tax Analysis Slides",
+                  "type": "pptx",
+                  "path": "/content/advanced/tax/slides.pptx"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

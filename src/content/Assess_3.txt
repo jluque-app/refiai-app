@@ -1,0 +1,43 @@
+CREFI Assessment Module 3
+1. What is the value of the property using a discounted cash flow approach?
+	•	1874309
+	•	1724564
+	•	1573674
+	•	1753764
+2. What is the value of the property using a “direct capitalization approach” if there is a 20% cap rate?
+	•	691125
+	•	671222
+	•	657422
+	•	661225
+3. Which of the following Excel commands would you choose for ='Basic Model'!C41 to calculate the IRR of the debt?
+	•	=IRR('Basic Model'!D40:I40)
+	•	=IRR('Basic Model'!C40:I40)
+	•	=IRR('Basic Model'!C38:I38)
+	•	=IRR('Basic Model'!C38:I38) - C37
+4. Which of the following Excel commands would you choose for cell 'Mortgage Finance'!N17 to calculate the Outstanding Loan Balance (OLB) in year 6?
+	•	= 'Mortgage Finance'!F323*(1+'Mortgage Finance'!D7)
+	•	= 'Mortgage Finance'!F323
+	•	= 'Mortgage Finance'!F95*(1+'Mortgage Finance'!D7)
+	•	= 'Mortgage Finance'!F95
+	•	= 'Mortgage Finance'!F61*(1+'Mortgage Finance'!D7)
+	•	= 'Mortgage Finance'!F61
+5. Which of the following Excel commands would you choose for cell 'CFWaterfall'!O8 to calculate the Operating Partner's equity contribution?
+	•	= 'CFWaterfall'!N8
+	•	= 'CFWaterfall'!N7* 'CFWaterfall'!O6
+	•	= 'CFWaterfall'!N8* 'CFWaterfall'!O4
+	•	= 'CFWaterfall'!N7* 'CFWaterfall'!O4
+	•	= 'CFWaterfall'!N8* 'CFWaterfall'!O6
+6. Which of the following Excel commands would you choose for cell 'CFWaterfall'!M30 to calculate the operating partner equity contribution?
+	•	=IRR(CFWaterfall!D30:H30)
+	•	=IRR(CFWaterfall!C29:H29)
+	•	=IRR(CFWaterfall!C30:H30)
+	•	=IRR(CFWaterfall!D29:H29)
+7. Which of the following Excel commands would you choose for cell 'CFWaterfall'!D18 to calculate the Capital Partner's first year cash flow?
+	•	=D16
+	•	=$C$18*$O$7
+	•	=MIN(D16;$C$18*$O$7)
+	•	=MIN(D19;$C$21*$O$8)
+	•	=D19
+	•	=$C$21*$O$8
+
+

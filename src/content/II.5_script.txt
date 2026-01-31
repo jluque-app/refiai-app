@@ -1,0 +1,33 @@
+Hello. In this video I will show you how to calculate an Adjustable Rate Mortgage.
+***CLICK***
+The first thing to do is to calculate the interest rate, which is done so by adding the market index with the margin: Interest Rate = Index + Margin
+***CLICK***
+The index tends to be LIBOR (London InterBank Offered Rate) or similar short-term rates, and as it fluctuates, so does the mortgage’s interest rate.
+***CLICK***
+In other words, ARMs’ interest rates are dependent on the financial market. 
+***CLICK***
+However, it is very important to remember, that several caps can restrict the increase of the interest rate. These are:
+***CLICK***
+The Annual Interest Rate Increase Cap
+The Lifetime (of loan) Interest Rate Increase Cap and the 
+Increase Payment Cap – the latter is not as common
+***CLICK***
+But, how often the interest rate is adjusted?
+***CLICK***
+Typically, the interest rate is adjusted in annual intervals, however they are sometimes adjusted more often.
+***CLICK***
+When the interest rate changes at the adjustment interval, so does the loan payment also changes:
+***CLICK***
+New payments are calculated based on:
+The adjusted Interest Rate the current loan balance and the 
+Remaining Amortization Period
+Let’s see an example:
+***CLICK***
+A few weeks ago, Golden Horizons took a € 1 million, 30-year amortization Adjustable Rate Mortgage (ARM) with monthly payments and annual interest adjustments.
+***CLICK***
+In this case:
+The initial interest rate is 6%.
+The index for the loan is one-year Spanish government bonds, currently yielding 5.5% And 
+The loan has a margin of 250 basis points.
+I will begin to solve the exercise.
+

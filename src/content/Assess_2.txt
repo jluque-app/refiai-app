@@ -1,0 +1,190 @@
+CREFI Assessment Module 2
+1. In accordance with the “4 rules of mortgage math”, how do you calculate how much of the principal is amortized (repaid) per period?
+	•	Interest Owed - Principal Balance (prior period).
+	•	Initial Outstanding Principal Balance.
+	•	Interest Owed - Loan Payment.
+	•	Loan Payment - Interest Owed.
+2. If the mortgage lender offers a fixed rate and assumes the interest rate risk, which of the mortgages could the borrower have taken?
+	•	Interest-only mortgage.
+	•	Constant Payment Mortgage.
+	•	Constant Amortization Mortgage.
+	•	Adjustable Rate Mortgage.
+3. Of the following four mortgage types, which have flat and predictable payments:
+	•	Interest-only mortgage.
+	•	Constant Payment Mortgage.
+	•	Constant Amortization Mortgage.
+	•	Adjustable Rate Mortgage.
+4. One type of mortgage has characteristically high initial payments which rapidly decline as the loan amortizes over the term period. Which of these four mortgage types is it?
+	•	Interest-only mortgage.
+	•	Constant Payment Mortgage.
+	•	Constant Amortization Mortgage.
+	•	Adjustable Rate Mortgage.
+5. If the borrower significantly prepays the mortgage before the end of the term a prepayment penalty can be applied to?
+	•	The loan amount.
+	•	The contractual monthly payment.
+	•	The outstanding loan balance of a mortgage held to maturity.
+	•	The outstanding loan balance of a mortgage prior to term.
+
+
+
+6. To which of the following is the disbursement point of a mortgage applied to?
+	•	The loan amount.
+	•	The contractual monthly payment.
+	•	The outstanding loan balance of a mortgage held to maturity.
+	•	The mortgage interest rate.
+
+7. Consider a €2 million, 8%, 30-year mortgage with monthly payments. Compute the first three payments and the loan balance for each of the following loan types:
+	•	Download the following excel file to solve the exercise:  II_9_Evaluation_Exercise_1_empty_cells.xlsx.
+This Excel file allows you to work out the solutions to the following questions. You will not be asked to submit your Excel file at the end of the exercise.
+7. Exercise 1. For the interest-only mortgage:
+	•	What is the mortgage payment in month 3?
+	•	8611.11
+	•	8594.91
+	•	13333.33
+	•	What is the ending balance in month 3?
+	•	2000000
+	•	8997222.22
+	•	994444.44
+7. Exercise 2. For the constant amortization mortgage:
+	•	What is the mortgage payment in month 3?
+	•	8579
+	•	8578
+	•	18814.81
+	•	What is the ending balance in month 3?
+	•	991555 
+	•	1983333.33
+	•	991660 
+7. Exercise 3. For the constant payment mortgage:
+	•	What is the mortgage payment in month 3?
+	•	14675.29
+	•	5833.33
+	•	2777.78
+	•	What is the ending balance in month 3?
+	•	1000000
+	•	1995947.23
+	•	999180.31
+
+8. Consider a €2 million, 8% Constant Payment Mortgage with monthly payments. What is the regular monthly payment and the balloon payment amounts in each of the following cases?
+	•	Download the following excel file to solve the exercise:  II_9_Evaluation_Exercise_2_empty_cells.xlsx.
+This Excel file allows you to work out the solutions to the following questions. You will not be asked to submit your Excel file at the end of the exercise.
+8. Exercise 1. Fully amortizing, 25 year loan:
+	•	What is the regular monthly payment?
+	•	15426
+	•	15436
+	•	15456
+	•	What is the balloon payment amount?
+	•	2000000
+	•	15436
+	•	0
+8. Exercise 2. 25-year amortizing, 10-year balloon.
+	•	What is the regular monthly payment?
+	•	17436
+	•	14536
+	•	15436
+	•	What is the balloon payment amount?
+	•	1615266
+	•	1515236
+	•	1651256
+8. Exercise 3. 15-year amortizing, 10-year balloon.
+	•	What is the regular monthly payment?
+	•	19223
+	•	19115
+	•	19113
+	•	What is the balloon payment amount?
+	•	932626
+	•	942625
+	•	952624
+
+8. Exercise 4. Choose whether each statement is true or false.
+	•	The 15-year amortization loan has lower payments and a lower balloon payment.
+	•	True
+	•	False
+	•	The 15-year amortization loan has higher payments but a lower balloon payment.
+	•	True
+	•	False
+	•	The 15-year amortization loan has higher payments and a higher balloon payment.
+	•	True
+	•	False
+
+9. Consider the following loan characteristics:
+Characteristics:
+Loan amount
+€120,000
+Amortization
+25 years
+Type
+Adjustable Rate Mortgage
+Payments
+Monthly
+Interest rate adjustments
+Annual
+Initial interest rate
+6.5%
+Loan index
+One-year US government bonds currently yielding 4.75%
+Loan margin
+250 basis points
+Interest rate caps
+2% per year at each adjustment and 4% over the life of the loan
+It is expected that
+One-year bond yields will increase to 6.25% over the second year (at the end of year 1) and to 8% during year 3 (at the end of year 2).
+
+	•	Download the following excel file to solve the exercise:  II_9_Evaluation_Exercise_3_empty_cells.xlsx.
+This Excel file allows you to work out the solutions to the following questions. You will not be asked to submit your Excel file at the end of the exercise.
+This tip will help you answer the questions:
+With interest rate caps in effect, the contract rates in year 2 and beyond equal the minimum of the following three quantities: (i) index + margin (i.e., rate in the absence of caps); (ii) previous period rate + annual adjustment cap; (iii) initial period rate + life-of-loan cap.
+Now, answer the following questions:
+Choose the correct answer.
+	•	What is the mortgage payment in the first year?
+	•	815
+	•	810.25
+	•	812
+	•	What is the mortgage payment in the second year?
+	•	810.25
+	•	961.95
+	•	835.97
+	•	What is the mortgage payment in the third year?
+	•	1125
+	•	1270
+	•	1120.06
+	•	What is the ending balance at the end of year 3 (i.e., at the end of month 36)?
+	•	116273
+	•	115520
+	•	115173
+	•	Assuming a loan origination fee of 2 points is paid up front, what is the yield (effective cost) of a three-year holding period? [Hint: Use your “cash flow” keys to get the IRR, e.g., use the command =IRR(J23:J383;0,01)*12]
+	•	9.14
+	•	9.16
+	•	9.12
+
+10. Golden Horizon is negotiating contract terms on a €100m commercial mortgage loan with a potential borrower. The loan in question has the following characteristics:
+Characteristics
+Payment
+Monthly
+Amortization period
+20-years
+Type
+Fixed rate balloon with a seven-year term (i.e., maturity)
+Interest rate
+5.85% annual
+Disbursement discount
+1.5 points
+
+	•	Download the following excel file to solve the exercise:  II_9_Evaluation_Exercise_4_empty_cells.xlsx.
+This Excel file allows you to work out the solutions to the following questions. You will not be asked to submit your Excel file at the end of the exercise.
+Now, answer the following questions:
+10. Exercise 1. Here are a few tips to help you complete the requested calculation:
+In order to calculate the PMT (Payment) and the OLB (Outstanding Loan Balance), create an Excel spreadsheet (with the mortgage contract terms as inputs), and employ the range of financial functions available such as =PMT(), =FV() etc. Create a single column with the monthly cash flows (0 to 84) and then employ the =IRR() function to find the lender’s yield.
+Choose the correct answer.
+With the assumption that the loan is held to the end of the term, what is the yield that the borrower will receive? (In your answer, please only include two decimal places using the “.” sign; ignore the % symbol).
+	•	6.14
+	•	5.85
+	•	6.50
+
+
+10. Exercise 2. This tip will help you complete the requested calculation:
+To determine the lump sum required to make the IRR = 6.5%, make changes to PMTs and the OLB (84) from the spreadsheet made in question 1) and make a new column.
+Choose the correct answer.
+Suppose that Golden Horizon decides to modify the loan cash flows. Payments are now interest-only for the first 2 years of the loan’s term, followed by amortized payments starting from the first month of the third year. The amortization period remains the same (20-year), therefore the payments from years 3-7 are equal to the calculations in question 1). The lender agrees on the condition that Golden Horizon makes a lump sum payment (as well as the OLB at the end of the 7th year) if it gets a 6.5% yield (IRR). What is the value of the lump sum payment Golden Horizon will have to make? (In your answer, please omit decimals; also ignore the currency symbol).
+	•	3140
+	•	3130
+	•	3120

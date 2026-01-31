@@ -1,0 +1,64 @@
+In this video I will explain you the different elements of a typical capital structure, starting with the mezzanine debt.
+***CLICK***
+The key characteristics of mezzanine debt are the following:
+***CLICK***
+Mezzanine debt typically has higher rates and returns than senior mortgage debt. 
+Also, Mezzanine debt typically has a fixed term for repayment and Is structured as a loan, but it is subordinate to senior Mortgage debt.
+***CLICK***
+Mezzanine debt receives no payments until the senior Mortgage debt obligations are paid, but it has priority payments over equity. What’s more, in a typical real estate development, mezzanine debt is raised after equity but before senior mortgage debt. 
+Failure to pay mezzanine debt triggers default and the mezzanine lender gets shares of the company that owns the real estate asset that are proportional to the value of the debt remaining (unless otherwise specified). 
+***CLICK***
+Geltner & Miller talk about the term “mezzanine debt” as originally being an interest in the property – like a second mortgage 
+But since the 2000s, mezzanine debt is best understood as a situation where the lender has a claim on the business entity’s ownership interests. 
+***CLICK***
+Another element of a typical capital structure is the preferred equity. Which are its characteristics?
+***CLICK***
+Preferred equity is part of the ownership structure and usually offers a fixed return which is higher than Mezz debt. As a result, preferred equity typically doesn't share much in capital appreciation. 
+***CLICK***
+Secondly, unpaid preferred equity returns accrue until they get paid. Importantly, preferred equity provides a specified preferred dividend as indicated by the contract. 
+***CLICK***
+Finally, preferred equity holders have no control over the operational decisions regarding the real estate asset.
+***CLICK***
+And, what about the security and priority of preferred equity?
+***CLICK***
+Preferred equity is not subject to capital calls. Until the senior debt obligations are paid, no preferred equity payments are allowed. The good thing is that preferred equity always gets paid before equity. 
+***CLICK***
+Importantly, there is no collateral securing these promises. In development, preferred equity capital is returned after debt but before equity. However, preferred equity funds may be contributed before debt.
+***CLICK***
+The next element we are about to see is common equity – capital partner. Which are its key characteristics?
+***CLICK***
+A "capital partner", is the partner or stockholder within an ownership equity entity that does not want to, or is not able to, control the operations of a real estate project but supplies most of the required equity cash. 
+***CLICK***
+While the "capital partner" has a major say in the capital decisions, such as the project's financing and asset purchases/sales, he has no control over the daily operations, so, as you can notice, that the "capital partner" nonetheless shares the property's ownership rights with the "entrepreneurial partner". 
+***CLICK***
+Another characteristic is the following:
+***CLICK***
+The "capital partner" has lower priority than all debt and preferred equity, however, it may receive preference over the entrepreneurial partner. As it is equity, it has no recourse or guarantee of receiving the promised payments. 
+***CLICK***
+So, the most important fact is that both, the capital partner and the entrepreneurial partner, suffer shortfalls but receive all upside surplus.
+***CLICK***
+Now, let’s talk about the next element: “Entrepreneurial Partner” and its main characteristics.
+***CLICK***
+In contrast to a "capital partner", the entrepreneurial partner does have daily operational control, and as a result can earn extra fees (management, asset management or development fees) for their operational services. 
+***CLICK***
+The main role of the entrepreneurial partner within an ownership equity entity is to manage the operations and to negotiate the deal [terms and conditions] of the project (e.g. project design, the entitlements and permits of the land etc.). 
+***CLICK***
+Remember that the entrepreneurial partner tends to supply less equity than the capital partner, and, regarding the security and the priority of the entrepreneurial partner's equity, they face all the ownership risks since they are the property owner.
+***CLICK***
+But, how the project's operational cash flows and capital events are shared among the capital partner and the entrepreneurial partner?
+***CLICK***
+The two partners negotiate the distribution of the equity entity's net operating cash flow (after debt service and dividends are paid) and split it into two components, the preferred component and the promote component. 
+***CLICK***
+The preferred component can either be on a "pro rata pari passu" basis, which essentially means that the cash flow is distributed relative to the capital distributions of each partner following a "hurdle rate" (e.g. the partners receive an 8% return on the equity they invested into the project), or the capital partner receives their preferred return and the entrepreneurial partner receives the "make-up"/"catch up". 
+***CLICK***
+The second component to a distribution waterfall is the promote component. In this component, the remaining cash from the proceeds is split between the two partners, with the entrepreneurial partner typically benefitting from a greater proportion. 
+It is important to note, that as the returns increase, the splits between the two partners varies. Capital distributions and capital calls can either follow the same rules or differ completely. 
+***CLICK***
+However, there are a few common variations to take note of.
+***CLICK***
+Firstly, debt. If the partners take a participation loan, the lender not only receives the repayment of the loan balance, but also a portion of the capital appreciate of the property's value. This is also known as an "equity kicker" in more informal settings. 
+***CLICK***
+The second common variation is in fee-based service. As I haved mentioned before, the "entrepreneurial partner" or a similar entity will receive additional fees based on their day-to-day operations (e.g. management fees, asset management fees and development fees). 
+***CLICK***
+Last but not least, is equity. Occasionally, returns can have a "look-back" provision either via a cumulative return or an IRR. Moreover, while "profits interest" may not provide capital, it instead provides an employee a share of the returns of the property, above a certain hurdle rate, which is often more appealing to developers who cannot afford to provide up-front fees during the early stages of a real estate project. Lastly, if preferred returns are not met in a given year they might not accrue or carry forward to the next year.
+

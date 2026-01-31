@@ -1,0 +1,9 @@
+Hello. In this video I will show you how to analyze a scenario of mortgage refinancing. This is the case I will solve:
+***CLICK***
+Five years ago, Golden Horizon took out a € 120,000, 30-year mortgage at 9% interest, with no prepayment penalty to purchase additional office space. 
+***CLICK***
+Today Golden Horizon can get a 25-year mortgage at 7% with 2 points in closing costs. 
+***CLICK***
+Assuming Golden Horizon plans to use this new office space for another five years, I will determine the NPV of refinancing (ignoring option value considerations). 
+Let’s begin.
+

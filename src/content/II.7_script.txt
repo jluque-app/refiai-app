@@ -1,0 +1,19 @@
+Hello. In this video I will show you how to deal with loan prepayment and the implications for the IRR. This is the case I will solve:
+***CLICK***
+Golden Horizon is considering the purchase of a “seasoned” mortgage loan that was originated two years ago. 
+The original principal amount of the loan was €2,000,000 and it has an interest rate of 8%, a 15-year term and amortization period, monthly payments, and no prepayment penalty.
+***CLICK***
+I will value the loan based on the assumption that the loan is held to full maturity (i.e., there is no prepayment). 
+Since interest rates have fallen somewhat in the past year, Golden Horizon offers a price based upon a required return or yield to maturity of 7.25%.
+***CLICK***
+So, in this case, the CEO is asking me to calculate the following problems:
+
+***CLICK***
+a)What price should Golden Horizon offer for the loan package (i.e., under your assumptions, what is the current market value of the loan)? Compare this to the current OLB or “book value” of the loan and explain the difference.
+***CLICK***
+b)Assumption: Golden Horizon purchases the loan at the price determined in part (a), interest rates continue to fall afterwards and, as a result, the borrower prepays the mortgage 14 months from today. What yield or IRR will I have realized?
+***CLICK***
+c) Consider the situation in part (b). Determine the size of the prepayment penalty (€ amount) that would have ensured a yield (or IRR) of 7.25%.
+Let’s begin.
+***CLICK***
+

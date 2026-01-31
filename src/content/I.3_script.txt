@@ -1,0 +1,99 @@
+Hello. In this video I will show you how to calculate the value of a property given the projected cash flows. 
+***CLICK***
+This is necessary in order to calculate the expected return on a real estate investment. 
+***CLICK***
+I will start by defining “return” through a simple two-period model : purchase at time 0 and sale at time 1.
+***CLICK***
+Return, is the change in price of an investment over time, which can either be :
+***CLICK***
+Positive, meaning that the investment has been profitable.
+***CLICK***
+Or negative, meaning that the investment has resulted in a loss of money. 
+***CLICK***
+It is usually calculated as a percentage: Profit (the total money taken out of the investment minus the original total invested) divided by the total amount of money initially put into the investment.
+***CLICK***
+Now, two important observations:
+***CLICK***
+Firstly, “Price” and “Return” are opposite sides of the same coin. As the price of an investment increases, the return decreases, and vice versa. An investor looking for a larger return from their investment has to pay a lower price in order to meet their required return.
+***CLICK***
+Secondly, money is made not when you sell but when you buy an asset. This is because once your purchase price is set, so is your expected return. 
+***CLICK***
+However your expected return is not completely in your control, as future cash flows are to a large extent dictated by the fluctuations of the market and so it is important to be prepared for unforeseen volatility in the market and your returns. 
+***CLICK***
+Now, I will show you how to calculate the return if there is operational cash flow (rent) in addition to the reversion cash flow (sale). 
+***CLICK***
+This is the equation: Where
+Rt = return
+CF = Operational cash flow (rent) and
+V = property’s market value
+Now, let’s complete the following example:
+***CLICK***
+A property is bought for €200,000 at t=0
+The landlord receives €7,000 rent and sells the property for €205,000 at t = 1
+In this case, what is the rate of return?
+***CLICK***
+According to the equation in this case we have:
+Rt = (€7,000 + (€205,000 – €200,000))/ €200,000
+So:
+***CLICK***
+Rt = 6.00%
+***CLICK***
+To understand better the previous equation, I will break it down:
+There are two components which combine to equal the total return of an investment:
+***CLICK***
+Income Return – which is the return made from the net operating income, and the
+***CLICK***
+Appreciation Return – which is the return made from the increasing market value of the property.
+***CLICK***
+The Income return is often referred to as the yield of an investment and can be expressed as such:
+***CLICK***
+yt = CFt / Vt-1  (Where y = yield, CF is the operational cash flow and V is the property’s market value)
+Is important to investors who concentrate more on income than growth.
+***CLICK***
+For example: €7,000 / €200,000 = 3.5%
+***CLICK***
+Ant the Appreciation Return is the cash flow derived from the rise in value of a property, and can be expressed as such:
+***CLICK***
+Gt = (Vt – Vt-1) / Vt-1  (where G = growth and V is the property’s market value)
+Is important to investors who concentrate more on capital growth than income 
+***CLICK***
+For example: (€205,000 - €200,000) / € 200,000 = 2.5%
+***CLICK***
+So, as Total Return = Income Return + Appreciation Return
+***CLICK***
+Therefore, the total return is 3.5% + 2.5% = 6%
+***CLICK***
+Now that you know how to calculate the return of an investment over one period, I will show you how to measure the return of a multi-period investment.
+***CLICK***
+In the real estate sector, total return is typically measured over multiple time periods because real estate investment is normally long-term. 
+***CLICK***
+Investors therefore need to calculate the expected long-term horizon of the investment, and the following definition is widely employed:
+***CLICK***
+Internal Rate of Return or IRR is the single rate that discounts all net cash flows obtained from the investment to a present value that equals the purchase price of the investment.
+***CLICK***
+There are two approaches to real estate valuation:
+***CLICK***
+The Income Capitalization Approach (Cap Rate/Yield) and the Discounted Cash Flow (“DCF”) Approach.
+***CLICK***
+The Income Capitalization Approach is used to…
+***CLICK***
+calculate how much income an investment will generate over an infinite/perpetual stream of cash flows (cannot be used in finite horizon investment valuation), where…
+***CLICK***
+Property value = NOI1 / Capitalization Rate (where NOI1 stands for the NOI a year after the initial investment) 
+***CLICK***
+The Cap Rate captures the opportunity cost of capital of an alternative but similar investment for the investor – it is determined by comparing the cap rates of other similar properties in capital markets.
+***CLICK***
+Meanwhile the Discounted Cash Flow (“DCF”) Approach is used to…
+***CLICK***
+Calculate the total return, including income return and appreciation return, of the investment.
+***CLICK***
+Property value = PV (present value) of all future cash flows, discounted at the required total rate of return (“discount rate”)
+***CLICK***
+It is only appropriate for finite horizon investment valuation (e.g. 7 years).
+***CLICK***
+And finally, how do we split the “cap rate” between the investor’s time discount rate and the property’s growth rate?
+***CLICK***
+To the extent that a real estate investment approximates a constant growth annuity where…
+***CLICK***
+Y0 = discount Rate, gI = growth Rate, and R0 = Cap Rate
+Now, I will show you a valuation model where the two valuation methods are used to calculate the value of a property.
