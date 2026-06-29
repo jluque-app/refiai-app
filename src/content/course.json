@@ -11,7 +11,7 @@
         {
           "id": "unit-0-1",
           "title": "Real Estate Economics",
-          "description": "Fundamentals of Real Estate Economics and Cap Rates.",
+          "description": "How the real estate system works and what sets prices: the space, asset and development markets, and the cap rate.",
           "lessons": [
             {
               "id": "lesson-0-1-1",
@@ -21,39 +21,39 @@
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## Introduction to the Real Estate System\n\nReal Estate is not just about buildings; it's a complex system interacting with the broader economy. It involves three major markets:\n\n1.  **Space Market**: Where landlords and tenants exchange the right to use physical space (Rent).\n2.  **Asset Market**: Where investors trade ownership of real estate assets (Cap Rates & Prices).\n3.  **Development Industry**: Which connects the two by adding new supply when asset prices justify construction costs.\n\n### The Feedback Loop\n\nChanges in the space market (e.g., rising rents due to high demand) lead to higher property values in the asset market. If values rise above construction costs, developers build more, eventually increasing supply and moderating rents."
+                  "content": "## What you'll be able to do\n\n- Describe the three interacting markets that make up the real estate system.\n- Explain the feedback loop that links rents, prices and new construction.\n- Define the **cap rate** and use it to price a property.\n- List what makes cap rates rise or fall.\n\n> This is the free Real Estate 101 track — the foundation for everything in the paid course."
                 },
                 {
                   "type": "markdown",
-                  "content": "> **Key Concept**: The 'Asset Market' determines the *Cap Rate*, which is the yield investors demand for holding real estate risk."
+                  "content": "## Three markets, one system\n\nReal estate is not just buildings — it is a system of three connected markets:\n\n1. **Space market** — landlords and tenants trade the right to *use* space. This sets **rents**.\n2. **Asset market** — investors trade *ownership* of buildings. This sets **prices** and **cap rates**.\n3. **Development industry** — converts capital into new buildings when prices justify construction cost.\n\n### The feedback loop\nHigh demand pushes **rents** up → higher rents lift **asset values** → when values rise above **construction cost**, developers **build** → new supply eventually moderates rents. Round and round."
                 },
                 {
                   "type": "quiz",
-                  "content": "Knowledge Check: The System",
+                  "content": "Knowledge Check — The System",
                   "quizData": [
                     {
-                      "id": "q1",
-                      "text": "Which market determines the 'Cap Rate'?",
+                      "id": "u01-1-1",
+                      "text": "Which market sets the cap rate?",
                       "type": "multiple-choice",
                       "options": [
-                        "Space Market",
-                        "Asset Market",
-                        "Development Industry"
+                        "Space market",
+                        "Asset market",
+                        "Development industry"
                       ],
-                      "correctAnswer": "Asset Market",
-                      "explanation": "The Asset Market is where investors trade ownership, and prices (and thus yields/cap rates) are set based on risk and return expectations."
+                      "correctAnswer": "Asset market",
+                      "explanation": "The asset market is where ownership trades, so prices — and the yields/cap rates investors demand — are set there."
                     },
                     {
-                      "id": "q2",
-                      "text": "What happens if property values rise above construction costs?",
+                      "id": "u01-1-2",
+                      "text": "What happens when property values rise above construction cost?",
                       "type": "multiple-choice",
                       "options": [
                         "Developers stop building",
                         "Developers build more",
-                        "Rents decrease immediately"
+                        "Rents fall immediately"
                       ],
                       "correctAnswer": "Developers build more",
-                      "explanation": "When Value > Cost, it is profitable to build, triggering new supply from the Development Industry."
+                      "explanation": "When value > cost it is profitable to build, so the development industry adds new supply."
                     }
                   ]
                 }
@@ -61,17 +61,21 @@
             },
             {
               "id": "lesson-0-1-2",
-              "title": "Cap Rate Outlook",
+              "title": "Cap Rates: The Price of Real Estate",
               "type": "article",
               "duration": "20 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## Understanding Cap Rates\n\nThe Capitalization Rate (Cap Rate) is the fundamental metric of real estate pricing. It represents the ratio of Net Operating Income (NOI) to Property Asset Value.\n\n$$ Cap Rate = \\frac{NOI}{Value} $$\n\n### Macroeconomic Drivers\n\nCap rates are heavily influenced by the **Risk-Free Rate** (government bonds) and the **Risk Premium** specific to the property type and location."
+                  "content": "## The cap rate\n\nThe **capitalization rate** is the fundamental price metric of real estate. It is the ratio of a property's net operating income to its value:\n\n`Cap Rate = NOI / Value`  →  `Value = NOI / Cap Rate`\n\nA building earning €60,000 of NOI at a 6% cap rate is worth €60,000 / 0.06 = **€1,000,000**. A *lower* cap rate means a *higher* price per euro of income."
                 },
                 {
                   "type": "markdown",
-                  "content": "### Interactive Example\n\nUse the simulator below to see how changes in NOI and Cap Rate affect Property Value."
+                  "content": "## What determines cap rates?\n\nThree forces:\n\n1. **Opportunity cost of capital** — the return available on similar-risk investments (anchored by the risk-free rate, e.g. government bonds).\n2. **Growth expectations** for the property's future cash flows — higher expected growth → lower cap rate → higher price.\n3. **Risk** — riskier income (short leases, weak market) → higher cap rate → lower price.\n\nA useful shorthand: `Cap Rate = Risk-free rate + Risk premium − Growth`."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Try it\n\nAdjust NOI and the cap rate below and watch the value move."
                 },
                 {
                   "type": "simulator",
@@ -79,6 +83,149 @@
                   "props": {
                     "variant": "mini"
                   }
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — Cap Rates",
+                  "quizData": [
+                    {
+                      "id": "u01-2-1",
+                      "text": "Cap rates in a market are 10.5%. A property earns €50,000 net income per year. What should it sell for?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€5,250",
+                        "€50,000",
+                        "€476,190",
+                        "€525,000"
+                      ],
+                      "correctAnswer": "€476,190",
+                      "explanation": "Value = NOI / cap rate = 50,000 / 0.105 = €476,190."
+                    },
+                    {
+                      "id": "u01-2-2",
+                      "text": "Other things equal, which property would have the LOWEST cap rate?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Short leases in a declining market",
+                        "Long leases in a declining market",
+                        "Long leases in a growing market"
+                      ],
+                      "correctAnswer": "Long leases in a growing market",
+                      "explanation": "Lower risk (long, secure leases) plus higher growth both push the cap rate down — and the price up."
+                    },
+                    {
+                      "id": "u01-2-3",
+                      "text": "If investors' required return falls, all else equal, prices:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Rise",
+                        "Fall",
+                        "Stay the same"
+                      ],
+                      "correctAnswer": "Rise",
+                      "explanation": "Price = NOI / cap rate, and the cap rate tracks the required return. A lower required return lowers the cap rate and raises prices."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-0-1-3",
+              "title": "Cap Rates and the Cycle",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## The 4-quadrant model (DiPasquale–Wheaton)\n\nThe classic model links the four pieces of the system on one diagram: rent determination (space market), valuation via the cap rate (asset market), construction (development), and stock adjustment (back to space).\n\nA jump in **demand** raises rents → raises prices → triggers construction → adds stock → partly reverses the rent rise, settling at a new long-run equilibrium with more space and higher rents than before."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Do interest rates drive cap rates?\n\nTheory says higher interest rates should raise cap rates (higher discount rate → lower prices). In practice the link is **weak and unstable**: over long periods cap rates and the 10-year government rate have only a loose, sometimes *negative*, relationship. Capital flows, risk appetite and growth expectations often dominate. The lesson: interest rates matter, but they are one input among several, not a switch."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — The Cycle",
+                  "quizData": [
+                    {
+                      "id": "u01-3-1",
+                      "text": "In the 4-quadrant model, a rise in space demand first causes:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Lower rents",
+                        "Higher rents, then new construction",
+                        "Immediate oversupply"
+                      ],
+                      "correctAnswer": "Higher rents, then new construction",
+                      "explanation": "Demand lifts rents and prices; only then does construction respond, eventually adding stock."
+                    },
+                    {
+                      "id": "u01-3-2",
+                      "text": "The empirical relationship between cap rates and interest rates is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Always strong and positive",
+                        "Weak and sometimes negative",
+                        "Always negative"
+                      ],
+                      "correctAnswer": "Weak and sometimes negative",
+                      "explanation": "History shows a loose link; growth expectations and capital flows often outweigh rates."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-0-1-4",
+              "title": "Summary & Check",
+              "type": "article",
+              "duration": "10 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## One-page summary\n\n- Real estate = **space market** (rents) + **asset market** (prices/cap rates) + **development** (new supply), joined by a feedback loop.\n- **Value = NOI / Cap Rate.** Lower cap rate = higher price.\n- Cap rates fall with **lower required returns** and **higher growth**, and rise with **more risk**.\n- Interest rates influence but do not mechanically set cap rates."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Unit Assessment — Real Estate Economics",
+                  "quizData": [
+                    {
+                      "id": "u01-a-1",
+                      "text": "A property's NOI is €80,000 and the market cap rate is 5%. Its value is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€400,000",
+                        "€1,600,000",
+                        "€1,000,000"
+                      ],
+                      "correctAnswer": "€1,600,000",
+                      "explanation": "Value = 80,000 / 0.05 = €1,600,000."
+                    },
+                    {
+                      "id": "u01-a-2",
+                      "text": "Which is NOT one of the three markets in the real estate system?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Space market",
+                        "Asset market",
+                        "Insurance market"
+                      ],
+                      "correctAnswer": "Insurance market",
+                      "explanation": "The three are the space, asset and development markets."
+                    }
+                  ]
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Real Estate System & Cap Rate — slides",
+                  "type": "pptx",
+                  "path": "/content/real-estate-101/economics/slides.pptx"
+                },
+                {
+                  "title": "What drives cap rates — reading",
+                  "type": "pdf",
+                  "path": "/content/real-estate-101/economics/reading.pdf"
                 }
               ]
             }
@@ -86,122 +233,288 @@
         },
         {
           "id": "unit-0-2",
-          "title": "Excel in Real Estate",
-          "description": "Introductory course to Excel for Real Estate.",
+          "title": "Present Value Math for Real Estate",
+          "description": "The time value of money and the Excel toolkit (PV, NPV, IRR, PMT) every real estate model is built on.",
           "lessons": [
             {
               "id": "lesson-0-2-1",
-              "title": "Present Value Math",
+              "title": "Time Value of Money",
               "type": "article",
-              "duration": "25 min",
+              "duration": "20 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## Time Value of Money (TVM)\n\nMoney available at the present time is worth more than the same amount in the future due to its potential earning capacity. This core principle of finance holds that, provided money can earn interest, any amount of money is worth more the sooner it is received.\n\n### Key Formula: Present Value (PV)\n\n$$ PV = \\frac{FV}{(1 + r)^n} $$\n\nWhere:\n* **FV** = Future Value\n* **r** = Discount Rate\n* **n** = Number of periods"
+                  "content": "## Why a euro today beats a euro tomorrow\n\nMoney available now is worth more than the same amount later, because it can be invested to earn a return. This single idea underpins every valuation.\n\n### Present value\n`PV = FV / (1 + r)^n`\n\nwhere **FV** is the future amount, **r** the discount rate, and **n** the number of periods. A higher discount rate (more risk, or higher opportunity cost) gives a **lower** present value."
                 },
                 {
                   "type": "markdown",
-                  "content": "### Excel Implementation\n\nIn Real Estate, we use Excel functions to calculate these values efficiently:\n* `=PV(rate, nper, pmt, [fv], [type])`\n* `=NPV(rate, value1, [value2], ...)`\n\n> **Tip**: Always assume cash flows occur at the *end* of the period unless stated otherwise."
+                  "content": "### Quick example (euros)\n\nYou will receive **€10,000** in 3 years. At a 7% discount rate:\n\n`PV = 10,000 / 1.07³ = 10,000 / 1.225 = €8,163`\n\nThe further away the cash flow, or the higher the rate, the smaller today's value."
                 },
                 {
                   "type": "quiz",
-                  "content": "TVM Quiz",
+                  "content": "Knowledge Check — TVM",
                   "quizData": [
                     {
-                      "id": "tvm-1",
-                      "text": "If the discount rate increases, what happens to the Present Value (PV)?",
+                      "id": "u02-1-1",
+                      "text": "If the discount rate rises, the present value of a future cash flow:",
                       "type": "multiple-choice",
                       "options": [
-                        "Increases",
-                        "Decreases",
-                        "Stays the same"
+                        "Rises",
+                        "Falls",
+                        "Is unchanged"
                       ],
-                      "correctAnswer": "Decreases",
-                      "explanation": "A higher denominator (1+r) results in a smaller PV. Higher risk (rate) lowers today's value."
+                      "correctAnswer": "Falls",
+                      "explanation": "A larger denominator (1+r)^n shrinks the present value."
                     },
                     {
-                      "id": "tvm-2",
-                      "text": "Which Excel function calculates the regular payment for a loan?",
+                      "id": "u02-1-2",
+                      "text": "Present value mainly captures the idea that:",
                       "type": "multiple-choice",
                       "options": [
-                        "=PV()",
-                        "=PMT()",
-                        "=FV()"
+                        "Money earns a return over time",
+                        "Inflation is always 2%",
+                        "Cash flows never change"
                       ],
-                      "correctAnswer": "=PMT()",
-                      "explanation": "PMT calculates the payment for a loan based on constant payments and a constant interest rate."
+                      "correctAnswer": "Money earns a return over time",
+                      "explanation": "TVM reflects the earning capacity (opportunity cost) of money."
                     }
                   ]
-                },
-                {
-                  "type": "markdown",
-                  "content": "### Hands-on Lab: Calculating PV in Excel\n\nUse the spreadsheet below to practice the PV formula."
-                },
-                {
-                  "type": "simulator",
-                  "simulatorId": "ExcelSimulator"
                 }
               ]
             },
             {
               "id": "lesson-0-2-2",
-              "title": "Geltner Miller Ch 8",
+              "title": "PV, NPV, IRR & PMT in Excel",
               "type": "article",
-              "duration": "30 min",
+              "duration": "25 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## Investment Value vs. Market Value\n\n**Investment Value** is specific to a particular investor based on their individual investment criteria (required yield, tax status, etc.).\n\n**Market Value** is the most probable price a property should bring in a competitive and open market."
+                  "content": "## The four functions you will use constantly\n\n- `=PV(rate, nper, pmt, [fv])` — present value of a stream.\n- `=NPV(rate, values)` — present value of a series of cash flows (assumes the first is one period away).\n- `=IRR(values)` — the discount rate that makes NPV = 0 (your return).\n- `=PMT(rate, nper, pv)` — the level payment that amortises a loan.\n\n> Convention: assume cash flows occur at the **end** of each period unless told otherwise. And remember Excel's `NPV` does **not** include time-0 — add the initial outlay separately."
                 },
                 {
                   "type": "markdown",
-                  "content": "### Discussion Questions\n\n1. Why might an investor pay *more* than market value for a property?\n2. How does the 'marginal investor' determine the market clearing price?"
+                  "content": "### Hands-on lab\n\nUse the spreadsheet to practise discounting cash flows to a present value."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "ExcelSimulator"
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — Excel",
+                  "quizData": [
+                    {
+                      "id": "u02-2-1",
+                      "text": "Which function returns the level payment on a loan?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "=PV()",
+                        "=PMT()",
+                        "=IRR()"
+                      ],
+                      "correctAnswer": "=PMT()",
+                      "explanation": "PMT computes the constant payment for a loan given rate, term and principal."
+                    },
+                    {
+                      "id": "u02-2-2",
+                      "text": "IRR is the rate at which:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "NPV equals zero",
+                        "PV equals FV",
+                        "The cap rate equals the discount rate"
+                      ],
+                      "correctAnswer": "NPV equals zero",
+                      "explanation": "IRR is the discount rate that sets the net present value of the cash flows to zero."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-0-2-3",
+              "title": "Summary & Check",
+              "type": "article",
+              "duration": "10 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## One-page summary\n\n- **PV = FV / (1+r)ⁿ.** Higher rate or longer wait → lower value.\n- **NPV** sums discounted cash flows; **IRR** is the rate where NPV = 0.\n- **PMT** gives the amortising loan payment.\n- Cash flows are end-of-period by default; add the time-0 outlay outside Excel's `NPV`."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Unit Assessment — Present Value Math",
+                  "quizData": [
+                    {
+                      "id": "u02-a-1",
+                      "text": "The PV of €1,000 received in 2 years at 5% is closest to:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€907",
+                        "€952",
+                        "€1,000"
+                      ],
+                      "correctAnswer": "€907",
+                      "explanation": "1,000 / 1.05² = 1,000 / 1.1025 ≈ €907."
+                    },
+                    {
+                      "id": "u02-a-2",
+                      "text": "To value a finite stream of differing annual cash flows you would use:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "=PMT()",
+                        "=NPV()",
+                        "=FV()"
+                      ],
+                      "correctAnswer": "=NPV()",
+                      "explanation": "NPV discounts a series of (possibly varying) cash flows to today."
+                    }
+                  ]
                 }
               ],
-              "contentUrl": "/content/real-estate-101/excel/reading.pdf"
+              "resources": [
+                {
+                  "title": "Present Value Math — slides",
+                  "type": "pptx",
+                  "path": "/content/real-estate-101/excel/slides.pptx"
+                }
+              ]
             }
           ]
         },
         {
           "id": "unit-0-3",
           "title": "Finance for Real Estate",
-          "description": "Introduction to Finance principles.",
+          "description": "Risk and return, the building blocks of asset pricing, and how the cap rate decomposes into a required return and growth.",
           "lessons": [
             {
               "id": "lesson-0-3-1",
-              "title": "Asset Pricing Foundations",
+              "title": "Risk and Return",
               "type": "article",
               "duration": "20 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## Risk and Return\n\nReal estate assets are priced based on the relationship between expected risk and required return. The **Risk-Free Rate** (typically government bonds) forms the baseline, to which a **Risk Premium** is added to compensate for illiquidity, leverage, and asset-specific risks."
+                  "content": "## Required return = compensation for risk\n\nInvestors price assets on the relationship between **expected risk** and **required return**. Start from the **risk-free rate** (government bonds) and add a **risk premium** for the extra risks of real estate — illiquidity, leverage, and asset-specific risk.\n\n`Required Return (r) = Risk-free rate + Risk premium`\n\nReturn itself has two parts: **income return** (the yield from NOI, contractual and stable) and **appreciation return** (price growth, market-driven and riskier)."
                 },
                 {
                   "type": "quiz",
-                  "content": "Risk & Return Check",
+                  "content": "Knowledge Check — Risk & Return",
                   "quizData": [
                     {
-                      "id": "rr-1",
-                      "text": "Which component of return is generally considered less risky?",
+                      "id": "u03-1-1",
+                      "text": "Which component of return is generally less risky?",
                       "type": "multiple-choice",
                       "options": [
-                        "Income Return",
-                        "Appreciation Return"
+                        "Income return",
+                        "Appreciation return"
                       ],
-                      "correctAnswer": "Income Return",
-                      "explanation": "Income comes from contractual leases, whereas appreciation depends on future market conditions and exit cap rates."
+                      "correctAnswer": "Income return",
+                      "explanation": "Income comes from contractual leases; appreciation depends on uncertain future market conditions."
+                    },
+                    {
+                      "id": "u03-1-2",
+                      "text": "The required return is built from:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Risk-free rate + risk premium",
+                        "Cap rate − inflation",
+                        "NOI ÷ price"
+                      ],
+                      "correctAnswer": "Risk-free rate + risk premium",
+                      "explanation": "You add a premium for real estate's risks to the risk-free baseline."
                     }
                   ]
-                },
+                }
+              ]
+            },
+            {
+              "id": "lesson-0-3-2",
+              "title": "Decomposing the Cap Rate",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
                 {
                   "type": "markdown",
-                  "content": "### Cap Rate Decomposition\n\n$ R = r_f + RP $\n\nWhere:\n* **R** = Required Return (Cap Rate)\n* **$r_f$** = Risk-Free Rate\n* **RP** = Risk Premium"
+                  "content": "## R₀ = r − g\n\nWhen a property behaves like a growing perpetuity, the cap rate is the required return **minus** the expected growth in cash flows:\n\n`Cap Rate (R₀) = Required return (r) − Growth (g)`\n\nSo two properties with the same NOI can trade at very different prices: the one with higher expected growth (or lower risk) has a **lower** cap rate and a **higher** price. This is why prime, growing markets look 'expensive' on a cap-rate basis — the market is pricing in growth."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — Decomposition",
+                  "quizData": [
+                    {
+                      "id": "u03-2-1",
+                      "text": "Required return is 9% and expected growth is 3%. The cap rate is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "12%",
+                        "6%",
+                        "3%"
+                      ],
+                      "correctAnswer": "6%",
+                      "explanation": "R₀ = r − g = 9% − 3% = 6%."
+                    },
+                    {
+                      "id": "u03-2-2",
+                      "text": "Higher expected growth, all else equal, makes the cap rate:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Higher",
+                        "Lower",
+                        "Unchanged"
+                      ],
+                      "correctAnswer": "Lower",
+                      "explanation": "More growth lowers the cap rate (R₀ = r − g) and raises the price."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-0-3-3",
+              "title": "Diversification & Portfolio Basics",
+              "type": "article",
+              "duration": "15 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Don't put it all in one building\n\nA single property carries **idiosyncratic risk** — a bad tenant, a local downturn. Spreading equity across more assets (often funded by **leverage**) reduces that risk because their cash flows are not perfectly correlated. Investors are rewarded mainly for **systematic** (market-wide) risk they cannot diversify away — the core idea behind the **CAPM** view of required returns.\n\n*Practical takeaway:* eight buildings at 75% LTV diversify far better than two bought all-cash with the same equity — provided the leverage is prudent."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — Diversification",
+                  "quizData": [
+                    {
+                      "id": "u03-3-1",
+                      "text": "Diversification reduces risk because asset cash flows are:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Perfectly correlated",
+                        "Not perfectly correlated",
+                        "Always rising"
+                      ],
+                      "correctAnswer": "Not perfectly correlated",
+                      "explanation": "Imperfect correlation means losses in one asset are partly offset by others."
+                    },
+                    {
+                      "id": "u03-3-2",
+                      "text": "Investors are primarily compensated for:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Diversifiable (idiosyncratic) risk",
+                        "Systematic (market) risk",
+                        "No risk at all"
+                      ],
+                      "correctAnswer": "Systematic (market) risk",
+                      "explanation": "Idiosyncratic risk can be diversified away, so the market rewards bearing systematic risk."
+                    }
+                  ]
                 }
               ],
               "resources": [
                 {
-                  "title": "Asset Pricing Slides",
+                  "title": "Asset Pricing Foundations — slides",
                   "type": "pptx",
                   "path": "/content/real-estate-101/finance/slides.pptx"
                 }
@@ -975,43 +1288,334 @@
         },
         {
           "id": "unit-4",
-          "title": "Single Asset Valuation (Legacy)",
-          "description": "Advanced single-asset modeling with split structures.",
+          "title": "Single-Asset Valuation Model",
+          "description": "Put it all together: a full single-asset model with a multi-year proforma, debt, and levered vs unlevered returns.",
           "lessons": [
             {
               "id": "lesson-4-1",
-              "title": "Single Asset Valuation Simulator",
+              "title": "The Full Single-Asset Model",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## From pieces to a complete model\n\nThis unit combines everything so far into one institutional-style model for a single property:\n\n1. **Proforma** — project PGI → NOI for the hold period (Unit 1).\n2. **Debt** — size a loan by LTV and DSCR, add the mortgage (Unit 3).\n3. **Returns** — compute **unlevered** (property) and **levered** (equity) IRR and equity multiple.\n4. **Exit** — value the sale with a terminal cap rate and net out selling costs and the loan balance.\n5. **Sensitivity** — flex the cap rate, growth, and leverage to see the range of outcomes.\n\nThe unlevered IRR tells you about the *asset*; the levered IRR tells you about your *equity* once debt is layered on."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — The Model",
+                  "quizData": [
+                    {
+                      "id": "u4-1-1",
+                      "text": "The unlevered IRR measures the return to:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The equity investor",
+                        "The property itself (before debt)",
+                        "The senior lender"
+                      ],
+                      "correctAnswer": "The property itself (before debt)",
+                      "explanation": "Unlevered return strips out financing to measure the asset's own performance."
+                    },
+                    {
+                      "id": "u4-1-2",
+                      "text": "Adding debt that costs less than the cap rate will:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Raise the levered IRR above the unlevered IRR",
+                        "Lower the levered IRR",
+                        "Have no effect"
+                      ],
+                      "correctAnswer": "Raise the levered IRR above the unlevered IRR",
+                      "explanation": "That's positive leverage — cheap debt amplifies equity returns."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-4-2",
+              "title": "Single-Asset Valuation Lab",
               "type": "simulator",
-              "duration": "60 min",
-              "simulatorId": "SingleAssetValuationSimulator"
+              "duration": "45 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Build and stress-test the model\n\nDrive the full model: set the proforma assumptions, the loan, and the exit, then read the unlevered and levered returns. Push the assumptions to see how fragile or robust the deal is."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "SingleAssetValuationSimulator"
+                },
+                {
+                  "type": "markdown",
+                  "content": "> Analyst habit: never trust a single output. Move the exit cap rate up by 50–100 bps and the growth rate down, and check the deal still works. Deals are made or lost in the downside case."
+                }
+              ]
+            },
+            {
+              "id": "lesson-4-3",
+              "title": "Summary & Check",
+              "type": "article",
+              "duration": "10 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## One-page summary\n\n- A single-asset model = proforma + debt + returns + exit + sensitivity.\n- **Unlevered** return = the asset; **levered** return = your equity after financing.\n- Positive leverage (debt cost < cap rate) lifts the levered IRR — and the risk.\n- Always test the **downside** (higher exit cap, lower growth) before committing."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Unit Assessment — Single-Asset Valuation",
+                  "quizData": [
+                    {
+                      "id": "u4-a-1",
+                      "text": "Raising the EXIT cap rate, all else equal, makes the value at sale:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Higher",
+                        "Lower",
+                        "Unchanged"
+                      ],
+                      "correctAnswer": "Lower",
+                      "explanation": "A higher exit cap rate divides the exit NOI by a bigger number, reducing the sale price."
+                    },
+                    {
+                      "id": "u4-a-2",
+                      "text": "Equity multiple is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Total equity distributions ÷ equity invested",
+                        "NOI ÷ debt service",
+                        "Loan ÷ value"
+                      ],
+                      "correctAnswer": "Total equity distributions ÷ equity invested",
+                      "explanation": "It's the gross multiple of cash returned to the equity versus cash invested."
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
           "id": "unit-5",
-          "title": "Barcelona Case Study",
-          "description": "Real-world case study analysis.",
+          "title": "Case Study: Valencia & Barcelona",
+          "description": "A real European deal: underwrite the property, structure the financing, and analyse the returns end-to-end.",
           "lessons": [
             {
               "id": "lesson-5-1",
-              "title": "Barcelona Case Simulator",
+              "title": "Case Brief",
+              "type": "article",
+              "duration": "15 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## The assignment\n\nYou are evaluating a real Spanish residential investment. Your job: underwrite the income, structure debt and equity, set an exit, and decide whether the returns justify the risk.\n\nWork through these questions as you use the model:\n\n1. What stabilised **NOI** does the property support, and what **cap rate** is appropriate for this market?\n2. How much **debt** can it carry given DSCR and LTV limits — and is the leverage positive?\n3. What **hold period** and **exit cap** are realistic, and how sensitive is the IRR to them?\n4. How would you split returns between an **LP** and a **GP** in a waterfall?"
+                },
+                {
+                  "type": "quiz",
+                  "content": "Pre-case Check",
+                  "quizData": [
+                    {
+                      "id": "u5-1-1",
+                      "text": "The first thing to pin down when underwriting is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The exit cap rate",
+                        "Stabilised NOI",
+                        "The promote structure"
+                      ],
+                      "correctAnswer": "Stabilised NOI",
+                      "explanation": "Everything — value, loan sizing, returns — flows from a credible stabilised NOI."
+                    },
+                    {
+                      "id": "u5-1-2",
+                      "text": "'Positive leverage' in this deal means:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Cost of debt below the cap rate",
+                        "LTV above 70%",
+                        "A long hold period"
+                      ],
+                      "correctAnswer": "Cost of debt below the cap rate",
+                      "explanation": "Only then does borrowing raise the equity return."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-5-2",
+              "title": "Barcelona Case Lab",
               "type": "simulator",
               "duration": "60 min",
-              "simulatorId": "BarcelonaCaseSimulator"
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Analyse the deal\n\nUse the case model to underwrite the property, size the financing, and read the returns. Test the downside before you conclude."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "BarcelonaCaseSimulator"
+                },
+                {
+                  "type": "markdown",
+                  "content": "> Deliverable: a one-paragraph recommendation — buy or pass — citing the levered IRR, the DSCR, and the two assumptions the outcome depends on most."
+                }
+              ]
+            },
+            {
+              "id": "lesson-5-3",
+              "title": "Debrief & Check",
+              "type": "article",
+              "duration": "10 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## What good analysis looks like\n\nA strong recommendation states the **return**, the **risk** (DSCR, sensitivity), and the **key assumptions** it hinges on — not just a single IRR number. Markets like Valencia and Barcelona reward investors who underwrite conservatively and structure financing to survive a softer exit."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Unit Assessment — Case Study",
+                  "quizData": [
+                    {
+                      "id": "u5-a-1",
+                      "text": "A DSCR of 1.10x on this deal would tell a lender:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Plenty of cushion",
+                        "Thin cushion — income barely covers debt",
+                        "The deal is unleveraged"
+                      ],
+                      "correctAnswer": "Thin cushion — income barely covers debt",
+                      "explanation": "1.10x leaves little margin; most lenders want ≥ 1.25x."
+                    },
+                    {
+                      "id": "u5-a-2",
+                      "text": "The most useful sensitivity to run on a case like this is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Exit cap rate and growth",
+                        "The colour of the building",
+                        "The number of windows"
+                      ],
+                      "correctAnswer": "Exit cap rate and growth",
+                      "explanation": "Exit cap and growth drive most of the IRR's variability."
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
         {
           "id": "unit-6",
           "title": "Affordable Housing Fund",
-          "description": "Fund-level modeling and waterfall analysis.",
+          "description": "Step up from one building to a fund: pooled capital, multiple assets, subsidy-supported affordable housing, and a fund-level waterfall.",
           "lessons": [
             {
               "id": "lesson-6-1",
-              "title": "Fund Simulator",
+              "title": "From Asset to Fund",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Fund-level thinking\n\nA fund pools investor capital to buy **many** assets. That changes the analysis:\n\n- Returns are measured **across the portfolio**, net of **fund fees** and the GP **promote**.\n- Capital is **called** over time and **distributed** as assets perform and exit — the classic **J-curve** (early outflows, later inflows).\n- Diversification across assets reduces idiosyncratic risk.\n\n### Affordable housing finance\nAffordable housing deals are supported by **subsidies and incentives** (tax credits such as LIHTC in the US, and grants/below-market loans and density bonuses in Europe). These lower the cost of capital in exchange for keeping rents below market for a defined period — turning otherwise sub-economic projects into viable, stable, mission-aligned investments."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — Funds",
+                  "quizData": [
+                    {
+                      "id": "u6-1-1",
+                      "text": "The fund 'J-curve' describes:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Early capital outflows followed by later distributions",
+                        "A type of mortgage",
+                        "Rising interest rates"
+                      ],
+                      "correctAnswer": "Early capital outflows followed by later distributions",
+                      "explanation": "Investors fund the deals first; returns come later as assets stabilise and exit."
+                    },
+                    {
+                      "id": "u6-1-2",
+                      "text": "Affordable housing subsidies (e.g. tax credits) primarily:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Raise market rents",
+                        "Lower the project's cost of capital in exchange for rent restrictions",
+                        "Eliminate all risk"
+                      ],
+                      "correctAnswer": "Lower the project's cost of capital in exchange for rent restrictions",
+                      "explanation": "Subsidies make below-market-rent projects financially viable."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-6-2",
+              "title": "Affordable Housing Fund Lab",
               "type": "simulator",
-              "duration": "90 min",
-              "simulatorId": "AffordableHousingFundSimulator"
+              "duration": "60 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Model the fund\n\nSet the fund's assets, leverage, fees and waterfall, and read the **LP** and **GP** returns. Watch how the **promote** and fees shift the split, and how subsidy assumptions change viability."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "AffordableHousingFundSimulator"
+                },
+                {
+                  "type": "markdown",
+                  "content": "> Note the gap between the **gross** (asset-level) return and the **net** (LP) return — fees and promote live in that gap."
+                }
+              ]
+            },
+            {
+              "id": "lesson-6-3",
+              "title": "Summary & Check",
+              "type": "article",
+              "duration": "10 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## One-page summary\n\n- A fund pools capital across many assets; returns are measured **net of fees and promote**.\n- Capital is called and returned over time — the **J-curve**.\n- **Affordable housing** relies on subsidies/incentives that lower the cost of capital in return for rent restrictions.\n- Always compare **gross** vs **net (LP)** returns — that gap is the cost of the manager."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Unit Assessment — Affordable Housing Fund",
+                  "quizData": [
+                    {
+                      "id": "u6-a-1",
+                      "text": "The LP's NET return differs from the gross asset return because of:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Fund fees and the GP promote",
+                        "The risk-free rate",
+                        "Inflation only"
+                      ],
+                      "correctAnswer": "Fund fees and the GP promote",
+                      "explanation": "Management fees and carried interest are deducted to get the LP's net return."
+                    },
+                    {
+                      "id": "u6-a-2",
+                      "text": "Diversifying a fund across many assets mainly reduces:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Systematic risk",
+                        "Idiosyncratic (asset-specific) risk",
+                        "The promote"
+                      ],
+                      "correctAnswer": "Idiosyncratic (asset-specific) risk",
+                      "explanation": "Spreading across assets dilutes single-asset shocks; market-wide risk remains."
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -1026,21 +1630,99 @@
       "units": [
         {
           "id": "unit-7",
-          "title": "Mortgage Backed Securities (MBS)",
+          "title": "Mortgage-Backed Securities (MBS)",
+          "description": "How pools of mortgages become tradable bonds — securitization, tranching, credit enhancement, and prepayment risk.",
           "lessons": [
             {
               "id": "lesson-7-1",
-              "title": "MBS Fundamentals",
+              "title": "Securitization & CMBS",
               "type": "article",
+              "duration": "20 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## Introduction to CMBS\n\nCommercial Mortgage-Backed Securities (CMBS) are bonds backed by a pool of commercial mortgages. They allow banks to move loans off their balance sheet and provide investors with varying levels of risk/return via **Tranching**."
+                  "content": "## Turning loans into bonds\n\nA bank holding many commercial mortgages can **securitize** them: pool the loans, place them in a trust, and sell **bonds** backed by the pool's cash flows. These are **Commercial Mortgage-Backed Securities (CMBS)**.\n\nWhy do it?\n- It moves loans **off the bank's balance sheet**, freeing capital to lend again.\n- It lets investors buy real-estate credit at the **risk level they want** via tranching.\n- It deepens **liquidity** in the mortgage market."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Tranching: slicing risk\n\nThe pool's cash flows are divided into **tranches** with a strict payment order (the 'waterfall'):\n\n- **Senior tranches (AAA)** are paid first — lowest yield, lowest risk.\n- **Mezzanine tranches** absorb losses next — higher yield.\n- The **junior / first-loss ('B-piece')** tranche is paid last and absorbs the **first losses** — highest yield.\n\nThis is **credit enhancement by subordination**: the junior pieces protect the senior ones. Different investors buy different tranches according to their appetite for risk."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — CMBS",
+                  "quizData": [
+                    {
+                      "id": "u7-1-1",
+                      "text": "In a CMBS structure, which tranche absorbs losses first?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The senior (AAA) tranche",
+                        "The junior / first-loss tranche",
+                        "All tranches equally"
+                      ],
+                      "correctAnswer": "The junior / first-loss tranche",
+                      "explanation": "Subordination means the junior 'B-piece' takes first losses, protecting senior tranches."
+                    },
+                    {
+                      "id": "u7-1-2",
+                      "text": "A key reason banks securitize loans is to:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Increase their balance sheet",
+                        "Move loans off the balance sheet and free up capital",
+                        "Raise the loans' interest rates"
+                      ],
+                      "correctAnswer": "Move loans off the balance sheet and free up capital",
+                      "explanation": "Securitization recycles capital so the bank can originate more loans."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-7-2",
+              "title": "Prepayment, Risk & the 2008 Lesson",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Prepayment and extension risk\n\nMBS investors face two timing risks:\n- **Prepayment risk** — when rates fall, borrowers refinance and repay early, returning principal that must be reinvested at lower rates. Commercial loans often limit this with **prepayment penalties / yield maintenance**.\n- **Extension risk** — when rates rise or refinancing is hard, loans stay outstanding longer than expected.\n\n## What 2008 taught\n\nThe financial crisis showed how securitization can **mask and spread risk**: weak underwriting, over-reliance on ratings, and complex re-securitizations (CDOs) meant losses were larger and more widely distributed than investors understood. The mechanics are powerful, but they depend entirely on the **quality of the underlying loans** and honest risk assessment."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — MBS Risk",
+                  "quizData": [
+                    {
+                      "id": "u7-2-1",
+                      "text": "Prepayment risk hurts an MBS investor most when:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Interest rates fall",
+                        "Interest rates rise",
+                        "NOI rises"
+                      ],
+                      "correctAnswer": "Interest rates fall",
+                      "explanation": "Falling rates trigger refinancing/prepayment, forcing reinvestment at lower yields."
+                    },
+                    {
+                      "id": "u7-2-2",
+                      "text": "A central lesson of 2008 for securitization was:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Ratings are always reliable",
+                        "Outcomes depend on the quality of the underlying loans",
+                        "Tranching removes all risk"
+                      ],
+                      "correctAnswer": "Outcomes depend on the quality of the underlying loans",
+                      "explanation": "No structure can fix bad underwriting; risk was understated and widely spread."
+                    }
+                  ]
                 }
               ],
               "resources": [
                 {
-                  "title": "MBS Lecture Notes (Ch 20)",
+                  "title": "MBS Lecture Notes (Geltner & Miller Ch. 20) — slides",
                   "type": "pptx",
                   "path": "/content/advanced/mbs/slides.pptx"
                 }
@@ -1051,34 +1733,96 @@
         {
           "id": "unit-8",
           "title": "REITs",
+          "description": "Real Estate Investment Trusts: how they work, the rules that define them, and the metrics used to value them.",
           "lessons": [
             {
               "id": "lesson-8-1",
-              "title": "Guide to REITs",
+              "title": "What Is a REIT?",
               "type": "article",
+              "duration": "20 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## What is a REIT?\n\nReal Estate Investment Trusts (REITs) allow individual investors to buy shares in commercial real estate portfolios. To qualify as a REIT, a company must:\n*   Invest at least 75% of assets in real estate.\n*   Distribute at least 90% of taxable income to shareholders."
+                  "content": "## Real estate you can buy like a share\n\nA **REIT** (Real Estate Investment Trust) is a company that owns (and usually operates) income-producing real estate, whose shares trade like any stock. REITs let individual investors hold a diversified, professionally-managed property portfolio with daily liquidity.\n\n### The defining bargain\nIn exchange for special tax treatment (generally **no corporate tax** on distributed income), a REIT must meet strict tests. The classic US rules — mirrored in spirit by Europe's regimes (the Spanish **SOCIMI**, French SIIC, UK REIT) — require it to:\n- hold the large majority of assets in **real estate**,\n- earn most income from **rents/real-estate sources**, and\n- distribute the large majority of taxable income to shareholders as **dividends** (≈90%).\n\nThat high payout is why REITs are prized for **income**."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — REIT Basics",
+                  "quizData": [
+                    {
+                      "id": "u8-1-1",
+                      "text": "A REIT generally must distribute to shareholders about:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "10% of taxable income",
+                        "50% of taxable income",
+                        "90% of taxable income"
+                      ],
+                      "correctAnswer": "90% of taxable income",
+                      "explanation": "The high mandatory payout is the trade-off for avoiding corporate-level tax."
+                    },
+                    {
+                      "id": "u8-1-2",
+                      "text": "The main appeal of REITs to individual investors is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Guaranteed returns",
+                        "Liquid, diversified real-estate exposure with income",
+                        "No risk"
+                      ],
+                      "correctAnswer": "Liquid, diversified real-estate exposure with income",
+                      "explanation": "Shares trade daily and pay high dividends from a diversified portfolio."
+                    }
+                  ]
                 }
-              ],
-              "contentUrl": "/content/advanced/reits/reading.pdf"
+              ]
             },
             {
               "id": "lesson-8-2",
-              "title": "Rehypothecation",
+              "title": "Valuing a REIT: FFO & AFFO",
               "type": "article",
+              "duration": "20 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## Rehypothecation\n\nThe practice where banks use assets posted as collateral by their clients for their own purposes. This played a significant role in the Great Financial Crisis."
+                  "content": "## Why net income misleads for property\n\nAccounting **depreciation** treats buildings as wearing out, creating a large non-cash expense that depresses reported net income — even as the real estate may be holding or gaining value. So analysts use property-specific measures:\n\n- **FFO (Funds From Operations)** = Net income + real-estate **depreciation & amortization** − gains on property sales. It adds back the non-cash depreciation to better reflect cash earnings.\n- **AFFO (Adjusted FFO)** = FFO − recurring **capital expenditures** (and adjustments). A closer proxy for the cash actually available to pay dividends.\n\nREITs are commonly valued on a **price/FFO multiple** (like a P/E for property) and on their **dividend yield**, alongside **NAV** (net asset value of the underlying real estate)."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — REIT Metrics",
+                  "quizData": [
+                    {
+                      "id": "u8-2-1",
+                      "text": "FFO adds back which non-cash item to net income?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Interest expense",
+                        "Real-estate depreciation & amortization",
+                        "Dividends paid"
+                      ],
+                      "correctAnswer": "Real-estate depreciation & amortization",
+                      "explanation": "Depreciation is a large non-cash charge for property; FFO adds it back."
+                    },
+                    {
+                      "id": "u8-2-2",
+                      "text": "AFFO differs from FFO mainly by subtracting:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Recurring capital expenditures",
+                        "Rental income",
+                        "Corporate tax"
+                      ],
+                      "correctAnswer": "Recurring capital expenditures",
+                      "explanation": "AFFO nets out maintenance capex to better reflect distributable cash."
+                    }
+                  ]
                 }
               ],
               "resources": [
                 {
-                  "title": "Rehypothecation Slides",
-                  "type": "pptx",
-                  "path": "/content/advanced/reits/slides.ppt"
+                  "title": "Guide to REITs — reading",
+                  "type": "pdf",
+                  "path": "/content/advanced/reits/reading.pdf"
                 }
               ]
             }
@@ -1087,20 +1831,102 @@
         {
           "id": "unit-9",
           "title": "Real Estate Development Finance",
+          "description": "Financing the creation of new buildings: the development process, the J-curve, construction lending, and feasibility analysis.",
           "lessons": [
             {
               "id": "lesson-9-1",
-              "title": "Development Finance",
+              "title": "The Development Process & J-Curve",
               "type": "article",
+              "duration": "20 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## The Development J-Curve\n\nDevelopment is characterized by a \"J-Curve\" cash flow profile: significant upfront negative cash flows (Land, Entitlement, Construction) followed by a sharp positive return upon stabilization or exit."
+                  "content": "## Development is a different game\n\nDevelopment creates value by **building** rather than buying stabilised income. Its cash-flow profile is a **J-curve**: large negative outflows up front (land, design, permits, construction) followed by a sharp positive return at stabilisation or sale.\n\nThe stages — **Acquisition → Development (entitlement/design) → Construction → Lease-up/Stabilisation → Exit** — each carry distinct risks. Returns must compensate for **entitlement risk**, **construction risk** (cost and time overruns) and **lease-up risk**."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Construction (ADC) financing\n\nDevelopment is financed with **Acquisition, Development & Construction (ADC)** loans. Characteristics:\n- The loan **draws down** as construction progresses (you borrow as you spend), so interest accrues on a rising balance — often funded by an **interest reserve**.\n- It's usually **interest-only** during construction, with a **balloon** at completion, then refinanced into a permanent loan (**'mini-perm' → take-out**).\n- Lenders size it on **loan-to-cost (LTC)** as well as loan-to-value, and require the developer's equity in **first**."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — Development",
+                  "quizData": [
+                    {
+                      "id": "u9-1-1",
+                      "text": "The development 'J-curve' refers to:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Large early outflows, then a later positive return",
+                        "A type of REIT",
+                        "Falling cap rates"
+                      ],
+                      "correctAnswer": "Large early outflows, then a later positive return",
+                      "explanation": "Land and construction costs come first; returns arrive at stabilisation/exit."
+                    },
+                    {
+                      "id": "u9-1-2",
+                      "text": "A construction loan typically:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Is fully funded on day one",
+                        "Draws down as construction progresses",
+                        "Requires no developer equity"
+                      ],
+                      "correctAnswer": "Draws down as construction progresses",
+                      "explanation": "Funds are advanced against progress, so interest accrues on a rising balance."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-9-2",
+              "title": "Feasibility: Front-Door vs Back-Door",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Will the numbers work?\n\nDevelopers test feasibility two ways:\n\n- **Front-door** (cost-led): start from total **development cost**, apply the required return, and solve for the **rent you must achieve**. Then ask: is that rent achievable in this market?\n- **Back-door** (market-led): start from **achievable market rent**, work back to the value it supports, subtract the developer's required profit, and solve for the **maximum land/cost** you can afford — the **residual land value**.\n\nBoth meet in the middle: a deal works only when **value created ≥ total cost + required profit**. The gap between them is the **development margin** (often expressed as profit on cost)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Real options thinking\n\nLand is partly an **option**: the right, not the obligation, to build. That flexibility — to wait, to phase, to change use — has value, which is why developable land can be worth more than any single immediate use implies."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — Feasibility",
+                  "quizData": [
+                    {
+                      "id": "u9-2-1",
+                      "text": "The back-door approach solves for:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The required rent given cost",
+                        "The maximum affordable land/cost given market rent",
+                        "The cap rate"
+                      ],
+                      "correctAnswer": "The maximum affordable land/cost given market rent",
+                      "explanation": "Back-door works from achievable rent back to residual land value."
+                    },
+                    {
+                      "id": "u9-2-2",
+                      "text": "A development is feasible when:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Value created ≥ total cost + required profit",
+                        "Rent is above zero",
+                        "The building is tall"
+                      ],
+                      "correctAnswer": "Value created ≥ total cost + required profit",
+                      "explanation": "Feasibility means the finished value covers all costs plus the developer's profit."
+                    }
+                  ]
                 }
               ],
               "resources": [
                 {
-                  "title": "Dev Finance Slides",
+                  "title": "Development Finance — slides",
                   "type": "pptx",
                   "path": "/content/advanced/development/slides.pptx"
                 }
@@ -1111,20 +1937,94 @@
         {
           "id": "unit-10",
           "title": "After-Tax Analysis",
+          "description": "How taxes shape real estate returns: depreciation, after-tax cash flow, capital gains, and tax-deferred exchanges.",
           "lessons": [
             {
               "id": "lesson-10-1",
-              "title": "Tax Impacts",
+              "title": "Depreciation & After-Tax Cash Flow",
               "type": "article",
+              "duration": "20 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## Depreciation & Capital Gains\n\nReal estate offers unique tax advantages, primarily through **Depreciation** (non-cash expense that shields income) and **1031 Exchanges** (deferral of capital gains tax)."
+                  "content": "## Tax changes the real return\n\nInvestors keep the **after-tax** return, so taxes belong in the model. The most powerful lever in real estate is **depreciation**: tax rules let you deduct a portion of the **building's** value (not the land) each year as a non-cash expense. That deduction **shields income from tax**, even when the cash flow is positive and the property is appreciating.\n\n**After-tax cash flow** = before-tax cash flow − taxes, where taxable income = NOI − interest − depreciation. Because depreciation is non-cash, it often turns a taxable profit into a taxable *loss* while the investor still pockets cash — the classic real-estate tax advantage."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — Depreciation",
+                  "quizData": [
+                    {
+                      "id": "u10-1-1",
+                      "text": "Depreciation is valuable to a real estate investor because it:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Is a cash expense that must be paid",
+                        "Is a non-cash deduction that shields income from tax",
+                        "Increases the property's price"
+                      ],
+                      "correctAnswer": "Is a non-cash deduction that shields income from tax",
+                      "explanation": "You deduct it for tax without paying cash, lowering the tax bill."
+                    },
+                    {
+                      "id": "u10-1-2",
+                      "text": "Depreciation applies to:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Land only",
+                        "The building (improvements), not the land",
+                        "Both land and building equally"
+                      ],
+                      "correctAnswer": "The building (improvements), not the land",
+                      "explanation": "Land is not depreciable; only the improvements are."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "lesson-10-2",
+              "title": "Capital Gains & Tax-Deferred Exchanges",
+              "type": "article",
+              "duration": "20 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## The tax bill at sale\n\nOn sale, gains are taxed in two pieces: **capital gain** (sale price above purchase price) and **depreciation recapture** (the depreciation you previously deducted is partly clawed back). Both reduce the net proceeds — so after-tax IRR is always lower than pre-tax IRR.\n\n## Deferring the tax\n\nMany regimes let investors **defer** the tax by rolling proceeds into another property: the US **1031 like-kind exchange** is the classic example; several European systems offer rollover-relief equivalents. Deferral keeps more capital working and compounding — a major reason long-term investors rarely sell outright. The tax isn't erased, but postponing it has real present-value benefit."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Knowledge Check — Gains & Exchanges",
+                  "quizData": [
+                    {
+                      "id": "u10-2-1",
+                      "text": "A US 1031 (like-kind) exchange lets an investor:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Avoid all tax forever",
+                        "Defer the capital-gains tax by reinvesting in another property",
+                        "Depreciate land"
+                      ],
+                      "correctAnswer": "Defer the capital-gains tax by reinvesting in another property",
+                      "explanation": "It postpones (not erases) the gain by rolling into a replacement property."
+                    },
+                    {
+                      "id": "u10-2-2",
+                      "text": "After-tax IRR compared with pre-tax IRR is generally:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Higher",
+                        "Lower",
+                        "Identical"
+                      ],
+                      "correctAnswer": "Lower",
+                      "explanation": "Taxes on income and gains reduce the cash the investor keeps, lowering the after-tax return."
+                    }
+                  ]
                 }
               ],
               "resources": [
                 {
-                  "title": "After-Tax Analysis Slides",
+                  "title": "After-Tax Analysis — slides",
                   "type": "pptx",
                   "path": "/content/advanced/tax/slides.pptx"
                 }
