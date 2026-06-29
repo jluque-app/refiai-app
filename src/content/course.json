@@ -2015,6 +2015,14 @@
                   "content": "## From pieces to a complete model\n\nThis unit combines everything so far into one institutional-style model for a single property:\n\n1. **Proforma** — project PGI → NOI for the hold period (Unit 1).\n2. **Debt** — size a loan by LTV and DSCR, add the mortgage (Unit 3).\n3. **Returns** — compute **unlevered** (property) and **levered** (equity) IRR and equity multiple.\n4. **Exit** — value the sale with a terminal cap rate and net out selling costs and the loan balance.\n5. **Sensitivity** — flex the cap rate, growth, and leverage to see the range of outcomes.\n\nThe unlevered IRR tells you about the *asset*; the levered IRR tells you about your *equity* once debt is layered on."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — three levels of cash flow, kept strictly separate\n\nThe single-asset model flows property → debt → equity, and the discipline is keeping the levels apart. The **proforma** produces *property-level* cash flow and deliberately ignores financing and ownership: PGI − vacancy + other income = EGI; EGI − operating expenses = NOI; NOI − capital improvements = **PBTCF**. Two rules: income taxes and debt service are *never* operating expenses (they're ownership-level), and the only thing separating NOI from PBTCF is CapEx. You **capitalise NOI**; the lender and equity actually share **PBTCF**.\n\nDebt and equity sit on top. Size the loan as **Loan\\* = min{LTV × value, DSCR-loan}**, model it as a CPM with a long amortization but early prepayment at sale, and compute the **outstanding loan balance (OLB)** at exit. Equity cash flow = PBTCF − annual debt service each year; the levered reversion **BTER = sale price − selling costs − OLB**. The **levered IRR** discounts that residual stream; the **unlevered IRR** discounts PBTCF plus the full reversion. When the unlevered return exceeds the cost of debt, leverage lifts the equity IRR — positive leverage."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — value, then layer debt\n\nYear-1 NOI €665,000 growing 3%; cap rate 10%.\n\n- Direct-cap value = 665,000 / 0.10 = **€6,650,000**; implied total return = 10% + 3% = **13%**.\n- Lender: 70% LTV at an 8% mortgage constant, DSCR ≥ 1.5 on PBTCF (= €665,000).\n  - LTV-loan = 0.70 × 6,650,000 = €4,655,000; DSCR-loan = (665,000/1.5)/0.08 = €5,541,667.\n  - **Loan\\* = €4,655,000** (LTV binds). Year-1 ADS = 0.08 × 4,655,000 = €372,400 → equity CF = €292,600 (8.6% cash-on-cash on €1,995,000 equity)."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — The Model",
                   "quizData": [
@@ -2041,6 +2049,31 @@
                       ],
                       "correctAnswer": "Raise the levered IRR above the unlevered IRR",
                       "explanation": "That's positive leverage — cheap debt amplifies equity returns."
+                    },
+                    {
+                      "id": "u4l1-d1",
+                      "text": "The only line separating NOI from Property Before-Tax Cash Flow (PBTCF) is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Debt service",
+                        "Income taxes",
+                        "Capital improvement expenditures",
+                        "Property tax"
+                      ],
+                      "correctAnswer": "Capital improvement expenditures",
+                      "explanation": "Debt service and income taxes are ownership-level; only CapEx separates NOI from PBTCF."
+                    },
+                    {
+                      "id": "u4l1-d2",
+                      "text": "Value €6.65m, PBTCF₁ €665k, 70% LTV, mortgage constant 8%, DSCR 1.5. The loan is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€4,655,000",
+                        "€5,541,667",
+                        "€4,433,333"
+                      ],
+                      "correctAnswer": "€4,655,000",
+                      "explanation": "min{0.70×6.65m, (665k/1.5)/0.08} = min{4.655m, 5.542m}; LTV binds."
                     }
                   ]
                 }
@@ -2077,6 +2110,14 @@
                   "content": "## One-page summary\n\n- A single-asset model = proforma + debt + returns + exit + sensitivity.\n- **Unlevered** return = the asset; **levered** return = your equity after financing.\n- Positive leverage (debt cost < cap rate) lifts the levered IRR — and the risk.\n- Always test the **downside** (higher exit cap, lower growth) before committing."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — reconciling the two valuations, and reading the IRR\n\nTwo slogans anchor the synthesis. **'Money is made when you buy, not when you sell'**: once the price is fixed, the expected return is fixed, because price and return are inverse. And the DCF forecast must be a **realistic best-guess** — risk runs both ways. The reconciliation test is the cap-rate identity: direct cap (NOI₁/cap) and a finite DCF of PBTCF plus reversion converge when the reversion is priced off a terminal cap rate and growth is internally consistent (cap = discount − growth).\n\nThe frequent errors to avoid: discounting NOI instead of PBTCF, treating debt service as an operating expense, and forgetting to subtract selling costs and the OLB when building the equity reversion (BTER). Getting BTER right is what makes the levered IRR meaningful. Finally, stay fluent in the decomposition — **Total return = income return (CF/V) + appreciation (ΔV/V)** — so any IRR is explainable (a 13% levered IRR on a 10%-cap asset = ~10% income + appreciation, amplified by positive leverage), never a black box."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the two methods agree\n\nYear-1 PBTCF €1,000,000 growing 3%; buy at a 10% going-in cap; exit at a 10% terminal cap on Year-6 NOI.\n\n- Going-in price = 1,000,000 / 0.10 = **€10,000,000**.\n- Year-6 NOI = 1,000,000 × 1.03⁵ = €1,159,274 → reversion = 1,159,274 / 0.10 = €11,592,740.\n- Discount the five PBTCFs plus the reversion at 13% (= 10% cap + 3% growth) → PV ≈ **€10.0m**, matching the direct-cap price."
+                },
+                {
                   "type": "quiz",
                   "content": "Unit Assessment — Single-Asset Valuation",
                   "quizData": [
@@ -2103,6 +2144,32 @@
                       ],
                       "correctAnswer": "Total equity distributions ÷ equity invested",
                       "explanation": "It's the gross multiple of cash returned to the equity versus cash invested."
+                    },
+                    {
+                      "id": "u4l3-d1",
+                      "text": "NOI is €5,000,000 and the market cap rate is 9%. Direct-cap value is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€4,500,000",
+                        "€45,000,000",
+                        "€55,555,556",
+                        "€450,000"
+                      ],
+                      "correctAnswer": "€55,555,556",
+                      "explanation": "Value = NOI/cap = 5,000,000/0.09 = €55,555,556."
+                    },
+                    {
+                      "id": "u4l3-d2",
+                      "text": "When building the equity reversion (BTER), from the gross sale price you subtract:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Nothing",
+                        "Only selling costs",
+                        "Selling costs and the outstanding loan balance",
+                        "The original loan amount"
+                      ],
+                      "correctAnswer": "Selling costs and the outstanding loan balance",
+                      "explanation": "Equity gets sale proceeds net of transaction costs after the lender is repaid the OLB at exit."
                     }
                   ]
                 }
@@ -2124,6 +2191,14 @@
                 {
                   "type": "markdown",
                   "content": "## The assignment\n\nYou are evaluating a real Spanish residential investment. Your job: underwrite the income, structure debt and equity, set an exit, and decide whether the returns justify the risk.\n\nWork through these questions as you use the model:\n\n1. What stabilised **NOI** does the property support, and what **cap rate** is appropriate for this market?\n2. How much **debt** can it carry given DSCR and LTV limits — and is the leverage positive?\n3. What **hold period** and **exit cap** are realistic, and how sensitive is the IRR to them?\n4. How would you split returns between an **LP** and a **GP** in a waterfall?"
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — the Valencia deal and its capital stack\n\nValencia (Barcelona is its twin) is the capstone: it layers a full **capital stack** and a **promote/waterfall** onto the single-asset machinery. The deal is opportunistic value-add — buy a historic building for **€14,000,000**, spend ~3 years converting it to 73 short-stay units, sign a 30-year variable lease with a touristic-apartments operator (with a minimum guaranteed rent), then **sell one year after stabilisation at a 6% exit cap**.\n\nThe stack, top to bottom: **senior debt** (acquisition loan at 40% LTC + construction loan at 90% LTC, both 5.50%); **mezzanine** at a 20% effective yield, structured as a *bullet with compounding interest* (no payment until sale); and **common equity** contributed 90% capital partner / 10% operating partner but with cash flows split **75% / 25%** — the operating partner's 25%-on-10% is the **promote**. Two sizing subtleties: the mezz funds the *equity-side* needs during construction (senior debt service plus the unfinanced construction slice), not the purchase; and because the loans amortise over 13–15 years but are prepaid at exit, you must compute each loan's **outstanding balance** at the 2028 sale."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — sizing the acquisition loan and its exit balance\n\n- Acquisition loan = 40% LTC × €14,000,000 = **€5,600,000** at 5.50%, 15-yr CPM.\n- Annual payment ≈ 5,600,000 × 0.09963 ≈ **€557,900/yr**.\n- Equity for the purchase = unfinanced cost = 0.60 × €14,000,000 = **€8,400,000** (true equity, not mezz).\n- OLB at end-2028 (≈4 years of amortization, prepaid at sale) ≈ **€4,514,853** — matching the solution key. (Deal anchors: opportunistic NPV@6% ≈ €7.54m; opportunistic IRR ≈ 16.89%.)"
                 },
                 {
                   "type": "quiz",
@@ -2152,6 +2227,30 @@
                       ],
                       "correctAnswer": "Cost of debt below the cap rate",
                       "explanation": "Only then does borrowing raise the equity return."
+                    },
+                    {
+                      "id": "u5l1-d1",
+                      "text": "The Valencia mezzanine loan is a 'bullet with compounding interest.' This means:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Interest is paid monthly",
+                        "No interest or principal is paid until the asset is sold",
+                        "It amortises over 13 years"
+                      ],
+                      "correctAnswer": "No interest or principal is paid until the asset is sold",
+                      "explanation": "A bullet/compounding mezz defers all payment to exit, so its balance grows at the 20% yield until sale."
+                    },
+                    {
+                      "id": "u5l1-d2",
+                      "text": "Common equity is contributed 90/10 but cash flows split 75/25 to the operating partner. The extra return to the sponsor is the:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Senior tranche",
+                        "Promote / carried interest",
+                        "Mezzanine"
+                      ],
+                      "correctAnswer": "Promote / carried interest",
+                      "explanation": "Receiving 25% of cash flow on a 10% contribution is the promote that rewards performance."
                     }
                   ]
                 }
@@ -2188,6 +2287,14 @@
                   "content": "## What good analysis looks like\n\nA strong recommendation states the **return**, the **risk** (DSCR, sensitivity), and the **key assumptions** it hinges on — not just a single IRR number. Markets like Valencia and Barcelona reward investors who underwrite conservatively and structure financing to survive a softer exit."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — the promote and leverage, read off the solution keys\n\nThe debrief's punch line is the **power of the promote**. Under the 75/25 split, the **operating partner earns ~50.6% IRR / 5.15× equity multiple** while the **capital partner earns ~14.5% / 1.72×** — despite putting in 90% of the equity. The diagnostic: under a plain **pari-passu (90/10)** split the operating partner's IRR collapses to **~19.8%** (the total-equity IRR). The promote transferred ~30 points of IRR to the sponsor, funded entirely by diluting the capital partner from 19.8% to 14.5% — no new cash was created; the waterfall re-sliced it.\n\nThe second theme is **leverage and sensitivity**. Raising acquisition LTC from 40% to 80% lifts the equity IRR from ~19.8% to **~35.1%** (positive leverage, since the unlevered return beats the 5.5% debt cost). But the downside bites: construction cost at €2,060/sqm *and* an 8% exit cap drive the capital partner to **−6.54%**. The exit cap is the single most dangerous assumption. And note the **stabilised buyer** earns only ~6.94% IRR on operating cash flows alone — close to the exit cap, as a stabilised income stream should."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — promote vs pari-passu\n\nTotal-equity IRR ≈ 19.8% (EM 2.06×); contributions 90% LP / 10% GP.\n\n- **Pari-passu (90/10 cash):** GP IRR = **19.8%**, EM ≈ 2.06×.\n- **Promote (75/25 cash on 90/10 contribution):** GP gets 25% of cash on 10% of capital → GP IRR **~50.6%, EM 5.15×**; LP diluted to **~14.5%, EM 1.72×**."
+                },
+                {
                   "type": "quiz",
                   "content": "Unit Assessment — Case Study",
                   "quizData": [
@@ -2214,6 +2321,30 @@
                       ],
                       "correctAnswer": "Exit cap rate and growth",
                       "explanation": "Exit cap and growth drive most of the IRR's variability."
+                    },
+                    {
+                      "id": "u5l3-d1",
+                      "text": "Raising acquisition LTC from 40% to 80% lifts the equity IRR (~19.8% → ~35.1%) because:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The loan is cheaper than the asset's unlevered return (positive leverage)",
+                        "Debt always raises returns",
+                        "The cap rate fell"
+                      ],
+                      "correctAnswer": "The loan is cheaper than the asset's unlevered return (positive leverage)",
+                      "explanation": "When the unlevered return exceeds the 5.5% debt cost, more leverage amplifies equity returns."
+                    },
+                    {
+                      "id": "u5l3-d2",
+                      "text": "Construction cost €2,060/sqm and an exit cap moving 6%→8% drive the capital partner's IRR to:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "+14.5%",
+                        "+6.9%",
+                        "−6.54%"
+                      ],
+                      "correctAnswer": "−6.54%",
+                      "explanation": "A higher exit cap compresses the reversion sharply; with cost overruns it turns the deal negative — the exit cap is the dominant risk."
                     }
                   ]
                 }
@@ -2235,6 +2366,14 @@
                 {
                   "type": "markdown",
                   "content": "## Fund-level thinking\n\nA fund pools investor capital to buy **many** assets. That changes the analysis:\n\n- Returns are measured **across the portfolio**, net of **fund fees** and the GP **promote**.\n- Capital is **called** over time and **distributed** as assets perform and exit — the classic **J-curve** (early outflows, later inflows).\n- Diversification across assets reduces idiosyncratic risk.\n\n### Affordable housing finance\nAffordable housing deals are supported by **subsidies and incentives** (tax credits such as LIHTC in the US, and grants/below-market loans and density bonuses in Europe). These lower the cost of capital in exchange for keeping rents below market for a defined period — turning otherwise sub-economic projects into viable, stable, mission-aligned investments."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — Front Door vs Back Door feasibility\n\nThis unit pivots from valuing a given asset to deciding whether a project can be built — the **Front Door / Back Door** framework. The **Back Door** starts from achievable market rent and works *down* to the maximum justifiable project cost. The **Front Door** starts from a fixed budget and works *up* to the **required rent**: budget → debt service (on the LTC-sized loan) + required equity return = required NOI → gross up for opex and vacancy → divide by area = required rent/m². If required rent ≤ allowable rent, the project is **feasible**.\n\nFor affordable housing the 'allowable rent' is a *policy* cap (e.g. ≤30% of a minimum-wage tenant's income) plus a location rule (within commuting range of jobs), making feasibility a *spatial* optimisation — run the Front Door at every candidate site and pick the lowest required rent that still meets the cap. **Scale** helps (spreading fixed costs over more area lowers required rent). And the **fund** logic enters here: a single affordable project rarely pencils on private rents alone, so the affordable-housing fund stacks **subsidy instruments** — TIF, tax credits (LIHTC), and city grants — on top of debt and equity to push required rent under the cap."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the Front Door base case\n\nBudget €3.0m land + €6.0m hard + €1.0m soft = **€10,000,000**; 60,000 m² rentable; 60% LTC at 8.5%/25-yr; equity wants 8% cash-on-cash; opex 40% of EGI; vacancy 5%.\n\n- Debt = €6,000,000 → annual debt service ≈ €579,000; equity return = €4,000,000 × 8% = €320,000.\n- Required NOI ≈ **€899,000**; gross up → EGI ≈ €1,498,000, PGI ≈ €1,577,000.\n- Required rent = 1,577,000 / 60,000 ≈ **€26.31/m²/yr**; implied cap rate = 899,000 / 10,000,000 = **9%**."
                 },
                 {
                   "type": "quiz",
@@ -2263,6 +2402,31 @@
                       ],
                       "correctAnswer": "Lower the project's cost of capital in exchange for rent restrictions",
                       "explanation": "Subsidies make below-market-rent projects financially viable."
+                    },
+                    {
+                      "id": "u6l1-d1",
+                      "text": "The Front Door (feasibility) model:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Starts from cost and solves for required rent",
+                        "Starts from rent and solves for value",
+                        "Ignores debt"
+                      ],
+                      "correctAnswer": "Starts from cost and solves for required rent",
+                      "explanation": "Front Door works budget → required rent; Back Door works market rent → supportable cost."
+                    },
+                    {
+                      "id": "u6l1-d2",
+                      "text": "In the base case (€10m budget, 60% LTC, 8% equity return), the implied cap rate is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "7%",
+                        "8%",
+                        "9%",
+                        "10%"
+                      ],
+                      "correctAnswer": "9%",
+                      "explanation": "Required NOI €900k / total cost €10m = 9%."
                     }
                   ]
                 }
@@ -2299,6 +2463,14 @@
                   "content": "## One-page summary\n\n- A fund pools capital across many assets; returns are measured **net of fees and promote**.\n- Capital is called and returned over time — the **J-curve**.\n- **Affordable housing** relies on subsidies/incentives that lower the cost of capital in return for rent restrictions.\n- Always compare **gross** vs **net (LP)** returns — that gap is the cost of the manager."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — how subsidy makes the infeasible feasible\n\nWhen a site's required rent exceeds the affordability cap, three levers close the gap. (1) **Scale** — doubling to 120,000 m² spreads fixed costs. (2) **Tax credits (LIHTC-style)** — a corporation funds, say, 20% of the budget at **zero cost** (no return, no principal repaid), replacing 8%-cost equity and cutting required NOI. (3) **TIF / city grant** — in a designated scoring area a 55% subsidy on the capital budget lets the developer use **zero equity and only 25% debt**, collapsing debt service so very low affordable rents pencil — the catch being a tighter affordability cap (≤30% of income).\n\nThe mechanism to internalise: every euro of subsidy that replaces debt or equity removes that capital's *cost* from the required-NOI equation. Equity at 8% and debt at 8.5% are expensive; a tax credit at 0% and a grant at 0% are free. So the **capital-stack composition drives required rent far more than land cost does** — that is the affordable-housing fund's value-add: assemble the cheapest blended cost of capital from public sources, then choose the location where the remaining required rent fits under the cap."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the tax credit collapses required rent\n\nSame €10m / 60,000 m² base.\n\n- **No subsidy:** required NOI = €579,000 (debt service) + €320,000 (8% on €4m equity) = **€899,000**.\n- **Add a 20% tax credit at 0% cost** (stack: 60% debt, 20% equity, 20% credit): equity return halves to €2,000,000 × 8% = €160,000; credit cost €0 → required NOI = €579,000 + €160,000 = **€739,000** (−18%). Required rent falls from ≈€26.31 to ≈€21.6/m² — potentially under the cap the base case failed."
+                },
+                {
                   "type": "quiz",
                   "content": "Unit Assessment — Affordable Housing Fund",
                   "quizData": [
@@ -2325,6 +2497,30 @@
                       ],
                       "correctAnswer": "Idiosyncratic (asset-specific) risk",
                       "explanation": "Spreading across assets dilutes single-asset shocks; market-wide risk remains."
+                    },
+                    {
+                      "id": "u6l3-d1",
+                      "text": "A corporate tax credit financing 20% of the budget lowers required rent because it:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Raises rents",
+                        "Supplies capital at zero cost (no return, no principal), replacing 8% equity",
+                        "Increases the loan"
+                      ],
+                      "correctAnswer": "Supplies capital at zero cost (no return, no principal), replacing 8% equity",
+                      "explanation": "Removing an 8%-cost capital layer cuts required NOI, hence required rent."
+                    },
+                    {
+                      "id": "u6l3-d2",
+                      "text": "In affordable-housing feasibility, what most drives the required rent down?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The colour of the building",
+                        "The capital-stack composition (how much is free subsidy vs costly debt/equity)",
+                        "The number of floors"
+                      ],
+                      "correctAnswer": "The capital-stack composition (how much is free subsidy vs costly debt/equity)",
+                      "explanation": "Replacing costly debt/equity with zero-cost subsidy removes that capital's cost from required NOI."
                     }
                   ]
                 }
@@ -2361,6 +2557,14 @@
                   "content": "## Tranching: slicing risk\n\nThe pool's cash flows are divided into **tranches** with a strict payment order (the 'waterfall'):\n\n- **Senior tranches (AAA)** are paid first — lowest yield, lowest risk.\n- **Mezzanine tranches** absorb losses next — higher yield.\n- The **junior / first-loss ('B-piece')** tranche is paid last and absorbs the **first losses** — highest yield.\n\nThis is **credit enhancement by subordination**: the junior pieces protect the senior ones. Different investors buy different tranches according to their appetite for risk."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — value creation by unbundling, and credit support\n\nSecuritization pools mortgages in a bankruptcy-remote trust and slices the cash flows into **tranches** of differing priority. The economic magic is *value creation through unbundling*: the same pool is worth more cut into tranches than sold whole, because each tranche matches an investor clientele — AAA 'super-senior' paper to passive insurers/pension funds, the unrated first-loss 'B-piece' to specialists who actively underwrite the real estate. The institution that made it viable is the **bond credit rating**, which lets a buyer who knows nothing about commercial real estate price the risk; note the conflict that ratings are paid by *issuers*, not investors ('rating shopping').\n\nCMBS tranches two distinct risks — **credit/default** (dominant, since commercial loans usually have prepayment lockout/yield-maintenance) and **duration/prepayment** (dominant in residential MBS). The headline protection metric is **credit support (subordination)**: if the senior tranche has 25% credit support, 25% of pool par must be wiped out before it loses a euro. Combined with a 70% pool LTV, the senior bond's effective LTV is (1 − 0.25) × 70% = **52.5%**, so property values must fall ~47.5% before it is impaired. (European framing: covered bonds — German Pfandbriefe, Spanish cédulas — keep loans on the issuer's balance sheet, a safer design that kept Europe's market smaller and cleaner.)"
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — a tranche loss waterfall\n\n€10,000,000 pool (10 loans), WAC 10%. Tranches: **A** €7,500,000 (8% coupon, 25% support); **B** €2,500,000 first-loss (12%); **X** an interest-only strip.\n\n- One €1,000,000 loan defaults, recovers €450,000 → ~€550,000 principal loss + missed interest.\n- **B absorbs first** (well inside the 25% cushion): its principal falls to €2,500,000 − €550,000 = **€1,950,000**, and its realized IRR collapses from 12% to roughly **−0.4%**.\n- **A is untouched** — full principal and 8% coupon. Same pool → one bond behaves like a gilt, one like equity."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — CMBS",
                   "quizData": [
@@ -2387,6 +2591,31 @@
                       ],
                       "correctAnswer": "Move loans off the balance sheet and free up capital",
                       "explanation": "Securitization recycles capital so the bank can originate more loans."
+                    },
+                    {
+                      "id": "u7l1-d1",
+                      "text": "A CMBS senior tranche has 30% credit support and the pool LTV is 65%. Values must fall about how much before the senior tranche takes its first loss?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "30%",
+                        "~54.5%",
+                        "65%",
+                        "19.5%"
+                      ],
+                      "correctAnswer": "~54.5%",
+                      "explanation": "Effective senior LTV = (1−0.30)×65% = 45.5%, so values must fall ~54.5% before it is hit."
+                    },
+                    {
+                      "id": "u7l1-d2",
+                      "text": "CMBS credit ratings are paid for by issuers rather than investors because:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Regulators require it",
+                        "Rating information is a public good no single investor will fully pay for",
+                        "It removes all conflicts of interest"
+                      ],
+                      "correctAnswer": "Rating information is a public good no single investor will fully pay for",
+                      "explanation": "The issuer-pays model funded the agencies but introduced 'rating shopping' risk."
                     }
                   ]
                 }
@@ -2401,6 +2630,14 @@
                 {
                   "type": "markdown",
                   "content": "## Prepayment and extension risk\n\nMBS investors face two timing risks:\n- **Prepayment risk** — when rates fall, borrowers refinance and repay early, returning principal that must be reinvested at lower rates. Commercial loans often limit this with **prepayment penalties / yield maintenance**.\n- **Extension risk** — when rates rise or refinancing is hard, loans stay outstanding longer than expected.\n\n## What 2008 taught\n\nThe financial crisis showed how securitization can **mask and spread risk**: weak underwriting, over-reliance on ratings, and complex re-securitizations (CDOs) meant losses were larger and more widely distributed than investors understood. The mechanics are powerful, but they depend entirely on the **quality of the underlying loans** and honest risk assessment."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — what 2008 really taught\n\nIn CMBS terms, 2008 was a failure of **subordination calibration** and of the rating process. Required credit support fell steadily from 1995 to 2008 as spreads compressed; a telling warning was the market demanding 'super-senior' tranches stacked *above* AAA from 2004 — a revealed signal that buyers didn't trust the AAA label, which agencies ignored. Subordination was also treated as a roughly *constant* level even though real-estate prices are highly cyclical — a fixed cushion is far too thin at a price peak. If the worst historical commercial-mortgage loss was ~12%, a AA bond ought to have carried support *above* 12%, not at or below it.\n\n**Prepayment risk** differs by family: dominant in residential MBS (homeowners refinance when rates fall — negative convexity), but largely neutralised in CMBS by lockout/yield-maintenance/defeasance, so default risk dominates. The structural lessons: ratings are only as good as the model and incentives behind them; tranching *redistributes and concentrates* risk rather than destroying it (so 'AAA' paper held by leveraged institutions propagated the shock); and static risk parameters are dangerous in cyclical assets. Post-crisis reforms responded directly — the '(sf)' rating suffix, and **5% risk-retention** ('skin in the game') under US Dodd-Frank and the EU Securitisation Regulation 2017/2402 (with its STS label)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — was the AA tranche thick enough?\n\nVintage-2006 CMBS, €1,000,000,000 pool.\n\n- AA tranche with **10% subordination**; a downturn produces **14%** cumulative pool losses.\n- First 10% (€100m) absorbed by junior tranches; remaining 4% = €40,000,000 eats into AA.\n- If AA par was €120,000,000, it loses €40m → **~33% impairment on a 'double-A' bond.** Had support been set above the 12% worst case (e.g. 15%), AA would have been untouched."
                 },
                 {
                   "type": "quiz",
@@ -2429,6 +2666,30 @@
                       ],
                       "correctAnswer": "Outcomes depend on the quality of the underlying loans",
                       "explanation": "No structure can fix bad underwriting; risk was understated and widely spread."
+                    },
+                    {
+                      "id": "u7l2-d1",
+                      "text": "Why is prepayment risk far less important in CMBS than in residential MBS?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Commercial borrowers never refinance",
+                        "Commercial mortgages carry lockout/yield-maintenance/defeasance, so default is the dominant risk",
+                        "CMBS have no fixed coupon"
+                      ],
+                      "correctAnswer": "Commercial mortgages carry lockout/yield-maintenance/defeasance, so default is the dominant risk",
+                      "explanation": "Prepayment protection shifts the CMBS emphasis from duration to credit risk."
+                    },
+                    {
+                      "id": "u7l2-d2",
+                      "text": "Post-2008, the EU Securitisation Regulation and US Dodd-Frank both require the sponsor to retain ~5%. This addresses:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Excessive prepayment",
+                        "The misalignment of incentives in 'originate-to-distribute', by giving the sponsor skin in the game",
+                        "Currency risk"
+                      ],
+                      "correctAnswer": "The misalignment of incentives in 'originate-to-distribute', by giving the sponsor skin in the game",
+                      "explanation": "Risk retention forces originators to bear first losses, improving underwriting discipline."
                     }
                   ]
                 }
@@ -2459,6 +2720,14 @@
                   "content": "## Real estate you can buy like a share\n\nA **REIT** (Real Estate Investment Trust) is a company that owns (and usually operates) income-producing real estate, whose shares trade like any stock. REITs let individual investors hold a diversified, professionally-managed property portfolio with daily liquidity.\n\n### The defining bargain\nIn exchange for special tax treatment (generally **no corporate tax** on distributed income), a REIT must meet strict tests. The classic US rules — mirrored in spirit by Europe's regimes (the Spanish **SOCIMI**, French SIIC, UK REIT) — require it to:\n- hold the large majority of assets in **real estate**,\n- earn most income from **rents/real-estate sources**, and\n- distribute the large majority of taxable income to shareholders as **dividends** (≈90%).\n\nThat high payout is why REITs are prized for **income**."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — the dividend-for-tax bargain, and REIT types\n\nA REIT's defining bargain is **distribute ≥90% of taxable income as dividends** in exchange for being a *pass-through* taxed only once (in the investor's hands), avoiding the double taxation of an ordinary corporation. Consequences cascade: REITs retain little capital, so they fund growth by issuing equity and debt — making them unusually dependent on capital-market access; and because rents reset toward inflation, REIT income is a partial inflation hedge.\n\nThree classification axes. **Trading status:** publicly traded (liquid, transparent), *non-traded* (illiquid, high upfront fees, and may pay dividends out of borrowed money/offering proceeds — a red flag), and private. **Income source:** *equity REITs* own and operate property and earn rent (the textbook REIT); *mortgage REITs (mREITs)* lend/buy mortgages and earn the spread, running 6–7× leverage and acutely rate-sensitive (their high yields are a risk premium; equity REITs deliver higher long-run total returns). **Sector:** retail, healthcare, logistics, residential, data centres, etc. European analogues of the US (1960) regime: the French SIIC, German G-REIT, UK REIT, Spanish **SOCIMI**, Dutch FBI — each with its own minimum-distribution and gearing rules."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the single-tax advantage\n\n€50,000,000 of taxable rental income.\n\n- **Ordinary corporation** (25% corporate tax): tax €12.5m → €37.5m distributed → investor pays 19% (€7.125m) → **investor keeps €30.375m** (60.75%).\n- **Qualifying REIT/SOCIMI** (distribute ≥90%): corporate tax ≈ €0; investor pays 19% on €45m (€8.55m) → **investor keeps €36.45m** — roughly **€6m more**, purely from removing the entity-level tax layer."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — REIT Basics",
                   "quizData": [
@@ -2485,6 +2754,30 @@
                       ],
                       "correctAnswer": "Liquid, diversified real-estate exposure with income",
                       "explanation": "Shares trade daily and pay high dividends from a diversified portfolio."
+                    },
+                    {
+                      "id": "u8l1-d1",
+                      "text": "A non-traded REIT advertises an unusually high dividend yield. Why be cautious?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "It is tax-exempt to the investor",
+                        "It may fund distributions from borrowed money or offering proceeds, and shares are illiquid with high fees",
+                        "It cannot own real estate"
+                      ],
+                      "correctAnswer": "It may fund distributions from borrowed money or offering proceeds, and shares are illiquid with high fees",
+                      "explanation": "A high non-traded dividend can be a return of capital in disguise, not operating income."
+                    },
+                    {
+                      "id": "u8l1-d2",
+                      "text": "mREITs show much higher yields than equity REITs mainly because:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "They pay no tax",
+                        "They run very high leverage (6–7×) and are highly rate-sensitive, so the yield is a risk premium",
+                        "They own better properties"
+                      ],
+                      "correctAnswer": "They run very high leverage (6–7×) and are highly rate-sensitive, so the yield is a risk premium",
+                      "explanation": "Over time equity REITs deliver higher total returns; the mREIT yield compensates for high risk."
                     }
                   ]
                 }
@@ -2499,6 +2792,14 @@
                 {
                   "type": "markdown",
                   "content": "## Why net income misleads for property\n\nAccounting **depreciation** treats buildings as wearing out, creating a large non-cash expense that depresses reported net income — even as the real estate may be holding or gaining value. So analysts use property-specific measures:\n\n- **FFO (Funds From Operations)** = Net income + real-estate **depreciation & amortization** − gains on property sales. It adds back the non-cash depreciation to better reflect cash earnings.\n- **AFFO (Adjusted FFO)** = FFO − recurring **capital expenditures** (and adjustments). A closer proxy for the cash actually available to pay dividends.\n\nREITs are commonly valued on a **price/FFO multiple** (like a P/E for property) and on their **dividend yield**, alongside **NAV** (net asset value of the underlying real estate)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — why net income misleads, and FFO/AFFO\n\nAccounting depreciation treats buildings as wasting assets, deducting a large non-cash charge that *understates* a property company's economic earnings. The industry fix is **Funds From Operations (FFO)** = net income + real-estate depreciation/amortization − gains on property sales (stripping one-off disposal gains to show *recurring* earnings). FFO is the REIT 'cash earnings' and the denominator of the standard **P/FFO** multiple (the REIT P/E).\n\nFFO still ignores the recurring capital needed to keep buildings rentable, so **Adjusted FFO (AFFO)** = FFO − recurring/maintenance CapEx − the straight-line-rent adjustment (non-cash income) − normalised leasing costs. AFFO is the best proxy for sustainable distributable cash, so the **AFFO payout ratio** (dividend ÷ AFFO) is the key dividend-safety gauge — comfortably below 100% means covered. Two valuation lenses: an *earnings multiple* (price = P/FFO × per-share metric vs peers) and a *NAV* approach (capitalise NOI at a market cap rate, add other assets, subtract debt). European analysts use the EPRA standards — **EPRA Earnings** (FFO's cousin) and **EPRA NTA/NRV/NDV**."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — FFO and AFFO per share\n\nNet income €60,000,000 + real-estate D&A €85,000,000 − gain on sale €10,000,000 = **FFO €135,000,000** → ÷100,000,000 shares = **€1.35/share**.\n\nAFFO = 135,000,000 − maintenance CapEx €18,000,000 − straight-line rent €5,000,000 − leasing costs €7,000,000 = **€105,000,000 → €1.05/share**.\n\n- At 18× FFO, price ≈ 18 × 1.35 = **€24.30**. A €0.95 dividend → AFFO payout = 0.95/1.05 = **90.5%** (covered, thin headroom). Note the dividend exceeds a naïve EPS of €0.60 — why FFO/AFFO, not EPS, drive REIT valuation."
                 },
                 {
                   "type": "quiz",
@@ -2527,6 +2828,30 @@
                       ],
                       "correctAnswer": "Recurring capital expenditures",
                       "explanation": "AFFO nets out maintenance capex to better reflect distributable cash."
+                    },
+                    {
+                      "id": "u8l2-d1",
+                      "text": "Starting from net income, FFO is calculated by:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Adding back real-estate depreciation/amortization and subtracting gains on property sales",
+                        "Subtracting depreciation and adding sale gains",
+                        "Adding interest expense"
+                      ],
+                      "correctAnswer": "Adding back real-estate depreciation/amortization and subtracting gains on property sales",
+                      "explanation": "FFO removes the non-cash depreciation and non-recurring disposal gains to show recurring earnings."
+                    },
+                    {
+                      "id": "u8l2-d2",
+                      "text": "Why is AFFO preferred over FFO for dividend-safety analysis?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "AFFO adds back more depreciation",
+                        "AFFO subtracts recurring maintenance CapEx and non-cash straight-line rent, approximating distributable cash",
+                        "AFFO equals net income"
+                      ],
+                      "correctAnswer": "AFFO subtracts recurring maintenance CapEx and non-cash straight-line rent, approximating distributable cash",
+                      "explanation": "By charging the capital needed to maintain the buildings, AFFO is a truer measure of sustainable cash."
                     }
                   ]
                 }
@@ -2561,6 +2886,14 @@
                   "content": "## Construction (ADC) financing\n\nDevelopment is financed with **Acquisition, Development & Construction (ADC)** loans. Characteristics:\n- The loan **draws down** as construction progresses (you borrow as you spend), so interest accrues on a rising balance — often funded by an **interest reserve**.\n- It's usually **interest-only** during construction, with a **balloon** at completion, then refinanced into a permanent loan (**'mini-perm' → take-out**).\n- Lenders size it on **loan-to-cost (LTC)** as well as loan-to-value, and require the developer's equity in **first**."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — phased risk, the J-curve, and who lends when\n\nDevelopment differs from investment finance in three ways: **time-to-build** (capital is a *stream* of outflows, not a single purchase), near-universal **construction loans**, and **phased risk** that falls in steps as milestones clear. The **J-curve** is the signature: cumulative equity cash flow plunges negative through land and construction, stays low in lease-up, and turns positive only at stabilisation/sale. Risk is inverse to success probability (perhaps ~40% at permitting, ~8% conditional once stabilised) — which is why development equity demands mid-teens-to-20%+ returns.\n\nThe stack maps onto the timeline by order of investment and reverse order of payback: developer **seed equity** goes in first, paid back last; external equity/mezzanine fills the gap; **commercial banks supply the construction loan** (local expertise + short-term deposit liabilities match a short-term asset), while life insurers/pension funds provide the long-term **permanent ('take-out') loan**. A defining rule: the construction lender won't close until the permanent lender has *conditionally approved* the take-out. Graaskamp's framings — *use in search of a site*, *site in search of a use* (find the Highest and Best Use), *capital in search of a return* — and the iterative market→design→approvals→finance spiral, make development the highest-risk strategy, which the **development spread** (yield-on-cost minus market cap rate) must compensate."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the J-curve\n\nLogistics asset, 24-month build, simplified equity cash flows:\n\n- Yr 0 land −€2,000,000; Yr 1 construction −€1,500,000; Yr 2 lease-up −€300,000; Yr 3 stabilised sale (net of take-out) +€6,500,000.\n- Cumulative bottoms at **−€3,800,000** (the J trough) then rises to **+€2,700,000**.\n- IRR on {−2.0m, −1.5m, −0.3m, +6.5m} ≈ **21%** — the hurdle development equity demands, justified only because the project cleared its risk milestones."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Development",
                   "quizData": [
@@ -2587,6 +2920,30 @@
                       ],
                       "correctAnswer": "Draws down as construction progresses",
                       "explanation": "Funds are advanced against progress, so interest accrues on a rising balance."
+                    },
+                    {
+                      "id": "u9l1-d1",
+                      "text": "Why does the construction loan come from a commercial bank rather than a life insurer?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Banks charge lower rates",
+                        "Banks have local expertise and short-term deposit liabilities matching a short-term construction asset",
+                        "Insurers are barred from real estate"
+                      ],
+                      "correctAnswer": "Banks have local expertise and short-term deposit liabilities matching a short-term construction asset",
+                      "explanation": "Liability-matching and local underwriting make banks the natural construction lenders; insurers provide permanent take-out."
+                    },
+                    {
+                      "id": "u9l1-d2",
+                      "text": "A construction lender will typically not advance funds until:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The building is fully leased",
+                        "A permanent lender has conditionally approved a take-out loan",
+                        "The developer repays the land loan"
+                      ],
+                      "correctAnswer": "A permanent lender has conditionally approved a take-out loan",
+                      "explanation": "The take-out commitment assures the construction lender of repayment at stabilisation."
                     }
                   ]
                 }
@@ -2605,6 +2962,14 @@
                 {
                   "type": "markdown",
                   "content": "### Real options thinking\n\nLand is partly an **option**: the right, not the obligation, to build. That flexibility — to wait, to phase, to change use — has value, which is why developable land can be worth more than any single immediate use implies."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — residual land value and the development margin\n\nA static feasibility model answers one of two mirror questions. **Front-door (forward):** start from *costs* and solve for the *rent* the project must achieve. **Back-door (reverse):** start from *achievable rent*, derive NOI, capitalise to value, subtract supportable debt and required equity, and solve for the **maximum justifiable land price** — the residual. Front-door asks 'what rent do I need?'; back-door asks 'what can I pay for the land?'\n\nThe **residual land value** is the developer's key calculation: Land = Gross Development Value − Total Costs − Required Profit. Equivalently, the deal must clear a **profit-on-cost** margin (typically 15–25% in European practice) and a **yield-on-cost** that exceeds the market exit cap by a healthy **development spread** (≈150–250 bp). The real-options refinement: holding land is a **call option** to develop at a time of your choosing — you can wait for a better market and decline to build in a downturn — so land is worth more than its static residual by an **option premium** (in the textbook example, a parcel with $11.76m immediate profit is worth $13.54m once the waiting option is valued, a ~$1.78m premium). This is why prime development land trades above its current-use residual."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — a back-door residual\n\n10,000 m² warehouse, rent €15/m², vacancy 5%, expenses €5/m²; construction cost (ex-land) €5,500,000; mortgage 8%/15-yr, DSCR 1.25; equity wants 12%.\n\n- NOI = (10,000×15)×0.95 − 10,000×5 = **€92,500**.\n- DSCR debt: max ADS = 92,500/1.25 = €74,000 → loan ≈ 74,000/0.11683 ≈ **€633,400**.\n- Equity supported = (92,500 − 74,000)/0.12 ≈ **€154,200** → total capital ≈ €787,600.\n- Residual land = 787,600 − 5,500,000 = **−€4,712,400** → deeply negative: at €15/m² the scheme is **infeasible** (walk away or rents must rise sharply). The back-door screen did its job."
                 },
                 {
                   "type": "quiz",
@@ -2633,6 +2998,30 @@
                       ],
                       "correctAnswer": "Value created ≥ total cost + required profit",
                       "explanation": "Feasibility means the finished value covers all costs plus the developer's profit."
+                    },
+                    {
+                      "id": "u9l2-d1",
+                      "text": "The 'back-door' (reverse) feasibility analysis solves primarily for:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The required market rent",
+                        "The maximum justifiable land price (residual), given achievable rents and required returns",
+                        "The depreciation schedule"
+                      ],
+                      "correctAnswer": "The maximum justifiable land price (residual), given achievable rents and required returns",
+                      "explanation": "Back-door starts from rent and works back to residual land value; front-door solves for required rent."
+                    },
+                    {
+                      "id": "u9l2-d2",
+                      "text": "Why does developable land carry an 'option premium' above its static residual?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Land never depreciates",
+                        "The owner holds a call option to develop when they choose — waiting and abandonment add value",
+                        "Land is tax-exempt"
+                      ],
+                      "correctAnswer": "The owner holds a call option to develop when they choose — waiting and abandonment add value",
+                      "explanation": "Flexibility to time or abandon development is valuable; in the example it lifted land value $11.76m→$13.54m."
                     }
                   ]
                 }
@@ -2663,6 +3052,14 @@
                   "content": "## Tax changes the real return\n\nInvestors keep the **after-tax** return, so taxes belong in the model. The most powerful lever in real estate is **depreciation**: tax rules let you deduct a portion of the **building's** value (not the land) each year as a non-cash expense. That deduction **shields income from tax**, even when the cash flow is positive and the property is appreciating.\n\n**After-tax cash flow** = before-tax cash flow − taxes, where taxable income = NOI − interest − depreciation. Because depreciation is non-cash, it often turns a taxable profit into a taxable *loss* while the investor still pockets cash — the classic real-estate tax advantage."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — Market Value vs Investment Value, and the depreciation shield\n\nAfter-tax cash flow (ATCF) is what the investor keeps, and it depends on *who* holds the property and *how* it is financed. This distinguishes **Market Value** (from unlevered PBTCF, ignoring the owner's tax status — the marginal investor) from **Investment Value** (from equity after-tax cash flow, reflecting this investor's leverage and tax position). The waterfall: PBTCF − debt service = equity BTCF − income tax = **equity after-tax cash flow (EATCF)**.\n\nThree subtleties make after-tax modelling tricky: **depreciation** is a tax-deductible expense but not a cash outflow; **CapEx** is a cash outflow but not an immediate expense (it must be depreciated); and **debt principal amortization** is a cash outflow that is *not* deductible (only interest is). So **Taxable income = NOI − interest − depreciation**, taxed at the marginal rate — and because depreciation is subtracted for tax but never leaves as cash, it **shelters** cash flow (the depreciation tax shield), largely a *deferral* clawed back at sale. European framing: the US uses ~39-year straight-line on commercial buildings; Germany allows ~3%/yr (≈33 yrs); and **land is never depreciable** anywhere, so the building/land split drives the shield."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the depreciation shield\n\nPrice €10,000,000 (building €8,000,000, land €2,000,000); straight-line over 33 yrs → depreciation ≈ **€242,400/yr**. Year 1: NOI €600,000; interest-only loan €6,000,000 at 4% → interest €240,000; marginal tax 30%.\n\n- Taxable income = 600,000 − 240,000 − 242,400 = **€117,600** → tax = **€35,280**.\n- BTCF = 600,000 − 240,000 = €360,000 → **EATCF = €324,720**.\n- Without depreciation, tax would be €108,000 → the shield saved €72,720 (= 30% × €242,400). Cash flow (€324,720) far exceeds taxable income (€117,600) — the hallmark of tax-advantaged real estate."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Depreciation",
                   "quizData": [
@@ -2689,6 +3086,30 @@
                       ],
                       "correctAnswer": "The building (improvements), not the land",
                       "explanation": "Land is not depreciable; only the improvements are."
+                    },
+                    {
+                      "id": "u10l1-d1",
+                      "text": "Why does depreciation shelter the investor even though it lowers reported income?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "It is a cash payment to the tax authority",
+                        "It is a deductible accounting expense but not a cash outflow, so cash flow exceeds taxable income",
+                        "It eliminates the loan principal"
+                      ],
+                      "correctAnswer": "It is a deductible accounting expense but not a cash outflow, so cash flow exceeds taxable income",
+                      "explanation": "Depreciation is subtracted for tax but never leaves as cash, sheltering the difference (a deferral)."
+                    },
+                    {
+                      "id": "u10l1-d2",
+                      "text": "Which item is a cash outflow that is NOT tax-deductible?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Mortgage interest",
+                        "Depreciation",
+                        "Debt principal amortization"
+                      ],
+                      "correctAnswer": "Debt principal amortization",
+                      "explanation": "Only the interest portion of debt service is deductible; principal repayment is non-deductible cash out."
                     }
                   ]
                 }
@@ -2703,6 +3124,14 @@
                 {
                   "type": "markdown",
                   "content": "## The tax bill at sale\n\nOn sale, gains are taxed in two pieces: **capital gain** (sale price above purchase price) and **depreciation recapture** (the depreciation you previously deducted is partly clawed back). Both reduce the net proceeds — so after-tax IRR is always lower than pre-tax IRR.\n\n## Deferring the tax\n\nMany regimes let investors **defer** the tax by rolling proceeds into another property: the US **1031 like-kind exchange** is the classic example; several European systems offer rollover-relief equivalents. Deferral keeps more capital working and compounding — a major reason long-term investors rarely sell outright. The tax isn't erased, but postponing it has real present-value benefit."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — the sale waterfall, recapture, and deferral\n\nThe reversion mirrors the operating waterfall: Net Sale Price − Outstanding Loan Balance = **Before-Tax Equity Reversion (BTER)** − capital-gains tax = **After-Tax Equity Reversion (ATER)**. The key mechanic is the **adjusted basis** = original cost + improvements − accumulated depreciation. Because depreciation *reduces* basis, every euro depreciated during the hold *increases* the taxable gain — confirming the operating shield was a **deferral**, not a permanent saving. In the US, the gain splits into **depreciation recapture** (accumulated depreciation × ~25%) and the **true capital gain** ((total gain − depreciation) × ~15–20%). Most EU systems don't separate recapture as cleanly (Spain taxes the whole gain at savings rates 19–28%; corporates fold it into the 25% base), but the economic effect — prior depreciation enlarging the gain — is identical.\n\n**Tax-deferred exchanges** break the chain only at the end. The US **Section 1031 like-kind exchange** rolls the gain and the low basis into a replacement property, deferring tax indefinitely ('swap till you drop', eliminated at death via stepped-up basis). The European analogue is **rollover/reinvestment relief** and EU Merger-Directive reorganisation reliefs. A clean exam insight: for a **tax-exempt buyer** (e.g. a pension fund), Investment Value can exceed Market Value, but the IV ≤ MV acquisition rule means they pay only MV and capture the tax benefit as positive NPV."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — capital-gains tax and 1031 deferral\n\nSale price €12,000,000 − selling costs €400,000 = NSP €11,600,000. Original basis €8,000,000 + improvements €500,000 − accumulated depreciation €1,800,000 = adjusted basis **€6,700,000** → total gain **€4,900,000**.\n\n- Recapture = 1,800,000 × 25% = €450,000; capital-gain portion = (4,900,000 − 1,800,000) × 20% = €620,000 → **total tax €1,070,000**.\n- With a €6,000,000 loan, BTER = €5,600,000 → **ATER = €4,530,000**. A **1031/rollover** exchange defers the entire €1,070,000, redeploying it into the next asset."
                 },
                 {
                   "type": "quiz",
@@ -2731,6 +3160,30 @@
                       ],
                       "correctAnswer": "Lower",
                       "explanation": "Taxes on income and gains reduce the cash the investor keeps, lowering the after-tax return."
+                    },
+                    {
+                      "id": "u10l2-d1",
+                      "text": "An investor took €1,000,000 of depreciation during the hold. At sale this:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Has no effect on the gain",
+                        "Reduces the adjusted basis by €1,000,000 and thus increases the taxable gain (partly via recapture)",
+                        "Reduces the sale price"
+                      ],
+                      "correctAnswer": "Reduces the adjusted basis by €1,000,000 and thus increases the taxable gain (partly via recapture)",
+                      "explanation": "Depreciation lowers basis, enlarging the gain — the operating shield was a deferral, recaptured at sale."
+                    },
+                    {
+                      "id": "u10l2-d2",
+                      "text": "What does a Section 1031 (or European rollover-relief) exchange achieve?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Permanently exempts the gain from all tax",
+                        "Defers capital-gains and recapture tax by rolling the gain and carried-over basis into a replacement property",
+                        "Increases depreciation deductions"
+                      ],
+                      "correctAnswer": "Defers capital-gains and recapture tax by rolling the gain and carried-over basis into a replacement property",
+                      "explanation": "The tax is deferred (not forgiven), with basis carrying over; unwound only on a later taxable sale."
                     }
                   ]
                 }
