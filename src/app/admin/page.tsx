@@ -19,6 +19,7 @@ interface LogsResponse {
   byUnit: Record<string, number>;
   byDay: Record<string, number>;
   items: QAItem[];
+  tutorKeySet?: boolean;
 }
 
 export default function AdminDashboard() {
@@ -136,6 +137,18 @@ export default function AdminDashboard() {
             ↻ Refresh
           </button>
         </header>
+
+        {/* Reminder banner — auto-hides once ANTHROPIC_API_KEY is set on Render */}
+        {data && data.tutorKeySet === false && (
+          <div className="rounded-2xl border-2 border-amber-400 bg-amber-50 dark:bg-amber-950/30 p-4 text-amber-900 dark:text-amber-200">
+            <p className="font-extrabold tracking-wide">⚠️ REMINDER: THE AI TUTOR IS NOT LIVE YET.</p>
+            <p className="mt-1 font-bold uppercase text-sm leading-relaxed">
+              ADD THE <code className="px-1 bg-amber-200/60 dark:bg-amber-900/60 rounded">ANTHROPIC_API_KEY</code> ENVIRONMENT
+              VARIABLE IN RENDER (NEW REFIAI → ENVIRONMENT) TO TURN ON REAL TUTOR ANSWERS.
+              UNTIL THEN THE TUTOR RUNS IN PREVIEW MODE. THIS BANNER DISAPPEARS ONCE THE KEY IS ADDED.
+            </p>
+          </div>
+        )}
 
         {/* Stat cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

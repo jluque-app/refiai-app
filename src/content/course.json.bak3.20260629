@@ -458,155 +458,54 @@
         {
           "id": "unit-2",
           "title": "Real Estate Capital Structures",
-          "description": "How deals are financed with layers of debt and equity — the capital stack, leverage, mezzanine and preferred equity, and the GP/LP waterfall that splits the profits.",
+          "description": "Equity, debt, and mezzanine financing structures.",
           "lessons": [
             {
               "id": "lesson-2-1",
-              "title": "The Capital Stack",
-              "type": "article",
-              "duration": "20 min",
+              "title": "Capital Structures Overview",
+              "type": "video",
+              "duration": "60 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## What you'll be able to do\n\n- Rank the layers of the **capital stack** by risk, return and priority of payment.\n- Explain **why** investors use debt (three strategic reasons).\n- Tell apart **mezzanine debt**, **preferred equity** and **common equity**.\n- Read a **GP/LP waterfall** and explain the **promote**.\n\n> Builds on Unit 1 (leverage & levered IRR) and Unit 3 (mortgages)."
-                },
-                {
-                  "type": "markdown",
-                  "content": "## The capital stack\n\nMost real estate deals are financed with a **mix** of debt and equity, stacked by priority. From safest/lowest return at the bottom to riskiest/highest return at the top:\n\n- **Senior debt** (the mortgage) — paid first, lowest cost, lowest risk.\n- **Mezzanine debt** — subordinate to senior debt, higher rate.\n- **Preferred equity** — hybrid; paid before common equity, fixed-ish return.\n- **Common equity** (LP + GP) — paid **last**, takes the **first loss**, but captures **all the upside**.\n\nTwo rules follow from the order:\n1. **Priority of payment** runs bottom-up: senior debt is served before anyone above it.\n2. **Risk and return rise as you go up** the stack — the last-paid money demands the highest return."
+                  "content": "## The Capital Stack\n\nReal estate deals are typically financed with a mix of **Debt** (Senior Mortgages) and **Equity** (LP/GP). More complex structures may involve Mezzanine Debt or Preferred Equity."
                 },
                 {
                   "type": "quiz",
-                  "content": "Knowledge Check — The Stack",
+                  "content": "Capital Stack Quiz",
                   "quizData": [
                     {
-                      "id": "u2l1-q1",
-                      "text": "In a typical capital stack, which position has the highest risk and the highest expected return?",
+                      "id": "cap-1",
+                      "text": "In a typical capital stack, which position has the highest risk and highest expected return?",
                       "type": "multiple-choice",
                       "options": [
-                        "Senior debt",
-                        "Mezzanine debt",
-                        "Common equity"
+                        "Senior Debt",
+                        "Mezzanine Debt",
+                        "Common Equity"
                       ],
-                      "correctAnswer": "Common equity",
-                      "explanation": "Common equity is the 'first loss' position but captures all the upside, so it commands the highest expected return."
+                      "correctAnswer": "Common Equity",
+                      "explanation": "Equity is the 'first loss' position but captures all the upside, thus commanding the highest return."
                     },
                     {
-                      "id": "u2l1-q2",
-                      "text": "Which layer is paid first from the property's cash flow?",
+                      "id": "cap-2",
+                      "text": "Which component is paid first from the property's cash flow?",
                       "type": "multiple-choice",
                       "options": [
-                        "Senior debt",
-                        "Preferred equity",
-                        "Common equity"
+                        "Senior Debt",
+                        "Equity"
                       ],
-                      "correctAnswer": "Senior debt",
-                      "explanation": "Senior lenders have priority of payment (and foreclosure rights) ahead of every other stakeholder."
+                      "correctAnswer": "Senior Debt",
+                      "explanation": "Senior lenders have priority of payment (and foreclosure rights) over all other stakeholders."
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "id": "lesson-2-2",
-              "title": "Why Use Debt? The Leverage Lab",
-              "type": "simulator",
-              "duration": "30 min",
-              "sections": [
+                },
                 {
-                  "type": "markdown",
-                  "content": "## Three strategic reasons to use debt\n\n1. **Leverage (return on equity).** Unleveraged real estate has limited upside. Borrowing at a cost below the cap rate amplifies the return on your equity — **positive leverage**. (If the cost of debt exceeds the cap rate, leverage turns **negative** and dilutes returns.)\n2. **Diversification.** With €10m of equity you can buy two €5m buildings all-cash, or eight €5m buildings at 75% LTV (€40m total) — spreading idiosyncratic risk across more assets.\n3. **Inflation hedge.** Fixed-rate debt payments stay flat while rents rise with inflation, so real debt burden shrinks over time."
+                  "type": "video",
+                  "content": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
                 },
                 {
                   "type": "markdown",
-                  "content": "### Leverage lab\n\nIncrease the loan-to-value and watch how leverage amplifies **both** the equity IRR **and** the risk."
-                },
-                {
-                  "type": "simulator",
-                  "simulatorId": "LeveredReturnsSimulator"
-                },
-                {
-                  "type": "quiz",
-                  "content": "Knowledge Check — Leverage",
-                  "quizData": [
-                    {
-                      "id": "u2l2-q1",
-                      "text": "Leverage is 'positive' (it lifts equity returns) when:",
-                      "type": "multiple-choice",
-                      "options": [
-                        "The cost of debt is below the cap rate",
-                        "The cost of debt is above the cap rate",
-                        "LTV is above 50%"
-                      ],
-                      "correctAnswer": "The cost of debt is below the cap rate",
-                      "explanation": "When borrowing costs less than the property yields (cap rate), each borrowed euro earns more than it costs — positive leverage."
-                    },
-                    {
-                      "id": "u2l2-q2",
-                      "text": "With €10m equity, moving from all-cash to 75% LTV lets you buy roughly:",
-                      "type": "multiple-choice",
-                      "options": [
-                        "The same number of properties",
-                        "2x as many properties",
-                        "4x as many properties"
-                      ],
-                      "correctAnswer": "4x as many properties",
-                      "explanation": "At 75% LTV your equity covers 25% of each deal, so the same equity controls about four times the asset value — more diversification."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "lesson-2-3",
-              "title": "Mezzanine, Preferred Equity & GP/LP",
-              "type": "article",
-              "duration": "20 min",
-              "sections": [
-                {
-                  "type": "markdown",
-                  "content": "## Beyond senior debt\n\n### Mezzanine debt\n- **Position:** subordinate to senior debt, senior to equity.\n- **Security:** often secured by a pledge of the **equity interest** in the borrowing entity, not the property itself — so on default the mezz lender can take over the entity (faster than property foreclosure).\n\n### Preferred equity\n- **Nature:** a hybrid — part of the ownership stack, but behaves like debt (a fixed preferred return).\n- **Priority:** paid before common equity, after all debt.\n- **Control:** usually none, unless a 'kick-out' trigger event occurs.\n\n### The GP/LP structure\n- **Limited Partner (LP):** provides most of the cash (often 90–95%), limited control.\n- **General Partner (GP):** provides expertise, runs the deal, puts in a little capital, and earns a **promote** — a disproportionate share of profits above agreed return hurdles."
-                },
-                {
-                  "type": "quiz",
-                  "content": "Knowledge Check — Structures",
-                  "quizData": [
-                    {
-                      "id": "u2l3-q1",
-                      "text": "Mezzanine debt is typically secured by:",
-                      "type": "multiple-choice",
-                      "options": [
-                        "A first mortgage on the property",
-                        "A pledge of the equity interest in the borrowing entity",
-                        "Nothing — it is unsecured"
-                      ],
-                      "correctAnswer": "A pledge of the equity interest in the borrowing entity",
-                      "explanation": "Mezz is usually secured by the ownership interest in the entity, letting the lender take control of the entity on default rather than foreclosing on the property."
-                    },
-                    {
-                      "id": "u2l3-q2",
-                      "text": "The GP's 'promote' is:",
-                      "type": "multiple-choice",
-                      "options": [
-                        "A share of profits above agreed return hurdles",
-                        "A fixed management fee",
-                        "The LP's preferred return"
-                      ],
-                      "correctAnswer": "A share of profits above agreed return hurdles",
-                      "explanation": "The promote (carried interest) rewards the GP with an outsized share of the upside once the LP's return hurdles are met."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "lesson-2-4",
-              "title": "The Equity Waterfall",
-              "type": "simulator",
-              "duration": "30 min",
-              "sections": [
-                {
-                  "type": "markdown",
-                  "content": "## Splitting the profits: the waterfall\n\nEquity profits are distributed through a **waterfall** — a sequence of tiers:\n\n1. **Return of capital** — LPs get their invested capital back.\n2. **Preferred return** — LPs receive a hurdle return (e.g. 8%) before the GP shares in profit.\n3. **Promote / carried interest** — above the hurdle, the GP takes a larger slice (e.g. 20%) as reward for performance.\n\nUse the simulator to structure the tiers and see how the **promote** shifts the split between LP and GP as returns rise."
+                  "content": "### Interactive Waterfall\n\nUse the simulator below to structure the Equity distributions (Waterfall) between LPs and GPs."
                 },
                 {
                   "type": "simulator",
@@ -615,92 +514,56 @@
               ]
             },
             {
-              "id": "lesson-2-5",
-              "title": "Case Study: Barcelona",
+              "id": "lesson-2-2",
+              "title": "Levered Returns Simulator",
               "type": "simulator",
-              "duration": "45 min",
+              "duration": "30 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## Real-world capital structuring\n\nApply the unit to a real European deal. Structure the debt and equity, set the waterfall, and see how the capital stack drives investor returns in the Barcelona case."
+                  "content": "## Leverage Impact Lab\n\nUse this tool to see how increasing leverage (LTV) amplifies both **Returns (IRR/Equity Multiple)** and **Risk**."
                 },
                 {
                   "type": "simulator",
-                  "simulatorId": "BarcelonaCaseSimulator"
+                  "simulatorId": "LeveredReturnsSimulator"
                 }
               ]
             },
             {
-              "id": "lesson-2-6",
-              "title": "Summary & Assessment",
+              "id": "lesson-2-4",
+              "title": "The Strategic Use of Debt",
               "type": "article",
-              "duration": "15 min",
               "sections": [
                 {
                   "type": "markdown",
-                  "content": "## One-page summary\n\n- **Capital stack:** senior debt → mezzanine → preferred equity → common equity. Priority of payment runs bottom-up; risk and return rise top-up.\n- **Why debt:** leverage (when cost of debt < cap rate), diversification, and an inflation hedge.\n- **Mezzanine** is secured by the equity interest; **preferred equity** behaves like debt inside the ownership stack.\n- **GP/LP:** LP funds most of the capital; GP runs the deal and earns a **promote** above return hurdles.\n- **Waterfall:** return of capital → preferred return → promote."
-                },
+                  "content": "## Why Use Debt?\n\nBeyond simply lacking capital, investors use debt for three strategic reasons:\n\n1.  **Leverage (ROI)**: Unleveraged real estate has limited growth. Leverage transforms a 1% return impact into a 4% impact (at 75% LTV), attracting entrepreneurial talent.\n2.  **Diversification**: Debt allows spreading equity across more assets.\n    *   *Example*: €10m Equity.\n    *   Option A (All Cash): Buy **2** properties worth €5m each.\n    *   Option B (75% LTV): Buy **8** properties worth €5m each ($40m total). \n    *   *Result*: Reduced idiosyncratic risk.\n3.  **Inflation Hedge**: Fixed-rate debt payments stay flat while rental income rises with inflation (\"Reverse-inflation risk\")."
+                }
+              ]
+            },
+            {
+              "id": "lesson-2-5",
+              "title": "Advanced Capital Stack",
+              "type": "article",
+              "sections": [
                 {
-                  "type": "quiz",
-                  "content": "Unit 2 Assessment",
-                  "quizData": [
-                    {
-                      "id": "u2a-q1",
-                      "text": "Order these from FIRST to LAST paid: common equity, senior debt, mezzanine debt.",
-                      "type": "multiple-choice",
-                      "options": [
-                        "Senior debt → mezzanine debt → common equity",
-                        "Common equity → mezzanine debt → senior debt",
-                        "Mezzanine debt → senior debt → common equity"
-                      ],
-                      "correctAnswer": "Senior debt → mezzanine debt → common equity",
-                      "explanation": "Priority of payment: senior debt first, then mezzanine, with common equity paid last (and bearing first loss)."
-                    },
-                    {
-                      "id": "u2a-q2",
-                      "text": "A deal's senior loan costs 4.5% and the property's cap rate is 6%. The leverage is:",
-                      "type": "multiple-choice",
-                      "options": [
-                        "Positive",
-                        "Negative",
-                        "Neutral"
-                      ],
-                      "correctAnswer": "Positive",
-                      "explanation": "Cost of debt (4.5%) is below the cap rate (6%), so borrowing increases the return on equity — positive leverage."
-                    },
-                    {
-                      "id": "u2a-q3",
-                      "text": "In a waterfall, the LP's preferred return is paid:",
-                      "type": "multiple-choice",
-                      "options": [
-                        "After the GP's promote",
-                        "Before the GP shares in profits",
-                        "Only if the property is sold at a loss"
-                      ],
-                      "correctAnswer": "Before the GP shares in profits",
-                      "explanation": "The LP receives its preferred (hurdle) return before the GP earns any promote on the upside."
-                    }
-                  ]
+                  "type": "markdown",
+                  "content": "## Beyond Senior Debt\n\n### Mezzanine Debt\n*   **Structure**: Subordinate to Senior Debt, senior to Equity.\n*   **Security**: Often secured by a pledge of *equity interest* in the borrowing entity, not the property itself.\n*   **Rights**: Can foreclose on the entity (take over control) if detailed.\n\n### Preferred Equity\n*   **Nature**: Hybrid Instrument. Part of the ownership stack but behaves like debt (fixed return).\n*   **Priority**: Paid before Common Equity but after all Debt.\n*   **Control**: No operational control unless a \"Kick-out\" event occurs.\n\n### GP / LP Structure\n*   **Capital Partner (LP)**: Provides majority of cash (90-95%), limited control.\n*   **Entrepreneurial Partner (GP)**: Provides expertise, manages changes, receives **Promote** (Performance Fees)."
+                }
+              ]
+            },
+            {
+              "id": "lesson-2-3",
+              "title": "Lecture Slides",
+              "type": "article",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Key Takeaways\n\n*   **Positive Leverage**: When Cost of Debt < Cap Rate -> Increases Equity Returns.\n*   **Negative Leverage**: When Cost of Debt > Cap Rate -> Dilutes Equity Returns."
                 }
               ],
               "resources": [
                 {
-                  "title": "III.5 Capital Structure class exercise — Excel (empty + solutions)",
-                  "type": "xlsx",
-                  "path": "/content/refi/unit-2/III.5-capital-structure.xlsx"
-                },
-                {
-                  "title": "Wildcat Capital Investors — case Excel (solutions)",
-                  "type": "xlsx",
-                  "path": "/content/refi/unit-2/wildcat-solutions.xlsx"
-                },
-                {
-                  "title": "Case study 1 — Valencia",
-                  "type": "pdf",
-                  "path": "/content/refi/unit-2/case-valencia.pdf"
-                },
-                {
-                  "title": "Capital Structures slides",
+                  "title": "Capital Structures Slides",
                   "type": "pptx",
                   "path": "/content/refi/unit-2/slides.pptx"
                 }

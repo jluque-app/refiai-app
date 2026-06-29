@@ -60,6 +60,7 @@ export async function GET(req: Request) {
       byUnit,
       byDay,
       items: qa,
+      tutorKeySet: !!process.env.ANTHROPIC_API_KEY,
     }),
     { headers: { "Content-Type": "application/json" } }
   );
