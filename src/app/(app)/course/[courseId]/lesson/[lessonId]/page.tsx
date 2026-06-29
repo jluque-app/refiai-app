@@ -24,6 +24,7 @@ import MortgageLabSimulator from "@/components/simulators/MortgageLab";
 import SingleAssetValuationSimulator from "@/components/simulators/SingleAssetValuation";
 import AffordableHousingFundSimulator from "@/components/simulators/AffordableHousingFund";
 import BarcelonaCaseSimulator from "@/components/simulators/BarcelonaCase";
+import ValuationLabSimulator from "@/components/simulators/ValuationLab";
 import AiTeacher from "@/components/ai/AiTeacher";
 
 const courseData = courseDataRaw as CourseData;
@@ -124,6 +125,7 @@ export default function LessonViewer() {
                                         {section.simulatorId === 'SingleAssetValuationSimulator' && <SingleAssetValuationSimulator {...section.props} />}
                                         {section.simulatorId === 'AffordableHousingFundSimulator' && <AffordableHousingFundSimulator {...section.props} />}
                                         {section.simulatorId === 'BarcelonaCaseSimulator' && <BarcelonaCaseSimulator {...section.props} />}
+                                        {section.simulatorId === 'ValuationLabSimulator' && <ValuationLabSimulator {...section.props} />}
                                     </div>
                                 </Card>
                             );

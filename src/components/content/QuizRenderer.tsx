@@ -118,8 +118,8 @@ export function QuizRenderer({ questions, title = "Knowledge Check" }: QuizRende
                             )}
                         </div>
 
-                        {/* Explanation */}
-                        {submitted[q.id] && isCorrect(q) && q.explanation && (
+                        {/* Explanation — shown after submitting, whether right or wrong */}
+                        {submitted[q.id] && q.explanation && (
                             <div className="text-sm text-slate-500 dark:text-slate-400 italic bg-white dark:bg-slate-950 p-3 rounded border text-muted-foreground">
                                 <strong>Explanation:</strong> {q.explanation}
                             </div>

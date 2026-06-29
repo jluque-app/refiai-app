@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Why is R0 = r - g?",
+    "a": "Direct capitalization values a growing perpetuity. The present value of cash flow growing at g, discounted at r, is CF1/(r-g). Since Value = NOI1/R0, matching the two gives R0 = r - g. So a cap rate is just the required return minus the growth the market expects in cash flows.",
+    "unitId": "unit-1",
+    "tags": ["cap rate", "r0", "growth", "discount rate", "valuation"]
+  },
+  {
+    "q": "What is the difference between direct capitalization and DCF?",
+    "a": "Direct capitalization treats stabilized income as an infinite perpetuity: Value = NOI1 / cap rate. It cannot value a finite hold. DCF discounts each year's cash flow plus the net sale price back at the required return r, and is the right tool for a finite hold (e.g. 5-10 years).",
+    "unitId": "unit-1",
+    "tags": ["dcf", "direct cap", "valuation", "cap rate", "hold period"]
+  },
+  {
+    "q": "How do I build the proforma from PGI to NOI?",
+    "a": "Start at Potential Gross Income (PGI). Subtract vacancy & collection loss (a % of PGI) to get Effective Gross Income (EGI). Subtract operating expenses (a % of EGI) to get Net Operating Income (NOI). Order matters: vacancy comes off gross rent, operating expenses come off effective income.",
+    "unitId": "unit-1",
+    "tags": ["proforma", "pgi", "egi", "noi", "vacancy", "opex"]
+  },
+  {
+    "q": "What are the two components of return?",
+    "a": "Total return = income return (yield) + appreciation return (growth). Income return = CF / V is contractual and relatively stable; appreciation return = (V_t - V_t-1)/V_t-1 depends on future market conditions and the exit cap rate, so it carries most of the risk.",
+    "unitId": "unit-1",
+    "tags": ["return", "income return", "appreciation", "yield", "growth"]
+  },
+  {
+    "q": "When is leverage positive vs negative?",
+    "a": "Leverage is positive when the cost of debt is below the property's cap rate — each borrowed euro earns more than it costs, so debt lifts equity IRR. It turns negative when the mortgage rate rises above the cap rate, and debt then dilutes equity returns. Lenders also watch DSCR (NOI / debt service); most want at least 1.25x.",
+    "unitId": "unit-1",
+    "tags": ["leverage", "positive leverage", "negative leverage", "dscr", "irr", "debt"]
+  }
+]

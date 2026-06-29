@@ -1,28 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
+import { UserProvider } from "@/components/UserContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// NOTE: We intentionally do NOT use next/font/google here.
+// Fetching Geist from Google Fonts at first render can hang the dev server on
+// restricted / corporate networks (e.g. university VPNs), which looks like the
+// page "never loads". We bind the same CSS variables to a robust system-font
+// stack instead, so the app renders instantly everywhere with no network call.
+const fontVars = {
+  "--font-geist-sans":
+    'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+  "--font-geist-mono":
+    'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
+} as React.CSSProperties;
 
 export const metadata: Metadata = {
   title: "ReFiAI | Real Estate Finance & AI Training",
-  description: "Master Real Estate Financial Modeling with AI-enhanced curriculum. From basic proformas to advanced REIT analysis.",
+  description:
+    "Master Real Estate Financial Modeling with AI-enhanced curriculum. From basic proformas to advanced REIT analysis.",
   openGraph: {
     title: "ReFiAI | Future of Real Estate Education",
     description: "Learn Real Estate Finance faster with AI.",
     images: ["/og-image.jpg"],
   },
 };
-
-import { UserProvider } from "@/components/UserContext";
 
 export default function RootLayout({
   children,
@@ -31,10 +32,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <UserProvider>
-          {children}
-        </UserProvider>
+      <body style={fontVars}>
+        <UserProvider>{children}</UserProvider>
       </body>
     </html>
   );

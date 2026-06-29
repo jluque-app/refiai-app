@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ReFiAI runtime data (tutor logs) and local backups
+/data
+*.bak
+*.bak.*
+
+# Media, swap files and temporary folders
+*.mp4
+*.swp
+temp_pptx/
+temp_docx/
+

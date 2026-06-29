@@ -79,20 +79,8 @@ export default function SingleAssetValuationSimulator() {
             cp_share, cp_pref, op_pref, cp_ops_split, cp_sale_split
         } = inputs;
 
-        interface CashFlow {
-            year: number;
-            pgi: number;
-            vacancy: number;
-            egi: number;
-            opex: number;
-            capex: number;
-            noi: number;
-            debtService?: number;
-            btcf?: number;
-        }
-
         // --- A. Property Cash Flows ---
-        const cfData: CashFlow[] = [];
+        const cfData = [];
         let currentPgi = pgi_y1;
 
         for (let t = 1; t <= years; t++) {
@@ -109,7 +97,9 @@ export default function SingleAssetValuationSimulator() {
                 egi,
                 opex: opexAmt,
                 capex: capexAmt,
-                noi
+                noi,
+                debtService: 0,
+                btcf: 0
             });
 
             // Grow PGI for next year
@@ -183,7 +173,7 @@ export default function SingleAssetValuationSimulator() {
 
         // Loop through operating years
         for (let t = 0; t < years; t++) {
-            let avail = cfData[t].btcf ?? 0;
+            let avail = cfData[t].btcf;
             const distRow: any = { year: t + 1, avail };
 
             // 1. Preferred Equity
@@ -451,7 +441,7 @@ export default function SingleAssetValuationSimulator() {
                                 <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
                                 <XAxis dataKey="year" />
                                 <YAxis />
-                                <Tooltip formatter={(val: number | undefined) => formatCurrency(val ?? 0)} />
+                                <Tooltip formatter={(val: number | undefined) => formatCurrency(val || 0)} />
                                 <Legend />
                                 <Bar dataKey="noi" fill="hsl(var(--primary))" name="NOI" />
                                 <Line type="monotone" dataKey="debtService" stroke="#ff7300" name="Debt Service" dot={false} />
