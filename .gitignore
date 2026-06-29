@@ -42,8 +42,7 @@ next-env.d.ts
 
 # ReFiAI runtime data (tutor logs) and local backups
 /data
-*.bak
-*.bak.*
+*.bak*
 
 # Media, swap files and temporary folders
 *.mp4
