@@ -28,6 +28,14 @@
                   "content": "## Three markets, one system\n\nReal estate is not just buildings — it is a system of three connected markets:\n\n1. **Space market** — landlords and tenants trade the right to *use* space. This sets **rents**.\n2. **Asset market** — investors trade *ownership* of buildings. This sets **prices** and **cap rates**.\n3. **Development industry** — converts capital into new buildings when prices justify construction cost.\n\n### The feedback loop\nHigh demand pushes **rents** up → higher rents lift **asset values** → when values rise above **construction cost**, developers **build** → new supply eventually moderates rents. Round and round."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — two markets, segmentation, and the kinked supply curve\n\nReal estate is **geographically fixed** and **capital-intensive** — which is *why* it is heavily regulated, non-homogeneous, debt-financed, and carries high transaction costs. The core framework splits it into two markets. The **space (usage) market** is where tenants and landlords exchange money for the *right to use* space — its demand side is **tenants** (not investors). The **asset (property) market** is where investors exchange capital for *ownership*. Space markets are highly **segmented** by geography and property type, because built space is not fungible (you can't cheaply turn an office into apartments); the basic geographic unit is the metropolitan area.\n\nSupply in the space market has a distinctive **kinked supply curve**: because buildings are durable and supply lags, it is nearly flat up to the existing stock, then kinks upward at the **'replacement-cost' rent** — the rent that just justifies new construction at long-run marginal cost. Below that rent, nothing is built; above it, developers add supply. The full **Real Estate System** has three components — the **space market, the asset market, and the development industry** — linked in a loop: rents and occupancy feed forecast cash flows → the asset market applies a cap rate to value them → when value exceeds construction cost, development adds supply → which flows back into the space market."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — solving for equilibrium rent\n\nLinear apartment demand in an MSA: #units = 60,000 + 0.30·(#households) − 80·(€Rent). Households fixed at 200,000. Developers raise stock to 100,000 units. Find the new equilibrium rent.\n\n- 100,000 = 60,000 + 0.30·200,000 − 80·Rent = 120,000 − 80·Rent\n- 80·Rent = 20,000 → **Rent = €250/month.** In a stable-population market, new supply is absorbed only by falling real rents."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — The System",
                   "quizData": [
@@ -54,6 +62,45 @@
                       ],
                       "correctAnswer": "Developers build more",
                       "explanation": "When value > cost it is profitable to build, so the development industry adds new supply."
+                    },
+                    {
+                      "id": "u011-d1",
+                      "text": "The 'real estate system' consists of which three components?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Space market, asset market, and development industry",
+                        "Space market, capital market, and mortgage industry",
+                        "Public equity, private equity, and debt",
+                        "Capital market, government, and land"
+                      ],
+                      "correctAnswer": "Space market, asset market, and development industry",
+                      "explanation": "The development industry is the bridge that turns a value-vs-cost signal into new supply."
+                    },
+                    {
+                      "id": "u011-d2",
+                      "text": "The 'kink' in the space-supply curve occurs at:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The current quantity of built space and the 'replacement-cost' rent",
+                        "The zoning-maximum quantity",
+                        "Current quantity and current rent",
+                        "The rent that makes the cap rate equal the mortgage rate"
+                      ],
+                      "correctAnswer": "The current quantity of built space and the 'replacement-cost' rent",
+                      "explanation": "Below replacement-cost rent no new supply is added, so the curve kinks there."
+                    },
+                    {
+                      "id": "u011-d3",
+                      "text": "The demand side of the space market consists of:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Potential tenants",
+                        "Investors",
+                        "Landlords",
+                        "Developers"
+                      ],
+                      "correctAnswer": "Potential tenants",
+                      "explanation": "Investors operate in the asset market, not the space market."
                     }
                   ]
                 }
@@ -83,6 +130,14 @@
                   "props": {
                     "variant": "mini"
                   }
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — the price multiple and what moves cap rates\n\nThe cap rate is the income yield, written three equivalent ways: **P = NOI / cap rate**, **cap rate = NOI / P**, and the perpetuity form **P = R/i**. Its inverse, **1/cap rate**, is the **price multiple** — how many euros of value each euro of NOI commands. A 10.57% cap means investors pay only €9.46 per €1 of NOI (1/0.1057); a 7.73% cap means €12.94 per €1. Lower cap rate = higher price = the market sees those cash flows as safer and/or faster-growing.\n\nThree forces move cap rates: the **opportunity cost of capital** (proxied by the risk-free rate), **growth expectations** in future NOI (faster growth → lower cap rate), and **risk perceptions** (riskier types like hotels carry higher caps than prime malls). Lease structure and market direction are embedded too: the **lowest** cap rate (highest price) belongs to **long leases in a growing market** — locked-in income plus upside — while the highest belongs to short leases in a declining market."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — cap-rate expansion destroys value\n\nA Madrid office asset earns €920,000 of annual NOI. At an 8% market cap rate, Value = 920,000 / 0.08 = **€11,500,000**. If the market sours and required cap rates rise to 10% with NOI unchanged, Value = 920,000 / 0.10 = **€9,200,000** — a 20% loss with no change in income, purely from cap-rate expansion. (At 8% each €1 of NOI is worth €12.50; at 10%, only €10.00.)"
                 },
                 {
                   "type": "quiz",
@@ -124,6 +179,45 @@
                       ],
                       "correctAnswer": "Rise",
                       "explanation": "Price = NOI / cap rate, and the cap rate tracks the required return. A lower required return lowers the cap rate and raises prices."
+                    },
+                    {
+                      "id": "u012-d1",
+                      "text": "Cap rates are 10.5% and a property earns €50,000 of net income per year. Its value is about:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€5,250",
+                        "€50,000",
+                        "€476,190",
+                        "€525,000"
+                      ],
+                      "correctAnswer": "€476,190",
+                      "explanation": "P = NOI / cap = 50,000 / 0.105 ≈ €476,190."
+                    },
+                    {
+                      "id": "u012-d2",
+                      "text": "Properties sell for €100/SF and yield €8/SF of net income. The prevailing cap rate is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€12.50",
+                        "€8/SF",
+                        "8%",
+                        "Cannot be determined"
+                      ],
+                      "correctAnswer": "8%",
+                      "explanation": "Cap rate = NOI / P = 8 / 100 = 8%."
+                    },
+                    {
+                      "id": "u012-d3",
+                      "text": "Other things equal, which property has the LOWEST cap rate?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Short leases, declining market",
+                        "Long leases, declining market",
+                        "Short leases, stable market",
+                        "Long leases, growing market"
+                      ],
+                      "correctAnswer": "Long leases, growing market",
+                      "explanation": "Secure long-term income plus growth upside justifies the highest price / lowest yield."
                     }
                   ]
                 }
@@ -142,6 +236,14 @@
                 {
                   "type": "markdown",
                   "content": "## Do interest rates drive cap rates?\n\nTheory says higher interest rates should raise cap rates (higher discount rate → lower prices). In practice the link is **weak and unstable**: over long periods cap rates and the 10-year government rate have only a loose, sometimes *negative*, relationship. Capital flows, risk appetite and growth expectations often dominate. The lesson: interest rates matter, but they are one input among several, not a switch."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — theory says rates drive caps; the data often disagrees\n\nTheory gives a clean relationship: **cap rate = risk-free rate + risk factor**. A rising 10-year government rate should raise borrowing costs, depress CRE demand, lower prices and push cap rates up. But Jaime's contrarian point is that over multi-year windows **the data repeatedly refutes the simple theory**: 1992–1999, rates fell yet cap rates stayed high; 2002–2007, rates rose yet cap rates fell; in 2000 and 2008, rates fell but cap rates spiked. Cap rates are driven by **capital-flow regimes and risk sentiment** — the volatile 'risk factor' — not by the risk-free rate alone.\n\nThe narrative cases make it concrete: in the high-inflation late 1970s–80s, real estate was prized as an inflation hedge, so caps stayed low even as rates rose; after the 1987 crash, capital fled stocks into CRE, compressing caps; the **February 1994** Fed hike sent REIT prices down and CRE caps up, 'killing' the late-1990s recovery. The investor takeaway: you cannot mechanically forecast cap-rate moves from rate moves — read where capital is flowing and how risk is being priced *at that point in the cycle*."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the spread is the swing variable\n\nPrime logistics cap = 5.5%; German 10-yr Bund = 0.5% → risk spread = 5.0%, value = €500,000 NOI / 0.055 = €9.09m.\n\n- Textbook: Bund rises to 2.5%, spread holds → cap 7.5%, value falls to €6.67m (−27%).\n- 'Data refutes theory': rates rise to 2.5% but a wall of capital compresses the spread to 3.0% → cap stays 5.5%, value holds at €9.09m. The *spread*, set by capital flows, is what really moves."
                 },
                 {
                   "type": "quiz",
@@ -170,6 +272,32 @@
                       ],
                       "correctAnswer": "Weak and sometimes negative",
                       "explanation": "History shows a loose link; growth expectations and capital flows often outweigh rates."
+                    },
+                    {
+                      "id": "u013-d1",
+                      "text": "Financial theory expresses the cap rate as:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "NOI × price",
+                        "Risk-free rate + risk factor",
+                        "Risk-free rate − growth",
+                        "Rent ÷ occupancy"
+                      ],
+                      "correctAnswer": "Risk-free rate + risk factor",
+                      "explanation": "The cap rate is a baseline return plus a risk premium; the premium is the volatile piece."
+                    },
+                    {
+                      "id": "u013-d2",
+                      "text": "Over 2002–2007, the historical record shows:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Rising rates and rising cap rates",
+                        "Rising rates but falling cap rates",
+                        "Falling rates and falling cap rates",
+                        "No change in either"
+                      ],
+                      "correctAnswer": "Rising rates but falling cap rates",
+                      "explanation": "A key example that data can refute the simple rate→cap-rate theory when capital floods into CRE."
                     }
                   ]
                 }
@@ -251,6 +379,14 @@
                   "content": "### Quick example (euros)\n\nYou will receive **€10,000** in 3 years. At a 7% discount rate:\n\n`PV = 10,000 / 1.07³ = 10,000 / 1.225 = €8,163`\n\nThe further away the cash flow, or the higher the rate, the smaller today's value."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — why a future euro is worth less, and the growing perpetuity\n\nA euro in the future is worth less than a euro today for three reasons: **uncertainty** (a future euro is only a promise), **opportunity cost** (investing today forgoes a return), and **inflation**. The rate **r** that bridges euros across time is the opportunity cost of capital — the **discount rate** when finding a present value: **PV = FV / (1+r)ᴺ**. Watch **compounding**: a 12% nominal rate compounded monthly earns (1 + 0.12/12)¹² − 1 = **12.68%** effective — and always match the period of the rate to the period of the cash flow (bonds pay semi-annually, mortgages monthly).\n\nEverything reduces to six problem types solved with five inputs (N, I, PV, PMT, FV). The two **perpetuity** formulas bridge to valuation: a level perpetuity is **PV = PMT/r**, and a constant-growth perpetuity (Gordon) is **PV = CF₁/(r − g)**. Real estate generates growing rents indefinitely, so the growing perpetuity is the back-of-the-envelope value — and **(r − g) is exactly the cap rate**, tying this lesson straight to cap-rate pricing."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — growing-perpetuity value\n\nNext-year NOI €100,000, growing 3% forever, discounted at r = 8%.\n\n- PV = CF₁/(r − g) = 100,000 / (0.08 − 0.03) = 100,000 / 0.05 = **€2,000,000**.\n- The embedded cap rate is r − g = 5% (a 20× multiple on NOI). Compounding check: €15,000 in 10 years at 8% compounded monthly = 15,000/(1+0.08/12)¹²⁰ ≈ **€6,758**."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — TVM",
                   "quizData": [
@@ -277,6 +413,45 @@
                       ],
                       "correctAnswer": "Money earns a return over time",
                       "explanation": "TVM reflects the earning capacity (opportunity cost) of money."
+                    },
+                    {
+                      "id": "u021-d1",
+                      "text": "PV of a property with year-1 NOI €100,000 growing 3% forever, discounted at 8%:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€2,000,000",
+                        "€909,091",
+                        "€1,250,000",
+                        "Cannot be determined"
+                      ],
+                      "correctAnswer": "€2,000,000",
+                      "explanation": "Growing perpetuity: 100,000 / (0.08 − 0.03) = €2m."
+                    },
+                    {
+                      "id": "u021-d2",
+                      "text": "Net cash flow grows 1.5% in perpetuity and the OCC is 12%. The cap rate is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "8%",
+                        "10%",
+                        "10.5%",
+                        "12%"
+                      ],
+                      "correctAnswer": "10.5%",
+                      "explanation": "Cap rate = r − g = 12% − 1.5% = 10.5%."
+                    },
+                    {
+                      "id": "u021-d3",
+                      "text": "12% nominal annual, compounded monthly, equals an effective annual rate of:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "12.00%",
+                        "12.68%",
+                        "1.00%",
+                        "6.17%"
+                      ],
+                      "correctAnswer": "12.68%",
+                      "explanation": "(1 + 0.12/12)¹² − 1 = 12.68%."
                     }
                   ]
                 }
@@ -299,6 +474,14 @@
                 {
                   "type": "simulator",
                   "simulatorId": "ExcelSimulator"
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — the NPV and IRR decision rules\n\nThe time-value mechanics become **decision rules**. The **NPV rule**: when buying, NPV = (DCF value) − (price paid); when selling, NPV = (price obtained) − (value). Maximise NPV across mutually exclusive alternatives and never accept a negative-NPV deal — i.e. maximise the gap between the value of what you get and the value of what you give up. The **IRR / hurdle rule** is its mirror: the IRR solves NPV = 0, and you never do a deal whose expected IRR is below your **required return** (the risk-adjusted opportunity cost of capital).\n\nExcel mechanics to master: **PMT** sizes a loan payment (a €200,000, 6% nominal, 15-year monthly loan → PMT ≈ −€1,688/mo); an **interest-only** loan pays just i×principal each period (an €80,000, 9% IO loan = 80,000×0.09/12 = €600/mo, far below the amortizing payment). Remember Excel's **NPV()** discounts from period 1, so the time-0 outlay is added *outside* the function, and **IRR()** needs a sign-changed cash-flow vector (negative purchase, positive inflows)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — an NPV accept/reject\n\nPay €350,000 today for year-end cash flows of €20,000 / €22,000 / €30,000 / €31,000 / €40,000 (Years 1–5), then sell at end of Year 5 for 10× the Year-5 flow = €400,000 (so Year-5 inflow = €440,000). OCC = 10%.\n\n- PV of inflows ≈ €353,282 → **NPV = 353,282 − 350,000 = +€3,282** (accept; it clears the 10% hurdle).\n- Excel: `= -350000 + NPV(0.10, 20000, 22000, 30000, 31000, 440000)`."
                 },
                 {
                   "type": "quiz",
@@ -327,6 +510,32 @@
                       ],
                       "correctAnswer": "NPV equals zero",
                       "explanation": "IRR is the discount rate that sets the net present value of the cash flows to zero."
+                    },
+                    {
+                      "id": "u022-d1",
+                      "text": "For the deal above (€350,000 price, 10% OCC, year-5 sale at 10× the year-5 flow), the NPV is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "−€19,297",
+                        "+€3,282",
+                        "+€38,610",
+                        "Zero"
+                      ],
+                      "correctAnswer": "+€3,282",
+                      "explanation": "PV of inflows ≈ €353,282, less €350,000 = +€3,282."
+                    },
+                    {
+                      "id": "u022-d2",
+                      "text": "The monthly payment on an €80,000, 9% interest-only mortgage is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€600.00",
+                        "€811.41",
+                        "€1,005.78",
+                        "€7,200.00"
+                      ],
+                      "correctAnswer": "€600.00",
+                      "explanation": "Interest-only pays 80,000 × 0.09/12 = €600; no principal amortization."
                     }
                   ]
                 }
@@ -399,6 +608,14 @@
                   "content": "## Required return = compensation for risk\n\nInvestors price assets on the relationship between **expected risk** and **required return**. Start from the **risk-free rate** (government bonds) and add a **risk premium** for the extra risks of real estate — illiquidity, leverage, and asset-specific risk.\n\n`Required Return (r) = Risk-free rate + Risk premium`\n\nReturn itself has two parts: **income return** (the yield from NOI, contractual and stable) and **appreciation return** (price growth, market-driven and riskier)."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — return as a random variable, and decomposing it\n\nA return is a **random variable** over states of nature, each with a probability. The **expected return** is the probability-weighted average; **variance** is the weighted average of squared deviations from the mean; and **risk = standard deviation**. An asset is risk-free if variance = 0. Precisely, **'risk' is the chance the realized (ex post) return differs from the expected (ex ante) return**, measured by the standard deviation — and higher risk is associated with higher expected return. The **risk premium** is the total expected return minus the risk-free rate.\n\nTotal return decomposes several equivalent ways: income + appreciation; yield + capital gain; risk-free rate + risk premium; or real return + inflation premium. (Trap: 'nominal + real' is **not** a valid decomposition.) The income/yield return is net rent ÷ price; the appreciation return is the price change ÷ price; the *real* appreciation return strips out inflation."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — expected return and risk\n\nAn asset worth €100,000 now will be worth €115,000 or €95,000 in one year, each with 50% probability.\n\n- E[value] = 0.5·115,000 + 0.5·95,000 = €105,000 → **expected return = 5%**.\n- Each outcome is ±€10,000 from the mean → **risk (σ) = 10%**."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Risk & Return",
                   "quizData": [
@@ -424,6 +641,32 @@
                       ],
                       "correctAnswer": "Risk-free rate + risk premium",
                       "explanation": "You add a premium for real estate's risks to the risk-free baseline."
+                    },
+                    {
+                      "id": "u031-d1",
+                      "text": "An asset worth €100,000 will be worth €115,000 or €95,000 with equal chance. Expected return and risk are:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "15% / 20%",
+                        "0% / 5%",
+                        "5% / 10%",
+                        "0% / 10%"
+                      ],
+                      "correctAnswer": "5% / 10%",
+                      "explanation": "E[r] = 5%; deviations of ±10% give σ = 10%."
+                    },
+                    {
+                      "id": "u031-d2",
+                      "text": "Which is NOT a valid way to decompose total return?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Income + appreciation",
+                        "Yield + capital gain",
+                        "Risk-free rate + risk premium",
+                        "Nominal return + real return"
+                      ],
+                      "correctAnswer": "Nominal return + real return",
+                      "explanation": "Nominal and real returns are not additive components of total return."
                     }
                   ]
                 }
@@ -438,6 +681,14 @@
                 {
                   "type": "markdown",
                   "content": "## R₀ = r − g\n\nWhen a property behaves like a growing perpetuity, the cap rate is the required return **minus** the expected growth in cash flows:\n\n`Cap Rate (R₀) = Required return (r) − Growth (g)`\n\nSo two properties with the same NOI can trade at very different prices: the one with higher expected growth (or lower risk) has a **lower** cap rate and a **higher** price. This is why prime, growing markets look 'expensive' on a cap-rate basis — the market is pricing in growth."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — cap rate = r − g, and why\n\nThis fuses the earlier units. Start from the growing-perpetuity value **P = CF₁/(r − g)** and recall cap rate = CF₁/P; algebra gives the **cap-rate decomposition: cap rate = r − g**, where r is the total required return and g the expected long-run growth of net cash flow. So a cap rate is *not* a return — it is the required return *minus* expected growth. Two assets of identical risk (same r) show different cap rates purely because of different growth expectations.\n\nGoing deeper, r itself decomposes (CAPM) into **risk-free rate + risk premium**, so **cap rate = risk-free rate + risk premium − growth** — the rigorous version of the three cap-rate determinants. The practical payoff: because cap rate = r − g, you can **back out implied growth** from an observed market cap rate given r, or back out the implied required return given a growth view — turning a quoted cap rate into a window onto the market's beliefs about risk and growth."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — backing out implied growth\n\nPrime logistics asset: NOI €600,000 at a 5% cap → price €12,000,000. Estimated total required return r = 8%.\n\n- Implied growth g = r − cap rate = 8% − 5% = **3%/year**.\n- If the risk-free rate is 1%, the risk premium is 7%, so 5% cap = 1% (rf) + 7% (premium) − 3% (growth). A secondary office at the same NOI but 9% cap and r = 11% implies g = 2% — lower growth and higher risk both lift its cap rate."
                 },
                 {
                   "type": "quiz",
@@ -466,6 +717,32 @@
                       ],
                       "correctAnswer": "Lower",
                       "explanation": "More growth lowers the cap rate (R₀ = r − g) and raises the price."
+                    },
+                    {
+                      "id": "u032-d1",
+                      "text": "Net cash flow grows 1.5% in perpetuity and the OCC (r) is 12%. The cap rate is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "8%",
+                        "10%",
+                        "10.5%",
+                        "12%"
+                      ],
+                      "correctAnswer": "10.5%",
+                      "explanation": "Cap rate = r − g = 12% − 1.5% = 10.5%."
+                    },
+                    {
+                      "id": "u032-d2",
+                      "text": "Two assets share the same required return r, but Asset A's NOI grows faster than Asset B's. Relative to B, Asset A's cap rate is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Higher",
+                        "Lower",
+                        "The same",
+                        "Cannot tell"
+                      ],
+                      "correctAnswer": "Lower",
+                      "explanation": "Cap rate = r − g, so higher g means a lower cap rate (and higher price) for the same r."
                     }
                   ]
                 }
@@ -480,6 +757,14 @@
                 {
                   "type": "markdown",
                   "content": "## Don't put it all in one building\n\nA single property carries **idiosyncratic risk** — a bad tenant, a local downturn. Spreading equity across more assets (often funded by **leverage**) reduces that risk because their cash flows are not perfectly correlated. Investors are rewarded mainly for **systematic** (market-wide) risk they cannot diversify away — the core idea behind the **CAPM** view of required returns.\n\n*Practical takeaway:* eight buildings at 75% LTV diversify far better than two bought all-cash with the same equity — provided the leverage is prudent."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — diversification, the Capital Market Line, and beta\n\nA portfolio's **expected return** is the weighted average of its components — linear in the weights. Its **risk is not**: variance depends on each asset's variance *and* on the **covariance/correlation** between them. The key fact: **combining risky assets reduces risk unless they are perfectly positively correlated** (ρ = 1); negative correlation reduces it even more. This is why real estate, weakly correlated with stocks and bonds, earns a place in an institutional portfolio — and why a national property portfolio diversifies *geographically* (distant markets don't move together).\n\nAdding a **risk-free asset** turns the menu into a straight line from rf through the **optimal risky (market) portfolio** — the Capital Market Line. You set your risk by how much you **lever or de-lever** that portfolio: hold T-bills to reduce risk, or borrow to push beyond the market portfolio. So if you want little risk, the answer is **not** 'avoid risky assets' but 'hold a diversified mix of risky assets *and* government bonds.' This leads to **CAPM**, where an asset's relevant risk is its contribution to market risk (**beta**), not its standalone variance: **E[rᵢ] = rf + βᵢ × (market price of risk)**."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — levering the market portfolio\n\nOptimal risky portfolio: 12% return, 10% volatility; risk-free asset 7%.\n\n- 50/50 mix: return = 0.5·7% + 0.5·12% = **9.5%**; volatility = 0.5·10% = **5%** (the risk-free leg adds no variance).\n- To target 15% with rf = 6% and a 12% market portfolio: 15% = (1−w)·6% + w·12% → w = 1.5, i.e. **borrow 50% and invest 150%** in the risky portfolio.\n- CAPM: rf 5%, market price of risk 6%, β 0.5 → E[r] = 5% + 0.5·6% = **8%**."
                 },
                 {
                   "type": "quiz",
@@ -508,6 +793,45 @@
                       ],
                       "correctAnswer": "Systematic (market) risk",
                       "explanation": "Idiosyncratic risk can be diversified away, so the market rewards bearing systematic risk."
+                    },
+                    {
+                      "id": "u033-d1",
+                      "text": "Risky portfolio 12%/10%σ; risk-free 7%. A 50/50 mix has:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "7% / 10%",
+                        "9.5% / 5%",
+                        "9.5% / 10%",
+                        "10% / 10%"
+                      ],
+                      "correctAnswer": "9.5% / 5%",
+                      "explanation": "Return is the weighted average (9.5%); volatility scales only with the risky weight (0.5×10% = 5%)."
+                    },
+                    {
+                      "id": "u033-d2",
+                      "text": "CAPM with rf = 5%, market price of risk = 6%, β = 0.5 gives an expected return of:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "3%",
+                        "6%",
+                        "8%",
+                        "11%"
+                      ],
+                      "correctAnswer": "8%",
+                      "explanation": "E[r] = rf + β × price of risk = 5% + 0.5×6% = 8%."
+                    },
+                    {
+                      "id": "u033-d3",
+                      "text": "If you don't want much risk, Portfolio Theory says:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Don't invest in risky assets",
+                        "Buy diversified risky assets and lever up",
+                        "Hold a diversified mix of risky assets AND government bonds",
+                        "Invest only in efficient markets"
+                      ],
+                      "correctAnswer": "Hold a diversified mix of risky assets AND government bonds",
+                      "explanation": "Diversify the risky portfolio, then dial risk down with the risk-free allocation."
                     }
                   ]
                 }
@@ -559,6 +883,14 @@
                   "content": "### Worked example (from class)\n\nA property is bought for **€200,000** at t = 0. The landlord receives **€7,000** rent and sells for **€205,000** at t = 1.\n\n- Income return = 7,000 / 200,000 = **3.5%**\n- Appreciation return = (205,000 − 200,000) / 200,000 = **2.5%**\n- **Total return = 3.5% + 2.5% = 6.0%**\n\nFor multi-period investments (the norm in real estate, which is long-term), we measure return with the **Internal Rate of Return (IRR)** — the single rate that discounts all the investment's future cash flows back to a present value equal to its purchase price."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — price, return, and the two components\n\nThe single idea to carry through the course: **price and return are opposite sides of the same coin.** As the price you pay rises, your return falls — so an investor who demands a higher return must offer a lower price. From this comes the maxim **money is made when you buy, not when you sell**: once your purchase price is fixed, so is your *expected* return. But your *realized* return is never fully in your control, because future cash flows are dictated by the market — so always underwrite for volatility.\n\nTotal return splits into two additive pieces: **income return (yield)** = CFₜ / Vₜ₋₁ (matters to income-focused investors) and **appreciation (growth) return** = (Vₜ − Vₜ₋₁) / Vₜ₋₁ (matters to growth-focused investors). The cap rate is essentially the income-return piece; the discount rate is the total return. One classification habit that trips students: separate **operating cash flows** (rent, lease income) from **capital transactions** (a unit sale, building a new wing) — the first belongs in NOI, the second in the reversion."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — decomposing a 6% return\n\nBuy at €200,000; collect €7,000 rent; sell at €205,000 one year later.\n\n- Income return = 7,000 / 200,000 = **3.5%**\n- Appreciation = (205,000 − 200,000) / 200,000 = **2.5%**\n- Total = **6.0%**, i.e. (7,000 + 5,000) / 200,000."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Components of Return",
                   "quizData": [
@@ -585,6 +917,32 @@
                       ],
                       "correctAnswer": "Income return",
                       "explanation": "Income comes from contractual leases; appreciation depends on future market conditions and the exit cap rate, so it carries more risk."
+                    },
+                    {
+                      "id": "u1l1-d1",
+                      "text": "A long-leased office is called an 'income' rather than a 'growth' investment because:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Office buildings never appreciate",
+                        "Most of its return is contractual rent (income return), not expected appreciation",
+                        "Leases prevent any reversion value",
+                        "Cap rates always exceed growth"
+                      ],
+                      "correctAnswer": "Most of its return is contractual rent (income return), not expected appreciation",
+                      "explanation": "A long lease locks in income, so the yield component dominates total return."
+                    },
+                    {
+                      "id": "u1l1-d2",
+                      "text": "Why is a cap rate NOT a 'total return'?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "It ignores operating expenses",
+                        "It captures only the income component and omits expected appreciation/growth",
+                        "It double-counts the reversion",
+                        "It is always negative"
+                      ],
+                      "correctAnswer": "It captures only the income component and omits expected appreciation/growth",
+                      "explanation": "Total return = income + appreciation; the cap rate is essentially just the income piece."
                     }
                   ]
                 }
@@ -607,6 +965,14 @@
                 {
                   "type": "markdown",
                   "content": "## Building the proforma (PGI → NOI)\n\nEvery model starts from the income waterfall. Work down from gross potential rent to the cash flow available to investors:\n\n- **Potential Gross Income (PGI)** — contract + market rent\n- **− Vacancy & collection loss** (a % of PGI)\n- **= Effective Gross Income (EGI)**\n- **− Operating Expenses** (a % of EGI)\n- **= Net Operating Income (NOI)**\n- **− Capital reserve (CapEx)**\n- **= Property Before-Tax Cash Flow (PBTCF)**\n\nOrder matters: vacancy comes off *gross* rent; operating expenses come off *effective* income. Mixing these up is the most common proforma mistake."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — when each method is legitimate, and the bridge between them\n\n**Direct capitalization** (Value = NOI₁ / cap rate) values a *perpetual, roughly constant-growth* income stream — it is **not valid for a finite horizon**. The cap rate is read off comparable transactions and represents the opportunity cost of capital. **DCF** values *any* finite hold as the present value of operating cash flows plus the reversion, discounted at the required total return. The bridge is the Gordon-growth identity: a property approximates a constant-growth annuity, so **cap rate = discount rate − growth (R₀ = r − g)**, or equivalently **discount rate = cap rate + growth**. This single equation converts a market cap rate into the discount rate you should use in a multi-year DCF — and it means you cannot choose a cap rate, a growth rate, and an appreciation assumption independently.\n\nTwo rules to internalise. First, the DCF forecast must be a **realistic best-guess** — not conservative, not aggressive — because risk runs both ways (deliberately biasing the forecast corrupts the valuation). Second, the **'+1' reversion rule**: when you estimate the sale price at the end of year N, apply the terminal cap rate to the NOI of year **N+1**, because the next buyer is paying for the *forward* income stream."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — direct cap and the discount-rate bridge\n\nNOI₁ = €5,000,000 and the market cap rate is 9.00%.\n\n- Direct-cap value = 5,000,000 / 0.09 = **€55,555,556**.\n- If the market expects 3% annual growth, the discount rate for a DCF on the same asset = cap rate + growth = 9% + 3% = **12%** — the two methods must be mutually consistent."
                 },
                 {
                   "type": "quiz",
@@ -647,6 +1013,45 @@
                       ],
                       "correctAnswer": "Discounted cash flow (DCF)",
                       "explanation": "Direct capitalization assumes a perpetual stream; a finite hold is valued with DCF — PV of the interim cash flows plus the net sale price."
+                    },
+                    {
+                      "id": "u1l2-d1",
+                      "text": "Market cap rate is 10% and you expect 3% annual appreciation. The discount rate for a multi-year DCF is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "7%",
+                        "10%",
+                        "13%",
+                        "3%"
+                      ],
+                      "correctAnswer": "13%",
+                      "explanation": "Discount rate = cap rate + growth = 10% + 3% = 13%."
+                    },
+                    {
+                      "id": "u1l2-d2",
+                      "text": "In a DCF, the cash-flow forecast should be:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Conservative / pessimistic",
+                        "Aggressive / optimistic",
+                        "A realistic best-guess (risk runs both ways)",
+                        "Whatever makes the deal work"
+                      ],
+                      "correctAnswer": "A realistic best-guess (risk runs both ways)",
+                      "explanation": "DCF is an expected-value calculation; biasing the forecast corrupts it."
+                    },
+                    {
+                      "id": "u1l2-d3",
+                      "text": "When valuing the reversion at the end of a 10-year hold, the terminal cap rate is applied to the NOI of:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Year 10",
+                        "Year 11 (the year after sale)",
+                        "Year 1",
+                        "The average of all years"
+                      ],
+                      "correctAnswer": "Year 11 (the year after sale)",
+                      "explanation": "Direct cap always uses next-year (forward) NOI — the '+1' reversion rule."
                     }
                   ]
                 }
@@ -685,6 +1090,46 @@
                 {
                   "type": "simulator",
                   "simulatorId": "ExcelSimulator"
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — a fully parameterized proforma and the loan-sizing rule\n\nBuild the model so **every assumption lives in its own input cell** — nothing hard-coded inside formulas — so any driver can be flexed. The waterfall: **PGI − vacancy − credit loss + reimbursements = EGI − operating expenses = NOI − CapEx = PBTCF** (property before-tax cash flow). Crucially, the lender's coverage test is run on **PBTCF, not NOI**, because CapEx is real cash. Layer debt to get equity flows: **EBTCF = PBTCF − annual debt service** during operations, and at sale **BTER = sale price − selling costs − outstanding loan balance**. From the equity column come the three headline metrics: equity **IRR**, **cash-on-cash** (each year's EBTCF ÷ equity invested), and the **equity multiple**.\n\nThe conceptual core is loan sizing: the loan is the **lesser of two constraints**, Loan\\* = min{LTV × value, DSCR-loan}. To get the DSCR-loan, use the three-step trick: (1) required annual debt service ADS = PBTCF₁ ÷ DSCR; (2) the mortgage constant MC = the ADS on an auxiliary €1 loan; (3) DSCR-loan = ADS ÷ MC. Whichever of the two constraints gives the **smaller** loan binds."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the min{LTV, DSCR} rule\n\nValue €10,000,000; lender caps at min{70% LTV, 1.25× DSCR on PBTCF}; mortgage 6.5%, 25-yr amortization; Year-1 PBTCF = €700,000.\n\n- LTV-loan = 0.70 × 10,000,000 = **€7,000,000**.\n- DSCR-loan: ADS = 700,000 / 1.25 = €560,000; mortgage constant ≈ 0.0810; loan = 560,000 / 0.0810 ≈ **€6,914,000**.\n- **Loan\\* = €6,914,000** — DSCR binds, so cash-flow risk (not collateral) limits the loan."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Deeper Check",
+                  "quizData": [
+                    {
+                      "id": "u1l4-d1",
+                      "text": "A lender allows the lesser of 70% LTV or a 1.5× minimum DSCR. The binding constraint is whichever produces the:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Larger loan",
+                        "Smaller loan",
+                        "Higher interest rate",
+                        "Loan the borrower prefers"
+                      ],
+                      "correctAnswer": "Smaller loan",
+                      "explanation": "Loan* = min{LTV-loan, DSCR-loan}; the tighter constraint protects the lender."
+                    },
+                    {
+                      "id": "u1l4-d2",
+                      "text": "The lender computes the debt-coverage test on:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "PGI",
+                        "EGI",
+                        "PBTCF (cash after CapEx)",
+                        "Gross rent"
+                      ],
+                      "correctAnswer": "PBTCF (cash after CapEx)",
+                      "explanation": "CapEx is real cash that competes with debt service, so coverage uses PBTCF."
+                    }
+                  ]
                 }
               ],
               "resources": [
@@ -709,6 +1154,14 @@
                 {
                   "type": "markdown",
                   "content": "## One-page summary\n\n- **Total return = income + appreciation.** Income is contractual and stable; appreciation carries the risk.\n- **Direct cap:** Value = NOI₁ / R₀, and R₀ = r − g. Falling *r* (or rising *g*) raises value.\n- **DCF** discounts each year's cash flow plus the net sale price at *r* — used for finite holds.\n- **Proforma order:** vacancy off PGI, opex off EGI, to reach NOI.\n- **Leverage** is positive when the cost of debt is below the cap rate — it lifts equity IRR (and risk)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — comparing opportunities on total return\n\nJaime's 'cornfield vs. warehouse' test sharpens the discipline. A warehouse leased at a 10% cap with 2% rent growth delivers a total return ≈ **12%**. The cornfield next door, zoned for warehouse development, is expected to grow in value 10%/year while its harvest barely covers property taxes (near-zero income return), so its total return ≈ **10%** — *lower* return at *higher* risk. The right action is to **sell or develop the cornfield**, not hold it speculatively. Compare opportunities on **total return (income + growth)**, never on growth alone.\n\nA second exam theme: **discount contractual and non-contractual cash flows at different rates**. In-place lease income is nearly certain and carries a small risk premium (a low discount rate); rents from leases not yet signed, and the reversion, are uncertain and carry a higher premium. This is more accurate than a single blended discount rate."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — splitting the discount rate by certainty\n\nSingle-tenant building. Contractual rent €2.0m/yr in Years 1–3; expected (not-yet-signed) rent €2.2m/yr in Years 4–9; Year-10 cash flow of €25m includes the reversion. T-bill 6%. Contractual premium 200 bps → discount at 8%; non-contractual premium 600 bps → discount at 12%.\n\n- PV of Years 1–3 at 8% ≈ €5.15m\n- PV of Years 4–9 plus the €25m Year-10 reversion at 12% ≈ €15.1m\n- **Total value ≈ €20.2m.**"
                 },
                 {
                   "type": "quiz",
@@ -749,6 +1202,30 @@
                       ],
                       "correctAnswer": "Positive leverage",
                       "explanation": "The cost of debt (5%) is below the cap rate (6.5%), so borrowing increases the return on equity — positive leverage."
+                    },
+                    {
+                      "id": "u1l5-d1",
+                      "text": "You own a cornfield (10% expected value growth, income covers only taxes) next to a warehouse at a 10% cap with 2% growth. You should:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Hold the cornfield as a speculative play",
+                        "Sell or develop the cornfield"
+                      ],
+                      "correctAnswer": "Sell or develop the cornfield",
+                      "explanation": "The warehouse's ~12% total return beats the cornfield's ~10% pure-growth return at lower risk."
+                    },
+                    {
+                      "id": "u1l5-d2",
+                      "text": "Contractual in-place lease cash flows should be discounted at a ___ rate than expected rents from a lease not yet signed:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Higher",
+                        "Lower",
+                        "Identical",
+                        "Zero"
+                      ],
+                      "correctAnswer": "Lower",
+                      "explanation": "Contractual flows are more certain, so they carry a smaller risk premium."
                     }
                   ]
                 }
@@ -788,6 +1265,14 @@
                   "content": "## The capital stack\n\nMost real estate deals are financed with a **mix** of debt and equity, stacked by priority. From safest/lowest return at the bottom to riskiest/highest return at the top:\n\n- **Senior debt** (the mortgage) — paid first, lowest cost, lowest risk.\n- **Mezzanine debt** — subordinate to senior debt, higher rate.\n- **Preferred equity** — hybrid; paid before common equity, fixed-ish return.\n- **Common equity** (LP + GP) — paid **last**, takes the **first loss**, but captures **all the upside**.\n\nTwo rules follow from the order:\n1. **Priority of payment** runs bottom-up: senior debt is served before anyone above it.\n2. **Risk and return rise as you go up** the stack — the last-paid money demands the highest return."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — why project-level debt, and the four 'other' reasons\n\nReal estate uses **project- (asset-) level** secured financing far more than corporate finance because it is *asset-heavy and transparent*: value sits in tangible property that makes ideal collateral, so outside investors can lend or invest without day-to-day control. Jaime's three primary reasons to use debt: an **equity capital constraint**, **leveraging expertise** (development / operational / asset-management talent that can't be deployed without borrowed funds), and **diversification** — €10m of equity buys two €5m buildings unleveraged, but eight at 75% LTV.\n\nFour further considerations: debt lets you **create products that match risk to investor appetite** (debt = lower-risk/income/fixed-horizon; equity = higher-risk/growth/open-horizon); debt is an **incentive and disciplinary tool** ('75% LTV turns a 1% return impact into a 4% impact', attracting active management); debt provides **liquidity** (you can partially cash out an illiquid asset by borrowing — until fully levered); and fixed-rate debt is an **inflation hedge** against *unexpected* inflation ('reverse-inflation risk'), because rents track inflation while debt service stays fixed. The stack, senior to residual: First mortgage → Mezzanine (junior) debt → Preferred equity → Common equity (capital partner) → Common equity (entrepreneurial partner). For priority of payments, separate **operating** distributions (which pay the preferred *dividend*) from **capital** events like a sale (which pay *return of capital*)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — leverage and diversification\n\nInvestor with €10m of equity:\n\n- Unleveraged: 10,000,000 / 5,000,000 = **2 properties**.\n- At 75% LTV: equity per €5m asset = 0.25 × 5,000,000 = €1.25m → 10,000,000 / 1,250,000 = **8 properties** (€40m of assets on €30m debt + €10m equity).\n- Return amplification: at 4:1 asset-to-equity, a 1% swing in property return ≈ a 4% swing in equity return."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — The Stack",
                   "quizData": [
@@ -814,6 +1299,32 @@
                       ],
                       "correctAnswer": "Senior debt",
                       "explanation": "Senior lenders have priority of payment (and foreclosure rights) ahead of every other stakeholder."
+                    },
+                    {
+                      "id": "u2l1-d1",
+                      "text": "Real estate relies on project-level secured debt more than corporate finance mainly because:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Banks dislike companies",
+                        "It is asset-heavy and transparent, making properties ideal collateral",
+                        "Equity is not allowed in real estate",
+                        "Interest rates are lower"
+                      ],
+                      "correctAnswer": "It is asset-heavy and transparent, making properties ideal collateral",
+                      "explanation": "Tangible, transparent assets support secured lending without monitoring management."
+                    },
+                    {
+                      "id": "u2l1-d2",
+                      "text": "With fixed-rate debt, an unexpected jump in inflation tends to:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Hurt the equity investor",
+                        "Leave equity returns unchanged",
+                        "Raise equity returns (rents rise, debt service is fixed)",
+                        "Trigger default"
+                      ],
+                      "correctAnswer": "Raise equity returns (rents rise, debt service is fixed)",
+                      "explanation": "This 'reverse-inflation risk' makes fixed-rate-levered real estate a hedge against unexpected inflation."
                     }
                   ]
                 }
@@ -880,6 +1391,14 @@
                   "content": "## Beyond senior debt\n\n### Mezzanine debt\n- **Position:** subordinate to senior debt, senior to equity.\n- **Security:** often secured by a pledge of the **equity interest** in the borrowing entity, not the property itself — so on default the mezz lender can take over the entity (faster than property foreclosure).\n\n### Preferred equity\n- **Nature:** a hybrid — part of the ownership stack, but behaves like debt (a fixed preferred return).\n- **Priority:** paid before common equity, after all debt.\n- **Control:** usually none, unless a 'kick-out' trigger event occurs.\n\n### The GP/LP structure\n- **Limited Partner (LP):** provides most of the cash (often 90–95%), limited control.\n- **General Partner (GP):** provides expertise, runs the deal, puts in a little capital, and earns a **promote** — a disproportionate share of profits above agreed return hurdles."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — what each subordinate layer really is\n\n**Mezzanine debt**: a higher-rate loan, subordinate to the senior mortgage but senior to equity. The modern (post-2000s) understanding: mezz is a claim on the **ownership entity's interests**, not a lien on the bricks — so on default the mezz lender takes *shares of the entity* (proportional to the debt outstanding) rather than foreclosing on the property. In a development it is raised after equity but before the senior mortgage.\n\n**Preferred equity**: part of the *ownership* stack (not a loan), with a fixed preferred dividend *higher* than mezz but typically **no share of appreciation**, **no lien**, **no operational control**, and **not subject to capital calls**; unpaid preferred **accrues**. **Common equity** splits into the **capital ('money') partner** (most of the equity, controls major capital decisions, takes the upside) and the **entrepreneurial partner** (operational control, brings the deal, less equity, earns fees plus the **promote**). The two negotiate a **waterfall**: a preferred component (pari-passu to a hurdle, or a preferred return + catch-up) then a **promote** that splits residual cash disproportionately to the entrepreneur (e.g. 70/30, sometimes tiered)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the Wildcat waterfall (euros)\n\nGP (Wildcat) + outside LP fund a commercial property, 3-year hold:\n\n- Property-level IRR ≈ **14.3%**; equity-level IRR (after debt) ≈ **25.0%** — leverage adds ~10.7 points.\n- After the preferred-return + promote waterfall: **LP IRR ≈ 21.2%**, **GP IRR ≈ 71.4%**.\n- Excluding the Year-3 sale, the GP's IRR is only ≈ 11.3% — the GP's outsized return comes almost entirely from the back-end promote on the capital event."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Structures",
                   "quizData": [
@@ -906,6 +1425,32 @@
                       ],
                       "correctAnswer": "A share of profits above agreed return hurdles",
                       "explanation": "The promote (carried interest) rewards the GP with an outsized share of the upside once the LP's return hurdles are met."
+                    },
+                    {
+                      "id": "u2l3-d1",
+                      "text": "Since the 2000s, mezzanine debt is best understood as:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "A first lien on the building",
+                        "A claim on the ownership entity's interests (equity shares), not the bricks",
+                        "A form of preferred equity",
+                        "Unsecured corporate debt"
+                      ],
+                      "correctAnswer": "A claim on the ownership entity's interests (equity shares), not the bricks",
+                      "explanation": "On default the mezz lender takes ownership interests in the entity rather than foreclosing."
+                    },
+                    {
+                      "id": "u2l3-d2",
+                      "text": "Compared with mezzanine debt, preferred equity typically:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Has a lien on the property",
+                        "Shares fully in appreciation",
+                        "Offers a higher fixed return but no lien and little/no upside",
+                        "Controls daily operations"
+                      ],
+                      "correctAnswer": "Offers a higher fixed return but no lien and little/no upside",
+                      "explanation": "Preferred equity is ownership-class, higher-yielding, unsecured, and generally excluded from appreciation."
                     }
                   ]
                 }
@@ -954,6 +1499,14 @@
                   "content": "## One-page summary\n\n- **Capital stack:** senior debt → mezzanine → preferred equity → common equity. Priority of payment runs bottom-up; risk and return rise top-up.\n- **Why debt:** leverage (when cost of debt < cap rate), diversification, and an inflation hedge.\n- **Mezzanine** is secured by the equity interest; **preferred equity** behaves like debt inside the ownership stack.\n- **GP/LP:** LP funds most of the capital; GP runs the deal and earns a **promote** above return hurdles.\n- **Waterfall:** return of capital → preferred return → promote."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — accrual and IRR gating in the waterfall\n\nTwo mechanics decide who wins under stress. **Accrual of unpaid preferred**: when a year's cash can't cover the preferred return, the shortfall *accrues* and the LP's equity balance *grows*, compounding its claim (e.g. a balance rising from €3,458,000 to €4,253,045 after an unpaid €276,640 preferred plus a contribution to fund the operating shortfall). **IRR-hurdle gating**: investors only join if their IRR clears a threshold (e.g. ≥20%) and the GP only closes if it clears its own (e.g. ≥50%) — a scenario 'fails' if the waterfall can't deliver both.\n\nThe headline lesson: **structure determines who bears risk and who captures upside.** The same property can hand the LP 21% and the GP 71% under the benchmark, then tilt sharply toward the LP the moment terms shift (more LP equity, a higher preferred, an IRR preference before promote, an 80/20 instead of 70/30 split). Capital structure is a negotiation, not a fixed formula."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — preferred-return accrual\n\nLP preferred = 8% on a €3,458,000 balance → €276,640 earned. In a weak year, distributable cash = €0, so the full **€276,640 accrues**. The LP also funds part of the operating shortfall (≈ €518,405). New balance = 3,458,000 + 518,405 + 276,640 ≈ **€4,253,045**, on which next year's 8% preferred is computed — accrual compounds the LP's claim."
+                },
+                {
                   "type": "quiz",
                   "content": "Unit 2 Assessment",
                   "quizData": [
@@ -992,6 +1545,32 @@
                       ],
                       "correctAnswer": "Before the GP shares in profits",
                       "explanation": "The LP receives its preferred (hurdle) return before the GP earns any promote on the upside."
+                    },
+                    {
+                      "id": "u2l6-d1",
+                      "text": "When a year's cash flow cannot cover the LP's preferred return, the unpaid amount:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Is forfeited",
+                        "Accrues and increases the LP's equity balance (compounding its claim)",
+                        "Is paid by the senior lender",
+                        "Converts into debt"
+                      ],
+                      "correctAnswer": "Accrues and increases the LP's equity balance (compounding its claim)",
+                      "explanation": "Accrued preferred carries forward and grows the balance on which preferred is recomputed."
+                    },
+                    {
+                      "id": "u2l6-d2",
+                      "text": "Investors require ≥20% IRR and the GP requires ≥50%. A scenario yields LP 13.8% and GP 34%. The deal:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Closes normally",
+                        "Fails both hurdles, so it would not be done as structured",
+                        "Closes only for the GP",
+                        "Is risk-free"
+                      ],
+                      "correctAnswer": "Fails both hurdles, so it would not be done as structured",
+                      "explanation": "Neither party clears its IRR threshold, so the structure must be renegotiated."
                     }
                   ]
                 }
@@ -1045,6 +1624,14 @@
                   "content": "## The two ratios lenders underwrite on\n\n- **Loan-to-Value (LTV)** = Loan ÷ Property value. Caps how much they'll lend (e.g. 60–75%). Lower LTV = more equity cushion = safer.\n- **Debt Service Coverage Ratio (DSCR)** = NOI ÷ Annual debt service. Measures how comfortably the property's income covers the loan payment. Most commercial lenders want **≥ 1.25×**.\n\nA loan must satisfy *both* tests — whichever binds first sets the maximum loan."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — the loan vocabulary and sizing back to the proforma\n\nJaime anchors every loan to Excel's time-value inputs: **PV** = loan amount, **i** = annual rate, **N** = years (×12 for monthly), **PMT** = payment, **FV** = outstanding loan balance (OLB / balloon). The defining rule: when **FV = 0** the loan is **fully amortized**; when FV > 0 there is a **balloon** at maturity. Most commercial mortgages carry a *long amortization but a short term* (e.g. a 25-year schedule ballooned in 5 or 10 years), so you compute PMT off the long schedule but the OLB at the shorter payoff date.\n\nSizing connects straight back to the Unit-1 proforma: **Loan\\* = min{LTV × value, DSCR-loan}**, with **DSCR = PBTCF₁ / ADS** and **ADS = PMT × 12**. The unit then builds two returns on this loan: the **debt IRR** (operating flows = ADS, reversion = OLB) and the **equity IRR** (operating flows = EBTCF, reversion = BTER)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — payment and balloon\n\n€2,000,000 loan, 8% monthly:\n\n- 25-yr amortization, fully amortizing → PMT ≈ **€15,436/mo**, balloon **€0**.\n- 25-yr amortization, 10-yr balloon → PMT stays **€15,436**, balloon (OLB at month 120) ≈ **€1,615,266**.\n- 15-yr amortization, 10-yr balloon → faster amortization raises PMT to ≈ **€19,113**, balloon ≈ **€942,625**."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Loan Basics",
                   "quizData": [
@@ -1070,6 +1657,32 @@
                       ],
                       "correctAnswer": "The mortgage (deed of trust)",
                       "explanation": "The note is the debt obligation; the mortgage is the security instrument that lets the lender foreclose on the property."
+                    },
+                    {
+                      "id": "u3l1-d1",
+                      "text": "A €2,000,000, 8% monthly mortgage on a 25-yr amortization with a 10-yr balloon has payment and balloon of:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€15,436 and €0",
+                        "€15,436 and €1,615,266",
+                        "€19,113 and €0",
+                        "€19,113 and €942,625"
+                      ],
+                      "correctAnswer": "€15,436 and €1,615,266",
+                      "explanation": "Payment is set off the 25-yr schedule; the OLB after 10 years is the balloon."
+                    },
+                    {
+                      "id": "u3l1-d2",
+                      "text": "A mortgage is 'fully amortized' when:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "PMT = 0",
+                        "FV = 0 at the final period",
+                        "LTV = 100%",
+                        "DSCR = 1"
+                      ],
+                      "correctAnswer": "FV = 0 at the final period",
+                      "explanation": "Zero remaining balance (FV = 0) means the loan has fully amortized."
                     }
                   ]
                 }
@@ -1092,6 +1705,14 @@
                 {
                   "type": "markdown",
                   "content": "### ARM mechanics\n\nAn ARM's rate = **index + margin** (e.g. 12-month Euribor + 2.5%). To protect borrowers, ARMs carry **caps**: an *annual* cap (how much the rate can move per reset) and a *lifetime* cap (the maximum rate ever). When the rate resets up, the payment rises — the core risk of an ARM."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — amortization speed is a risk choice\n\nThe four patterns differ in how principal is repaid, set by the relationship between the **amortization schedule** and the **term**: fully amortizing (am = term, no balloon); partially amortizing / balloon (long am, short term → balloon); interest-only (balloon = original principal); and negative-amortization (payment doesn't cover interest, balance grows). In a constant-payment loan the payment is level but its split shifts — early payments mostly interest, later mostly principal.\n\nThe decision Jaime tests directly: **15-year vs 25-year amortization** (same 10-year balloon). The faster (15-yr) schedule has a *higher payment* (which strains DSCR and cash-on-cash) but a *much smaller balloon* at refinancing (less rollover risk, faster equity build). Faster amortization trades current cash flow for lower terminal leverage."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the amortization trade-off\n\n€2,000,000, 8% CPM, 10-year hold:\n\n- 25-yr amortization → PMT €15,436/mo; balloon at year 10 ≈ **€1,615,266**.\n- 15-yr amortization → PMT €19,113/mo; balloon ≈ **€942,625**.\n- The 15-yr borrower pays ~€3,677 more per month but reaches refinancing with ~€672,641 *less* debt outstanding."
                 },
                 {
                   "type": "quiz",
@@ -1132,6 +1753,32 @@
                       ],
                       "correctAnswer": "Index + margin",
                       "explanation": "The fully-indexed rate is a benchmark index (e.g. Euribor) plus a fixed lender margin, subject to caps."
+                    },
+                    {
+                      "id": "u3l2-d1",
+                      "text": "A €2,000,000, 8% monthly loan on a 15-yr amortization with a 10-yr balloon has payment and balloon of:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "€15,436 / €0",
+                        "€15,436 / €1,615,266",
+                        "€19,113 / €0",
+                        "€19,113 / €942,625"
+                      ],
+                      "correctAnswer": "€19,113 / €942,625",
+                      "explanation": "Faster amortization raises the payment and shrinks the balloon."
+                    },
+                    {
+                      "id": "u3l2-d2",
+                      "text": "Choosing a 15-yr over a 25-yr amortization (same balloon) trades:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Lower payment for a bigger balloon",
+                        "Higher current payment for a smaller balloon and lower refinancing risk",
+                        "Nothing — they are identical",
+                        "A fixed rate for a floating rate"
+                      ],
+                      "correctAnswer": "Higher current payment for a smaller balloon and lower refinancing risk",
+                      "explanation": "Faster amortization sacrifices current cash flow to cut terminal leverage."
                     }
                   ]
                 }
@@ -1172,6 +1819,14 @@
                   "content": "## The refinancing decision (an NPV problem)\n\nRefinance when the present value of the interest **savings** exceeds the **transaction costs** (points + fees) over your expected holding period.\n\n1. Compute the current loan payment (status quo).\n2. Compute the new loan payment + closing costs.\n3. Compare the PV of the monthly savings against the upfront cost.\n\n> Short remaining hold → fees often outweigh savings (don't refinance). Long hold → savings usually win. It is always a present-value comparison, never just \"the new rate is lower.\""
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Deeper dive — points, effective yield, and the holding-horizon rule\n\nSeparate the **coupon (contract) rate** from the **effective yield** the lender actually earns once **points** and **prepayment** are counted. **Disbursement points** mean the lender advances less than face (one point = 1% withheld), raising the yield; a **prepayment penalty** does the same. The effective yield is the IRR that equates the *net amount disbursed* to the payments plus the OLB-and-penalty at the **realistic prepayment horizon** — not at stated maturity. The shorter that horizon, the **more** points and penalties matter, because the same upfront cost is spread over fewer years.\n\nThat horizon-sensitivity drives the loan-choice / refinancing decision: a borrower picking between **6% with 4 points** and **6.75% with ½ point** should take the **6% / 4-points** loan over a *long* (15-year) horizon (the points are spread thin and the lower coupon wins) but the **6.75% / ½-point** loan over a *short* (5-year) horizon (the 4 points can't be amortized). Rule: **the longer you'll hold, the more it pays to buy down the rate with points.**"
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — the points→yield ladder\n\n€2,000,000, 7.5%, 30-yr loan prepaid in year 8:\n\n- No points → effective yield = **7.500%** (the coupon)\n- One point (net disbursed €1,980,000) → **7.674%**\n- Two points (€1,960,000) → **7.851%**\n- Two points + a one-point prepayment penalty → **7.936%**\n\nEach friction the borrower pays lifts the lender's realized yield."
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Yields & Refinancing",
                   "quizData": [
@@ -1198,6 +1853,30 @@
                       ],
                       "correctAnswer": "When interest rates fall",
                       "explanation": "Falling rates make refinancing attractive, so borrowers prepay — the risk that prepayment penalties protect against."
+                    },
+                    {
+                      "id": "u3l4-d1",
+                      "text": "On a €2m, 7.5%, 30-yr loan prepaid in year 8, adding two points of disbursement discount changes the effective yield to roughly:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "7.500%",
+                        "7.674%",
+                        "7.851%",
+                        "7.936%"
+                      ],
+                      "correctAnswer": "7.851%",
+                      "explanation": "Points reduce the net amount disbursed, raising the yield above the 7.5% coupon."
+                    },
+                    {
+                      "id": "u3l4-d2",
+                      "text": "A borrower with only a 5-year horizon, choosing between 6%/4-points and 6.75%/½-point, should pick:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "6% with 4 points",
+                        "6.75% with half a point"
+                      ],
+                      "correctAnswer": "6.75% with half a point",
+                      "explanation": "Over a short horizon the 4 points can't be amortized, so the low-points loan is cheaper (the choice flips to 6%/4-points over 15 years)."
                     }
                   ]
                 }
@@ -1212,6 +1891,14 @@
                 {
                   "type": "markdown",
                   "content": "## One-page summary\n\n- **Note = the debt; mortgage = the collateral.**\n- **Four patterns:** IO (balloon), CPM (level payment), CAM (level principal, falling payment), ARM (rate = index + margin, with caps).\n- **Amortization rule:** principal repaid = payment − interest owed.\n- **Underwriting:** a loan must pass both **LTV** and **DSCR (≥ ~1.25×)** — the binding one sets the max loan.\n- **Secondary market:** price = PV of remaining cash flows at today's yield; falling yields → premium.\n- **Prepayment & refinancing** are present-value decisions; penalties protect lenders against rate-driven prepayment."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## Deeper dive — the two ratios encode two different risks\n\nUnderwriting sizes the loan at **min{LTV-loan, DSCR-loan}**, with coverage computed on **PBTCF** (cash after CapEx). The two ratios protect against different risks: **LTV** guards against a fall in *collateral value* (cushion before the loan exceeds the property's worth); **DSCR** guards against a *cash-flow* shortfall (how comfortably operating cash covers debt service). A cautious lender tightens whichever bites — after 'more careful underwriting' often cutting LTV and the rate together.\n\nThe unit's synthesis: a sound mortgage jointly optimises **structure** (amortization vs term → balloon/refinancing risk), **pricing** (coupon vs points given the holding horizon), and **sizing** (LTV vs DSCR given collateral and cash-flow risk) — three levers, each quantifiable in the Excel model. And the **debt IRR** (reversion = OLB + penalty) is the lender's realized return, while the **equity IRR** (reversion = BTER) is the borrower's — amplified by leverage only when the property return exceeds the cost of debt (positive leverage)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Worked example — which constraint binds\n\nValue €10,000,000; lender caps at min{70% LTV, 1.25× DSCR on PBTCF}; 6.5%, 25-yr; Year-1 PBTCF €700,000.\n\n- LTV-loan = **€7,000,000**\n- DSCR-loan: ADS = 700,000 / 1.25 = €560,000; constant ≈ 0.0810 → ≈ **€6,914,000**\n- **Loan\\* = €6,914,000** → DSCR binds: cash-flow risk, not collateral, limits this loan."
                 },
                 {
                   "type": "quiz",
@@ -1252,6 +1939,32 @@
                       ],
                       "correctAnswer": "The PV of interest savings exceeds the transaction costs over your hold",
                       "explanation": "Refinancing is an NPV decision: weigh the present value of savings against points and fees over how long you'll hold."
+                    },
+                    {
+                      "id": "u3l5-d1",
+                      "text": "A lender sizes a loan at the lesser of 70% LTV (€7.0m) or a 1.25× DSCR amount (€6.91m). The binding constraint and the risk it controls are:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "LTV — cash-flow risk",
+                        "DSCR — cash-flow (debt-coverage) risk",
+                        "LTV — collateral risk",
+                        "Neither binds"
+                      ],
+                      "correctAnswer": "DSCR — cash-flow (debt-coverage) risk",
+                      "explanation": "The DSCR loan is smaller, so it binds; DSCR protects against an operating cash-flow shortfall."
+                    },
+                    {
+                      "id": "u3l5-d2",
+                      "text": "The lender's realized debt IRR on a prepaid mortgage uses, as its reversion cash flow:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "The property sale price",
+                        "The before-tax equity reversion (BTER)",
+                        "The outstanding loan balance (OLB) at payoff, plus any prepayment penalty",
+                        "Zero"
+                      ],
+                      "correctAnswer": "The outstanding loan balance (OLB) at payoff, plus any prepayment penalty",
+                      "explanation": "The lender gets back the OLB (plus penalty) at prepayment; operating flows are the ADS."
                     }
                   ]
                 }
