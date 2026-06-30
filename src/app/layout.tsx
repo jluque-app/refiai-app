@@ -14,15 +14,46 @@ const fontVars = {
     'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace',
 } as React.CSSProperties;
 
+const SITE_URL = "https://refiai.allretech.org";
+
 export const metadata: Metadata = {
-  title: "ReFiAI | Real Estate Finance & AI Training",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "ReFiAI — Real Estate Finance & Investment, taught with AI",
+    template: "%s | ReFiAI",
+  },
   description:
-    "Master Real Estate Financial Modeling with AI-enhanced curriculum. From basic proformas to advanced REIT analysis.",
+    "Learn real estate finance and investment with interactive Excel labs, worked problem sets, video lessons and an AI tutor. From proformas, cap rates and DCF to mortgages, capital structures, REITs and development finance.",
+  keywords: [
+    "real estate finance",
+    "real estate investment course",
+    "real estate financial modeling",
+    "cap rate",
+    "DCF valuation",
+    "commercial mortgages",
+    "REITs",
+    "real estate development finance",
+    "proforma",
+    "online real estate course",
+  ],
+  authors: [{ name: "Prof. Jaime Luque" }],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "ReFiAI | Future of Real Estate Education",
-    description: "Learn Real Estate Finance faster with AI.",
+    type: "website",
+    url: SITE_URL,
+    siteName: "ReFiAI",
+    title: "ReFiAI — Real Estate Finance & Investment, taught with AI",
+    description:
+      "Interactive labs, worked problem sets, video lessons and an AI tutor for real estate finance — from proformas to REITs and development finance.",
     images: ["/og-image.jpg"],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "ReFiAI — Real Estate Finance & Investment, taught with AI",
+    description: "Interactive real estate finance course: Excel labs, problem sets, videos and an AI tutor.",
+    images: ["/og-image.jpg"],
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({

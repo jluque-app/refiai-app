@@ -30,6 +30,7 @@ export interface Lesson {
     simulatorId?: string; // Deprecated
     resources?: Resource[];
     sections?: LessonSection[]; // New Schema
+    preview?: boolean; // If true, viewable for free even in a paid part (sample lesson)
 }
 
 export interface Unit {

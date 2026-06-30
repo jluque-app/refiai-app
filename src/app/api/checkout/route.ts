@@ -8,6 +8,16 @@ export async function POST(req: Request) {
     const headersList = await headers();
     const origin = headersList.get("origin") || "http://localhost:3001";
 
+    // Stripe not configured yet → return a "mock" so the purchase flow works
+    // end-to-end in demo (the client grants access locally). Once a real
+    // STRIPE_SECRET_KEY is set this branch is skipped and a real Checkout Session
+    // is created. (Production: also add a Stripe webhook that grants the
+    // entitlement in your DB on `checkout.session.completed`.)
+    const key = process.env.STRIPE_SECRET_KEY;
+    if (!key || key.startsWith("sk_test_placeholder")) {
+        return NextResponse.json({ mock: true, courseId });
+    }
+
     if (!priceId) {
         return NextResponse.json({ error: "Price ID is required" }, { status: 400 });
     }

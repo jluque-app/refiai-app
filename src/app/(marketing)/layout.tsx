@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
 
 export default function MarketingLayout({
     children,
@@ -8,6 +9,7 @@ export default function MarketingLayout({
 }) {
     return (
         <>
+            <StructuredData />
             <Navbar />
             <main className="min-h-screen">
                 {children}

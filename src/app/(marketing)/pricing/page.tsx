@@ -1,4 +1,12 @@
 import { CourseList } from "@/components/CourseList";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Pricing — Real Estate Finance Course",
+    description:
+        "Start the Real Estate 101 track free, then unlock the REFI Core and Advanced modules. One-time payment, lifetime access, interactive labs and an AI tutor included.",
+    alternates: { canonical: "/pricing" },
+};
 
 export default function Pricing() {
     return (

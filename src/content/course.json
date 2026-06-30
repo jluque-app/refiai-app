@@ -1242,7 +1242,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "preview": true
             },
             {
               "id": "lesson-1-2",
@@ -1379,7 +1380,8 @@
                   "type": "markdown",
                   "content": "### Reading the leverage result\n\nLeverage is **positive** when the cost of debt is **below** the property's cap rate — each borrowed euro earns more than it costs, lifting equity IRR. It turns **negative** when the mortgage rate rises above the cap rate, and debt starts diluting returns. Lenders also watch the **DSCR** (NOI ÷ debt service); most want at least 1.25×."
                 }
-              ]
+              ],
+              "preview": true
             },
             {
               "id": "lesson-1-4",
@@ -1820,7 +1822,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "preview": true
             },
             {
               "id": "lesson-2-2",
@@ -2387,7 +2390,8 @@
                   "type": "xlsx",
                   "path": "/content/refi/unit-3/cpm-payment-and-balloon.xlsx"
                 }
-              ]
+              ],
+              "preview": true
             },
             {
               "id": "lesson-3-2",
@@ -3732,7 +3736,8 @@
                     }
                   ]
                 }
-              ]
+              ],
+              "preview": true
             },
             {
               "id": "lesson-7-2",

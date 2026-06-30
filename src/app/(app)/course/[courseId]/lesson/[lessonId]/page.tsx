@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, PlayCircle, FileText, Layout, GripVertical, CheckCircle, ArrowLeft } from "lucide-react";
+import { ChevronLeft, ChevronRight, PlayCircle, FileText, Layout, GripVertical, CheckCircle, ArrowLeft, Lock, Check } from "lucide-react";
 import courseDataRaw from "@/content/course.json";
 import { CourseData, Lesson, Unit } from "@/types/course";
 import { Button } from "@/components/ui/button";
@@ -29,6 +29,8 @@ import MortgageBalloonLab from "@/components/simulators/MortgageBalloonLab";
 import AmortizationLab from "@/components/simulators/AmortizationLab";
 import LoanDecisionLab from "@/components/simulators/LoanDecisionLab";
 import AiTeacher from "@/components/ai/AiTeacher";
+import Paywall from "@/components/Paywall";
+import { useUser } from "@/components/UserContext";
 
 const courseData = courseDataRaw as CourseData;
 
@@ -39,6 +41,7 @@ export default function LessonViewer() {
     const lessonId = params.lessonId as string;
 
     const coursePart = courseData.parts.find(p => p.id === courseId);
+    const { isUnlocked, isComplete, toggleComplete, completedCount } = useUser();
 
     // Find active unit and lesson
     let activeUnit: Unit | undefined;
@@ -253,6 +256,12 @@ export default function LessonViewer() {
         }
     };
 
+    const locked = !isUnlocked(coursePart.id) && !activeLesson.preview;
+    const allLessonIds = coursePart.units.flatMap(u => u.lessons.map(l => l.id));
+    const doneCount = completedCount(allLessonIds);
+    const pctDone = allLessonIds.length ? Math.round((doneCount / allLessonIds.length) * 100) : 0;
+    const partLocked = !isUnlocked(coursePart.id);
+
     return (
         <div className="flex h-[calc(100vh-4rem)]">
             {/* Sidebar - Unit/Lesson List */}
@@ -264,6 +273,12 @@ export default function LessonViewer() {
                         </Link>
                     </Button>
                     <h2 className="font-bold text-lg leading-tight tracking-tight">{coursePart.title}</h2>
+                    <div className="mt-3">
+                        <div className="h-1.5 rounded-full bg-muted overflow-hidden">
+                            <div className="h-full bg-primary transition-all" style={{ width: `${pctDone}%` }} />
+                        </div>
+                        <div className="mt-1 text-[11px] text-muted-foreground">{doneCount}/{allLessonIds.length} lessons · {pctDone}%</div>
+                    </div>
                 </div>
 
                 <ScrollArea className="flex-1">
@@ -289,7 +304,12 @@ export default function LessonViewer() {
                                             )}
                                         >
                                             <Icon size={16} className={isActive ? "text-primary fill-primary/10" : "opacity-70"} />
-                                            <span className="line-clamp-1">{lesson.title}</span>
+                                            <span className="line-clamp-1 flex-1">{lesson.title}</span>
+                                            {isComplete(lesson.id) ? (
+                                                <CheckCircle size={14} className="text-primary shrink-0" />
+                                            ) : (partLocked && !lesson.preview ? (
+                                                <Lock size={12} className="text-muted-foreground shrink-0" />
+                                            ) : null)}
                                         </Link>
                                     );
                                 })}
@@ -315,7 +335,7 @@ export default function LessonViewer() {
                         </header>
 
                         <main className="mb-24">
-                            {renderContent()}
+                            {locked ? <Paywall part={coursePart} /> : renderContent()}
                         </main>
                     </div>
                 </div>
@@ -330,6 +350,16 @@ export default function LessonViewer() {
                     >
                         <ChevronLeft size={16} /> Previous
                     </Button>
+
+                    {!locked && (
+                        <Button
+                            variant={isComplete(activeLesson.id) ? "secondary" : "outline"}
+                            onClick={() => toggleComplete(activeLesson.id)}
+                            className="gap-2"
+                        >
+                            <Check size={16} /> {isComplete(activeLesson.id) ? "Completed" : "Mark complete"}
+                        </Button>
+                    )}
 
                     <Button
                         onClick={() => nextLessonId && router.push(`/course/${courseId}/lesson/${nextLessonId}`)}

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import courseDataRaw from "@/content/course.json";
 import { CourseData } from "@/types/course";
+import { useUser } from "@/components/UserContext";
 
 const courseData = courseDataRaw as CourseData;
 
@@ -11,9 +12,15 @@ export default function CourseRedirect() {
     const params = useParams();
     const router = useRouter();
     const courseId = params.courseId as string;
+    const { unlockCourse } = useUser();
 
     useEffect(() => {
         if (!courseId) return;
+
+        // Returning from a successful Stripe Checkout → grant access.
+        if (typeof window !== "undefined" && new URLSearchParams(window.location.search).get("success") === "true") {
+            unlockCourse(courseId);
+        }
 
         const part = courseData.parts.find((p) => p.id === courseId);
 
