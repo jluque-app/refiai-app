@@ -27,6 +27,7 @@ import BarcelonaCaseSimulator from "@/components/simulators/BarcelonaCase";
 import ValuationLabSimulator from "@/components/simulators/ValuationLab";
 import MortgageBalloonLab from "@/components/simulators/MortgageBalloonLab";
 import AmortizationLab from "@/components/simulators/AmortizationLab";
+import LoanDecisionLab from "@/components/simulators/LoanDecisionLab";
 import AiTeacher from "@/components/ai/AiTeacher";
 
 const courseData = courseDataRaw as CourseData;
@@ -95,20 +96,29 @@ export default function LessonViewer() {
                                     </div>
                                 </Card>
                             );
-                        case 'video':
+                        case 'video': {
+                            const vurl = section.content || "";
+                            const isEmbed = /drive\.google\.com|youtube\.com|youtu\.be|vimeo\.com/.test(vurl);
                             return (
                                 <Card key={index} className="overflow-hidden border-0 shadow-lg bg-black">
                                     <div className="aspect-video">
-                                        <video
-                                            src={section.content}
-                                            controls
-                                            className="w-full h-full object-contain"
-                                        >
-                                            Your browser does not support the video tag.
-                                        </video>
+                                        {isEmbed ? (
+                                            <iframe
+                                                src={vurl}
+                                                className="w-full h-full"
+                                                allow="autoplay; encrypted-media; fullscreen"
+                                                allowFullScreen
+                                                title={`lesson-video-${index}`}
+                                            />
+                                        ) : (
+                                            <video src={vurl} controls className="w-full h-full object-contain">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        )}
                                     </div>
                                 </Card>
                             );
+                        }
                         case 'simulator':
                             return (
                                 <Card key={index} className="border shadow-md min-h-[400px] overflow-hidden">
@@ -130,6 +140,7 @@ export default function LessonViewer() {
                                         {section.simulatorId === 'ValuationLabSimulator' && <ValuationLabSimulator {...section.props} />}
                                         {section.simulatorId === 'MortgageBalloonLab' && <MortgageBalloonLab {...section.props} />}
                                         {section.simulatorId === 'AmortizationLab' && <AmortizationLab {...section.props} />}
+                                        {section.simulatorId === 'LoanDecisionLab' && <LoanDecisionLab {...section.props} />}
                                     </div>
                                 </Card>
                             );

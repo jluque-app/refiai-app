@@ -6,6 +6,8 @@ export interface QuizQuestion {
     type: 'multiple-choice' | 'short-answer' | 'number';
     options?: string[]; // For multiple-choice
     correctAnswer: string | number;
+    tolerance?: number; // For 'number': accepted absolute deviation from correctAnswer
+    unit?: string; // For 'number': hint shown next to the input (e.g. "€", "%")
     explanation?: string; // Feedback after answering
 }
 

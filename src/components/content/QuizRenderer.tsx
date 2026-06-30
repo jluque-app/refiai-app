@@ -34,8 +34,14 @@ export function QuizRenderer({ questions, title = "Knowledge Check" }: QuizRende
         const userAnswer = answers[question.id];
 
         if (question.type === 'number') {
-            // Allow for small floating point tolerance or exact match
-            return Number(userAnswer) === Number(question.correctAnswer);
+            // Parse the user's entry, stripping currency symbols, %, spaces and thousands separators.
+            const cleaned = String(userAnswer ?? '').replace(/[^0-9.\-]/g, '');
+            const u = parseFloat(cleaned);
+            if (isNaN(u)) return false;
+            const correct = Number(question.correctAnswer);
+            // Default tolerance: 0.5% of the answer (or 0.01), so reasonable rounding is accepted.
+            const tol = question.tolerance ?? Math.max(0.01, Math.abs(correct) * 0.005);
+            return Math.abs(u - correct) <= tol;
         }
 
         if (question.type === 'short-answer') {

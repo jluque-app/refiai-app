@@ -1734,6 +1734,42 @@
                   "simulatorId": "AmortizationLab"
                 },
                 {
+                  "type": "markdown",
+                  "content": "## 🎬 Video walkthroughs\n\nShort screencasts working each repayment pattern in Excel."
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Interest-Only mortgage**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/12QhLtnw5aJHRIovRWwrcVUWhju60L0th/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Constant Payment Mortgage (CPM)**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1sqfrC2VwHUfSSLfQRB4gB37NCQUBzxSQ/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Constant Amortization Mortgage (CAM)**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/19ZeQme6z-wQJI8kP6_ljfOQSbZuwuIiW/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Adjustable-Rate Mortgage (ARM)**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1gWZT7w4lNiPxtYpDHLLkMJORywuMejJI/preview"
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Repayment Patterns",
                   "quizData": [
@@ -1853,6 +1889,42 @@
                   "content": "### Worked example — the points→yield ladder\n\n€2,000,000, 7.5%, 30-yr loan prepaid in year 8:\n\n- No points → effective yield = **7.500%** (the coupon)\n- One point (net disbursed €1,980,000) → **7.674%**\n- Two points (€1,960,000) → **7.851%**\n- Two points + a one-point prepayment penalty → **7.936%**\n\nEach friction the borrower pays lifts the lender's realized yield."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Work it in the lab\n\nThree calculators — **effective yield** (points & prepayment), **secondary-market valuation** (premium vs discount), and **refinance / loan choice** over a holding horizon. Switch tabs and edit the inputs; the downloadable workbook with the formulas is at the foot of the lesson."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "LoanDecisionLab"
+                },
+                {
+                  "type": "markdown",
+                  "content": "## 🎬 Video walkthroughs"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Loan Yields & Mortgage Valuation**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1BjShRXbbexjq27WOpwlHRKkkEzdlWbHd/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Prepayment in Secondary Mortgage Markets**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1iouq0zcZGZ7g53b21SfscR3a6-uicit7/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Mortgage Refinancing**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1NAfISPK_OgB6vuo8mJJ-kd-nEE0bIraX/preview"
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Yields & Refinancing",
                   "quizData": [
@@ -1905,6 +1977,13 @@
                       "explanation": "Over a short horizon the 4 points can't be amortized, so the low-points loan is cheaper (the choice flips to 6%/4-points over 15 years)."
                     }
                   ]
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Loan Yield · Valuation · Refinance workbook (live formulas)",
+                  "type": "xlsx",
+                  "path": "/content/refi/unit-3/loan-yield-valuation-refi.xlsx"
                 }
               ]
             },
@@ -2020,6 +2099,252 @@
                   "title": "II.8 Mortgage refinancing — Excel",
                   "type": "xlsx",
                   "path": "/content/refi/unit-3/II.8-refinancing.xlsx"
+                }
+              ]
+            },
+            {
+              "id": "lesson-3-6",
+              "title": "Problem Set 4 — Commercial Mortgages",
+              "type": "article",
+              "duration": "60 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## The real problem set\n\nThis is **PS4**, the commercial-mortgage problem set assigned in the course, split into three parts. Work each problem with pen, paper and the **interactive labs** earlier in this unit, then type your answers to check them. Numeric answers are graded with a small tolerance, so reasonable rounding is fine."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### PS4.1 — Amortization structures, the mortgage constant & ARMs\n\n**Warm-up loan:** €1,000,000, 30-year amortization, 7% annual, monthly payments.\n**Main loan:** €2,000,000, 8%, 30-year, monthly payments.\n**ARM A:** €2,000,000, 30-year, monthly, annual resets — initial rate 6%, index (1-yr govt bonds) 5.5%, margin 250 bps."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS4.1 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "u3ps41-1",
+                      "text": "Warm-up loan (€1,000,000, 7%): the interest-only monthly payment (€).",
+                      "type": "number",
+                      "correctAnswer": 5833.33,
+                      "tolerance": 1,
+                      "unit": "€",
+                      "explanation": "Interest-only payment = loan × rate/12 = 1,000,000 × 7%/12 = €5,833.33."
+                    },
+                    {
+                      "id": "u3ps41-2",
+                      "text": "Main loan (€2,000,000, 8%, 30-yr CPM): the loan balance after the 3rd monthly payment (€).",
+                      "type": "number",
+                      "correctAnswer": 1995947,
+                      "tolerance": 50,
+                      "unit": "€",
+                      "explanation": "With a level CPM payment, only a little principal is repaid early on — balance ≈ €1,995,947 after 3 payments."
+                    },
+                    {
+                      "id": "u3ps41-3",
+                      "text": "The CPM mortgage constant = 12 × monthly payment ÷ loan. Enter as a percentage (e.g. 8.81).",
+                      "type": "number",
+                      "correctAnswer": 8.81,
+                      "tolerance": 0.05,
+                      "unit": "%",
+                      "explanation": "The annualized payment over the loan equals ≈ 8.81% for an 8%, 30-yr CPM — above the 8% interest rate because it includes principal."
+                    },
+                    {
+                      "id": "u3ps41-4",
+                      "text": "ARM A: initial 6%, index 5.5%, margin 2.5%. If the index is unchanged after year 1, the applicable rate becomes:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "6%",
+                        "7.5%",
+                        "8%",
+                        "8.5%"
+                      ],
+                      "correctAnswer": "8%",
+                      "explanation": "Fully-indexed rate = index + margin = 5.5% + 2.5% = 8%."
+                    },
+                    {
+                      "id": "u3ps41-5",
+                      "text": "ARM A (€2,000,000, initial 6%, 30-yr): the initial monthly payment (€).",
+                      "type": "number",
+                      "correctAnswer": 11991.01,
+                      "tolerance": 5,
+                      "unit": "€",
+                      "explanation": "Annuity payment at 6% over 360 months on €2,000,000 ≈ €11,991."
+                    },
+                    {
+                      "id": "u3ps41-6",
+                      "text": "ARM A: the monthly payment after the year-1 reset to 8% (€).",
+                      "type": "number",
+                      "correctAnswer": 14617.18,
+                      "tolerance": 5,
+                      "unit": "€",
+                      "explanation": "Re-amortizing the remaining balance at 8% over the remaining term raises the payment to ≈ €14,617."
+                    },
+                    {
+                      "id": "u3ps41-7",
+                      "text": "Is the 6% initial rate a teaser rate?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Yes — it is below the fully-indexed rate (8%)",
+                        "No — it equals the fully-indexed rate"
+                      ],
+                      "correctAnswer": "Yes — it is below the fully-indexed rate (8%)",
+                      "explanation": "A teaser is an initial rate set below index + margin; here 6% < 8%."
+                    },
+                    {
+                      "id": "u3ps41-8",
+                      "text": "Historically, the most common ARM index is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "LIBOR",
+                        "The cap rate",
+                        "NOI"
+                      ],
+                      "correctAnswer": "LIBOR",
+                      "explanation": "ARMs were most often tied to LIBOR (now transitioning to SOFR/€STR-type benchmarks)."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "### PS4.2 — Balloon loans, prepayment-horizon yields & loan choice\n\n**Balloon loan:** €2,000,000, 8% CPM, monthly. **Yield loan:** €2,000,000, 7.5%, 30-year, expected prepayment in year 8. **Borrower choice:** two 25-year loans — (a) 6% with 4 points vs (b) 6.75% with ½ point."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS4.2 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "u3ps42-1",
+                      "text": "€2,000,000, 8% CPM, 25-yr amortization with a 10-yr balloon: the monthly payment (€).",
+                      "type": "number",
+                      "correctAnswer": 15436,
+                      "tolerance": 5,
+                      "unit": "€",
+                      "explanation": "Payment is set off the 25-year schedule = €15,436/mo."
+                    },
+                    {
+                      "id": "u3ps42-2",
+                      "text": "...the balloon (outstanding balance) at year 10 (€).",
+                      "type": "number",
+                      "correctAnswer": 1615266,
+                      "tolerance": 500,
+                      "unit": "€",
+                      "explanation": "OLB after 120 payments on the 25-yr schedule ≈ €1,615,266."
+                    },
+                    {
+                      "id": "u3ps42-3",
+                      "text": "15-yr amortization with a 10-yr balloon: the balloon at year 10 (€).",
+                      "type": "number",
+                      "correctAnswer": 942625,
+                      "tolerance": 500,
+                      "unit": "€",
+                      "explanation": "Faster amortization leaves a much smaller balloon ≈ €942,625."
+                    },
+                    {
+                      "id": "u3ps42-4",
+                      "text": "€2,000,000, 7.5%, 30-yr, prepaid in year 8, with 2 disbursement points: the effective annual yield. Enter % (e.g. 7.85).",
+                      "type": "number",
+                      "correctAnswer": 7.851,
+                      "tolerance": 0.03,
+                      "unit": "%",
+                      "explanation": "Two points reduce the net disbursed, lifting the effective yield to ≈ 7.851%."
+                    },
+                    {
+                      "id": "u3ps42-5",
+                      "text": "...with 2 points plus a 1-point prepayment penalty: the effective yield (%).",
+                      "type": "number",
+                      "correctAnswer": 7.936,
+                      "tolerance": 0.03,
+                      "unit": "%",
+                      "explanation": "The penalty adds to the payoff, raising the yield to ≈ 7.936%."
+                    },
+                    {
+                      "id": "u3ps42-6",
+                      "text": "Over a 15-year horizon, the cheaper loan is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "(a) 6% with 4 points",
+                        "(b) 6.75% with ½ point"
+                      ],
+                      "correctAnswer": "(a) 6% with 4 points",
+                      "explanation": "Over a long hold the 4 points are spread thin and the lower rate wins."
+                    },
+                    {
+                      "id": "u3ps42-7",
+                      "text": "Over a 5-year horizon, the cheaper loan is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "(a) 6% with 4 points",
+                        "(b) 6.75% with ½ point"
+                      ],
+                      "correctAnswer": "(b) 6.75% with ½ point",
+                      "explanation": "Over a short hold the 4 points can't be amortized, so the low-points loan wins."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "### PS4.3 — Seasoned-loan valuation & refinancing\n\n**Seasoned loan:** originated 2 years ago — €2,000,000, 8%, 15-year, monthly, no penalty; valued at a 7.25% required yield. **Refinancing:** existing €120,000, 30-yr, 9% loan; new 25-yr loan at 7% with 0 points; 5-year remaining stay."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS4.3 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "u3ps43-1",
+                      "text": "The price a buyer offers for the seasoned loan at a 7.25% required yield (€).",
+                      "type": "number",
+                      "correctAnswer": 1927357,
+                      "tolerance": 1500,
+                      "unit": "€",
+                      "explanation": "PV of the remaining payments at 7.25% ≈ €1,927,357 — a premium, since the 8% coupon beats the 7.25% market yield."
+                    },
+                    {
+                      "id": "u3ps43-2",
+                      "text": "The buyer's realized IRR if the borrower prepays 14 months after purchase. Enter % (e.g. 4.23).",
+                      "type": "number",
+                      "correctAnswer": 4.23,
+                      "tolerance": 0.1,
+                      "unit": "%",
+                      "explanation": "Early prepayment of a loan bought at a premium sharply cuts the realized yield to ≈ 4.23%."
+                    },
+                    {
+                      "id": "u3ps43-3",
+                      "text": "The prepayment-penalty amount that would restore the buyer's 7.25% IRR (€).",
+                      "type": "number",
+                      "correctAnswer": 67605,
+                      "tolerance": 400,
+                      "unit": "€",
+                      "explanation": "A penalty of ≈ €67,605 compensates for the lost premium, restoring the 7.25% yield."
+                    },
+                    {
+                      "id": "u3ps43-4",
+                      "text": "NPV of refinancing the €120,000 loan into the 25-yr 7% loan (0 points), over a 5-year horizon (€).",
+                      "type": "number",
+                      "correctAnswer": 9407,
+                      "tolerance": 60,
+                      "unit": "€",
+                      "explanation": "The PV of the payment savings net of (zero) closing costs ≈ €9,407 — refinancing is worthwhile."
+                    },
+                    {
+                      "id": "u3ps43-5",
+                      "text": "The seasoned loan's price exceeds its outstanding book balance because:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Its 8% contract rate is above the 7.25% market yield (premium)",
+                        "Its contract rate is below the market yield (discount)",
+                        "Prepayment is certain"
+                      ],
+                      "correctAnswer": "Its 8% contract rate is above the 7.25% market yield (premium)",
+                      "explanation": "Above-market coupons are worth a premium; falling market yields push loan prices up."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "## 🎬 Worked-solution video\n\n**Evaluation Exercise 4 — solutions**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1_0cmrDtzkbq67Ix3wvDSjFV6HA5I-q5p/preview"
                 }
               ]
             }
