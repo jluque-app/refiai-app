@@ -1726,6 +1726,14 @@
                   "content": "### Worked example — the amortization trade-off\n\n€2,000,000, 8% CPM, 10-year hold:\n\n- 25-yr amortization → PMT €15,436/mo; balloon at year 10 ≈ **€1,615,266**.\n- 15-yr amortization → PMT €19,113/mo; balloon ≈ **€942,625**.\n- The 15-yr borrower pays ~€3,677 more per month but reaches refinancing with ~€672,641 *less* debt outstanding."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## Explore the four patterns side by side\n\nSwitch between **Interest-Only**, **CPM**, **CAM** and **ARM** and watch how the payment and the interest/principal split change — the in-page version of the class Excel models. The downloadable workbook with the full schedules is at the foot of the lesson."
+                },
+                {
+                  "type": "simulator",
+                  "simulatorId": "AmortizationLab"
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Repayment Patterns",
                   "quizData": [
@@ -1792,6 +1800,13 @@
                       "explanation": "Faster amortization sacrifices current cash flow to cut terminal leverage."
                     }
                   ]
+                }
+              ],
+              "resources": [
+                {
+                  "title": "Amortization Patterns workbook (IO · CPM · CAM, live formulas)",
+                  "type": "xlsx",
+                  "path": "/content/refi/unit-3/amortization-patterns.xlsx"
                 }
               ]
             },
