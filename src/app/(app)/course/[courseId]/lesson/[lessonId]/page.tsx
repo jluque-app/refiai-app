@@ -25,6 +25,7 @@ import SingleAssetValuationSimulator from "@/components/simulators/SingleAssetVa
 import AffordableHousingFundSimulator from "@/components/simulators/AffordableHousingFund";
 import BarcelonaCaseSimulator from "@/components/simulators/BarcelonaCase";
 import ValuationLabSimulator from "@/components/simulators/ValuationLab";
+import MortgageBalloonLab from "@/components/simulators/MortgageBalloonLab";
 import AiTeacher from "@/components/ai/AiTeacher";
 
 const courseData = courseDataRaw as CourseData;
@@ -126,6 +127,7 @@ export default function LessonViewer() {
                                         {section.simulatorId === 'AffordableHousingFundSimulator' && <AffordableHousingFundSimulator {...section.props} />}
                                         {section.simulatorId === 'BarcelonaCaseSimulator' && <BarcelonaCaseSimulator {...section.props} />}
                                         {section.simulatorId === 'ValuationLabSimulator' && <ValuationLabSimulator {...section.props} />}
+                                        {section.simulatorId === 'MortgageBalloonLab' && <MortgageBalloonLab {...section.props} />}
                                     </div>
                                 </Card>
                             );
@@ -142,6 +144,19 @@ export default function LessonViewer() {
                             return <div key={index} className="text-muted-foreground italic">Unsupported section type: {section.type}</div>;
                     }
                 })}
+                {activeLesson?.resources && activeLesson.resources.length > 0 && (
+                    <div className="mt-2">
+                        <h4 className="font-bold text-sm uppercase tracking-wider text-muted-foreground mb-3">Downloads</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {activeLesson.resources.map((res, i) => (
+                                <a key={i} href={res.path} download className="flex items-center gap-3 p-3 bg-card border rounded-md hover:border-primary/50 hover:bg-muted/50 transition-colors">
+                                    <FileText size={16} className="text-primary shrink-0" />
+                                    <span className="text-sm font-medium">{res.title}</span>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         );
     };
