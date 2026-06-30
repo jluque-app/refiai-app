@@ -356,6 +356,84 @@
                   "path": "/content/real-estate-101/economics/reading.pdf"
                 }
               ]
+            },
+            {
+              "id": "lesson-0-1-5",
+              "title": "Problem Set — Cap Rates & the Real Estate System",
+              "type": "article",
+              "duration": "40 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## PS1 — Real Estate System & the Cap Rate\n\nThe assigned problem set for this unit. Solve, then check (graded with a small tolerance)."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS1 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "ps01-1",
+                      "text": "Cap rates are 10.5% and a property earns €50,000 net income/yr. Value (€)?",
+                      "type": "number",
+                      "correctAnswer": 476190,
+                      "tolerance": 500,
+                      "explanation": "V = 50,000/0.105 = €476,190."
+                    },
+                    {
+                      "id": "ps01-2",
+                      "text": "Properties sell for €100/SF and yield €8/SF net income. The cap rate? Enter % (e.g. 8).",
+                      "type": "number",
+                      "correctAnswer": 8,
+                      "tolerance": 0.1,
+                      "explanation": "Cap rate = 8/100 = 8%."
+                    },
+                    {
+                      "id": "ps01-3",
+                      "text": "Apartment demand: units = 60,000 + 0.30·households − 80·Rent; households 200,000; supply rises to 100,000 units. Equilibrium rent (€/mo)?",
+                      "type": "number",
+                      "correctAnswer": 300,
+                      "tolerance": 2,
+                      "explanation": "100,000 = 120,000 − 80·Rent → Rent = €300."
+                    },
+                    {
+                      "id": "ps01-4",
+                      "text": "Same demand equation; supply stays 88,000 but households rise to 220,000. Equilibrium rent (€/mo)?",
+                      "type": "number",
+                      "correctAnswer": 475,
+                      "tolerance": 3,
+                      "explanation": "88,000 = 60,000 + 66,000 − 80·Rent → Rent = €475."
+                    },
+                    {
+                      "id": "ps01-5",
+                      "text": "New development costs €300/SF and earns €22.5/SF net rent. The feasibility (going-in) cap rate? Enter % (e.g. 7.5).",
+                      "type": "number",
+                      "correctAnswer": 7.5,
+                      "tolerance": 0.1,
+                      "explanation": "22.5/300 = 7.5%."
+                    },
+                    {
+                      "id": "ps01-6",
+                      "text": "Buildings sell at an 8% cap; development cost €300/SF. The replacement-cost rent (€/SF)?",
+                      "type": "number",
+                      "correctAnswer": 24,
+                      "tolerance": 0.2,
+                      "explanation": "Replacement-cost rent = 0.08 × 300 = €24/SF — the rent that just justifies new construction."
+                    },
+                    {
+                      "id": "ps01-7",
+                      "text": "If investors' required return falls, all else equal, property prices:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Rise",
+                        "Fall",
+                        "Stay the same"
+                      ],
+                      "correctAnswer": "Rise",
+                      "explanation": "Price = NOI / cap rate; a lower required return lowers the cap rate and raises prices."
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -587,6 +665,112 @@
                   "title": "Present Value Math — slides",
                   "type": "pptx",
                   "path": "/content/real-estate-101/excel/slides.pptx"
+                }
+              ]
+            },
+            {
+              "id": "lesson-0-2-4",
+              "title": "Problem Set — Present Value Math",
+              "type": "article",
+              "duration": "45 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## PS2 — Present Value Math\n\nThe assigned PV problem set. Use the Excel sandbox and check your answers."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS2 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "ps02-1",
+                      "text": "PV of a growing perpetuity: NOI €100,000, growth 3%, discount 8% (€)?",
+                      "type": "number",
+                      "correctAnswer": 2000000,
+                      "tolerance": 5000,
+                      "explanation": "100,000/(0.08−0.03) = €2,000,000."
+                    },
+                    {
+                      "id": "ps02-2",
+                      "text": "Buy €100,000; it appreciates 8% then 12%; the year-3 income yield is 7%. Year-3 income (€)?",
+                      "type": "number",
+                      "correctAnswer": 8467,
+                      "tolerance": 30,
+                      "explanation": "0.07 × 100,000 × 1.08 × 1.12 ≈ €8,467."
+                    },
+                    {
+                      "id": "ps02-3",
+                      "text": "PV of a 10-year lease of €2,000/month paid at the BEGINNING of each month, 8% (€)?",
+                      "type": "number",
+                      "correctAnswer": 165942,
+                      "tolerance": 500,
+                      "explanation": "Annuity-due PV ≈ €165,942."
+                    },
+                    {
+                      "id": "ps02-4",
+                      "text": "NPV of a deal: cash flows €20k/€22k/€30k/€31k/€40k (Yr1-5), resale = 10× the Yr-5 flow, 10% discount, price €350,000 (€)?",
+                      "type": "number",
+                      "correctAnswer": 3282,
+                      "tolerance": 60,
+                      "explanation": "PV of inflows ≈ €353,282 → NPV = +€3,282."
+                    },
+                    {
+                      "id": "ps02-5",
+                      "text": "Buy €100,000, sell €105,000, collect €10,000 rent (inflation 5%). The nominal income return? Enter % (e.g. 10).",
+                      "type": "number",
+                      "correctAnswer": 10,
+                      "tolerance": 0.1,
+                      "explanation": "Income return = 10,000/100,000 = 10%."
+                    },
+                    {
+                      "id": "ps02-6",
+                      "text": "...the real appreciation return? Enter % (e.g. 0).",
+                      "type": "number",
+                      "correctAnswer": 0,
+                      "tolerance": 0.2,
+                      "explanation": "Nominal appreciation 5% − inflation 5% = 0% real."
+                    },
+                    {
+                      "id": "ps02-7",
+                      "text": "The monthly payment on an €80,000 interest-only loan at 9% (€)?",
+                      "type": "number",
+                      "correctAnswer": 600,
+                      "tolerance": 1,
+                      "explanation": "80,000 × 9%/12 = €600."
+                    },
+                    {
+                      "id": "ps02-8",
+                      "text": "The monthly payment on an €80,000, 15-year, 9% amortizing mortgage (€)?",
+                      "type": "number",
+                      "correctAnswer": 811.41,
+                      "tolerance": 1,
+                      "explanation": "PMT(9%/12, 180, 80,000) ≈ €811.41."
+                    },
+                    {
+                      "id": "ps02-9",
+                      "text": "Arithmetic mean of returns 5%, 15%, 25%? Enter % (e.g. 15).",
+                      "type": "number",
+                      "correctAnswer": 15,
+                      "tolerance": 0.05,
+                      "explanation": "(5+15+25)/3 = 15.00%."
+                    },
+                    {
+                      "id": "ps02-10",
+                      "text": "Geometric mean of returns 5%, 15%, 25%? Enter % (e.g. 14.71).",
+                      "type": "number",
+                      "correctAnswer": 14.71,
+                      "tolerance": 0.05,
+                      "explanation": "[(1.05)(1.15)(1.25)]^(1/3) − 1 = 14.71%."
+                    },
+                    {
+                      "id": "ps02-11",
+                      "text": "Cradle-to-grave IRR of {−€1,000k, +€100k, +€1,300k}? Enter % (e.g. 19.13).",
+                      "type": "number",
+                      "correctAnswer": 19.13,
+                      "tolerance": 0.1,
+                      "explanation": "The IRR of the three-period stream is 19.13%."
+                    }
+                  ]
                 }
               ]
             }
@@ -843,6 +1027,110 @@
                   "path": "/content/real-estate-101/finance/slides.pptx"
                 }
               ]
+            },
+            {
+              "id": "lesson-0-3-4",
+              "title": "Problem Set — Portfolio Theory & CAPM",
+              "type": "article",
+              "duration": "45 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## PS9 — Portfolio Theory\n\nRisk-free + risky combinations, leverage, and minimum-variance portfolios."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS9 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "ps09-1",
+                      "text": "Risky portfolio 12% return / 10% volatility; riskless 7%. A 50/50 mix: expected return? Enter % (e.g. 9.5).",
+                      "type": "number",
+                      "correctAnswer": 9.5,
+                      "tolerance": 0.05,
+                      "explanation": "0.5×7% + 0.5×12% = 9.5%."
+                    },
+                    {
+                      "id": "ps09-2",
+                      "text": "...its volatility? Enter % (e.g. 5).",
+                      "type": "number",
+                      "correctAnswer": 5,
+                      "tolerance": 0.1,
+                      "explanation": "Only the risky half carries risk: 0.5 × 10% = 5%."
+                    },
+                    {
+                      "id": "ps09-3",
+                      "text": "CAPM: risk-free 5%, market price of risk 6%, beta 0.5. Expected return? Enter % (e.g. 8).",
+                      "type": "number",
+                      "correctAnswer": 8,
+                      "tolerance": 0.1,
+                      "explanation": "5% + 0.5×6% = 8%."
+                    },
+                    {
+                      "id": "ps09-4",
+                      "text": "Portfolio: 80% real estate at 10% + 20% stocks at 15%. Expected return? Enter % (e.g. 11).",
+                      "type": "number",
+                      "correctAnswer": 11,
+                      "tolerance": 0.1,
+                      "explanation": "0.8×10% + 0.2×15% = 11%."
+                    },
+                    {
+                      "id": "ps09-5",
+                      "text": "If you want little risk, Portfolio Theory says:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Hold a diversified mix of risky assets AND government bonds",
+                        "Avoid risky assets entirely",
+                        "Put everything in one safe asset"
+                      ],
+                      "correctAnswer": "Hold a diversified mix of risky assets AND government bonds",
+                      "explanation": "Diversify the risky portfolio, then dial risk down with the risk-free allocation."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "## PS10 — CAPM, Options & Modigliani-Miller\n\nEquilibrium valuation and super-normal returns."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS10 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "ps10-1",
+                      "text": "CAPM value of a perpetuity: cash flow €1,000,000/yr, risk-free 3%, market risk premium 6%, beta 0.5. Value (€)?",
+                      "type": "number",
+                      "correctAnswer": 16667000,
+                      "tolerance": 30000,
+                      "explanation": "Required return = 3% + 0.5×6% = 6%; value = 1,000,000/0.06 = €16,667,000."
+                    },
+                    {
+                      "id": "ps10-2",
+                      "text": "If you could buy it for €15,000,000, the NPV (€)?",
+                      "type": "number",
+                      "correctAnswer": 1667000,
+                      "tolerance": 20000,
+                      "explanation": "16,667,000 − 15,000,000 = +€1,667,000."
+                    },
+                    {
+                      "id": "ps10-3",
+                      "text": "The minimum expected 1-year return at the €15,000,000 price? Enter % (e.g. 17.78).",
+                      "type": "number",
+                      "correctAnswer": 17.78,
+                      "tolerance": 0.1,
+                      "explanation": "(16,667k + 1,000k)/15,000k − 1 = 17.78%."
+                    },
+                    {
+                      "id": "ps10-4",
+                      "text": "The 'super-normal' part of that return (above the 6% warranted)? Enter % (e.g. 11.78).",
+                      "type": "number",
+                      "correctAnswer": 11.78,
+                      "tolerance": 0.1,
+                      "explanation": "17.78% − 6% = 11.78% — the excess return from buying below value."
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -889,6 +1177,14 @@
                 {
                   "type": "markdown",
                   "content": "### Worked example — decomposing a 6% return\n\nBuy at €200,000; collect €7,000 rent; sell at €205,000 one year later.\n\n- Income return = 7,000 / 200,000 = **3.5%**\n- Appreciation = (205,000 − 200,000) / 200,000 = **2.5%**\n- Total = **6.0%**, i.e. (7,000 + 5,000) / 200,000."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## 🎬 Full lecture recording"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1hrC8Te9kxXAPb56Qb79tWOI1gg3302U2/preview"
                 },
                 {
                   "type": "quiz",
@@ -973,6 +1269,14 @@
                 {
                   "type": "markdown",
                   "content": "### Worked example — direct cap and the discount-rate bridge\n\nNOI₁ = €5,000,000 and the market cap rate is 9.00%.\n\n- Direct-cap value = 5,000,000 / 0.09 = **€55,555,556**.\n- If the market expects 3% annual growth, the discount rate for a DCF on the same asset = cap rate + growth = 9% + 3% = **12%** — the two methods must be mutually consistent."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## 🎬 Video walkthrough\n\n**Property-Level Valuation & Investment Returns**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1q1ju_76rOF7PX2uf3JaaGU287IXS0-9_/preview"
                 },
                 {
                   "type": "quiz",
@@ -1242,6 +1546,194 @@
                   "path": "/content/refi/unit-1/case-cre-investment.pdf"
                 }
               ]
+            },
+            {
+              "id": "lesson-1-6",
+              "title": "Problem Sets — Valuation & Proforma",
+              "type": "article",
+              "duration": "60 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## The Unit 1 problem sets\n\nThe two problem sets assigned with the Basic Real Estate Investment Model — **PS1 (Valuation)** and **PS3 (Proforma)**. Solve each with the Valuation & Leverage Lab and the proforma, then check your answers (graded with a small tolerance)."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### PS1 — Valuation\n\nDirect-capitalization and DCF valuation, cap-rate vs discount-rate logic, and the income-vs-growth distinction."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS1 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "u1ps1-1",
+                      "text": "A property earns constant NOI €150,000/yr in perpetuity, is expected to double in value over a 10-year hold, with a 15% discount rate. Maximum price to pay (€)?",
+                      "type": "number",
+                      "correctAnswer": 1000000,
+                      "tolerance": 5000,
+                      "unit": "€",
+                      "explanation": "Value = NOI/cap = 150,000/0.15 = €1,000,000 (the doubling is consistent with cap = yield − growth)."
+                    },
+                    {
+                      "id": "u1ps1-2",
+                      "text": "A single tenant pays €50,000/yr (NNN); required year-1 return 12%. Direct-capitalization value (€)?",
+                      "type": "number",
+                      "correctAnswer": 416667,
+                      "tolerance": 800,
+                      "unit": "€",
+                      "explanation": "Value = 50,000 / 0.12 = €416,667."
+                    },
+                    {
+                      "id": "u1ps1-3",
+                      "text": "You pay €500,000 today for that property. Ex-ante IRR? Enter % (e.g. 13.51).",
+                      "type": "number",
+                      "correctAnswer": 13.51,
+                      "tolerance": 0.1,
+                      "unit": "%",
+                      "explanation": "Solving the cash-flow stream gives an IRR of 13.51%."
+                    },
+                    {
+                      "id": "u1ps1-4",
+                      "text": "Cap rate (on NOI) 11%, capital improvements ≈1% of value/yr, appreciation 3%/yr. Discount rate for a multi-year DCF? Enter % (e.g. 13).",
+                      "type": "number",
+                      "correctAnswer": 13,
+                      "tolerance": 0.1,
+                      "unit": "%",
+                      "explanation": "Discount rate ≈ cap − capex% + growth = 11% − 1% + 3% = 13%."
+                    },
+                    {
+                      "id": "u1ps1-5",
+                      "text": "NOI €5,000,000, cap rate 9.00%. Direct-cap market value (€)?",
+                      "type": "number",
+                      "correctAnswer": 55555556,
+                      "tolerance": 30000,
+                      "unit": "€",
+                      "explanation": "5,000,000 / 0.09 = €55,555,556."
+                    },
+                    {
+                      "id": "u1ps1-6",
+                      "text": "NOI €6,500,000, cap rate 9.50%. Market value (€)?",
+                      "type": "number",
+                      "correctAnswer": 68421053,
+                      "tolerance": 40000,
+                      "unit": "€",
+                      "explanation": "6,500,000 / 0.095 ≈ €68,421,053."
+                    },
+                    {
+                      "id": "u1ps1-7",
+                      "text": "A long-leased office is an 'income' rather than a 'growth' investment because:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Most of its return is contractual rent (yield), not appreciation",
+                        "Office buildings never appreciate",
+                        "Leases prevent any reversion"
+                      ],
+                      "correctAnswer": "Most of its return is contractual rent (yield), not appreciation",
+                      "explanation": "The contractual lease locks in the yield component."
+                    },
+                    {
+                      "id": "u1ps1-8",
+                      "text": "You own a cornfield (10% expected appreciation, income only covers taxes) next to a warehouse selling at a 10% cap with 2% growth. You should:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Sell or develop the cornfield now",
+                        "Hold the cornfield as a speculative play"
+                      ],
+                      "correctAnswer": "Sell or develop the cornfield now",
+                      "explanation": "The warehouse's ~12% total return beats the cornfield's ~10% pure-growth return at lower risk."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "### PS3 — Proforma\n\nBuilding the operating proforma (PGI → EGI → NOI → PBTCF), expected-value lease forecasting, and the full 5-year levered DCF."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS3 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "u1ps3-1",
+                      "text": "Apartment complex: 100 units, 5 vacant, rent €1,000/mo, opex €5,000 per occupied unit/yr. Year-1 PGI (€)?",
+                      "type": "number",
+                      "correctAnswer": 1200000,
+                      "tolerance": 2000,
+                      "unit": "€",
+                      "explanation": "PGI = 100 × 1,000 × 12 = €1,200,000 (potential, before vacancy)."
+                    },
+                    {
+                      "id": "u1ps3-2",
+                      "text": "...Year-1 EGI (€)?",
+                      "type": "number",
+                      "correctAnswer": 1140000,
+                      "tolerance": 2000,
+                      "unit": "€",
+                      "explanation": "EGI = PGI − 5 vacant units × 1,000 × 12 = €1,140,000."
+                    },
+                    {
+                      "id": "u1ps3-3",
+                      "text": "...Year-1 NOI (€)?",
+                      "type": "number",
+                      "correctAnswer": 665000,
+                      "tolerance": 2000,
+                      "unit": "€",
+                      "explanation": "NOI = EGI − 95 occupied × 5,000 opex = €665,000."
+                    },
+                    {
+                      "id": "u1ps3-4",
+                      "text": "...NPV of buying the complex for €7,000,000 (discount rate 8%, capex 1% of value) (€)?",
+                      "type": "number",
+                      "correctAnswer": 2500000,
+                      "tolerance": 8000,
+                      "unit": "€",
+                      "explanation": "Value = 665,000/(0.08−0.01) = €9,500,000; NPV = 9,500,000 − 7,000,000 = €2,500,000."
+                    },
+                    {
+                      "id": "u1ps3-5",
+                      "text": "Which of these is NOT an operating expense?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Property taxes",
+                        "Insurance",
+                        "Income taxes",
+                        "Property management"
+                      ],
+                      "correctAnswer": "Income taxes",
+                      "explanation": "Income taxes are an ownership-level item, not a property operating expense."
+                    },
+                    {
+                      "id": "u1ps3-6",
+                      "text": "The difference between NOI and Property Before-Tax Cash Flow (PBTCF) is:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Capital improvement expenditures",
+                        "Debt service",
+                        "Vacancy"
+                      ],
+                      "correctAnswer": "Capital improvement expenditures",
+                      "explanation": "PBTCF = NOI − CapEx."
+                    },
+                    {
+                      "id": "u1ps3-7",
+                      "text": "The class office DCF (PGI €900k/€1,000k/€1,100k then +2.5%; vacancy 10/8/5%; opex 5%; capex 5% of NOI; terminal cap 9.25%; selling 1.5%; discount 11%). Total property value (€)?",
+                      "type": "number",
+                      "correctAnswer": 10003000,
+                      "tolerance": 30000,
+                      "unit": "€",
+                      "explanation": "The parameterized 5-year DCF gives a value of ≈ €10,003,000."
+                    },
+                    {
+                      "id": "u1ps3-8",
+                      "text": "...the levered equity IRR (debt 6.5%, 25-yr amortization, 5-yr term, loan = min(70% LTV, 1.5× DSCR)). Enter % (e.g. 16.66).",
+                      "type": "number",
+                      "correctAnswer": 16.66,
+                      "tolerance": 0.1,
+                      "unit": "%",
+                      "explanation": "Sizing the loan and running the equity column gives an equity IRR of 16.66%."
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -1347,6 +1839,14 @@
                 {
                   "type": "simulator",
                   "simulatorId": "LeveredReturnsSimulator"
+                },
+                {
+                  "type": "markdown",
+                  "content": "## 🎬 Video walkthrough\n\n**Introducing debt and equity into the Basic Property Investment Model**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1ANSiAlGdhlwDk4-sLrY93A29Bc3oNoBj/preview"
                 },
                 {
                   "type": "quiz",
@@ -1469,6 +1969,14 @@
                 {
                   "type": "simulator",
                   "simulatorId": "WaterfallSimulator"
+                },
+                {
+                  "type": "markdown",
+                  "content": "## 🎬 Video walkthrough\n\n**Waterfall Analysis**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1bv76tvJ-rVIVGlQXXx8tspjmQB1HMiBZ/preview"
                 }
               ]
             },
@@ -1595,6 +2103,188 @@
                   "title": "Capital Structures slides",
                   "type": "pptx",
                   "path": "/content/refi/unit-2/slides.pptx"
+                }
+              ]
+            },
+            {
+              "id": "lesson-2-7",
+              "title": "Problem Sets — Capital Structure & Wildcat",
+              "type": "article",
+              "duration": "75 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## The Unit 2 problem sets\n\n**PS6 (Capital Structure exercise)** and the **Wildcat Capital Investors** case — building the capital stack and the GP/LP waterfall on top of the property model. Use the Waterfall and Levered Returns labs, then check your answers."
+                },
+                {
+                  "type": "markdown",
+                  "content": "### PS6 — Capital Structure exercise\n\nSetup: Year-1 PGI €10,000, +2.5%/yr; 5% vacancy; 5% opex; 0% capex; 10% discount; 8.25% terminal cap; 2% cost of sale. Debt 70% LTV, 5%, 25-yr amortization, 5-yr term. Equity: Preferred €5,000; Common = 90% Capital / 10% Operating partner; 11% preferred return; 12% partner preferred; reversion residual split 70/30."
+                },
+                {
+                  "type": "quiz",
+                  "content": "PS6 — check your answers",
+                  "quizData": [
+                    {
+                      "id": "u2ps6-1",
+                      "text": "DCF property value (€)?",
+                      "type": "number",
+                      "correctAnswer": 111111,
+                      "tolerance": 300,
+                      "unit": "€",
+                      "explanation": "With NOI₁ €9,025 and the exit assumptions, the DCF value ≈ €111,111."
+                    },
+                    {
+                      "id": "u2ps6-2",
+                      "text": "Loan amount at 70% LTV (€)?",
+                      "type": "number",
+                      "correctAnswer": 77778,
+                      "tolerance": 150,
+                      "unit": "€",
+                      "explanation": "0.70 × 111,111 = €77,778."
+                    },
+                    {
+                      "id": "u2ps6-3",
+                      "text": "Equity required (€)?",
+                      "type": "number",
+                      "correctAnswer": 33333,
+                      "tolerance": 150,
+                      "unit": "€",
+                      "explanation": "Value − loan = 111,111 − 77,778 = €33,333."
+                    },
+                    {
+                      "id": "u2ps6-4",
+                      "text": "Property-level (PBTCF) IRR? Enter % (e.g. 10.0).",
+                      "type": "number",
+                      "correctAnswer": 10.0,
+                      "tolerance": 0.1,
+                      "unit": "%",
+                      "explanation": "The unlevered property IRR equals the 10% discount rate at this value."
+                    },
+                    {
+                      "id": "u2ps6-5",
+                      "text": "Equity (BTCF) IRR? Enter % (e.g. 19.59).",
+                      "type": "number",
+                      "correctAnswer": 19.59,
+                      "tolerance": 0.1,
+                      "unit": "%",
+                      "explanation": "Positive leverage lifts the equity IRR to 19.59%."
+                    },
+                    {
+                      "id": "u2ps6-6",
+                      "text": "Preferred Equity IRR (%)?",
+                      "type": "number",
+                      "correctAnswer": 11.0,
+                      "tolerance": 0.1,
+                      "unit": "%",
+                      "explanation": "The preferred earns its 11% preferred return."
+                    },
+                    {
+                      "id": "u2ps6-7",
+                      "text": "Common Equity IRR (%)?",
+                      "type": "number",
+                      "correctAnswer": 20.87,
+                      "tolerance": 0.12,
+                      "unit": "%",
+                      "explanation": "Common equity earns 20.87% after the preferred is served."
+                    },
+                    {
+                      "id": "u2ps6-8",
+                      "text": "Operating (entrepreneurial) Partner IRR (%)?",
+                      "type": "number",
+                      "correctAnswer": 29.75,
+                      "tolerance": 0.2,
+                      "unit": "%",
+                      "explanation": "The promote lifts the operating partner to 29.75% on its small capital share."
+                    },
+                    {
+                      "id": "u2ps6-9",
+                      "text": "Capital (money) Partner IRR (%)?",
+                      "type": "number",
+                      "correctAnswer": 19.55,
+                      "tolerance": 0.12,
+                      "unit": "%",
+                      "explanation": "The capital partner earns 19.55% — slightly below the blended common-equity return because the promote is paid to the operating partner."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "### Wildcat Capital Investors — the case\n\nBenchmark 3-year hold of 'Financial Commons.' Outside investors (LP) get an 8% preferred return then a 70/30 promote split to Wildcat (GP). The LP requires ≥20% IRR and the GP requires ≥50% IRR to close the deal."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Wildcat — check your answers",
+                  "quizData": [
+                    {
+                      "id": "w-1",
+                      "text": "Benchmark: the property (unlevered) IRR? Enter % (e.g. 14.32).",
+                      "type": "number",
+                      "correctAnswer": 14.32,
+                      "tolerance": 0.1,
+                      "unit": "%",
+                      "explanation": "The unlevered property IRR is 14.32%."
+                    },
+                    {
+                      "id": "w-2",
+                      "text": "Benchmark: the equity-level (combined) IRR (%)?",
+                      "type": "number",
+                      "correctAnswer": 24.98,
+                      "tolerance": 0.12,
+                      "unit": "%",
+                      "explanation": "Leverage lifts the combined equity IRR to 24.98%."
+                    },
+                    {
+                      "id": "w-3",
+                      "text": "Benchmark: the outside investor (LP) IRR (%)?",
+                      "type": "number",
+                      "correctAnswer": 21.24,
+                      "tolerance": 0.12,
+                      "unit": "%",
+                      "explanation": "After the preferred + promote waterfall, the LP earns 21.24%."
+                    },
+                    {
+                      "id": "w-4",
+                      "text": "Benchmark: Wildcat's (GP) IRR (%)?",
+                      "type": "number",
+                      "correctAnswer": 71.35,
+                      "tolerance": 0.2,
+                      "unit": "%",
+                      "explanation": "The promote drives the GP to 71.35% on a small capital share."
+                    },
+                    {
+                      "id": "w-5",
+                      "text": "Wildcat's IRR EXCLUDING the year-3 promote (%)?",
+                      "type": "number",
+                      "correctAnswer": 11.33,
+                      "tolerance": 0.2,
+                      "unit": "%",
+                      "explanation": "Without the back-end promote the GP earns only 11.33% — showing the promote is the GP's real reward."
+                    },
+                    {
+                      "id": "w-6",
+                      "text": "Benchmark: LP needs ≥20% and GP needs ≥50%. LP=21.24%, GP=71.35%. The deal:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Proceeds — both clear their hurdles",
+                        "Fails — the GP is too high",
+                        "Fails — the LP is too low"
+                      ],
+                      "correctAnswer": "Proceeds — both clear their hurdles",
+                      "explanation": "Both parties clear their required IRRs, so the deal is done."
+                    },
+                    {
+                      "id": "w-7",
+                      "text": "In a turnover scenario the LP's IRR falls to 13.78%. The deal now:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Does not proceed — the LP is below its 20% hurdle",
+                        "Proceeds anyway",
+                        "Proceeds only for the GP"
+                      ],
+                      "correctAnswer": "Does not proceed — the LP is below its 20% hurdle",
+                      "explanation": "Below the 20% LP hurdle, the structure must be renegotiated or the deal passed."
+                    }
+                  ]
                 }
               ]
             }
@@ -2727,6 +3417,34 @@
                   "content": "### Worked example — the Front Door base case\n\nBudget €3.0m land + €6.0m hard + €1.0m soft = **€10,000,000**; 60,000 m² rentable; 60% LTC at 8.5%/25-yr; equity wants 8% cash-on-cash; opex 40% of EGI; vacancy 5%.\n\n- Debt = €6,000,000 → annual debt service ≈ €579,000; equity return = €4,000,000 × 8% = €320,000.\n- Required NOI ≈ **€899,000**; gross up → EGI ≈ €1,498,000, PGI ≈ €1,577,000.\n- Required rent = 1,577,000 / 60,000 ≈ **€26.31/m²/yr**; implied cap rate = 899,000 / 10,000,000 = **9%**."
                 },
                 {
+                  "type": "markdown",
+                  "content": "## 🎬 Affordability & policy videos"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Housing Affordability after Covid-19**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1ZsrqVGGEHfW_q9zUF-hMQPxcoOpctoFa/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Housing Affordability — Public Policies**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1dTdKTjPqVknFyp5sHKHM-kvCCdrpjmO2/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Urban Transformation after Covid-19**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/19xKNPPJmqeVwLD7s_UDsibuTaFEPq2XL/preview"
+                },
+                {
                   "type": "quiz",
                   "content": "Knowledge Check — Funds",
                   "quizData": [
@@ -2800,6 +3518,50 @@
                 {
                   "type": "markdown",
                   "content": "> Note the gap between the **gross** (asset-level) return and the **net** (LP) return — fees and promote live in that gap."
+                },
+                {
+                  "type": "markdown",
+                  "content": "## 🎬 Front Door / Back Door model — video series"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Front Door / Back Door model — concept**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/13XPM5wcqFf7GTs0n1cXCMr9EqlQ8hb10/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Building the Front Door model in Excel**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1bUZ518VqI4Y7kI9ZOFuWm9bVkBqqiF1H/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Front Door extension — Exercises 1, 2, 3**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1w4YaRj-g65DUAH3p4uEKUeNRpEAvQjbd/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Front Door extension — Exercise 4**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/18QYUFt4CaFTzi6Afo3P-HSGk4FTcVZGI/preview"
+                },
+                {
+                  "type": "markdown",
+                  "content": "**Front Door extension — Exercise 5 (optimal location)**"
+                },
+                {
+                  "type": "video",
+                  "content": "https://drive.google.com/file/d/1hYSPlgYozDbEC46U8ah9NLX5Zp2cGeAE/preview"
                 }
               ]
             },
@@ -3052,6 +3814,76 @@
                   "path": "/content/advanced/mbs/slides.pptx"
                 }
               ]
+            },
+            {
+              "id": "lesson-7-3",
+              "title": "Exercises — CMBS Tranching & Valuation",
+              "type": "article",
+              "duration": "40 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## MBS exercises (Geltner-Miller Ch. 20)\n\nWork the tranche math, then check your answers."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Check your answers",
+                  "quizData": [
+                    {
+                      "id": "u7e-1",
+                      "text": "A 75%-LTV whole loan; a subordinate tranche absorbs the first 35% of losses. The senior position's implied LTV? Enter % (e.g. 48.75).",
+                      "type": "number",
+                      "correctAnswer": 48.75,
+                      "tolerance": 0.2,
+                      "explanation": "(1 − 0.35) × 75% = 48.75%."
+                    },
+                    {
+                      "id": "u7e-2",
+                      "text": "A €600m pool pays 10% (€60m). Senior €500m @7% (€35m); mezzanine €100m @9% (€9m). Interest left for the IO tranche (€ millions)?",
+                      "type": "number",
+                      "correctAnswer": 16,
+                      "tolerance": 0.2,
+                      "explanation": "60 − 35 − 9 = €16m."
+                    },
+                    {
+                      "id": "u7e-3",
+                      "text": "A €100m pool of 75%-LTV loans (aggregate value €133m) backs an €80m AAA tranche. AAA's implied LTV? Enter % (e.g. 60).",
+                      "type": "number",
+                      "correctAnswer": 60,
+                      "tolerance": 0.5,
+                      "explanation": "80 / 133 = 60%."
+                    },
+                    {
+                      "id": "u7e-4",
+                      "text": "...the AAA implied DCR (aggregate NOI €11.305m, AAA debt service €5.2m)? (e.g. 2.17)",
+                      "type": "number",
+                      "correctAnswer": 2.17,
+                      "tolerance": 0.05,
+                      "explanation": "11.305 / 5.2 = 2.17."
+                    },
+                    {
+                      "id": "u7e-5",
+                      "text": "A €1bn pool; the B tranche is the 25%–30% slice (€50m par). If collateral losses reach 27%, the par B loses (€ millions)?",
+                      "type": "number",
+                      "correctAnswer": 20,
+                      "tolerance": 0.5,
+                      "explanation": "(27% − 25%) × €1bn = €20m (40% of the B tranche)."
+                    },
+                    {
+                      "id": "u7e-6",
+                      "text": "Why can a thin subordinate CMBS tranche be riskier than the underlying property?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Its conditional loss severity is far greater because the tranche is thin",
+                        "The property can become worthless but the bond cannot",
+                        "Subordinate tranches carry no credit risk"
+                      ],
+                      "correctAnswer": "Its conditional loss severity is far greater because the tranche is thin",
+                      "explanation": "Default probability may be similar, but a thin first-loss piece suffers near-total loss severity."
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -3212,6 +4044,68 @@
                   "title": "Guide to REITs — reading",
                   "type": "pdf",
                   "path": "/content/advanced/reits/reading.pdf"
+                }
+              ]
+            },
+            {
+              "id": "lesson-8-3",
+              "title": "Exercises — REITs",
+              "type": "article",
+              "duration": "25 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## REIT exercises\n\nCheck your understanding of REIT structure and metrics."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Check your answers",
+                  "quizData": [
+                    {
+                      "id": "u8e-1",
+                      "text": "REITs avoid corporate income tax, but in return must:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Pay out at least 90% of taxable income as dividends",
+                        "Hold 50% of assets in government bonds",
+                        "Sell developed property within four years"
+                      ],
+                      "correctAnswer": "Pay out at least 90% of taxable income as dividends",
+                      "explanation": "The high mandatory payout is the trade-off for pass-through tax treatment."
+                    },
+                    {
+                      "id": "u8e-2",
+                      "text": "An 'umbrella partnership REIT' (UPREIT):",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Owns property indirectly through its holdings in a partnership",
+                        "Owns property equity directly",
+                        "Invests only in low-risk 'rainy day' assets"
+                      ],
+                      "correctAnswer": "Owns property indirectly through its holdings in a partnership",
+                      "explanation": "The UPREIT structure lets owners contribute property tax-deferred for partnership units."
+                    },
+                    {
+                      "id": "u8e-3",
+                      "text": "After two strong years of REIT share prices, it is reasonable to expect:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Property market prices will probably rise in the coming year",
+                        "REIT prices will certainly fall next year",
+                        "REIT prices will certainly rise next year"
+                      ],
+                      "correctAnswer": "Property market prices will probably rise in the coming year",
+                      "explanation": "Listed REITs tend to lead the private property market by 6–18 months."
+                    },
+                    {
+                      "id": "u8e-4",
+                      "text": "FFO = net income + real-estate depreciation − gains on sales. With net income €40m, depreciation €25m and gains €5m, FFO (€ millions)?",
+                      "type": "number",
+                      "correctAnswer": 60,
+                      "tolerance": 0.5,
+                      "explanation": "40 + 25 − 5 = €60m."
+                    }
+                  ]
                 }
               ]
             }
@@ -3384,6 +4278,94 @@
                   "path": "/content/advanced/development/slides.pptx"
                 }
               ]
+            },
+            {
+              "id": "lesson-9-3",
+              "title": "Problem Set — Real Options & ADC Financing",
+              "type": "article",
+              "duration": "45 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## Development problem set\n\nA real-options land-timing problem and an acquisition-development-construction (ADC) financing/residual-land problem."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Real option — check your answers",
+                  "quizData": [
+                    {
+                      "id": "u9e-1",
+                      "text": "Land: build now for an immediate profit of €11.76m, or wait one year (the waiting option is worth €13.54m today). The option premium — the value of the flexibility to time development (€ millions)?",
+                      "type": "number",
+                      "correctAnswer": 1.78,
+                      "tolerance": 0.05,
+                      "explanation": "13.54 − 11.76 = €1.78m."
+                    },
+                    {
+                      "id": "u9e-2",
+                      "text": "Given build-now profit €11.76m vs waiting value €13.54m, you should:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "Wait and develop next year (€13.54m > €11.76m)",
+                        "Build now",
+                        "It makes no difference"
+                      ],
+                      "correctAnswer": "Wait and develop next year (€13.54m > €11.76m)",
+                      "explanation": "The option to wait, build in the up-state and abandon in the down-state is worth more than building immediately."
+                    }
+                  ]
+                },
+                {
+                  "type": "markdown",
+                  "content": "### ADC financing — maximum land price\n\n10,000 SF warehouse (all rentable), market rent €15/SF, 5% vacancy, operating expenses €5/SF; mortgage 8.0%, 15-yr amortization, DSCR 1.25; equity cash-on-cash 12%; construction/development cost (ex-land) €550,000."
+                },
+                {
+                  "type": "quiz",
+                  "content": "ADC — check your answers",
+                  "quizData": [
+                    {
+                      "id": "u9e-3",
+                      "text": "Stabilised NOI (€)?",
+                      "type": "number",
+                      "correctAnswer": 92500,
+                      "tolerance": 200,
+                      "explanation": "PGI 150,000 − vacancy 7,500 − opex 50,000 = €92,500."
+                    },
+                    {
+                      "id": "u9e-4",
+                      "text": "Supportable loan at DSCR 1.25 (8%, 15-yr) (€)?",
+                      "type": "number",
+                      "correctAnswer": 645284,
+                      "tolerance": 1000,
+                      "explanation": "Max debt service = 92,500/1.25 = €74,000 → loan ≈ €645,284."
+                    },
+                    {
+                      "id": "u9e-5",
+                      "text": "Supportable equity at a 12% cash-on-cash (€)?",
+                      "type": "number",
+                      "correctAnswer": 154167,
+                      "tolerance": 500,
+                      "explanation": "BTCF = 92,500 − 74,000 = €18,500 → equity = 18,500/0.12 ≈ €154,167."
+                    },
+                    {
+                      "id": "u9e-6",
+                      "text": "Maximum justifiable land price (€)?",
+                      "type": "number",
+                      "correctAnswer": 249450,
+                      "tolerance": 1000,
+                      "explanation": "Total supportable cost 799,450 − construction 550,000 = €249,450."
+                    },
+                    {
+                      "id": "u9e-7",
+                      "text": "Implied going-in cap rate? Enter % (e.g. 11.57).",
+                      "type": "number",
+                      "correctAnswer": 11.57,
+                      "tolerance": 0.1,
+                      "explanation": "NOI 92,500 / total cost 799,450 = 11.57%."
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -3544,6 +4526,72 @@
                   "title": "After-Tax Analysis — slides",
                   "type": "pptx",
                   "path": "/content/advanced/tax/slides.pptx"
+                }
+              ]
+            },
+            {
+              "id": "lesson-10-3",
+              "title": "Exercises — After-Tax Analysis",
+              "type": "article",
+              "duration": "25 min",
+              "sections": [
+                {
+                  "type": "markdown",
+                  "content": "## After-tax exercises\n\nConcept checks on discount rates, the depreciation shield, and investment vs market value."
+                },
+                {
+                  "type": "quiz",
+                  "content": "Check your answers",
+                  "quizData": [
+                    {
+                      "id": "u10e-1",
+                      "text": "Rank the three cash-flow streams by the discount rate that should apply, highest first:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "BTCF > PBTCF > EATCF",
+                        "PBTCF > BTCF > EATCF",
+                        "All three are the same"
+                      ],
+                      "correctAnswer": "BTCF > PBTCF > EATCF",
+                      "explanation": "Levered equity BTCF is riskiest; unlevered PBTCF is lower; after-tax EATCF is lowest."
+                    },
+                    {
+                      "id": "u10e-2",
+                      "text": "Depreciation shields a real estate investor from tax because:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "It is a non-cash deduction that lowers taxable income and defers tax (recaptured at sale)",
+                        "It is a cash expense paid to the tax authority",
+                        "It permanently eliminates all tax"
+                      ],
+                      "correctAnswer": "It is a non-cash deduction that lowers taxable income and defers tax (recaptured at sale)",
+                      "explanation": "Cash flow exceeds taxable income; the shield is a deferral, clawed back via recapture on sale."
+                    },
+                    {
+                      "id": "u10e-3",
+                      "text": "Why does the operating-expense vs capital-expenditure distinction matter for tax?",
+                      "type": "multiple-choice",
+                      "options": [
+                        "CapEx is a cash outflow but cannot be deducted in year one — it is depreciated over its life",
+                        "CapEx is fully deductible immediately",
+                        "Operating expenses must be depreciated"
+                      ],
+                      "correctAnswer": "CapEx is a cash outflow but cannot be deducted in year one — it is depreciated over its life",
+                      "explanation": "Only the depreciation of CapEx is deductible over time, not the full cash outlay up front."
+                    },
+                    {
+                      "id": "u10e-4",
+                      "text": "A tax-exempt pension fund valuing a property whose market value is set by taxable investors will pay:",
+                      "type": "multiple-choice",
+                      "options": [
+                        "About market value — and earn a positive NPV, since its investment value exceeds MV",
+                        "Far more than market value",
+                        "Less than market value"
+                      ],
+                      "correctAnswer": "About market value — and earn a positive NPV, since its investment value exceeds MV",
+                      "explanation": "The buyer captures the tax benefit as positive NPV; it still need not pay above MV."
+                    }
+                  ]
                 }
               ]
             }
