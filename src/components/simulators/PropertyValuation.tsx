@@ -229,7 +229,7 @@ export default function PropertyValuationSimulator() {
                         </div>
                         <div>
                             <div className="text-xs text-[hsl(var(--muted-foreground))]">DCF Value</div>
-                            <div className="text-2xl font-bold text-[hsl(var(--secondary))]">{formatCurrency(results.dcfValue)}</div>
+                            <div className="text-2xl font-bold text-[hsl(var(--brand-blue))]">{formatCurrency(results.dcfValue)}</div>
                             <div className="text-[10px] text-[hsl(var(--muted-foreground))]">PV(CF) + PV(NSP) @ {inputs.discountRate}%</div>
                         </div>
                     </div>
@@ -255,7 +255,7 @@ export default function PropertyValuationSimulator() {
                     <ResponsiveContainer width="100%" height="100%">
                         <BarChart data={[
                             { name: 'Direct Cap', value: results.directCapValue, fill: 'hsl(var(--primary))' },
-                            { name: 'DCF', value: results.dcfValue, fill: 'hsl(var(--secondary))' }
+                            { name: 'DCF', value: results.dcfValue, fill: 'hsl(var(--brand-blue))' }
                         ]}>
                             <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
                             <XAxis dataKey="name" />

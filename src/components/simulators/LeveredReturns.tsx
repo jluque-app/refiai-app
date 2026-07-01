@@ -349,7 +349,7 @@ export default function LeveredReturnsSimulator() {
                 <div className="col-span-1 lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="bg-[hsl(var(--surface))] border border-[hsl(var(--border))] p-4 rounded-lg">
                         <div className="text-sm text-[hsl(var(--muted-foreground))]">Unlevered IRR</div>
-                        <div className="text-3xl font-bold text-[hsl(var(--secondary))]">
+                        <div className="text-3xl font-bold text-[hsl(var(--brand-blue))]">
                             {formatPercent(results.unleveredIrr * 100)}
                         </div>
                         <div className="text-xs mt-1">Property Level Return</div>
@@ -385,7 +385,7 @@ export default function LeveredReturnsSimulator() {
                                 contentStyle={{ backgroundColor: 'hsl(var(--popover))', borderColor: 'hsl(var(--border))' }}
                             />
                             <Legend />
-                            <Bar dataKey="Unlevered" fill="hsl(var(--secondary))" opacity={0.7} name="Unlevered CF" />
+                            <Bar dataKey="Unlevered" fill="hsl(var(--brand-blue))" opacity={0.7} name="Unlevered CF" />
                             <Bar dataKey="Levered" fill="hsl(var(--primary))" name="Levered CF" />
                         </BarChart>
                     </ResponsiveContainer>

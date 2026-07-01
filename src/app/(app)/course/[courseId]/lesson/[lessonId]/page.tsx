@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight, PlayCircle, FileText, Layout, GripVertical, CheckCircle, ArrowLeft, Lock, Check } from "lucide-react";
+import { ChevronLeft, ChevronRight, PlayCircle, FileText, Layout, CheckCircle, ArrowLeft, Lock, Check, Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import courseDataRaw from "@/content/course.json";
 import { CourseData, Lesson, Unit } from "@/types/course";
 import { Button } from "@/components/ui/button";
@@ -42,6 +43,7 @@ export default function LessonViewer() {
 
     const coursePart = courseData.parts.find(p => p.id === courseId);
     const { isUnlocked, isComplete, toggleComplete, completedCount } = useUser();
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     // Find active unit and lesson
     let activeUnit: Unit | undefined;
@@ -262,66 +264,100 @@ export default function LessonViewer() {
     const pctDone = allLessonIds.length ? Math.round((doneCount / allLessonIds.length) * 100) : 0;
     const partLocked = !isUnlocked(coursePart.id);
 
+    const sidebarBody = (
+        <>
+            <div className="p-4 border-b">
+                <Button variant="ghost" size="sm" className="mb-2 p-0 h-auto hover:bg-transparent text-muted-foreground hover:text-primary" asChild>
+                    <Link href="/my-courses" className="flex items-center gap-1">
+                        <ArrowLeft size={16} /> Back to Courses
+                    </Link>
+                </Button>
+                <h2 className="font-bold text-lg leading-tight tracking-tight">{coursePart.title}</h2>
+                <div className="mt-3">
+                    <div className="h-1.5 rounded-full bg-muted overflow-hidden">
+                        <div className="h-full bg-primary transition-all" style={{ width: `${pctDone}%` }} />
+                    </div>
+                    <div className="mt-1 text-[11px] text-muted-foreground">{doneCount}/{allLessonIds.length} lessons · {pctDone}%</div>
+                </div>
+            </div>
+
+            <ScrollArea className="flex-1">
+                {coursePart.units.map(unit => (
+                    <div key={unit.id} className="border-b last:border-0">
+                        <div className="px-4 py-3 bg-muted/30 font-semibold text-xs uppercase tracking-wider flex items-center gap-2 text-muted-foreground">
+                            {unit.title}
+                        </div>
+                        <div>
+                            {unit.lessons.map(lesson => {
+                                const isActive = lesson.id === lessonId;
+                                const Icon = lesson.type === 'video' ? PlayCircle : (lesson.type === 'simulator' ? Layout : FileText);
+
+                                return (
+                                    <Link
+                                        key={lesson.id}
+                                        href={`/course/${courseId}/lesson/${lesson.id}`}
+                                        onClick={() => setSidebarOpen(false)}
+                                        className={clsx(
+                                            "flex items-center gap-3 px-4 py-3 text-sm transition-all border-l-2",
+                                            isActive
+                                                ? "bg-primary/5 border-l-primary text-primary font-medium"
+                                                : "border-l-transparent text-muted-foreground hover:bg-muted hover:text-foreground"
+                                        )}
+                                    >
+                                        <Icon size={16} className={isActive ? "text-primary fill-primary/10" : "opacity-70"} />
+                                        <span className="line-clamp-1 flex-1">{lesson.title}</span>
+                                        {isComplete(lesson.id) ? (
+                                            <CheckCircle size={14} className="text-primary shrink-0" />
+                                        ) : (partLocked && !lesson.preview ? (
+                                            <Lock size={12} className="text-muted-foreground shrink-0" />
+                                        ) : null)}
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </div>
+                ))}
+            </ScrollArea>
+        </>
+    );
+
     return (
         <div className="flex h-[calc(100vh-4rem)]">
-            {/* Sidebar - Unit/Lesson List */}
+            {/* Desktop Sidebar - Unit/Lesson List */}
             <div className="w-80 border-r bg-muted/10 hidden lg:flex flex-col shrink-0">
-                <div className="p-4 border-b">
-                    <Button variant="ghost" size="sm" className="mb-2 p-0 h-auto hover:bg-transparent text-muted-foreground hover:text-primary" asChild>
-                        <Link href="/my-courses" className="flex items-center gap-1">
-                            <ArrowLeft size={16} /> Back to Courses
-                        </Link>
-                    </Button>
-                    <h2 className="font-bold text-lg leading-tight tracking-tight">{coursePart.title}</h2>
-                    <div className="mt-3">
-                        <div className="h-1.5 rounded-full bg-muted overflow-hidden">
-                            <div className="h-full bg-primary transition-all" style={{ width: `${pctDone}%` }} />
+                {sidebarBody}
+            </div>
+
+            {/* Mobile Sidebar Drawer */}
+            {sidebarOpen && (
+                <div className="lg:hidden fixed inset-0 z-50">
+                    <div className="absolute inset-0 bg-black/40" onClick={() => setSidebarOpen(false)} />
+                    <div className="absolute left-0 top-0 bottom-0 w-80 max-w-[85%] bg-background border-r shadow-xl flex flex-col">
+                        <div className="flex items-center justify-between px-3 h-12 border-b shrink-0">
+                            <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Lessons</span>
+                            <button onClick={() => setSidebarOpen(false)} className="p-2" aria-label="Close lessons">
+                                <X size={20} />
+                            </button>
                         </div>
-                        <div className="mt-1 text-[11px] text-muted-foreground">{doneCount}/{allLessonIds.length} lessons · {pctDone}%</div>
+                        {sidebarBody}
                     </div>
                 </div>
-
-                <ScrollArea className="flex-1">
-                    {coursePart.units.map(unit => (
-                        <div key={unit.id} className="border-b last:border-0">
-                            <div className="px-4 py-3 bg-muted/30 font-semibold text-xs uppercase tracking-wider flex items-center gap-2 text-muted-foreground">
-                                {unit.title}
-                            </div>
-                            <div>
-                                {unit.lessons.map(lesson => {
-                                    const isActive = lesson.id === lessonId;
-                                    const Icon = lesson.type === 'video' ? PlayCircle : (lesson.type === 'simulator' ? Layout : FileText);
-
-                                    return (
-                                        <Link
-                                            key={lesson.id}
-                                            href={`/course/${courseId}/lesson/${lesson.id}`}
-                                            className={clsx(
-                                                "flex items-center gap-3 px-4 py-3 text-sm transition-all border-l-2",
-                                                isActive
-                                                    ? "bg-primary/5 border-l-primary text-primary font-medium"
-                                                    : "border-l-transparent text-muted-foreground hover:bg-muted hover:text-foreground"
-                                            )}
-                                        >
-                                            <Icon size={16} className={isActive ? "text-primary fill-primary/10" : "opacity-70"} />
-                                            <span className="line-clamp-1 flex-1">{lesson.title}</span>
-                                            {isComplete(lesson.id) ? (
-                                                <CheckCircle size={14} className="text-primary shrink-0" />
-                                            ) : (partLocked && !lesson.preview ? (
-                                                <Lock size={12} className="text-muted-foreground shrink-0" />
-                                            ) : null)}
-                                        </Link>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    ))}
-                </ScrollArea>
-            </div>
+            )}
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col h-full overflow-hidden bg-background">
-                {/* Top Bar for Mobile/Breadcrumbs could go here */}
+                {/* Mobile top bar */}
+                <div className="lg:hidden flex items-center justify-between gap-2 px-3 h-12 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/70 shrink-0">
+                    <button
+                        onClick={() => setSidebarOpen(true)}
+                        className="flex items-center gap-2 text-sm font-medium text-foreground"
+                        aria-label="Open lessons"
+                    >
+                        <Menu size={18} /> Lessons
+                    </button>
+                    <span className="text-xs text-muted-foreground line-clamp-1 flex-1 text-center px-2">{activeLesson.title}</span>
+                    <ThemeToggle />
+                </div>
 
                 <div className="flex-1 overflow-y-auto p-4 md:p-8">
                     <div className="max-w-4xl mx-auto">

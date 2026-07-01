@@ -317,7 +317,7 @@ export default function BarcelonaCaseSimulator() {
                                 <Tooltip formatter={(val: number | undefined) => formatCurrency(val || 0)} />
                                 <Legend />
                                 <Bar dataKey="cp" stackId="a" fill="hsl(var(--primary))" name="Capital Partner" />
-                                <Bar dataKey="op" stackId="a" fill="hsl(var(--secondary))" name="Op Partner" />
+                                <Bar dataKey="op" stackId="a" fill="hsl(var(--brand-blue))" name="Op Partner" />
                             </BarChart>
                         </ResponsiveContainer>
                     </div>

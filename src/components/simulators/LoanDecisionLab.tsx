@@ -57,7 +57,7 @@ function Field({ label, value, onChange, step = 0.1, min = 0, max = 100 }: { lab
   );
 }
 function Kpi({ label, value, sub, tone = "primary" }: { label: string; value: string; sub?: string; tone?: "primary" | "secondary" | "amber" }) {
-  const color = tone === "secondary" ? "text-[hsl(var(--secondary))]" : tone === "amber" ? "text-amber-500" : "text-[hsl(var(--primary))]";
+  const color = tone === "secondary" ? "text-[hsl(var(--brand-blue))]" : tone === "amber" ? "text-amber-500" : "text-[hsl(var(--primary))]";
   return (
     <div className="bg-[hsl(var(--muted)/0.3)] border border-[hsl(var(--border))] rounded-[var(--radius)] p-3">
       <div className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))] font-bold">{label}</div>

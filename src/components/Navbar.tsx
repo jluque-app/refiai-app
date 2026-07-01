@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { User, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import clsx from "clsx";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -45,6 +46,7 @@ export function Navbar() {
                 </nav>
 
                 <div className="hidden md:flex items-center gap-4">
+                    <ThemeToggle />
                     <Link href="/login" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors">
                         Log in
                     </Link>
@@ -54,12 +56,16 @@ export function Navbar() {
                 </div>
 
                 {/* Mobile Toggle */}
-                <button
-                    className="md:hidden p-2 text-[hsl(var(--foreground))]"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                    {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <div className="md:hidden flex items-center gap-1">
+                    <ThemeToggle />
+                    <button
+                        className="p-2 text-[hsl(var(--foreground))]"
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label="Toggle menu"
+                    >
+                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}

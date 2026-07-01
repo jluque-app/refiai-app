@@ -63,6 +63,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* No-flash theme: light by default; apply saved dark choice before paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{if(localStorage.getItem('refiai_theme')==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();",
+          }}
+        />
+      </head>
       <body style={fontVars}>
         <UserProvider>{children}</UserProvider>
       </body>

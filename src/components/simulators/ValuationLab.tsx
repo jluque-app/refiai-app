@@ -249,7 +249,7 @@ export default function ValuationLab() {
                     <div className={clsx(
                         "text-sm rounded-[var(--radius)] border-l-4 px-4 py-3",
                         inp.ltv === 0
-                            ? "border-[hsl(var(--secondary))] bg-[hsl(var(--secondary)/0.08)]"
+                            ? "border-[hsl(var(--brand-blue))] bg-[hsl(var(--brand-blue)/0.08)]"
                             : r.positiveLeverage
                                 ? "border-[hsl(var(--primary))] bg-[hsl(var(--primary)/0.08)]"
                                 : "border-[hsl(var(--destructive))] bg-[hsl(var(--destructive)/0.08)]"
@@ -271,7 +271,7 @@ export default function ValuationLab() {
 function Kpi({ label, value, sub, tone }: { label: string; value: string; sub: string; tone: "primary" | "secondary" | "amber" | "violet" }) {
     const color =
         tone === "primary" ? "text-[hsl(var(--primary))]"
-            : tone === "secondary" ? "text-[hsl(var(--secondary))]"
+            : tone === "secondary" ? "text-[hsl(var(--brand-blue))]"
                 : tone === "amber" ? "text-amber-500"
                     : "text-violet-500";
     return (
