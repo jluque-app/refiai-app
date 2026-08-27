@@ -32,6 +32,7 @@ import LoanDecisionLab from "@/components/simulators/LoanDecisionLab";
 import AiTeacher from "@/components/ai/AiTeacher";
 import Paywall from "@/components/Paywall";
 import { useUser } from "@/components/UserContext";
+import { nudgeOfficeHours } from "@/lib/office-hours";
 
 const courseData = courseDataRaw as CourseData;
 
@@ -390,7 +391,18 @@ export default function LessonViewer() {
                     {!locked && (
                         <Button
                             variant={isComplete(activeLesson.id) ? "secondary" : "outline"}
-                            onClick={() => toggleComplete(activeLesson.id)}
+                            onClick={() => {
+                                const marking = !isComplete(activeLesson.id);
+                                toggleComplete(activeLesson.id);
+                                // Earned moment: marking this lesson finishes the unit.
+                                if (
+                                    marking &&
+                                    activeUnit &&
+                                    activeUnit.lessons.every(l => l.id === activeLesson.id || isComplete(l.id))
+                                ) {
+                                    nudgeOfficeHours("unit", activeUnit.id);
+                                }
+                            }}
                             className="gap-2"
                         >
                             <Check size={16} /> {isComplete(activeLesson.id) ? "Completed" : "Mark complete"}

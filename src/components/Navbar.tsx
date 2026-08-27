@@ -37,6 +37,9 @@ export function Navbar() {
                     <Link href="/courses" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors">
                         Courses
                     </Link>
+                    <Link href="/office-hours" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors">
+                        Office hours
+                    </Link>
                     <Link href="/about" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors">
                         About
                     </Link>
@@ -73,6 +76,9 @@ export function Navbar() {
                 <div className="md:hidden absolute top-16 left-0 right-0 bg-[hsl(var(--background))] border-b border-[hsl(var(--border))] p-4 flex flex-col gap-4 shadow-lg">
                     <Link href="/courses" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
                         Courses
+                    </Link>
+                    <Link href="/office-hours" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
+                        Office hours
                     </Link>
                     <Link href="/about" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
                         About

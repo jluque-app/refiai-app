@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import clsx from "clsx";
 import courseDataRaw from "@/content/course.json";
 import { CourseData } from "@/types/course";
+import { nudgeOfficeHours } from "@/lib/office-hours";
 
 const courseData = courseDataRaw as CourseData;
 
@@ -73,6 +74,12 @@ export default function AiTeacher() {
     setMessages(history);
     setInput("");
     setIsLoading(true);
+
+    // Earned-moment nudge: a 4th question in one chat suggests a live session
+    // would serve the student better than more typing (max once per session).
+    if (history.filter((m) => m.role === "user").length === 4) {
+      nudgeOfficeHours("tutor", lessonId);
+    }
 
     // Placeholder assistant message we stream into
     setMessages((prev) => [...prev, { role: "assistant", content: "" }]);

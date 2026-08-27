@@ -25,9 +25,9 @@ export function CourseList() {
                                         {part.id === 'part-2' ? 'Most Popular' : part.id.replace('-', ' ')}
                                     </span>
                                     {part.price === 0 ? (
-                                        <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">FREE</span>
+                                        <span className="px-3 py-1 bg-[hsl(var(--secondary))] text-[hsl(var(--primary))] rounded-full text-xs font-bold">FREE — no card required</span>
                                     ) : (
-                                        <span className="font-bold text-lg">${part.price}</span>
+                                        <span className="font-bold text-lg">€{part.price}</span>
                                     )}
                                 </div>
                                 <h3 className="text-2xl font-bold mb-2">{part.title}</h3>
@@ -53,7 +53,7 @@ export function CourseList() {
                                     href={`/course/${part.id}`}
                                     className="btn btn-primary w-full justify-center"
                                 >
-                                    {part.price === 0 ? "Start Learning" : "View Details"}
+                                    {part.price === 0 ? "Start free now" : "View details"}
                                 </Link>
                             </div>
                         </div>

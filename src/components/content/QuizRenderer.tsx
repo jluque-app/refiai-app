@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { CheckCircle2, XCircle, HelpCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { nudgeOfficeHours } from '@/lib/office-hours';
 
 interface QuizRendererProps {
     questions: QuizQuestion[];
@@ -17,6 +18,7 @@ interface QuizRendererProps {
 export function QuizRenderer({ questions, title = "Knowledge Check" }: QuizRendererProps) {
     const [answers, setAnswers] = useState<Record<string, string | number>>({});
     const [submitted, setSubmitted] = useState<Record<string, boolean>>({});
+    const [, setFailCount] = useState<Record<string, number>>({});
 
     const handleAnswerChange = (id: string, value: string | number) => {
         setAnswers(prev => ({ ...prev, [id]: value }));
@@ -28,6 +30,15 @@ export function QuizRenderer({ questions, title = "Knowledge Check" }: QuizRende
 
     const checkAnswer = (question: QuizQuestion) => {
         setSubmitted(prev => ({ ...prev, [question.id]: true }));
+        // Earned-moment nudge: a second miss on the same question suggests the
+        // student is stuck — offer live office hours (max once per session).
+        if (!isCorrect(question)) {
+            setFailCount(prev => {
+                const n = (prev[question.id] ?? 0) + 1;
+                if (n >= 2) nudgeOfficeHours("quiz", question.id);
+                return { ...prev, [question.id]: n };
+            });
+        }
     };
 
     const isCorrect = (question: QuizQuestion) => {

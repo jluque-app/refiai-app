@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import { UserProvider } from "@/components/UserContext";
+import OfficeHoursNudge from "@/components/OfficeHoursNudge";
 
 // NOTE: We intentionally do NOT use next/font/google here.
 // Fetching Geist from Google Fonts at first render can hang the dev server on
@@ -73,7 +74,10 @@ export default function RootLayout({
         />
       </head>
       <body style={fontVars}>
-        <UserProvider>{children}</UserProvider>
+        <UserProvider>
+          {children}
+          <OfficeHoursNudge />
+        </UserProvider>
       </body>
     </html>
   );

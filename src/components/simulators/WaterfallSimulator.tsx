@@ -53,7 +53,7 @@ export function WaterfallSimulator() {
     };
 
     const formatCurrency = (val: number) =>
-        new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
+        new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(val);
 
     const chartData = [
         { name: 'LP (Investor)', Return: distribution.lpPref + distribution.lpPromote, Capital: distribution.lpCapital },
