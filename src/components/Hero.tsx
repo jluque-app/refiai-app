@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, CalendarClock, FlaskConical, GraduationCap } from "lucide-react";
+import { ArrowRight, CalendarClock, FlaskConical, GraduationCap, Gamepad2 } from "lucide-react";
 import { PREVIEW_MODE } from "@/lib/flags";
 
 export function Hero() {
@@ -36,10 +36,21 @@ export function Hero() {
                             Start the free course
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link href="/office-hours" className="btn bg-[hsl(var(--card))] border border-[hsl(var(--border))] text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))] text-lg px-8 py-4 rounded-full flex items-center gap-2">
-                            <CalendarClock size={18} /> Book office hours
-                        </Link>
+                        {PREVIEW_MODE ? (
+                            <Link href="/game" className="btn bg-[hsl(var(--card))] border border-[hsl(var(--border))] text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))] text-lg px-8 py-4 rounded-full flex items-center gap-2">
+                                <Gamepad2 size={18} /> Play the Tycoon game
+                            </Link>
+                        ) : (
+                            <Link href="/office-hours" className="btn bg-[hsl(var(--card))] border border-[hsl(var(--border))] text-[hsl(var(--foreground))] hover:bg-[hsl(var(--muted))] text-lg px-8 py-4 rounded-full flex items-center gap-2">
+                                <CalendarClock size={18} /> Book office hours
+                            </Link>
+                        )}
                     </div>
+                    {!PREVIEW_MODE && (
+                        <Link href="/game" className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-[hsl(var(--primary))] hover:underline underline-offset-4">
+                            <Gamepad2 size={15} /> New: ReFiAI Tycoon — build a real estate empire across six cities <ArrowRight size={14} />
+                        </Link>
+                    )}
 
                     <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
                         <div className="flex items-start gap-3 p-4 bg-[hsl(var(--card))] border border-[hsl(var(--border))] rounded-2xl">

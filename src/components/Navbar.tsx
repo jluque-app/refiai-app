@@ -38,6 +38,10 @@ export function Navbar() {
                     <Link href="/courses" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors">
                         Courses
                     </Link>
+                    <Link href="/game" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors flex items-center gap-1.5">
+                        Tycoon Game
+                        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[hsl(var(--primary))] text-white font-semibold">NEW</span>
+                    </Link>
                     <Link href="/office-hours" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors">
                         Office hours
                     </Link>
@@ -79,6 +83,9 @@ export function Navbar() {
                 <div className="md:hidden absolute top-16 left-0 right-0 bg-[hsl(var(--background))] border-b border-[hsl(var(--border))] p-4 flex flex-col gap-4 shadow-lg">
                     <Link href="/courses" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
                         Courses
+                    </Link>
+                    <Link href="/game" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
+                        Tycoon Game <span className="text-[10px] ml-1 px-1.5 py-0.5 rounded-full bg-[hsl(var(--primary))] text-white font-semibold">NEW</span>
                     </Link>
                     <Link href="/office-hours" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
                         Office hours
