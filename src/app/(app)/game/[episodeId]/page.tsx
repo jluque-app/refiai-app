@@ -20,6 +20,7 @@ import {
     buildingVisualState,
 } from "@/lib/game/game-engine";
 import { AreaChart, Area, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
+import EpisodeIntro, { BriefingButton } from "@/components/game/EpisodeIntro";
 
 const eur = (v: number) =>
     new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(v);
@@ -51,6 +52,7 @@ export default function GamePlay() {
     const [loanCfg, setLoanCfg] = useState<any>({ enabled: false, pattern: "CPM", ltv: 0.7, amortYears: 25, termQuarters: 40 });
     const [lpCfg, setLpCfg] = useState<any>({ amount: 2_000_000, preset: "standard" });
     const [report, setReport] = useState<any>(null);
+    const [introOpen, setIntroOpen] = useState(false);
 
     const saveKey = `refiai_game_save_${episodeId}`;
 
@@ -182,6 +184,16 @@ export default function GamePlay() {
     /* ================= MAIN BOARD ================= */
     return (
         <div className="container mx-auto px-4 py-6 max-w-6xl">
+            <EpisodeIntro
+                episodeId={episodeId}
+                title={ep.title}
+                city={ep.city}
+                topics={ep.topics}
+                syllabusDays={ep.syllabusDays}
+                forceOpen={introOpen}
+                onClose={() => setIntroOpen(false)}
+            />
+
             {/* HUD */}
             <div className="flex flex-wrap items-center justify-between gap-3 mb-5 p-4 bg-[hsl(var(--card))] border rounded-2xl">
                 <div className="flex items-center gap-3">
@@ -190,6 +202,7 @@ export default function GamePlay() {
                         <div className="font-bold leading-tight">{ep.city} — {ep.title}</div>
                         <div className="text-xs text-[hsl(var(--muted-foreground))]">{ep.topics}</div>
                     </div>
+                    <BriefingButton episodeId={episodeId} onOpen={() => setIntroOpen(true)} />
                 </div>
                 <div className="flex items-center gap-5 text-sm">
                     <Hud label="Quarter" value={`${game.quarter}/${ep.quarters}`} icon={CalendarClock} />
