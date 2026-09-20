@@ -1,13 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarClock, Users, User, Video, CreditCard, Clock, CheckCircle2 } from "lucide-react";
+import { PREVIEW_MODE } from "@/lib/flags";
 
 export const metadata: Metadata = {
     title: "Office Hours — Live sessions with the professor",
-    description:
-        "Book live 30-minute office hours in real estate finance: small-group tutorials (€30) or one-to-one sessions (€75) with a professor with 20+ years of teaching experience. Study the free course online, then get taught live.",
+    description: PREVIEW_MODE
+        ? "Live 30-minute office hours in real estate finance with a professor with 20+ years of teaching experience. Study the course online, then get taught live."
+        : "Book live 30-minute office hours in real estate finance: small-group tutorials (€30) or one-to-one sessions (€75) with a professor with 20+ years of teaching experience. Study the free course online, then get taught live.",
     alternates: { canonical: "/office-hours" },
 };
+
+function Price({ amount, suffix }: { amount: string; suffix: string }) {
+    if (PREVIEW_MODE) {
+        return <span className="text-lg font-semibold text-[hsl(var(--muted-foreground))]">Pricing announced at launch</span>;
+    }
+    return (
+        <>
+            <span className="text-4xl font-extrabold">{amount}</span>
+            <span className="text-[hsl(var(--muted-foreground))]"> {suffix}</span>
+        </>
+    );
+}
 
 const GROUP_URL = process.env.NEXT_PUBLIC_BOOKING_URL_GROUP || "";
 const INDIVIDUAL_URL = process.env.NEXT_PUBLIC_BOOKING_URL_INDIVIDUAL || "";
@@ -54,8 +68,7 @@ export default function OfficeHours() {
                             <h2 className="text-xl font-bold">Small-group session</h2>
                         </div>
                         <div className="mb-4">
-                            <span className="text-4xl font-extrabold">€30</span>
-                            <span className="text-[hsl(var(--muted-foreground))]"> / 30 min per person</span>
+                            <Price amount="€30" suffix="/ 30 min per person" />
                         </div>
                         <ul className="space-y-2 text-sm text-[hsl(var(--muted-foreground))] mb-6">
                             <li className="flex gap-2"><CheckCircle2 size={16} className="text-[hsl(var(--primary))] mt-0.5 shrink-0" /> 3–4 participants — learn from each other&apos;s questions too</li>
@@ -74,8 +87,7 @@ export default function OfficeHours() {
                             <h2 className="text-xl font-bold">One-to-one session</h2>
                         </div>
                         <div className="mb-4">
-                            <span className="text-4xl font-extrabold">€75</span>
-                            <span className="text-[hsl(var(--muted-foreground))]"> / 30 min</span>
+                            <Price amount="€75" suffix="/ 30 min" />
                         </div>
                         <ul className="space-y-2 text-sm text-[hsl(var(--muted-foreground))] mb-6">
                             <li className="flex gap-2"><CheckCircle2 size={16} className="text-[hsl(var(--primary))] mt-0.5 shrink-0" /> Your agenda: a model review, a concept, career advice, master&apos;s applications</li>
@@ -92,7 +104,9 @@ export default function OfficeHours() {
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-14">
                     {[
                         { icon: CalendarClock, title: "1 · Pick a slot", text: "A limited number of sessions open each week." },
-                        { icon: CreditCard, title: "2 · Pay securely", text: "Card payment at booking. Full refund up to 24h before." },
+                        PREVIEW_MODE
+                            ? { icon: CreditCard, title: "2 · Reserve your seat", text: "Booking opens at launch — beta testers get priority access." }
+                            : { icon: CreditCard, title: "2 · Pay securely", text: "Card payment at booking. Full refund up to 24h before." },
                         { icon: Video, title: "3 · Meet live", text: "Video call — link arrives with your confirmation." },
                         { icon: Clock, title: "4 · Keep going", text: "Your first session credits toward the Core course." },
                     ].map((s, i) => (

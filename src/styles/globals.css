@@ -202,3 +202,16 @@
     text-rendering: optimizeLegibility;
   }
 }
+
+/* Copy deterrent: guarded lesson content does not print. */
+@media print {
+  .content-guard {
+    display: none !important;
+  }
+  body::after {
+    content: "© ReFiAI — course material is copyright-protected and cannot be printed.";
+    display: block;
+    padding: 2rem;
+    font-size: 14px;
+  }
+}

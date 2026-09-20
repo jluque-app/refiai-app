@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, CalendarClock, FlaskConical, GraduationCap } from "lucide-react";
+import { PREVIEW_MODE } from "@/lib/flags";
 
 export function Hero() {
     return (
@@ -16,16 +17,18 @@ export function Hero() {
                     transition={{ duration: 0.6 }}
                 >
                     <span className="inline-block px-3 py-1 rounded-full bg-[hsl(var(--secondary))] text-[hsl(var(--primary))] text-sm font-medium mb-6">
-                        Real Estate Finance 101 — completely free, no card required
+                        {PREVIEW_MODE
+                            ? "Student beta — full access while we build"
+                            : "Real Estate Finance 101 — completely free, no card required"}
                     </span>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-balance">
                         Real estate finance <br className="hidden md:block" />
                         you actually <span className="text-[hsl(var(--primary))]">practice</span>
                     </h1>
                     <p className="text-lg md:text-xl text-[hsl(var(--muted-foreground))] max-w-2xl mx-auto mb-10 text-balance">
-                        Interactive Excel labs, real problem sets, and an AI tutor — built by a professor
-                        with 20+ years teaching real estate finance. Start the full foundations course free,
-                        then book live office hours when you want to go deeper.
+                        {PREVIEW_MODE
+                            ? "Interactive Excel labs, real problem sets, and an AI tutor — built by a professor with 20+ years teaching real estate finance. Explore everything and tell us what to improve."
+                            : "Interactive Excel labs, real problem sets, and an AI tutor — built by a professor with 20+ years teaching real estate finance. Start the full foundations course free, then book live office hours when you want to go deeper."}
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

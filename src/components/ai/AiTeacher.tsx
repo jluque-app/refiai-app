@@ -36,7 +36,7 @@ const GENERIC_STARTERS = [
   "Quiz me on this topic",
 ];
 
-export default function AiTeacher() {
+export default function AiTeacher({ inline = false }: { inline?: boolean } = {}) {
   const params = useParams();
   const courseId = (params?.courseId as string) || undefined;
   const lessonId = (params?.lessonId as string) || undefined;
@@ -146,20 +146,29 @@ export default function AiTeacher() {
 
   return (
     <>
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
-        size="icon"
-        className={clsx(
-          "fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-xl transition-all hover:scale-105",
-          isOpen ? "bg-destructive hover:bg-destructive/90" : "bg-primary hover:bg-primary/90"
-        )}
-        aria-label="AI Tutor"
-      >
-        {isOpen ? <X size={24} /> : <Sparkles size={24} />}
-      </Button>
+      {!inline && (
+        <Button
+          onClick={() => setIsOpen(!isOpen)}
+          size="icon"
+          className={clsx(
+            "fixed bottom-6 right-6 z-50 h-14 w-14 rounded-full shadow-xl transition-all hover:scale-105",
+            isOpen ? "bg-destructive hover:bg-destructive/90" : "bg-primary hover:bg-primary/90"
+          )}
+          aria-label="AI Tutor"
+        >
+          {isOpen ? <X size={24} /> : <Sparkles size={24} />}
+        </Button>
+      )}
 
-      {isOpen && (
-        <Card className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[400px] h-[600px] shadow-2xl flex flex-col border-primary/20">
+      {(inline || isOpen) && (
+        <Card
+          className={clsx(
+            "flex flex-col border-primary/20",
+            inline
+              ? "w-full h-[70vh] min-h-[480px] shadow-md"
+              : "fixed bottom-24 right-6 z-50 w-[350px] sm:w-[400px] h-[600px] shadow-2xl"
+          )}
+        >
           <CardHeader className="p-4 border-b bg-muted/30">
             <div className="flex justify-between items-center">
               <CardTitle className="flex items-center gap-2 text-base">

@@ -1,5 +1,6 @@
 import courseDataRaw from "@/content/course.json";
 import { CourseData } from "@/types/course";
+import { PREVIEW_MODE } from "@/lib/flags";
 
 /**
  * JSON-LD structured data for SEO (Organization + Course schema).
@@ -27,20 +28,23 @@ export default function StructuredData() {
     provider: { "@type": "Organization", name: "ReFiAI", url: SITE },
     url: `${SITE}/course/${part.id}`,
     inLanguage: "en",
-    ...(part.price > 0
-      ? {
-          offers: {
-            "@type": "Offer",
-            price: part.price,
-            priceCurrency: "EUR",
-            category: "Paid",
-            availability: "https://schema.org/InStock",
-          },
-        }
-      : {
-          isAccessibleForFree: true,
-          offers: { "@type": "Offer", price: 0, priceCurrency: "EUR", category: "Free" },
-        }),
+    // In student-beta preview mode we publish no price information at all.
+    ...(PREVIEW_MODE
+      ? { isAccessibleForFree: true }
+      : part.price > 0
+        ? {
+            offers: {
+              "@type": "Offer",
+              price: part.price,
+              priceCurrency: "EUR",
+              category: "Paid",
+              availability: "https://schema.org/InStock",
+            },
+          }
+        : {
+            isAccessibleForFree: true,
+            offers: { "@type": "Offer", price: 0, priceCurrency: "EUR", category: "Free" },
+          }),
     hasCourseInstance: {
       "@type": "CourseInstance",
       courseMode: "online",

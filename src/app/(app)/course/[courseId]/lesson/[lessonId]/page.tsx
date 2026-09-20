@@ -33,6 +33,7 @@ import AiTeacher from "@/components/ai/AiTeacher";
 import Paywall from "@/components/Paywall";
 import { useUser } from "@/components/UserContext";
 import { nudgeOfficeHours } from "@/lib/office-hours";
+import ContentGuard from "@/components/ContentGuard";
 
 const courseData = courseDataRaw as CourseData;
 
@@ -372,7 +373,7 @@ export default function LessonViewer() {
                         </header>
 
                         <main className="mb-24">
-                            {locked ? <Paywall part={coursePart} /> : renderContent()}
+                            {locked ? <Paywall part={coursePart} /> : <ContentGuard>{renderContent()}</ContentGuard>}
                         </main>
                     </div>
                 </div>

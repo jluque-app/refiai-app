@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { CheckCircle2, BookOpen, Clock } from "lucide-react";
+import { CheckCircle2, BookOpen } from "lucide-react";
 import courseData from "@/content/course.json";
+import { PREVIEW_MODE } from "@/lib/flags";
 
 export function CourseList() {
     return (
@@ -24,7 +25,9 @@ export function CourseList() {
                                     <span className="text-sm font-semibold text-[hsl(var(--primary))] uppercase tracking-wider">
                                         {part.id === 'part-2' ? 'Most Popular' : part.id.replace('-', ' ')}
                                     </span>
-                                    {part.price === 0 ? (
+                                    {PREVIEW_MODE ? (
+                                        <span className="px-3 py-1 bg-[hsl(var(--secondary))] text-[hsl(var(--primary))] rounded-full text-xs font-bold">Open in beta</span>
+                                    ) : part.price === 0 ? (
                                         <span className="px-3 py-1 bg-[hsl(var(--secondary))] text-[hsl(var(--primary))] rounded-full text-xs font-bold">FREE — no card required</span>
                                     ) : (
                                         <span className="font-bold text-lg">€{part.price}</span>
@@ -53,7 +56,7 @@ export function CourseList() {
                                     href={`/course/${part.id}`}
                                     className="btn btn-primary w-full justify-center"
                                 >
-                                    {part.price === 0 ? "Start free now" : "View details"}
+                                    {PREVIEW_MODE ? "Start learning" : part.price === 0 ? "Start free now" : "View details"}
                                 </Link>
                             </div>
                         </div>

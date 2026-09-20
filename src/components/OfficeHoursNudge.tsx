@@ -4,21 +4,37 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CalendarClock, X } from "lucide-react";
 import { OH_EVENT, OfficeHoursReason } from "@/lib/office-hours";
+import { PREVIEW_MODE } from "@/lib/flags";
 
-const COPY: Record<OfficeHoursReason, { title: string; body: string }> = {
-    quiz: {
-        title: "Stuck on this one?",
-        body: "That's exactly what office hours are for. Book 30 minutes — small-group from €30 — and we'll work through it together.",
-    },
-    tutor: {
-        title: "Want to talk this through live?",
-        body: "Sometimes 30 minutes on a call beats an hour of chat. Small-group sessions from €30, one-to-one from €75.",
-    },
-    unit: {
-        title: "Nice work finishing this unit.",
-        body: "Want feedback on how you'd apply it? Join a small-group office hour with the professor — from €30 for 30 minutes.",
-    },
-};
+const COPY: Record<OfficeHoursReason, { title: string; body: string }> = PREVIEW_MODE
+    ? {
+        quiz: {
+            title: "Stuck on this one?",
+            body: "That's exactly what office hours are for — live 30-minute sessions with the professor, opening at launch. Beta testers get priority.",
+        },
+        tutor: {
+            title: "Want to talk this through live?",
+            body: "Sometimes 30 minutes on a call beats an hour of chat. Live office hours open at launch — take a look.",
+        },
+        unit: {
+            title: "Nice work finishing this unit.",
+            body: "Want feedback on how you'd apply it? Live office hours with the professor open at launch.",
+        },
+    }
+    : {
+        quiz: {
+            title: "Stuck on this one?",
+            body: "That's exactly what office hours are for. Book 30 minutes — small-group from €30 — and we'll work through it together.",
+        },
+        tutor: {
+            title: "Want to talk this through live?",
+            body: "Sometimes 30 minutes on a call beats an hour of chat. Small-group sessions from €30, one-to-one from €75.",
+        },
+        unit: {
+            title: "Nice work finishing this unit.",
+            body: "Want feedback on how you'd apply it? Join a small-group office hour with the professor — from €30 for 30 minutes.",
+        },
+    };
 
 export default function OfficeHoursNudge() {
     const [reason, setReason] = useState<OfficeHoursReason | null>(null);

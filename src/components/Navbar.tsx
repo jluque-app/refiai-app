@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import clsx from "clsx";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { PREVIEW_MODE } from "@/lib/flags";
 
 export function Navbar() {
     const [scrolled, setScrolled] = useState(false);
@@ -43,9 +44,11 @@ export function Navbar() {
                     <Link href="/about" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors">
                         About
                     </Link>
-                    <Link href="/pricing" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors">
-                        Pricing
-                    </Link>
+                    {!PREVIEW_MODE && (
+                        <Link href="/pricing" className="text-sm font-medium hover:text-[hsl(var(--primary))] transition-colors">
+                            Pricing
+                        </Link>
+                    )}
                 </nav>
 
                 <div className="hidden md:flex items-center gap-4">
@@ -83,9 +86,11 @@ export function Navbar() {
                     <Link href="/about" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
                         About
                     </Link>
-                    <Link href="/pricing" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
-                        Pricing
-                    </Link>
+                    {!PREVIEW_MODE && (
+                        <Link href="/pricing" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
+                            Pricing
+                        </Link>
+                    )}
                     <div className="h-px bg-[hsl(var(--border))]" />
                     <Link href="/login" className="text-sm font-medium p-2" onClick={() => setMobileMenuOpen(false)}>
                         Log in

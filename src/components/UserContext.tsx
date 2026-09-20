@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, useRef } from "react";
 import { getSupabase, supabaseEnabled } from "@/lib/supabase";
+import { PREVIEW_MODE } from "@/lib/flags";
 
 /**
  * UserContext — accounts, entitlements and progress.
@@ -175,7 +176,8 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     []
   );
   const isUnlocked = useCallback(
-    (courseId: string) => courseId === FREE_PART || unlockedCourses.includes(courseId),
+    // Student-beta preview: everything is open so testers can explore the full UX.
+    (courseId: string) => PREVIEW_MODE || courseId === FREE_PART || unlockedCourses.includes(courseId),
     [unlockedCourses]
   );
 
