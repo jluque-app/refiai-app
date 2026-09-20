@@ -19,6 +19,7 @@ import {
     EPISODES, createGame, advanceQuarter, previewDeal, previewLoan, previewRefi, previewNote,
     buildingVisualState,
 } from "@/lib/game/game-engine";
+import { AreaChart, Area, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 
 const eur = (v: number) =>
     new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(v);
@@ -298,6 +299,15 @@ export default function GamePlay() {
                                                                     <Metric small label="Equity needed" value={eur(Math.max(0, offer - loanPrev.proceeds + (loanPrev.pointsCost || 0)))} />
                                                                 </div>
                                                             )}
+                                                            {loanPrev && !loanPrev.rejected && (
+                                                                <StackBar
+                                                                    segments={[
+                                                                        { label: "Debt", value: loanPrev.proceeds, className: "bg-[hsl(var(--brand-blue))]" },
+                                                                        { label: "Your equity", value: Math.max(0, offer - loanPrev.proceeds), className: "bg-[hsl(var(--primary))]" },
+                                                                    ]}
+                                                                    caption={`Capital stack at ${pct(loanPrev.proceeds / offer, 0)} LTV — drag the slider and watch it move`}
+                                                                />
+                                                            )}
                                                         </>
                                                     )}
                                                 </div>
@@ -430,9 +440,59 @@ export default function GamePlay() {
                                     {lpCfg.queued ? "Raising — undo" : "Raise this quarter"}
                                 </button>
                             </div>
+                            <StackBar
+                                segments={[
+                                    { label: "LP equity", value: game.fund.lpEquity + (lpCfg.queued ? lpCfg.amount : 0), className: "bg-[hsl(var(--brand-blue))]" },
+                                    { label: "GP (you)", value: ep.startCash, className: "bg-[hsl(var(--primary))]" },
+                                ]}
+                                caption={`Equity split · ${TIER_PRESETS[lpCfg.preset].label}`}
+                            />
                             <p className="text-[11px] text-[hsl(var(--muted-foreground))] mt-2">
                                 The waterfall you pick here is enforced at every distribution — design terms both sides can live with.
                             </p>
+                        </div>
+                    )}
+
+                    {/* Statements & macro — the Capitalism-Lab-style control panel */}
+                    {game.history?.length > 0 && (
+                        <div className="mt-8 border rounded-xl p-4 bg-[hsl(var(--card))]">
+                            <h2 className="font-semibold text-sm flex items-center gap-2 mb-3"><FileText size={15} /> Statements &amp; market</h2>
+                            <div className="h-40">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <AreaChart data={game.history} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
+                                        <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                                        <XAxis dataKey="quarter" tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" />
+                                        <YAxis tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" tickFormatter={(v: number) => `${Math.round(v / 1000)}k`} width={38} />
+                                        <Tooltip formatter={((v: any) => eur(Number(v))) as any} labelFormatter={((q: any) => `Quarter ${q}`) as any} />
+                                        <Area type="monotone" dataKey="nav" name="NAV" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.15} />
+                                        <Area type="monotone" dataKey="cash" name="Cash" stroke="hsl(var(--brand-blue))" fill="hsl(var(--brand-blue))" fillOpacity={0.1} />
+                                        <Area type="monotone" dataKey="debt" name="Debt" stroke="hsl(var(--destructive))" fill="none" />
+                                    </AreaChart>
+                                </ResponsiveContainer>
+                            </div>
+                            <div className="h-24 mt-2">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <LineChart data={game.history} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
+                                        <XAxis dataKey="quarter" tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" />
+                                        <YAxis tick={{ fontSize: 10 }} stroke="hsl(var(--muted-foreground))" tickFormatter={(v: number) => `${(v * 100).toFixed(1)}%`} width={38} domain={["auto", "auto"]} />
+                                        <Tooltip formatter={((v: any) => pct(Number(v), 2)) as any} labelFormatter={((q: any) => `Quarter ${q}`) as any} />
+                                        <Line type="stepAfter" dataKey="baseRate" name="Base rate" stroke="hsl(var(--brand-gold))" dot={false} strokeWidth={2} />
+                                        <Line type="monotone" dataKey="avgCapRate" name="Avg cap rate" stroke="hsl(var(--muted-foreground))" dot={false} strokeDasharray="4 2" />
+                                    </LineChart>
+                                </ResponsiveContainer>
+                            </div>
+                            <table className="w-full text-[11px] mt-3">
+                                <thead className="text-[hsl(var(--muted-foreground))]">
+                                    <tr><th className="text-left font-medium">Last quarters</th>
+                                        {game.history.slice(-4).map((h: any) => <th key={h.quarter} className="text-right font-medium">Q{h.quarter}</th>)}</tr>
+                                </thead>
+                                <tbody className="font-mono">
+                                    <tr><td>NOI</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className="text-right">{eur(h.noiQ)}</td>)}</tr>
+                                    <tr><td>Debt service</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className="text-right">({eur(h.debtServiceQ)})</td>)}</tr>
+                                    {ep.noteDeskAllowed && <tr><td>Note income</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className="text-right">{eur(h.noteIncomeQ)}</td>)}</tr>}
+                                    <tr className="font-semibold border-t"><td>BTCF</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className={`text-right ${h.btcfQ < 0 ? "text-[hsl(var(--destructive))]" : ""}`}>{eur(h.btcfQ)}</td>)}</tr>
+                                </tbody>
+                            </table>
                         </div>
                     )}
                 </section>
@@ -497,6 +557,28 @@ function Metric({ label, value, tone, small }: { label: string; value: string; t
         <div className={`bg-[hsl(var(--muted)/0.5)] rounded-lg ${small ? "p-2" : "p-3"}`}>
             <div className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))]">{label}</div>
             <div className={`font-mono font-semibold ${small ? "text-xs" : "text-sm"} ${color}`}>{value}</div>
+        </div>
+    );
+}
+
+/** Live capital-stack bar (SimCity-style: sliders move it in real time). */
+function StackBar({ segments, caption }: { segments: { label: string; value: number; className: string }[]; caption?: string }) {
+    const total = segments.reduce((s, x) => s + Math.max(0, x.value), 0) || 1;
+    return (
+        <div className="mt-2">
+            <div className="flex h-4 rounded-full overflow-hidden border border-[hsl(var(--border))]">
+                {segments.map((s) => (
+                    <div key={s.label} className={`${s.className} transition-all duration-300`} style={{ width: `${(Math.max(0, s.value) / total) * 100}%` }} title={`${s.label}: ${eur(s.value)}`} />
+                ))}
+            </div>
+            <div className="flex justify-between text-[10px] text-[hsl(var(--muted-foreground))] mt-1">
+                {segments.map((s) => (
+                    <span key={s.label} className="flex items-center gap-1">
+                        <span className={`inline-block w-2 h-2 rounded-full ${s.className}`} /> {s.label} {pct(Math.max(0, s.value) / total, 0)}
+                    </span>
+                ))}
+            </div>
+            {caption && <div className="text-[10px] text-[hsl(var(--muted-foreground))] mt-1 italic">{caption}</div>}
         </div>
     );
 }

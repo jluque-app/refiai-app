@@ -36,6 +36,8 @@ export function createGame({ episodeId, seed = 1, reputation = 50 }) {
       lpIRRUnderRentCap: null, rentCapWasActive: false,
       noteProfits: 0, overparNoteBuys: 0, patternsUsed: [] },
     failFlags: [], done: false, log: [],
+    // Quarter-by-quarter statements + macro path (feeds the dashboard charts).
+    history: [],
   };
   refreshListings(state, ep);
   return state;
@@ -395,6 +397,15 @@ export function advanceQuarter(state, decisions = {}) {
     btcfQ: round2(noiQ - debtServiceQ), cash: round2(state.cash), nav: round2(nav),
     objectives, metrics, activeEvents: state.activeEvents.map((e) => ({ id: e.event.id, remaining: e.remaining })) };
   state.lastReport = report;
+  // Statements history — income-statement lines + balance + the macro variables that moved them.
+  const capVals = Object.values(ep.market.capRates);
+  const avgCap = capVals.reduce((s, c) => s + c, 0) / capVals.length + (m.capRateShift || 0);
+  state.history.push({
+    quarter: state.quarter, noiQ: round2(noiQ), debtServiceQ: round2(debtServiceQ),
+    noteIncomeQ: round2(noteIncomeQ), btcfQ: round2(noiQ + noteIncomeQ - debtServiceQ),
+    cash: round2(state.cash), nav: round2(nav), debt: round2(state.assets.reduce((s, a) => s + (a.loan ? a.loan.balance : 0), 0)),
+    baseRate: m.baseRate, avgCapRate: avgCap, activeEventIds: state.activeEvents.map((e) => e.event.id),
+  });
   return { state, events, triggers, report };
 }
 
