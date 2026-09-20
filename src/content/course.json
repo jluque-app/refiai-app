@@ -4141,7 +4141,7 @@
                 },
                 {
                   "type": "markdown",
-                  "content": "### Worked example — the J-curve\n\nLogistics asset, 24-month build, simplified equity cash flows:\n\n- Yr 0 land −€2,000,000; Yr 1 construction −€1,500,000; Yr 2 lease-up −€300,000; Yr 3 stabilised sale (net of take-out) +€6,500,000.\n- Cumulative bottoms at **−€3,800,000** (the J trough) then rises to **+€2,700,000**.\n- IRR on {−2.0m, −1.5m, −0.3m, +6.5m} ≈ **21%** — the hurdle development equity demands, justified only because the project cleared its risk milestones."
+                  "content": "### Worked example — the J-curve\n\nLogistics asset, 24-month build, simplified equity cash flows:\n\n- Yr 0 land −€2,000,000; Yr 1 construction −€1,500,000; Yr 2 lease-up −€300,000; Yr 3 stabilised sale (net of take-out) +€6,500,000.\n- Cumulative bottoms at **−€3,800,000** (the J trough) then rises to **+€2,700,000**.\n- IRR on {−2.0m, −1.5m, −0.3m, +6.5m} ≈ **24%** — the hurdle development equity demands, justified only because the project cleared its risk milestones."
                 },
                 {
                   "type": "quiz",

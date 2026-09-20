@@ -10,7 +10,9 @@
  *   E5 New York  ← Days 9–10 (Refinancing + Valuation in Secondary Mortgage Markets)
  *                  → in-game FINAL boss (all mortgage debt topics, like the real exam)
  *   E6 London    ← beyond the syllabus (Advanced Topics: portfolio & securitization) — bonus
- *   Paris        ← reserved for Season 2 (development finance theme).
+ *   E7 Paris     ← SEASON 2: Advanced Topics Unit 9 (Real Estate Development Finance):
+ *                  J-curve, front-door/back-door feasibility, residual land value, ADC loans,
+ *                  the real option to wait. Engine: development.js.
  * District-level prices/rents/yields come from market-data.js (Spanish cities: live
  * Fragua data; others: labeled estimates).
  */
@@ -142,6 +144,46 @@ export const EPISODES = {
     },
     failStates: ["navBelow40", "seniorImpairment", "cashBelowZero"],
     lessonLinks: { mbs: "/course/part-3/lesson/lesson-7-1", lesson2008: "/course/part-3/lesson/lesson-7-2" },
+  },
+
+  /* ------------------------------ SEASON 2 ------------------------------ */
+  E7_PARIS: {
+    id: "E7_PARIS", city: "Paris", cityKey: "paris", title: "Grand Projet", season: 2,
+    syllabusDays: "Advanced Topics · Unit 9 (Real Estate Development Finance)",
+    topics: "The development process and J-curve, front-door vs back-door feasibility, residual land value, ADC construction loans, the option to wait",
+    quarters: 24, startCash: 8_000_000, debtAllowed: true, lpAllowed: true, securitizationAllowed: false,
+    noteDeskAllowed: false, developmentAllowed: true,
+    allowedPatterns: ["IO", "CPM", "CAM", "ARM"],
+    examBoss: { name: "The Capstone Site", covers: "Feasibility + J-curve + ADC financing + real options",
+      note: "A large Saint-Denis plot beside a future Grand Paris Express station. Build now, or hold the option?" },
+    market: { baseRate: 0.03, refiSpread: 0.018, rentGrowth: 0.02, capRates: capsFrom("paris"),
+      discountRate: 0.09, maxLTV: 0.65, minDSCR: 1.30, covenantDSCR: 1.20, defaultRecovery: 0.85,
+      lpPool: 20_000_000, defaultPref: 0.08 },
+    // Development tuning. Hard costs: Île-de-France new-build, 2026 (instructor estimates).
+    development: {
+      hardCostPerM2: { "75004": 3_450, "92800": 3_150, "93200": 2_850 },  // heritage / high-rise / standard
+      efficiency: 0.85,             // leasable ÷ buildable
+      softCostPct: 0.15,
+      constructionQuarters: 6, leaseUpQuarters: 4, stabilizedOccupancy: 0.93,
+      maxLTC: 0.65, constructionSpread: 0.025,   // ADC rate = base + spread (floating)
+      requiredMarginOnCost: 0.15,   // European practice: 15–25% profit on cost
+      targetSpreadBps: 75,          // yield-on-cost must beat the exit cap by this to earn star 3
+      landCarryAnnual: 0.006,       // taxe foncière + holding, on land cost, while banked
+      landsPerQuarter: [1, 2], buildableRangeM2: [1_000, 5_000], landMispricing: [0.75, 1.30],
+    },
+    listingsPerQuarter: [1, 2], sizeRangeM2: [300, 2500], mispricing: [0.97, 1.15], // core Paris is fully priced: build, don't buy
+    objectives: {
+      // star 1 — deliver: two stabilised buildings at the unit's own benchmark, ≥15% profit on cost
+      star1: { metric: "projectsDelivered", op: ">=", value: 2, and: { metric: "avgMarginOnCost", op: ">=", value: 0.15 } },
+      // star 2 — discipline: never pay more than the residual for land, never start a front-door-infeasible scheme
+      star2: { metric: "landAboveResidualBuys", op: "==", value: 0, and: { metric: "infeasibleStarts", op: "==", value: 0 } },
+      // star 3 — spread + return: every delivery beats the exit cap by ≥75 bps and total equity earns ≥10%
+      star3: { metric: "minDevSpread", op: ">=", value: 0.0075, and: { metric: "portfolioIRR", op: ">=", value: 0.10 } },
+    },
+    failStates: ["technicalDefault", "missedBalloon", "cashBelowZero", "stalledProject"],
+    lessonLinks: { jcurve: "/course/part-3/lesson/lesson-9-1", feasibility: "/course/part-3/lesson/lesson-9-2",
+      options: "/course/part-3/lesson/lesson-9-3", waterfall: "/course/part-2/lesson/lesson-2-4",
+      refi: "/course/part-2/lesson/lesson-3-4" },
   },
 };
 

@@ -89,6 +89,29 @@ export const EVENT_DECKS = {
       text: "Your anchor tenant enters administration. One asset: occupancy −25% until re-leased.",
       effects: { occupancyDelta: -0.25 } },
   ],
+  // Season 2 — Paris, development finance. Every card maps to a risk named in Unit 9:
+  // construction risk (overrun, contractor squeeze), entitlement risk (permit delay),
+  // lease-up/market risk (rate shock, quota) — and the upside that rewards waiting (metro).
+  E7_PARIS: [
+    { id: "COST_OVERRUN", name: "Cost overrun", severity: "warning", weight: 3, durationQ: 1, once: false, requires: "construction",
+      text: "Asbestos in the substructure. One project under construction takes an unbudgeted +8% on remaining hard cost — equity funds it; the bank's LTC does not move.",
+      effects: { costOverrun: 0.08 } },
+    { id: "PERMIT_DELAY", name: "Permit appeal", severity: "warning", weight: 2, durationQ: 2, once: true, requires: "construction",
+      text: "A neighbours' association appeals the permis de construire. Every site under construction pauses two quarters — interest keeps capitalising.",
+      effects: { permitDelay: true } },
+    { id: "GRAND_PARIS_EXPRESS", name: "Grand Paris Express", severity: "opportunity", weight: 2, durationQ: 8, once: true,
+      text: "The new metro line opens ahead of schedule. Rents across the region grow +300 bps a year and exit caps tighten 25 bps. Land you were holding just became a lot more valuable.",
+      effects: { rentGrowthBps: 300, exitCapBps: -25 } },
+    { id: "SOCIAL_QUOTA", name: "Social-housing quota", severity: "warning", weight: 2, durationQ: 6, once: true,
+      text: "New starts must let 25% of units at regulated rents. Projects started while this is in force stabilise at 92% of market NOI.",
+      effects: { projectNoiFactor: 0.92 } },
+    { id: "RATE_SHOCK", name: "Rate shock", severity: "crisis", weight: 2, durationQ: 5, once: true,
+      text: "The ECB hikes 150 bps. Construction interest capitalises faster, take-out loans size smaller, and exit caps drift +50 bps.",
+      effects: { rateBps: 150, exitCapBps: 50 } },
+    { id: "CONTRACTOR_SQUEEZE", name: "Contractor squeeze", severity: "warning", weight: 2, durationQ: 3, once: false,
+      text: "Olympic-legacy backlog: contractors quote +10% on any NEW start. Projects already contracted are unaffected. Sometimes the option to wait is worth exercising.",
+      effects: { hardCostFactor: 1.10 } },
+  ],
 };
 
 /**
@@ -116,9 +139,15 @@ export function drawEvent(deck, rng, firedIds) {
 export function applyEventEffects(baseMarket, active) {
   const m = { ...baseMarket, noiFactor: 1, valueFactor: 1, windowClosed: false,
     extraLP: false, conversionSubsidy: 0, occupancyDelta: 0, capexShock: 0, rentGrowthCapZero: false,
-    waivePoints: false, prepayWave: false, noteSpread: 0 };
+    waivePoints: false, prepayWave: false, noteSpread: 0,
+    // Season 2 (development)
+    costOverrun: 0, permitDelay: false, projectNoiFactor: 1, hardCostFactor: 1 };
   for (const { event } of active) {
     const fx = event.effects || {};
+    if (fx.costOverrun) m.costOverrun = fx.costOverrun;
+    if (fx.permitDelay) m.permitDelay = true;
+    if (fx.projectNoiFactor) m.projectNoiFactor *= fx.projectNoiFactor;
+    if (fx.hardCostFactor) m.hardCostFactor *= fx.hardCostFactor;
     if (fx.rateBps) m.baseRate += fx.rateBps / 10000;
     if (fx.rentGrowthBps) m.rentGrowth += fx.rentGrowthBps / 10000;
     if (fx.exitCapBps) m.capRateShift = (m.capRateShift || 0) + fx.exitCapBps / 10000;

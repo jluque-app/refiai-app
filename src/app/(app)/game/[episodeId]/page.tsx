@@ -21,6 +21,7 @@ import {
 } from "@/lib/game/game-engine";
 import { AreaChart, Area, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 import EpisodeIntro, { BriefingButton } from "@/components/game/EpisodeIntro";
+import DevelopmentDesk, { ProjectsPanel } from "@/components/game/DevelopmentDesk";
 
 const eur = (v: number) =>
     new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(v);
@@ -46,7 +47,8 @@ export default function GamePlay() {
     const ep: any = (EPISODES as any)[episodeId];
 
     const [game, setGame] = useState<any>(null);
-    const [pending, setPending] = useState<any>({ bids: [], sells: [], refis: [], buyNotes: [] });
+    const EMPTY_PENDING = { bids: [], sells: [], refis: [], buyNotes: [], buyLand: [], startBuild: [], sellLand: [] };
+    const [pending, setPending] = useState<any>(EMPTY_PENDING);
     const [selected, setSelected] = useState<string | null>(null);
     const [offer, setOffer] = useState<number>(0);
     const [loanCfg, setLoanCfg] = useState<any>({ enabled: false, pattern: "CPM", ltv: 0.7, amortYears: 25, termQuarters: 40 });
@@ -121,7 +123,7 @@ export default function GamePlay() {
         const res: any = advanceQuarter(JSON.parse(JSON.stringify(game)), decisions);
         setGame(res.state);
         setReport(res);
-        setPending({ bids: [], sells: [], refis: [], buyNotes: [] });
+        setPending(EMPTY_PENDING);
         setLpCfg((c: any) => ({ ...c, queued: false }));
         setSelected(null);
     }, [game, pending, lpCfg, ep]);
@@ -129,7 +131,7 @@ export default function GamePlay() {
     const restart = useCallback(() => {
         try { localStorage.removeItem(saveKey); } catch { /* ignore */ }
         setGame(createGame({ episodeId, seed: Math.floor(Math.random() * 100000) + 1 }));
-        setPending({ bids: [], sells: [], refis: [], buyNotes: [] });
+        setPending(EMPTY_PENDING);
         setReport(null);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [episodeId, saveKey]);
@@ -138,7 +140,8 @@ export default function GamePlay() {
     if (!game) return <div className="p-10 text-[hsl(var(--muted-foreground))]">Loading city…</div>;
 
     const obj = game.lastReport?.objectives;
-    const pendingCount = pending.bids.length + pending.sells.length + pending.refis.length + pending.buyNotes.length + (lpCfg.queued ? 1 : 0);
+    const pendingCount = pending.bids.length + pending.sells.length + pending.refis.length + pending.buyNotes.length
+        + (pending.buyLand?.length ?? 0) + (pending.startBuild?.length ?? 0) + (pending.sellLand?.length ?? 0) + (lpCfg.queued ? 1 : 0);
 
     /* ================= DONE SCREEN ================= */
     if (game.done) {
@@ -161,6 +164,10 @@ export default function GamePlay() {
                     {m.lpIRR != null && <Metric label="LP net IRR" value={pct(m.lpIRR)} />}
                     {m.promotePaid > 0 && <Metric label="Promote earned" value={eur(m.promotePaid)} />}
                     {m.noteProfits !== 0 && ep.noteDeskAllowed && <Metric label="Note desk P&L" value={eur(m.noteProfits)} />}
+                    {ep.developmentAllowed && <Metric label="Projects delivered" value={String(m.projectsDelivered ?? 0)} />}
+                    {ep.developmentAllowed && m.avgMarginOnCost != null && <Metric label="Avg margin on cost" value={pct(m.avgMarginOnCost)} />}
+                    {ep.developmentAllowed && m.minDevSpread != null && <Metric label="Weakest dev. spread" value={`${Math.round(m.minDevSpread * 10000)} bps`} />}
+                    {ep.developmentAllowed && <Metric label="Land bought above residual" value={String(m.landAboveResidualBuys ?? 0)} />}
                     <Metric label="Defaults" value={String(m.defaults ?? 0)} />
                 </div>
                 {failed ? (
@@ -224,8 +231,11 @@ export default function GamePlay() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {/* ---------- LEFT: market ---------- */}
                 <section>
+                    {ep.developmentAllowed && (
+                        <DevelopmentDesk game={game} ep={ep} pending={pending} setPending={setPending} />
+                    )}
                     <h2 className="font-semibold text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-3 flex items-center gap-2">
-                        <Building2 size={15} /> On the market
+                        <Building2 size={15} /> {ep.developmentAllowed ? "Stabilised buildings on the market (build-to-core vs buy)" : "On the market"}
                     </h2>
                     <div className="space-y-3">
                         {game.listings.map((l: any) => {
@@ -381,6 +391,7 @@ export default function GamePlay() {
 
                 {/* ---------- RIGHT: portfolio ---------- */}
                 <section>
+                    {ep.developmentAllowed && <ProjectsPanel game={game} />}
                     <h2 className="font-semibold text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-3 flex items-center gap-2">
                         <TrendingUp size={15} /> Your portfolio
                     </h2>
@@ -393,7 +404,7 @@ export default function GamePlay() {
                             return (
                                 <div key={a.id} className="border rounded-xl p-4 bg-[hsl(var(--card))] text-sm">
                                     <div className="flex items-center justify-between gap-2 mb-2">
-                                        <div className="font-medium">{a.district ?? a.type} · bought {eur(a.purchasePrice)}</div>
+                                        <div className="font-medium">{a.district ?? a.type} · {a.developed ? `built at cost ${eur(a.purchasePrice)}` : `bought ${eur(a.purchasePrice)}`}{a.developed && <span className="ml-2 text-[10px] px-1.5 py-0.5 rounded bg-[hsl(var(--secondary))] text-[hsl(var(--primary))]">margin {pct(a.marginOnCost)}</span>}</div>
                                         <span className={`text-[11px] px-2 py-0.5 rounded-full capitalize ${VS_STYLE[vs] ?? "bg-[hsl(var(--muted))]"}`}>{vs}</span>
                                     </div>
                                     <div className="grid grid-cols-3 gap-2 text-xs mb-3">
@@ -418,7 +429,7 @@ export default function GamePlay() {
                             );
                         })}
                         {game.assets.length === 0 && (
-                            <p className="text-sm text-[hsl(var(--muted-foreground))]">No assets yet — underwrite something on the left. Buy cheap; the market rewards discipline.</p>
+                            <p className="text-sm text-[hsl(var(--muted-foreground))]">{ep.developmentAllowed ? "No stabilised assets yet — buildings arrive here when a site finishes lease-up (or buy one outright, if the price is right)." : "No assets yet — underwrite something on the left. Buy cheap; the market rewards discipline."}</p>
                         )}
                     </div>
 
@@ -480,6 +491,7 @@ export default function GamePlay() {
                                         <Area type="monotone" dataKey="nav" name="NAV" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.15} />
                                         <Area type="monotone" dataKey="cash" name="Cash" stroke="hsl(var(--brand-blue))" fill="hsl(var(--brand-blue))" fillOpacity={0.1} />
                                         <Area type="monotone" dataKey="debt" name="Debt" stroke="hsl(var(--destructive))" fill="none" />
+                                        {ep.developmentAllowed && <Area type="monotone" dataKey="devCashCumulative" name="J-curve (cum. dev. cash)" stroke="hsl(var(--brand-gold))" fill="hsl(var(--brand-gold))" fillOpacity={0.12} />}
                                     </AreaChart>
                                 </ResponsiveContainer>
                             </div>
@@ -503,6 +515,8 @@ export default function GamePlay() {
                                     <tr><td>NOI</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className="text-right">{eur(h.noiQ)}</td>)}</tr>
                                     <tr><td>Debt service</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className="text-right">({eur(h.debtServiceQ)})</td>)}</tr>
                                     {ep.noteDeskAllowed && <tr><td>Note income</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className="text-right">{eur(h.noteIncomeQ)}</td>)}</tr>}
+                                    {ep.developmentAllowed && <tr><td>Equity into sites</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className="text-right">({eur(h.devEquityQ ?? 0)})</td>)}</tr>}
+                                    {ep.developmentAllowed && <tr><td>Lease-up NOI</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className="text-right">{eur(h.devNoiQ ?? 0)}</td>)}</tr>}
                                     <tr className="font-semibold border-t"><td>BTCF</td>{game.history.slice(-4).map((h: any) => <td key={h.quarter} className={`text-right ${h.btcfQ < 0 ? "text-[hsl(var(--destructive))]" : ""}`}>{eur(h.btcfQ)}</td>)}</tr>
                                 </tbody>
                             </table>
@@ -531,6 +545,7 @@ export default function GamePlay() {
                             <Metric label="Debt service" value={eur(report.report?.debtServiceQ ?? 0)} />
                             <Metric label="Cash flow (BTCF)" value={eur(report.report?.btcfQ ?? 0)} tone={(report.report?.btcfQ ?? 0) >= 0 ? "good" : "bad"} />
                             <Metric label="NAV" value={eur(report.report?.nav ?? 0)} />
+                            {ep.developmentAllowed && <Metric label="Equity still committed to sites" value={eur(report.report?.devCommitments ?? 0)} tone={(report.report?.devCommitments ?? 0) > (report.report?.cash ?? 0) ? "bad" : undefined} />}
                         </div>
                         {report.triggers?.map((t: any) => (
                             <div key={t.id} className="mb-3 p-3 rounded-xl border border-[hsl(var(--primary)/0.3)] bg-[hsl(var(--secondary))] text-sm">
@@ -613,6 +628,7 @@ function describeObjective(ep: any, key: "star1" | "star2" | "star3"): string {
         E4_MIAMI: { star1: "Levered IRR ≥ 15%, zero defaults", star2: "Use 3+ mortgage patterns", star3: "No covenant breaches" },
         E5_NYC: { star1: "IRR ≥ 12% + one NPV-positive refi", star2: "Note desk profit ≥ €200k", star3: "Never overpay for a note" },
         E6_LONDON: { star1: "Fund IRR ≥ 12%, 5+ assets held", star2: "Securitize at senior DSCR ≥ 1.5", star3: "IRR ≥ 15%, no tranche impairments" },
+        E7_PARIS: { star1: "Deliver 2 projects at ≥ 15% margin on cost", star2: "Never overpay for land, never start an infeasible scheme", star3: "Every delivery ≥ 75 bps development spread + total-equity IRR ≥ 10%" },
     };
     return DESCR[ep.id]?.[key] ?? "";
 }
