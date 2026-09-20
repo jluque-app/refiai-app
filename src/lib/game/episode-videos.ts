@@ -11,6 +11,9 @@
  * Set to null to hide the intro for that episode.
  */
 export const EPISODE_VIDEOS: Record<string, string | null> = {
+    // Free tier. A short intro is worth making once the own-voice recordings exist; until then
+    // the mission panel carries the context and no intro renders.
+    E0_VALENCIA: null,
     E1_VALENCIA: "1AOuWcgnIXLLFzBAWskV1SQFrbRxaF3Ru", // E1_Valencia_Professors_Briefing.mp4
     E2_MADRID: "12rfsif1mw_P2vkzfs0b5Qx4AFHbVs9yx",   // E2_Madrid_Professors_Briefing.mp4
     E3_BARCELONA: "15ZJldNL8qXqU43Vvs7_FhkwbsynYHiMf", // E3_Barcelona_Professors_Briefing.mp4

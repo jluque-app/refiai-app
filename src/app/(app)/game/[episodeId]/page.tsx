@@ -22,7 +22,11 @@ import {
 import { AreaChart, Area, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 import EpisodeIntro, { BriefingButton } from "@/components/game/EpisodeIntro";
 import { nudgeOfficeHours } from "@/lib/office-hours";
+import { EPISODE_VIDEOS } from "@/lib/game/episode-videos";
 import DevelopmentDesk, { ProjectsPanel } from "@/components/game/DevelopmentDesk";
+import MissionBriefing, { MissionButton } from "@/components/game/MissionBriefing";
+
+const EPISODE_HAS_VIDEO = (id: string) => Boolean(EPISODE_VIDEOS[id]);
 
 const eur = (v: number) =>
     new Intl.NumberFormat("en-IE", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(v);
@@ -56,6 +60,7 @@ export default function GamePlay() {
     const [lpCfg, setLpCfg] = useState<any>({ amount: 2_000_000, preset: "standard" });
     const [report, setReport] = useState<any>(null);
     const [introOpen, setIntroOpen] = useState(false);
+    const [missionOpen, setMissionOpen] = useState(false);
     const nudgedRef = useRef(false);
 
     const saveKey = `refiai_game_save_${episodeId}`;
@@ -204,9 +209,10 @@ export default function GamePlay() {
                 {/* The free episode's one job after the debrief: offer the next step. */}
                 {ep.freeTier && !failed && <FreeTierOutro stars={obj?.stars ?? 0} />}
 
-                <div className="flex justify-center gap-3">
+                <div className="flex justify-center gap-3 flex-wrap">
                     <button onClick={restart} className="btn bg-[hsl(var(--card))] border border-[hsl(var(--border))] px-5 py-2.5 rounded-full text-sm">Replay (new seed)</button>
                     <Link href="/game" className="btn btn-primary px-5 py-2.5 rounded-full text-sm">Episode select</Link>
+                    <Link href="/game/transcript" className="btn bg-[hsl(var(--card))] border border-[hsl(var(--border))] px-5 py-2.5 rounded-full text-sm">Your transcript</Link>
                 </div>
             </div>
         );
@@ -231,9 +237,12 @@ export default function GamePlay() {
                     <Link href="/game" aria-label="Back to episodes" className="text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))]"><ArrowLeft size={18} /></Link>
                     <div>
                         <div className="font-bold leading-tight">{ep.city} — {ep.title}</div>
-                        <div className="text-xs text-[hsl(var(--muted-foreground))]">{ep.topics}</div>
+                        <div className="text-sm text-[hsl(var(--muted-foreground))]">{ep.topics}</div>
                     </div>
-                    <BriefingButton episodeId={episodeId} onOpen={() => setIntroOpen(true)} />
+                    <div className="flex gap-2">
+                        <MissionButton onOpen={() => setMissionOpen(true)} />
+                        <BriefingButton episodeId={episodeId} onOpen={() => setIntroOpen(true)} />
+                    </div>
                 </div>
                 <div className="flex items-center gap-5 text-sm">
                     <Hud label="Quarter" value={`${game.quarter}/${ep.quarters}`} icon={CalendarClock} />
@@ -245,8 +254,18 @@ export default function GamePlay() {
                 </div>
             </div>
 
-            {/* Objectives */}
-            <div className="flex flex-wrap gap-2 mb-6 text-xs">
+            {/* What am I doing here — situation, goal, first move */}
+            <MissionBriefing
+                episodeId={episodeId}
+                ep={ep}
+                objectives={[describeObjective(ep, "star1"), describeObjective(ep, "star2"), describeObjective(ep, "star3")]}
+                onOpenBriefing={EPISODE_HAS_VIDEO(episodeId) ? () => { setMissionOpen(false); setIntroOpen(true); } : undefined}
+                forceOpen={missionOpen}
+                onClose={() => setMissionOpen(false)}
+            />
+
+            {/* Objectives — the at-a-glance tracker */}
+            <div className="flex flex-wrap gap-2 mb-6 text-sm">
                 <ObjChip done={obj?.star1} label={`★ ${describeObjective(ep, "star1")}`} />
                 <ObjChip done={obj?.star2} label={`★★ ${describeObjective(ep, "star2")}`} />
                 <ObjChip done={obj?.star3} label={`★★★ ${describeObjective(ep, "star3")}`} />
@@ -258,9 +277,13 @@ export default function GamePlay() {
                     {ep.developmentAllowed && (
                         <DevelopmentDesk game={game} ep={ep} pending={pending} setPending={setPending} />
                     )}
-                    <h2 className="font-semibold text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-3 flex items-center gap-2">
+                    <h2 className="font-semibold text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-1 flex items-center gap-2">
                         <Building2 size={15} /> {ep.developmentAllowed ? "Stabilised buildings on the market (build-to-core vs buy)" : "On the market"}
                     </h2>
+                    <p className="text-sm text-[hsl(var(--muted-foreground))] mb-3">
+                        What is for sale this quarter. Click one to underwrite it: the desk shows what it
+                        is worth, what your offer would earn, and whether the price is CHEAP or RICH.
+                    </p>
                     <div className="space-y-3">
                         {game.listings.map((l: any) => {
                             const isSel = selected === l.id;
@@ -270,7 +293,7 @@ export default function GamePlay() {
                                     <div className="flex items-center justify-between gap-2">
                                         <div>
                                             <div className="font-medium text-sm">{l.district} · {l.sizeM2} m²</div>
-                                            <div className="text-xs text-[hsl(var(--muted-foreground))]">
+                                            <div className="text-sm text-[hsl(var(--muted-foreground))]">
                                                 Ask {eur(l.askPrice)} · NOI {eur(l.noiAnnual)}/yr · {eur(Math.round(l.askPrice / l.sizeM2))}/m²
                                             </div>
                                         </div>
@@ -303,7 +326,7 @@ export default function GamePlay() {
                                             <div className={`text-center text-sm font-bold rounded-lg py-1.5 ${uw.verdict === "CHEAP" ? "bg-[hsl(var(--secondary))] text-[hsl(var(--primary))]" : "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300"}`}>
                                                 {uw.verdict === "CHEAP" ? "CHEAP — priced below intrinsic value" : "RICH — priced above intrinsic value"}
                                             </div>
-                                            <p className="text-[11px] text-[hsl(var(--muted-foreground))]">
+                                            <p className="text-sm text-[hsl(var(--muted-foreground))]">
                                                 Seller flexibility in this district: up to {pct(l.negotiationMargin, 0)} below ask (real market data).
                                             </p>
 
@@ -380,6 +403,10 @@ export default function GamePlay() {
                             <h2 className="font-semibold text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-3 flex items-center gap-2">
                                 <FileText size={15} /> Note desk — mortgage paper for sale
                             </h2>
+                            <p className="text-sm text-[hsl(var(--muted-foreground))] mb-3">
+                                Other people's mortgages, for sale. A note is worth the present value of the
+                                payments left on it at today's yield — buy below that, never above.
+                            </p>
                             <div className="space-y-3">
                                 {game.noteListings.map((n: any) => {
                                     const pv: any = previewNote(game, n.id);
@@ -390,7 +417,7 @@ export default function GamePlay() {
                                             <div className="flex items-center justify-between gap-2">
                                                 <div>
                                                     <div className="font-medium">Balance {eur(n.balance)} · coupon {pct(n.coupon, 2)}</div>
-                                                    <div className="text-xs text-[hsl(var(--muted-foreground))]">
+                                                    <div className="text-sm text-[hsl(var(--muted-foreground))]">
                                                         Ask {eur(n.askPrice)} · fair value (PV @ {pct(pv?.yieldAnnual, 2)}) {eur(pv?.fairValue ?? 0)}
                                                     </div>
                                                 </div>
@@ -399,7 +426,7 @@ export default function GamePlay() {
                                                 ) : (
                                                     <button
                                                         onClick={() => setPending((p: any) => ({ ...p, buyNotes: [...p.buyNotes, { noteId: n.id }] }))}
-                                                        className={`text-xs px-3 py-1.5 rounded-full font-medium ${discount >= 0 ? "bg-[hsl(var(--primary))] text-white" : "border text-[hsl(var(--muted-foreground))]"}`}>
+                                                        className={`text-sm px-3 py-1.5 rounded-full font-medium ${discount >= 0 ? "bg-[hsl(var(--primary))] text-white" : "border text-[hsl(var(--muted-foreground))]"}`}>
                                                         {discount >= 0 ? `Buy (${eur(discount)} cheap)` : "Buy anyway"}
                                                     </button>
                                                 )}
@@ -416,9 +443,13 @@ export default function GamePlay() {
                 {/* ---------- RIGHT: portfolio ---------- */}
                 <section>
                     {ep.developmentAllowed && <ProjectsPanel game={game} />}
-                    <h2 className="font-semibold text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-3 flex items-center gap-2">
+                    <h2 className="font-semibold text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-1 flex items-center gap-2">
                         <TrendingUp size={15} /> Your portfolio
                     </h2>
+                    <p className="text-sm text-[hsl(var(--muted-foreground))] mb-3">
+                        What you own. Values re-mark every quarter as rents and cap rates move
+                        {ep.debtAllowed ? ", and the DSCR tells you how much room your debt has left" : ""}.
+                    </p>
                     <div className="space-y-3">
                         {game.assets.map((a: any) => {
                             const vs = buildingVisualState(a);
@@ -428,8 +459,8 @@ export default function GamePlay() {
                             return (
                                 <div key={a.id} className="border rounded-xl p-4 bg-[hsl(var(--card))] text-sm">
                                     <div className="flex items-center justify-between gap-2 mb-2">
-                                        <div className="font-medium">{a.district ?? a.type} · {a.developed ? `built at cost ${eur(a.purchasePrice)}` : `bought ${eur(a.purchasePrice)}`}{a.developed && <span className="ml-2 text-[10px] px-1.5 py-0.5 rounded bg-[hsl(var(--secondary))] text-[hsl(var(--primary))]">margin {pct(a.marginOnCost)}</span>}</div>
-                                        <span className={`text-[11px] px-2 py-0.5 rounded-full capitalize ${VS_STYLE[vs] ?? "bg-[hsl(var(--muted))]"}`}>{vs}</span>
+                                        <div className="font-medium">{a.district ?? a.type} · {a.developed ? `built at cost ${eur(a.purchasePrice)}` : `bought ${eur(a.purchasePrice)}`}{a.developed && <span className="ml-2 text-xs px-1.5 py-0.5 rounded bg-[hsl(var(--secondary))] text-[hsl(var(--primary))]">margin {pct(a.marginOnCost)}</span>}</div>
+                                        <span className={`text-xs px-2 py-0.5 rounded-full capitalize ${VS_STYLE[vs] ?? "bg-[hsl(var(--muted))]"}`}>{vs}</span>
                                     </div>
                                     <div className="grid grid-cols-3 gap-2 text-xs mb-3">
                                         <Metric small label="Value" value={eur(a.value)} />
@@ -439,12 +470,12 @@ export default function GamePlay() {
                                     </div>
                                     <div className="flex gap-2 flex-wrap">
                                         <button onClick={() => setPending((p: any) => ({ ...p, sells: selling ? p.sells.filter((x: string) => x !== a.id) : [...p.sells, a.id] }))}
-                                            className={`text-xs px-3 py-1.5 rounded-full border ${selling ? "bg-[hsl(var(--destructive))] text-white border-transparent" : ""}`}>
+                                            className={`text-sm px-3 py-1.5 rounded-full border ${selling ? "bg-[hsl(var(--destructive))] text-white border-transparent" : ""}`}>
                                             {selling ? "Selling — undo" : `Sell (net ${eur(Math.round(a.value * 0.98 - (a.loan?.balance ?? 0)))})`}
                                         </button>
                                         {a.loan && refi && (
                                             <button onClick={() => setPending((p: any) => ({ ...p, refis: refiing ? p.refis.filter((x: string) => x !== a.id) : [...p.refis, a.id] }))}
-                                                className={`text-xs px-3 py-1.5 rounded-full border flex items-center gap-1 ${refiing ? "bg-[hsl(var(--primary))] text-white border-transparent" : ""}`}>
+                                                className={`text-sm px-3 py-1.5 rounded-full border flex items-center gap-1 ${refiing ? "bg-[hsl(var(--primary))] text-white border-transparent" : ""}`}>
                                                 <RefreshCw size={12} /> {refiing ? "Refinancing — undo" : `Refi @ ${pct(refi.newRate, 2)} (NPV ${eur(refi.npv)})`}
                                             </button>
                                         )}
@@ -462,7 +493,7 @@ export default function GamePlay() {
                         <div className="mt-6">
                             <h3 className="font-semibold text-xs uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-2">Notes owned</h3>
                             {game.notes.map((n: any) => (
-                                <div key={n.id} className="text-xs border rounded-lg p-3 mb-2 bg-[hsl(var(--card))]">
+                                <div key={n.id} className="text-sm border rounded-lg p-3 mb-2 bg-[hsl(var(--card))]">
                                     Balance {eur(n.balance)} · coupon {pct(n.coupon, 2)} · cost {eur(n.costBasis)}
                                 </div>
                             ))}
@@ -473,10 +504,10 @@ export default function GamePlay() {
                     {ep.lpAllowed && game.fund && (
                         <div className="mt-8 border rounded-xl p-4 bg-[hsl(var(--card))]">
                             <h2 className="font-semibold text-sm flex items-center gap-2 mb-2"><Users size={15} /> LP capital</h2>
-                            <p className="text-xs text-[hsl(var(--muted-foreground))] mb-3">
+                            <p className="text-sm text-[hsl(var(--muted-foreground))] mb-3">
                                 Raised {eur(game.fund.lpEquity)} of {eur(ep.market.lpPool)} available · pref {pct(ep.market.defaultPref, 0)}
                             </p>
-                            <div className="flex gap-2 items-center flex-wrap text-xs">
+                            <div className="flex gap-2 items-center flex-wrap text-sm">
                                 <input type="number" className="border rounded-lg px-3 py-2 w-32 bg-transparent" step={500000} min={500000}
                                     value={lpCfg.amount} onChange={(e) => setLpCfg({ ...lpCfg, amount: Number(e.target.value) })} />
                                 <select className="border rounded-lg px-2 py-2 bg-transparent" value={lpCfg.preset}
@@ -495,7 +526,7 @@ export default function GamePlay() {
                                 ]}
                                 caption={`Equity split · ${TIER_PRESETS[lpCfg.preset].label}`}
                             />
-                            <p className="text-[11px] text-[hsl(var(--muted-foreground))] mt-2">
+                            <p className="text-sm text-[hsl(var(--muted-foreground))] mt-2">
                                 The waterfall you pick here is enforced at every distribution — design terms both sides can live with.
                             </p>
                         </div>
@@ -530,7 +561,7 @@ export default function GamePlay() {
                                     </LineChart>
                                 </ResponsiveContainer>
                             </div>
-                            <table className="w-full text-[11px] mt-3">
+                            <table className="w-full text-sm mt-3">
                                 <thead className="text-[hsl(var(--muted-foreground))]">
                                     <tr><th className="text-left font-medium">Last quarters</th>
                                         {game.history.slice(-4).map((h: any) => <th key={h.quarter} className="text-right font-medium">Q{h.quarter}</th>)}</tr>
@@ -577,7 +608,7 @@ export default function GamePlay() {
                                     <Sparkles size={14} /> The Professor: {t.title}
                                 </div>
                                 <p className="mb-2">{t.body}</p>
-                                <div className="flex gap-3 text-xs">
+                                <div className="flex gap-3 text-sm">
                                     {t.lessonUrl && <Link className="underline text-[hsl(var(--primary))]" href={t.lessonUrl}>Open the lesson</Link>}
                                     {t.officeHoursUrl && <Link className="underline text-[hsl(var(--primary))]" href={t.officeHoursUrl}>Office hours</Link>}
                                 </div>
@@ -597,8 +628,8 @@ export default function GamePlay() {
 function Hud({ label, value, icon: Icon, warn }: { label: string; value: string; icon: any; warn?: boolean }) {
     return (
         <div className="text-right">
-            <div className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))] flex items-center gap-1 justify-end"><Icon size={11} /> {label}</div>
-            <div className={`font-mono font-semibold text-sm ${warn ? "text-[hsl(var(--destructive))]" : ""}`}>{value}</div>
+            <div className="text-xs font-medium uppercase tracking-wider text-[hsl(var(--muted-foreground))] flex items-center gap-1 justify-end"><Icon size={11} /> {label}</div>
+            <div className={`font-mono font-semibold text-base ${warn ? "text-[hsl(var(--destructive))]" : ""}`}>{value}</div>
         </div>
     );
 }
@@ -607,8 +638,8 @@ function Metric({ label, value, tone, small }: { label: string; value: string; t
     const color = tone === "good" ? "text-[hsl(var(--primary))]" : tone === "bad" ? "text-[hsl(var(--destructive))]" : tone === "warn" ? "text-amber-600 dark:text-amber-400" : "";
     return (
         <div className={`bg-[hsl(var(--muted)/0.5)] rounded-lg ${small ? "p-2" : "p-3"}`}>
-            <div className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))]">{label}</div>
-            <div className={`font-mono font-semibold ${small ? "text-xs" : "text-sm"} ${color}`}>{value}</div>
+            <div className="text-xs font-medium uppercase tracking-wider text-[hsl(var(--muted-foreground))]">{label}</div>
+            <div className={`font-mono font-semibold ${small ? "text-sm" : "text-base"} ${color}`}>{value}</div>
         </div>
     );
 }
@@ -623,14 +654,14 @@ function StackBar({ segments, caption }: { segments: { label: string; value: num
                     <div key={s.label} className={`${s.className} transition-all duration-300`} style={{ width: `${(Math.max(0, s.value) / total) * 100}%` }} title={`${s.label}: ${eur(s.value)}`} />
                 ))}
             </div>
-            <div className="flex justify-between text-[10px] text-[hsl(var(--muted-foreground))] mt-1">
+            <div className="flex justify-between text-xs text-[hsl(var(--muted-foreground))] mt-1">
                 {segments.map((s) => (
                     <span key={s.label} className="flex items-center gap-1">
                         <span className={`inline-block w-2 h-2 rounded-full ${s.className}`} /> {s.label} {pct(Math.max(0, s.value) / total, 0)}
                     </span>
                 ))}
             </div>
-            {caption && <div className="text-[10px] text-[hsl(var(--muted-foreground))] mt-1 italic">{caption}</div>}
+            {caption && <div className="text-sm text-[hsl(var(--muted-foreground))] mt-1 italic">{caption}</div>}
         </div>
     );
 }
@@ -684,7 +715,7 @@ function FreeTierOutro({ stars }: { stars: number }) {
                     {stars >= 2 ? "You've earned Episode 1 — add the bank" : "Continue to Episode 1"}
                 </Link>
             </div>
-            <p className="text-[11px] text-[hsl(var(--muted-foreground))] mt-3">
+            <p className="text-sm text-[hsl(var(--muted-foreground))] mt-3">
                 Progress is saved in this browser. Creating a free account keeps it across devices.
             </p>
         </div>

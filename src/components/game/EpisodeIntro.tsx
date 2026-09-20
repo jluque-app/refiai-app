@@ -54,7 +54,7 @@ export default function EpisodeIntro({
             <div className="relative w-full max-w-4xl bg-[hsl(var(--card))] rounded-2xl border shadow-2xl overflow-hidden">
                 <div className="flex items-start justify-between gap-4 p-5 border-b">
                     <div>
-                        <div className="text-xs uppercase tracking-wider text-[hsl(var(--muted-foreground))] flex items-center gap-2">
+                        <div className="text-xs font-medium uppercase tracking-wider text-[hsl(var(--muted-foreground))] flex items-center gap-2">
                             <GraduationCap size={14} /> The Professor&apos;s Briefing
                             {syllabusDays && <span>· {syllabusDays}</span>}
                         </div>

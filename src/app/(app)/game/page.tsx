@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Star, Lock, MapPin, Gamepad2, GraduationCap, HardHat, Sparkles, Clock } from "lucide-react";
+import { Star, Lock, MapPin, Gamepad2, GraduationCap, HardHat, Sparkles, Clock, Trophy } from "lucide-react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { EPISODES } from "@/lib/game/game-engine";
 import { PREVIEW_MODE as PREVIEW } from "@/lib/flags";
@@ -48,6 +48,10 @@ export default function GameHome() {
                     finance, and the same math you learn in the course. Each episode unlocks the
                     next. Earn up to three stars per city.
                 </p>
+                <Link href="/game/transcript"
+                    className="inline-flex items-center gap-2 mt-4 text-sm px-4 py-2 rounded-full border hover:border-[hsl(var(--primary))] transition-colors">
+                    <Trophy size={15} className="text-[hsl(var(--brand-gold))]" /> Your transcript
+                </Link>
             </header>
 
             {/* ---- Free episode: the on-ramp. No account, no payment, open to everyone. ---- */}

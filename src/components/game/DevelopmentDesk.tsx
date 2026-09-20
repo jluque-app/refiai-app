@@ -74,6 +74,11 @@ export default function DevelopmentDesk({ game, ep, pending, setPending }: Props
             <h2 className="font-semibold text-sm uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-3 flex items-center gap-2">
                 <MapPinned size={15} /> Land for sale
             </h2>
+            <p className="text-sm text-[hsl(var(--muted-foreground))] mb-3">
+                Plots, not buildings. Before you buy one, run the feasibility: the desk works out what
+                the finished building would be worth, what it would cost, and therefore the most the
+                land can be worth to you — the residual.
+            </p>
             <div className="space-y-3">
                 {game.landListings.map((l: any) => {
                     const isSel = landId === l.id;
@@ -83,16 +88,16 @@ export default function DevelopmentDesk({ game, ep, pending, setPending }: Props
                             <div className="flex items-center justify-between gap-2">
                                 <div>
                                     <div className="font-medium text-sm">{l.district} · {l.buildableM2.toLocaleString()} m² buildable</div>
-                                    <div className="text-xs text-[hsl(var(--muted-foreground))]">
+                                    <div className="text-sm text-[hsl(var(--muted-foreground))]">
                                         Ask {eur(l.askPrice)} · {eur(l.pricePerBuildableM2)}/m² buildable · hard cost {eur(l.hardCostPerM2)}/m²
                                     </div>
                                 </div>
                                 {q ? (
-                                    <button onClick={() => unqueue(l.id)} className="text-xs px-2.5 py-1 rounded-full bg-[hsl(var(--secondary))] text-[hsl(var(--primary))]">
+                                    <button onClick={() => unqueue(l.id)} className="text-sm px-2.5 py-1 rounded-full bg-[hsl(var(--secondary))] text-[hsl(var(--primary))]">
                                         {queuedBuild(l.id) ? "Buying + building — undo" : "Buying — undo"}
                                     </button>
                                 ) : (
-                                    <button onClick={() => setLandId(isSel ? null : l.id)} className="text-xs px-3 py-1.5 rounded-full border font-medium">
+                                    <button onClick={() => setLandId(isSel ? null : l.id)} className="text-sm px-3 py-1.5 rounded-full border font-medium">
                                         {isSel ? "Close" : "Run feasibility"}
                                     </button>
                                 )}
@@ -108,26 +113,26 @@ export default function DevelopmentDesk({ game, ep, pending, setPending }: Props
                 <div className="mt-4 border-2 border-[hsl(var(--primary))] rounded-2xl p-4 bg-[hsl(var(--card))] text-sm">
                     <div className="flex items-center justify-between mb-3">
                         <h3 className="font-bold flex items-center gap-2"><HardHat size={16} /> Development Desk — {land.district}</h3>
-                        <span className={`text-[11px] px-2 py-0.5 rounded-full font-medium ${pv.verdict.startsWith("GO") ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200" : pv.verdict.startsWith("THIN") ? "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200" : "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200"}`}>
+                        <span className={`text-xs px-2 py-0.5 rounded-full font-medium ${pv.verdict.startsWith("GO") ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200" : pv.verdict.startsWith("THIN") ? "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200" : "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200"}`}>
                             {pv.verdict}
                         </span>
                     </div>
 
                     {/* sliders */}
                     <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                        <label className="block text-xs">
+                        <label className="block text-sm">
                             <span className="flex justify-between"><span>{banked ? "Land at cost" : "Land offer"}</span><span className="font-mono">{eur(offer)}</span></span>
                             {!banked && (
                                 <input type="range" className="w-full accent-[hsl(var(--primary))]"
                                     min={Math.round(land.askPrice * (1 - land.negotiationMargin))} max={Math.round(land.askPrice * 1.05)}
                                     step={Math.max(1000, Math.round(land.askPrice / 400))} value={offer} onChange={(e) => setOffer(Number(e.target.value))} />
                             )}
-                            {!banked && <span className="text-[10px] text-[hsl(var(--muted-foreground))]">Seller walks below {pct(1 - land.negotiationMargin, 0)} of ask (district negotiation margin)</span>}
+                            {!banked && <span className="text-sm text-[hsl(var(--muted-foreground))]">Seller walks below {pct(1 - land.negotiationMargin, 0)} of ask (district negotiation margin)</span>}
                         </label>
-                        <label className="block text-xs">
+                        <label className="block text-sm">
                             <span className="flex justify-between"><span>Construction loan (LTC)</span><span className="font-mono">{pct(ltc, 0)} @ {pct(pv.adcRate, 2)} floating</span></span>
                             <input type="range" className="w-full accent-[hsl(var(--primary))]" min={0} max={dev.maxLTC} step={0.05} value={ltc} onChange={(e) => setLtc(Number(e.target.value))} />
-                            <span className="text-[10px] text-[hsl(var(--muted-foreground))]">Bank funds this share of each draw; interest is capitalised until stabilisation</span>
+                            <span className="text-sm text-[hsl(var(--muted-foreground))]">Bank funds this share of each draw; interest is capitalised until stabilisation</span>
                         </label>
                     </div>
 
@@ -154,13 +159,13 @@ export default function DevelopmentDesk({ game, ep, pending, setPending }: Props
                     </div>
 
                     {/* J-curve */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs mb-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-sm mb-2">
                         <Metric label="Margin on cost" value={pct(pv.jCurve.marginOnCost)} tone={pv.jCurve.marginOnCost >= dev.requiredMarginOnCost ? "good" : pv.jCurve.marginOnCost > 0 ? "warn" : "bad"} />
                         <Metric label={`Yield-on-cost vs cap ${pct(pv.exitCap, 2)}`} value={`${pct(pv.jCurve.yieldOnCost, 2)} · ${bps(pv.jCurve.developmentSpread)}`} tone={pv.jCurve.developmentSpread >= dev.targetSpreadBps / 10000 ? "good" : pv.jCurve.developmentSpread > 0 ? "warn" : "bad"} />
                         <Metric label="Equity IRR (unlevered)" value={`${pct(pv.jCurve.equityIRR)} (${pct(pv.jCurve.unleveredIRR)})`} />
                         <Metric label="Capitalised interest" value={eur(pv.jCurve.capitalizedInterest)} />
                     </div>
-                    <div className={`text-xs rounded-lg px-3 py-2 mb-2 flex items-center gap-2 ${carryable ? "bg-[hsl(var(--muted)/0.5)]" : "bg-red-100 text-red-900 dark:bg-red-900/40 dark:text-red-200"}`}>
+                    <div className={`text-sm rounded-lg px-3 py-2 mb-2 flex items-center gap-2 ${carryable ? "bg-[hsl(var(--muted)/0.5)]" : "bg-red-100 text-red-900 dark:bg-red-900/40 dark:text-red-200"}`}>
                         <Landmark size={13} className="shrink-0" />
                         <span>
                             Peak equity <strong>{eur(pv.jCurve.peakEquity)}</strong> at Q{pv.jCurve.troughQuarter}
@@ -181,12 +186,12 @@ export default function DevelopmentDesk({ game, ep, pending, setPending }: Props
                             </AreaChart>
                         </ResponsiveContainer>
                     </div>
-                    <p className="text-[10px] text-[hsl(var(--muted-foreground))] italic mb-3">
+                    <p className="text-sm text-[hsl(var(--muted-foreground))] italic mb-3">
                         The J-curve: land, then {dev.constructionQuarters} quarters of draws, {dev.leaseUpQuarters} of lease-up, then stabilisation — shown here with a sale at completion. In the game you keep the building (take-out loan) and decide when to sell.
                     </p>
 
                     {/* option to wait */}
-                    <div className="flex items-start gap-2 text-xs rounded-lg px-3 py-2 mb-4 border">
+                    <div className="flex items-start gap-2 text-sm rounded-lg px-3 py-2 mb-4 border">
                         <Hourglass size={13} className="shrink-0 mt-0.5" />
                         <span>
                             <strong>Option to wait.</strong> Build now: profit {eur(pv.wait.buildNow)}. Hold the land a year (carry {eur(land.askPrice * dev.landCarryAnnual)}) and build only if rents move your way (±8%): {eur(pv.wait.waitValue)}.
@@ -197,16 +202,16 @@ export default function DevelopmentDesk({ game, ep, pending, setPending }: Props
                     <div className="flex gap-2 flex-wrap">
                         {!banked ? (
                             <>
-                                <button onClick={() => queue("buy")} className="text-xs px-4 py-2 rounded-full border font-medium">Buy land, hold the option</button>
-                                <button onClick={() => queue("buyBuild")} className="btn btn-primary text-xs px-4 py-2 rounded-full font-medium flex items-center gap-1"><HardHat size={12} /> Buy &amp; start construction</button>
+                                <button onClick={() => queue("buy")} className="text-sm px-4 py-2 rounded-full border font-medium">Buy land, hold the option</button>
+                                <button onClick={() => queue("buyBuild")} className="btn btn-primary text-sm px-4 py-2 rounded-full font-medium flex items-center gap-1"><HardHat size={12} /> Buy &amp; start construction</button>
                             </>
                         ) : (
                             <>
-                                <button onClick={() => queue("build")} className="btn btn-primary text-xs px-4 py-2 rounded-full font-medium flex items-center gap-1"><HardHat size={12} /> Start construction</button>
-                                <button onClick={() => queue("sell")} className="text-xs px-4 py-2 rounded-full border font-medium flex items-center gap-1"><Ban size={12} /> Sell the plot ({eur(Math.max(0, land.residualLandValue) * 0.97)})</button>
+                                <button onClick={() => queue("build")} className="btn btn-primary text-sm px-4 py-2 rounded-full font-medium flex items-center gap-1"><HardHat size={12} /> Start construction</button>
+                                <button onClick={() => queue("sell")} className="text-sm px-4 py-2 rounded-full border font-medium flex items-center gap-1"><Ban size={12} /> Sell the plot ({eur(Math.max(0, land.residualLandValue) * 0.97)})</button>
                             </>
                         )}
-                        <button onClick={() => setLandId(null)} className="text-xs px-3 py-2 text-[hsl(var(--muted-foreground))]">Cancel</button>
+                        <button onClick={() => setLandId(null)} className="text-sm px-3 py-2 text-[hsl(var(--muted-foreground))]">Cancel</button>
                     </div>
                 </div>
             )}
@@ -232,7 +237,7 @@ export default function DevelopmentDesk({ game, ep, pending, setPending }: Props
                                     {qb || qs ? (
                                         <button onClick={() => unqueue(l.id)} className="px-2.5 py-1 rounded-full bg-[hsl(var(--secondary))] text-[hsl(var(--primary))]">{qb ? "Building — undo" : "Selling — undo"}</button>
                                     ) : (
-                                        <button onClick={() => setLandId(l.id)} className="px-3 py-1.5 rounded-full border font-medium">Open desk</button>
+                                        <button onClick={() => setLandId(l.id)} className="px-3 py-1.5 rounded-full border font-medium text-sm">Open desk</button>
                                     )}
                                 </div>
                             );
@@ -259,7 +264,7 @@ export function ProjectsPanel({ game }: { game: any }) {
                         <div key={p.id} className="border rounded-xl p-3 bg-[hsl(var(--card))] text-xs">
                             <div className="flex items-center justify-between mb-2">
                                 <div className="font-medium text-sm">{p.district} · {p.buildableM2.toLocaleString()} m²</div>
-                                <span className={`text-[11px] px-2 py-0.5 rounded-full capitalize ${p.phase === "stalled" ? "bg-red-100 text-red-700" : "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200"}`}>{p.phase}{p.delayedQ ? ` · delayed ${p.delayedQ}q` : ""}</span>
+                                <span className={`text-xs px-2 py-0.5 rounded-full capitalize ${p.phase === "stalled" ? "bg-red-100 text-red-700" : "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200"}`}>{p.phase}{p.delayedQ ? ` · delayed ${p.delayedQ}q` : ""}</span>
                             </div>
                             <div className="flex gap-1 h-2 rounded-full overflow-hidden border mb-2">
                                 <div className="bg-amber-400" style={{ width: `${Math.min(1, build) * 60}%` }} title="construction" />
@@ -271,7 +276,7 @@ export function ProjectsPanel({ game }: { game: any }) {
                                 <Metric small label={`Loan @ ${pct(p.rate, 2)}`} value={eur(p.loanBalance)} />
                                 <Metric small label="Interest rolled" value={eur(p.capInt)} />
                             </div>
-                            <div className="text-[10px] text-[hsl(var(--muted-foreground))] mt-2">
+                            <div className="text-xs text-[hsl(var(--muted-foreground))] mt-2">
                                 Stabilised NOI {eur(p.stabilizedNOI)}/yr · occupancy {pct(p.occupancy, 0)} · TDC to date {eur(p.tdc)}{p.overruns > 0 && ` (overruns ${eur(p.overruns)})`}
                                 {!p.feasibleAtStart && <span className="text-[hsl(var(--destructive))]"> · started infeasible (needed {p.requiredRentAtStart} vs {p.marketRentAtStart} €/m²)</span>}
                             </div>
@@ -287,7 +292,7 @@ function Door({ title, icon: Icon, rows, verdict, good }: { title: string; icon:
     return (
         <div className="rounded-xl border p-3">
             <div className="font-semibold text-xs mb-2 flex items-center gap-1.5"><Icon size={13} /> {title}</div>
-            <table className="w-full text-[11px]">
+            <table className="w-full text-sm">
                 <tbody>
                     {rows.map(([k, v], i) => (
                         <tr key={k} className={i === rows.length - 1 ? "font-semibold border-t" : ""}>
@@ -297,7 +302,7 @@ function Door({ title, icon: Icon, rows, verdict, good }: { title: string; icon:
                     ))}
                 </tbody>
             </table>
-            <div className={`mt-2 text-[11px] font-medium ${good ? "text-[hsl(var(--primary))]" : "text-[hsl(var(--destructive))]"}`}>{verdict}</div>
+            <div className={`mt-2 text-xs font-medium ${good ? "text-[hsl(var(--primary))]" : "text-[hsl(var(--destructive))]"}`}>{verdict}</div>
         </div>
     );
 }
@@ -306,8 +311,8 @@ function Metric({ label, value, tone, small }: { label: string; value: string; t
     const color = tone === "good" ? "text-[hsl(var(--primary))]" : tone === "bad" ? "text-[hsl(var(--destructive))]" : tone === "warn" ? "text-amber-600 dark:text-amber-400" : "";
     return (
         <div className={`bg-[hsl(var(--muted)/0.5)] rounded-lg ${small ? "p-2" : "p-3"}`}>
-            <div className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))]">{label}</div>
-            <div className={`font-mono font-semibold ${small ? "text-xs" : "text-sm"} ${color}`}>{value}</div>
+            <div className="text-xs font-medium uppercase tracking-wider text-[hsl(var(--muted-foreground))]">{label}</div>
+            <div className={`font-mono font-semibold ${small ? "text-sm" : "text-base"} ${color}`}>{value}</div>
         </div>
     );
 }
