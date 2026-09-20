@@ -2,17 +2,19 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Star, Lock, MapPin, Gamepad2, GraduationCap, HardHat } from "lucide-react";
+import { Star, Lock, MapPin, Gamepad2, GraduationCap, HardHat, Sparkles, Clock } from "lucide-react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { EPISODES } from "@/lib/game/game-engine";
 import { PREVIEW_MODE as PREVIEW } from "@/lib/flags";
 
+/** Free tier — no account, no payment, always open. The on-ramp for Real Estate 101. */
+const FREE = "E0_VALENCIA";
 const ORDER = ["E1_VALENCIA", "E2_MADRID", "E3_BARCELONA", "E4_MIAMI", "E5_NYC", "E6_LONDON"];
 /** Season 2 — unlocked by finishing Season 1 (E6). In preview mode every episode is open. */
 const SEASON2 = ["E7_PARIS"];
 
 const FLAGS: Record<string, string> = {
-    E1_VALENCIA: "🇪🇸", E2_MADRID: "🇪🇸", E3_BARCELONA: "🇪🇸",
+    E0_VALENCIA: "🇪🇸", E1_VALENCIA: "🇪🇸", E2_MADRID: "🇪🇸", E3_BARCELONA: "🇪🇸",
     E4_MIAMI: "🇺🇸", E5_NYC: "🇺🇸", E6_LONDON: "🇬🇧", E7_PARIS: "🇫🇷",
 };
 
@@ -28,9 +30,10 @@ export default function GameHome() {
     }, []);
 
     const isUnlockedEp = (idx: number) => {
-        if (PREVIEW || idx === 0) return true;
-        const prev = progress[ORDER[idx - 1]];
-        return Boolean(prev?.completed);
+        if (PREVIEW) return true;
+        // Episode 1 opens once the free episode is finished; after that it is sequential.
+        if (idx === 0) return Boolean(progress[FREE]?.completed);
+        return Boolean(progress[ORDER[idx - 1]]?.completed);
     };
     const season2Unlocked = PREVIEW || Boolean(progress[ORDER[ORDER.length - 1]]?.completed);
 
@@ -41,11 +44,14 @@ export default function GameHome() {
                     <Gamepad2 size={30} className="text-[hsl(var(--primary))]" /> ReFiAI Tycoon
                 </h1>
                 <p className="text-[hsl(var(--muted-foreground))] mt-3 max-w-2xl mx-auto">
-                    Build a real estate empire across seven cities — with real market data, real
+                    Build a real estate empire across eight cities — with real market data, real
                     finance, and the same math you learn in the course. Each episode unlocks the
                     next. Earn up to three stars per city.
                 </p>
             </header>
+
+            {/* ---- Free episode: the on-ramp. No account, no payment, open to everyone. ---- */}
+            <FreeEpisodeCard ep={(EPISODES as any)[FREE]} progress={progress[FREE]} />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {ORDER.map((id, idx) => {
@@ -135,6 +141,52 @@ export default function GameHome() {
                 Analytics. Other cities (incl. Paris rents, yields and construction costs):
                 instructor benchmark estimates. Progress is saved in this browser.
             </p>
+        </div>
+    );
+}
+
+/**
+ * The free episode gets its own full-width card above the campaign: it is the first thing a
+ * stranger sees, it has to say "free" and "25 minutes" before it says anything else, and it
+ * must never show a lock.
+ */
+function FreeEpisodeCard({ ep, progress }: { ep: any; progress?: { stars: number; completed: boolean } }) {
+    if (!ep) return null;
+    const stars = progress?.stars ?? 0;
+    return (
+        <div className="relative rounded-2xl border-2 border-[hsl(var(--primary))] p-6 mb-6 bg-[hsl(var(--secondary))] transition-all hover:shadow-lg">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                    <div className="flex items-center gap-2 text-sm">
+                        <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-[hsl(var(--primary))] text-white">
+                            <Sparkles size={12} /> FREE
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-xs text-[hsl(var(--muted-foreground))]">
+                            <Clock size={12} /> about 25 minutes
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-xs text-[hsl(var(--muted-foreground))]">
+                            <MapPin size={12} /> {ep.city} 🇪🇸
+                        </span>
+                    </div>
+                    <h2 className="text-2xl font-bold mt-2">{ep.title}</h2>
+                    <p className="text-sm text-[hsl(var(--muted-foreground))] mt-2 max-w-xl">
+                        Start here. Eight quarters, no debt, no jargon: buy a flat, work out what it
+                        is actually worth, and learn the one habit that separates investors from
+                        buyers. No account needed.
+                    </p>
+                </div>
+                <div className="flex flex-col items-end gap-3">
+                    <div className="flex gap-0.5" aria-label={`${stars} of 3 stars`}>
+                        {[1, 2, 3].map((s) => (
+                            <Star key={s} size={18}
+                                className={s <= stars ? "text-[hsl(var(--brand-gold))] fill-[hsl(var(--brand-gold))]" : "text-[hsl(var(--border))]"} />
+                        ))}
+                    </div>
+                    <Link href={`/game/${ep.id}`} className="btn btn-primary text-sm px-6 py-2.5 rounded-full whitespace-nowrap">
+                        {progress?.completed ? "Play again" : stars > 0 ? "Continue" : "Play free"}
+                    </Link>
+                </div>
+            </div>
         </div>
     );
 }

@@ -23,6 +23,19 @@ export function mulberry32(seed) {
  *   extraLP?, capexShock? } }
  */
 export const EVENT_DECKS = {
+  // Free tier: opportunities and one small, survivable annoyance. Nothing here can end a run —
+  // a first-timer who gets wiped out by a crisis card does not come back for episode two.
+  E0_VALENCIA: [
+    { id: "TOURISM_BOOM_LITE", name: "A good summer", severity: "opportunity", weight: 3, durationQ: 3, once: false,
+      text: "Valencia has a record season. Market rent growth rises 100 bps while it lasts — the same flat now throws off a little more cash.",
+      effects: { rentGrowthBps: 100 } },
+    { id: "BUYERS_ARRIVE", name: "Buyers from abroad", severity: "opportunity", weight: 2, durationQ: 4, once: true,
+      text: "Foreign buyers discover the neighbourhood. Exit cap rates tighten 30 bps — the same income is suddenly worth more. This is the cap rate moving, and it is why R matters as much as NOI.",
+      effects: { exitCapBps: -30 } },
+    { id: "COMMUNITY_FEE", name: "The community raises its fees", severity: "warning", weight: 3, durationQ: 3, once: false,
+      text: "The owners' association votes a higher monthly fee for the lift. Net operating income drops 3% while it lasts — a reminder that NOI is rent minus the costs of being a landlord.",
+      effects: { noiFactor: 0.97 } },
+  ],
   E1_VALENCIA: [
     { id: "TOURISM_BOOM", name: "Tourism boom", severity: "opportunity", weight: 3, durationQ: 3, once: false,
       text: "Visitor numbers smash records. Market rent growth +150 bps while it lasts.",

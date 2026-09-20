@@ -7,7 +7,7 @@
  * (3D city, richer art) but must keep calling the same engine functions.
  */
 
-import { useEffect, useMemo, useState, useCallback } from "react";
+import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -21,6 +21,7 @@ import {
 } from "@/lib/game/game-engine";
 import { AreaChart, Area, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 import EpisodeIntro, { BriefingButton } from "@/components/game/EpisodeIntro";
+import { nudgeOfficeHours } from "@/lib/office-hours";
 import DevelopmentDesk, { ProjectsPanel } from "@/components/game/DevelopmentDesk";
 
 const eur = (v: number) =>
@@ -55,6 +56,7 @@ export default function GamePlay() {
     const [lpCfg, setLpCfg] = useState<any>({ amount: 2_000_000, preset: "standard" });
     const [report, setReport] = useState<any>(null);
     const [introOpen, setIntroOpen] = useState(false);
+    const nudgedRef = useRef(false);
 
     const saveKey = `refiai_game_save_${episodeId}`;
 
@@ -84,6 +86,16 @@ export default function GamePlay() {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [game]);
+
+    // The free episode is the funnel's front door: finishing it is the earned moment. Fire the
+    // office-hours nudge once, a couple of seconds after the debrief so the two don't collide.
+    // Kept in its own effect so it can never short-circuit the progress save above.
+    useEffect(() => {
+        if (!game?.done || !ep?.freeTier || nudgedRef.current) return;
+        nudgedRef.current = true;
+        const t = setTimeout(() => nudgeOfficeHours("unit", `${ep.city}: ${ep.title}`), 2500);
+        return () => clearTimeout(t);
+    }, [game?.done, ep]);
 
     /* ---- derived ---- */
     const selectedListing = useMemo(
@@ -175,11 +187,23 @@ export default function GamePlay() {
                         Every bust is a lesson — review what broke, or bring this run to{" "}
                         <Link href="/office-hours" className="text-[hsl(var(--primary))] underline underline-offset-2">live office hours</Link>.
                     </p>
+                ) : ep.freeTier ? (
+                    <p className="text-sm text-[hsl(var(--muted-foreground))] mb-6">
+                        {(obj?.stars ?? 0) === 3
+                            ? "Three stars: you valued the building, you refused to overpay, and you negotiated. That is the whole job, in miniature."
+                            : (obj?.stars ?? 0) === 0
+                                ? "That one cost you. Worth knowing now, with nobody's money at stake."
+                                : "Good. The stars you're missing are the interesting ones — the debrief below says which."}
+                    </p>
                 ) : (
                     <p className="text-sm text-[hsl(var(--muted-foreground))] mb-6">
                         Chase the missing stars on a new seed, or move to the next city.
                     </p>
                 )}
+
+                {/* The free episode's one job after the debrief: offer the next step. */}
+                {ep.freeTier && !failed && <FreeTierOutro stars={obj?.stars ?? 0} />}
+
                 <div className="flex justify-center gap-3">
                     <button onClick={restart} className="btn bg-[hsl(var(--card))] border border-[hsl(var(--border))] px-5 py-2.5 rounded-full text-sm">Replay (new seed)</button>
                     <Link href="/game" className="btn btn-primary px-5 py-2.5 rounded-full text-sm">Episode select</Link>
@@ -622,6 +646,7 @@ function ObjChip({ done, label }: { done?: boolean; label: string }) {
 /** Human description of an objective rule (kept in sync with episodes.js). */
 function describeObjective(ep: any, key: "star1" | "star2" | "star3"): string {
     const DESCR: Record<string, Record<string, string>> = {
+        E0_VALENCIA: { star1: "Finish with a positive return (IRR ≥ 4%)", star2: "Never pay more than a building is worth", star3: "Find a real bargain (IRR ≥ 15%)" },
         E1_VALENCIA: { star1: "Unlevered IRR ≥ 8%", star2: "IRR ≥ 10% + one sale above intrinsic", star3: "Never buy at negative NPV" },
         E2_MADRID: { star1: "IRR ≥ 12%, zero defaults", star2: "No covenant breaches", star3: "IRR ≥ 15% + perfect underwriting" },
         E3_BARCELONA: { star1: "LP IRR ≥ 12% and GP multiple ≥ 2×", star2: "LP IRR ≥ 12% through a rent cap", star3: "Promote ≥ €1.5m, pref always paid" },
@@ -631,4 +656,37 @@ function describeObjective(ep: any, key: "star1" | "star2" | "star3"): string {
         E7_PARIS: { star1: "Deliver 2 projects at ≥ 15% margin on cost", star2: "Never overpay for land, never start an infeasible scheme", star3: "Every delivery ≥ 75 bps development spread + total-equity IRR ≥ 10%" },
     };
     return DESCR[ep.id]?.[key] ?? "";
+}
+
+/**
+ * Free-tier outro. Shown once the free episode is finished: what they just learned, where the
+ * same reasoning is taught properly, and the two ways forward. The office-hours nudge fires
+ * separately a couple of seconds later (see the effect above) so the two don't collide.
+ */
+function FreeTierOutro({ stars }: { stars: number }) {
+    return (
+        <div className="text-left border rounded-2xl p-5 bg-[hsl(var(--secondary))] mb-6">
+            <h2 className="font-semibold mb-2 flex items-center gap-2">
+                <Sparkles size={16} className="text-[hsl(var(--primary))]" /> What you just did
+            </h2>
+            <p className="text-sm text-[hsl(var(--muted-foreground))] mb-3">
+                You valued buildings the way the industry does — <strong>V = NOI ÷ R</strong> — and
+                decided when a price was worth paying. That is the foundation everything else in
+                real estate finance is built on: leverage, partnerships, mortgages, development.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2">
+                <Link href="/course/part-1/lesson/lesson-0-1-2"
+                    className="btn btn-primary text-sm px-4 py-2.5 rounded-full text-center flex-1">
+                    Learn the maths properly — free
+                </Link>
+                <Link href="/game/E1_VALENCIA"
+                    className="btn bg-[hsl(var(--card))] border border-[hsl(var(--border))] text-sm px-4 py-2.5 rounded-full text-center flex-1">
+                    {stars >= 2 ? "You've earned Episode 1 — add the bank" : "Continue to Episode 1"}
+                </Link>
+            </div>
+            <p className="text-[11px] text-[hsl(var(--muted-foreground))] mt-3">
+                Progress is saved in this browser. Creating a free account keeps it across devices.
+            </p>
+        </div>
+    );
 }

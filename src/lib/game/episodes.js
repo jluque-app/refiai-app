@@ -2,6 +2,8 @@
  * episodes.js — all tuning data + objective evaluation.
  * v2: episodes now mirror the 2026-27 MRE "Real Estate Finance and Investments"
  * syllabus day-by-day (see GAME_DESIGN.md §2 for the mapping table):
+ *   E0 Valencia  ← FREE TIER: Real Estate 101 (Part 1). A 25-minute on-ramp that teaches
+ *                  V = NOI/R and "don't overpay", playable without an account.
  *   E1 Valencia  ← Day 1  (Basic Real Estate Investment Model, valuation)
  *   E2 Madrid    ← Day 2  (Reduced-form Constant Payment Mortgage, points & penalties)
  *   E3 Barcelona ← Days 3–7 (Proforma · Capital Structures & Waterfall · RE Private Equity case)
@@ -30,6 +32,33 @@ function capsFrom(cityKey) {
 }
 
 export const EPISODES = {
+  /* ------------------------------ FREE TIER ------------------------------ */
+  E0_VALENCIA: {
+    id: "E0_VALENCIA", city: "Valencia", cityKey: "valencia", title: "The First Viewing",
+    freeTier: true, season: 0,
+    syllabusDays: "Real Estate 101 · free",
+    topics: "What a building is worth: cap rates, V = NOI ÷ R, and the discipline of walking away",
+    // Deliberately short and forgiving: eight quarters, small flats, no debt, no way to be
+    // wiped out by the deck. The job of this episode is a first "I can do this", not rigour.
+    quarters: 8, startCash: 400_000, debtAllowed: false, lpAllowed: false,
+    securitizationAllowed: false, noteDeskAllowed: false,
+    market: { baseRate: 0.03, refiSpread: 0.02, rentGrowth: 0.025, capRates: capsFrom("valencia"),
+      discountRate: 0.08 },
+    listingsPerQuarter: [2, 3], sizeRangeM2: [40, 75],
+    mispricing: [0.86, 1.16],          // about half the listings are cheap at ask — the lesson needs both kinds
+    // A deliberate ladder: finishing up is one star, underwriting is two, finding a real
+    // bargain and negotiating for it is three. Bot runs (24 seeds): buy-the-first-thing play
+    // lands on one star, buy-only-positive-NPV on two, haggle-to-the-district-floor on three.
+    objectives: {
+      star1: { metric: "portfolioIRR", op: ">=", value: 0.04 },
+      star2: { metric: "negativeNPVBuys", op: "==", value: 0 },
+      star3: { metric: "portfolioIRR", op: ">=", value: 0.15 },
+    },
+    failStates: ["cashBelowZero"],
+    lessonLinks: { valuation: "/course/part-1/lesson/lesson-0-1-2",
+      system: "/course/part-1/lesson/lesson-0-1-1", pvmath: "/course/part-1/lesson/lesson-0-2-1" },
+  },
+
   E1_VALENCIA: {
     id: "E1_VALENCIA", city: "Valencia", cityKey: "valencia", title: "First Keys",
     syllabusDays: "Day 1", topics: "Valuation, cap rates, the Basic Real Estate Investment Model",

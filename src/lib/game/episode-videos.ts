@@ -17,7 +17,7 @@ export const EPISODE_VIDEOS: Record<string, string | null> = {
     E4_MIAMI: "1XhcKSpnqAu98ZqaV4cULQAKrEvZtmzIF",    // E4_Miami_Professors_Briefing.mp4
     E5_NYC: "19uPh5hA18xD8HlOhMn5jq4s-n16hLk9u",      // E5_NewYork_Professors_Briefing.mp4
     E6_LONDON: "1vO3bd4XQeBsQaSxQg06_OJZIMm4LpDgm",   // E6_London_Professors_Briefing.mp4
-    E7_PARIS: null,                                   // Season 2 — set when the Paris video is published
+    E7_PARIS: "1FydqtoheIvbDSgmR7taC2HJ292aww0_O",    // E7_Paris_Professors_Briefing.mp4 (Season 2)
 };
 
 /** Build the embeddable preview URL for a Drive file id. */
