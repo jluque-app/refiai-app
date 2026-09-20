@@ -16,6 +16,7 @@ export function Header() {
     const links = [
         { href: "/dashboard", label: "Dashboard" },
         { href: "/my-courses", label: "My Courses" },
+        { href: "/game", label: "Tycoon Game" },
         { href: "/chat", label: "Expert Chat" },
         { href: "/settings", label: "Settings" },
     ];

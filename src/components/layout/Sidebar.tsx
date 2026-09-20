@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area"; // I'll need to create this or use a div
-import { LayoutDashboard, BookOpen, Settings, MessageSquare, LogOut, GraduationCap } from "lucide-react";
+import { LayoutDashboard, BookOpen, Settings, MessageSquare, GraduationCap, Gamepad2, LogOut } from "lucide-react";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> { }
 
@@ -15,7 +15,8 @@ export function Sidebar({ className }: SidebarProps) {
     const links = [
         { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
         { href: "/my-courses", label: "My Courses", icon: BookOpen },
-        { href: "/chat", label: "Expert Chat", icon: MessageSquare }, // Placeholder
+        { href: "/game", label: "Tycoon Game", icon: Gamepad2 },
+        { href: "/chat", label: "Expert Chat", icon: MessageSquare },
         { href: "/settings", label: "Settings", icon: Settings },
     ];
 
